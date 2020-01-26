@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+enum Position {
+    case Developer, Tester, Manager, Designer, Other
+}

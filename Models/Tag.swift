@@ -11,5 +11,14 @@ import Foundation
 
 class Tag : Hashable {
     
+    var value: String = ""
+    
+    static func == (lhs: Tag, rhs: Tag) -> Bool {
+        return lhs.value == rhs.value
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(value)
+    }
     
 }

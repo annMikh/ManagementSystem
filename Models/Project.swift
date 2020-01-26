@@ -9,7 +9,17 @@
 import Foundation
 
 
-class Project {
+class Project : Hashable {
+    
+    static func == (lhs: Project, rhs: Project) -> Bool {
+        return lhs.name == rhs.name && lhs.description == rhs.description && lhs.accessType == rhs.accessType
+            && lhs.participants == rhs.participants && lhs.tags == rhs.tags
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(description)
+    }
     
     init(name: String, description: String, accessType: AccessType = AccessType.open) {
         self.name = name

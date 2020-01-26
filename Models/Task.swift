@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Task : Comparable {
+class Task : Comparable, Hashable {
     
     static func builder(author: User) -> TaskBuilder {
         return TaskBuilder(author: author)
     }
 
     var author: User?
-    var date: Date?
+    var date = Date()
     var name = ""
     var description = ""
     var assignedUser: User?
@@ -26,11 +26,17 @@ class Task : Comparable {
     
     
     static func < (lhs: Task, rhs: Task) -> Bool {
-        return true
+        return lhs.date.compare(rhs.date).rawValue < 0
     }
     
     static func == (lhs: Task, rhs: Task) -> Bool {
-        return true
+        return lhs.author == rhs.author &&  lhs.name == rhs.name && lhs.assignedUser == rhs.assignedUser
+            && lhs.description == rhs.description && lhs.priority == rhs.priority
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(description)
     }
     
 }
