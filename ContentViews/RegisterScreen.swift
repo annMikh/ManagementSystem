@@ -14,6 +14,14 @@ struct RegisterView: View {
     @State var position: String = ""
     @State var password: String = ""
     
+    @State private var pickerSelection = 0
+    
+    private var positions = Position.allCases.map {"\($0)"}
+    
+    init(){
+        UITableView.appearance().backgroundColor = .clear
+    }
+        
     var body: some View {
     
             VStack(alignment: .leading) {
@@ -27,15 +35,26 @@ struct RegisterView: View {
                     Group {
                         TextField("email address", text: $email).padding()
                         TextField("name", text: $email).padding()
-                        TextField("position", text: $email).padding()
                         
                         SecureField("password", text: $password).padding()
                 
                     }
                     .border(Color.black, width: 2)
-                    .frame(width: 400, height: 50)
                     .padding(.all, 10)
             
+                    Form {
+                        Section {
+                            Picker(selection: $pickerSelection, label:
+                            Text("position").foregroundColor(Color.black)) {
+                                    ForEach(0 ..< self.positions.count) { index in
+                                        Text(self.positions[index]).tag(index)
+                                    }
+                            }
+                        }.padding()
+                       
+                }
+                    
+                
                 Spacer()
             
                 NextButton()

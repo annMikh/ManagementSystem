@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum Position {
+enum Position : CaseIterable{
     case Developer, Tester, Manager, Designer, Other
 }

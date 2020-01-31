@@ -28,7 +28,6 @@ struct LoginView: View {
                 
                     }
                     .border(Color.black, width: 2)
-                    .frame(width: 400, height: 50)
                     .padding(.all, 10)
             
                 Spacer()
