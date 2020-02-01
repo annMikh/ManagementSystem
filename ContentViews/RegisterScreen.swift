@@ -24,42 +24,37 @@ struct RegisterView: View {
         
     var body: some View {
     
-            VStack(alignment: .leading) {
-                    Text("Register")
-                        .font(.largeTitle)
-                        .foregroundColor(.primary)
-                        .fixedSize()
-                        .frame(width: 100, height: 50)
-                        .padding(.horizontal, 20)
+                VStack(alignment: .leading) {
+                        Group {
+                            TextField("email address", text: $email).padding()
+                            TextField("name", text: $name).padding()
+                            
+                            SecureField("password", text: $password).padding()
                     
-                    Group {
-                        TextField("email address", text: $email).padding()
-                        TextField("name", text: $name).padding()
-                        
-                        SecureField("password", text: $password).padding()
+                        }
+                        .border(Color.black, width: 2)
+                        .padding(.all, 10)
                 
+                        Form {
+                            Section {
+                                Picker(selection: $pickerSelection, label:
+                                Text("position").foregroundColor(Color.black)) {
+                                        ForEach(0 ..< self.positions.count) { index in
+                                            Text(self.positions[index]).tag(index)
+                                        }
+                                }
+                            }.padding()
+                           
                     }
-                    .border(Color.black, width: 2)
-                    .padding(.all, 10)
-            
-                    Form {
-                        Section {
-                            Picker(selection: $pickerSelection, label:
-                            Text("position").foregroundColor(Color.black)) {
-                                    ForEach(0 ..< self.positions.count) { index in
-                                        Text(self.positions[index]).tag(index)
-                                    }
-                            }
-                        }.padding()
-                       
-                }
-                    
                 
-                Spacer()
-            
-                NextButton()
-        }
-
+                    NextButton()
+                    Spacer()
+                    
+            }.navigationBarTitle(
+                Text("Register")
+                    .font(.largeTitle)
+                    .foregroundColor(.primary)
+            )
     }
 }
 
