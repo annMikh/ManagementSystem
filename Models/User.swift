@@ -9,7 +9,7 @@
 import Foundation
 
 
-class User : Hashable {
+class User : Hashable, ObservableObject {
     
     var name: String = ""
     var lastName: String = ""

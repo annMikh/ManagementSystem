@@ -14,26 +14,33 @@ struct LoginView: View {
     
     var body: some View {
     
+        NavigationView {
             VStack(alignment: .leading) {
-                    Text("Log In")
-                        .font(.largeTitle)
-                        .foregroundColor(.primary)
-                        .fixedSize()
-                        .frame(width: 100, height: 50)
                     
                     Group {
                         TextField("email address", text: $email).padding()
-                        
                         SecureField("password", text: $password).padding()
-                
+
                     }
                     .border(Color.black, width: 2)
                     .padding(.all, 10)
-            
-                Spacer()
-            
+                    
                 NextButton()
+                
+                Spacer()
+                NavigationLink(destination: RegisterView()) {
+                    Text("Haven't got an account?")
+                        .foregroundColor(.blue)
+                        .padding(.horizontal, 110)
+                }
+                
             }
+                .navigationBarTitle(
+                    Text("Log In")
+                        .font(.largeTitle)
+                        .foregroundColor(.primary)
+                )
+    }
 
     }
 }

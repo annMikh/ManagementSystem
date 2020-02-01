@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Project : Hashable {
+class Project : Hashable,  ObservableObject {
     
     static func == (lhs: Project, rhs: Project) -> Bool {
         return lhs.name == rhs.name && lhs.description == rhs.description && lhs.accessType == rhs.accessType

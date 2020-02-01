@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Task : Comparable, Hashable {
+class Task : Comparable, Hashable, ObservableObject {
     
     static func builder(author: User) -> TaskBuilder {
         return TaskBuilder(author: author)

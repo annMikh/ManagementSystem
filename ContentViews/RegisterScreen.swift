@@ -11,7 +11,7 @@ import SwiftUI
 struct RegisterView: View {
     @State var email: String = ""
     @State var name: String = ""
-    @State var position: String = ""
+    @State var position: Position = Position.Developer
     @State var password: String = ""
     
     @State private var pickerSelection = 0
@@ -34,7 +34,7 @@ struct RegisterView: View {
                     
                     Group {
                         TextField("email address", text: $email).padding()
-                        TextField("name", text: $email).padding()
+                        TextField("name", text: $name).padding()
                         
                         SecureField("password", text: $password).padding()
                 
