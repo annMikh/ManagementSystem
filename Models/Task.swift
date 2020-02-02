@@ -80,13 +80,3 @@ class TaskBuilder {
     
 }
 
-class TaskDateFormatter {
-    
-    var defaultFormate = "MMMM-dd-yyyy HH:mm"
-    
-    private var formatter = DateFormatter()
-    
-    func getDataWithFormate(formate : String) -> Date {
-        return formatter.date(from: formate) ?? Date()
-    }
-}

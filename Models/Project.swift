@@ -25,12 +25,13 @@ class Project : Hashable,  ObservableObject {
         self.name = name
         self.description = description
         self.accessType = accessType
+        self.date = Date()
     }
     
     var name: String
     var description: String
     var accessType: AccessType
-    
+    var date: Date
     
     var tags = Set<Tag>()
     var participants = Set<User>()
