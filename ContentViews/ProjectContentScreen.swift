@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct ProjectView : View {
+struct ProjectContentView : View {
     
     @ObservedObject var project: Project
     
