@@ -11,6 +11,14 @@ import Foundation
 
 class User : Hashable, ObservableObject {
     
+    init(name: String, lastName: String, position: Position) {
+        self.name = name
+        self.lastName = lastName
+        self.position = position
+    }
+    
+    init() { }
+    
     var name: String = ""
     var lastName: String = ""
     var position = Position.Other

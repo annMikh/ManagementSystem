@@ -48,19 +48,23 @@ struct LoginView: View {
 struct NextButton : View {
     
     var body: some View {
-        Button(action: {}) {
-            HStack {
-                Spacer()
-                Text("NEXT")
-                    .font(.headline)
-                    .foregroundColor(Color.white)
-                Spacer()
+        NavigationLink(destination: MainScreen()) {
+            Button(action: {
+                print("login tapped")
+            }) {
+                HStack {
+                    Spacer()
+                    Text("NEXT")
+                        .font(.headline)
+                        .foregroundColor(Color.white)
+                    Spacer()
+                }
             }
+            .padding(.vertical, 10.0)
+            .background(Color.blue)
+            .cornerRadius(6.0)
+            .padding(.horizontal, 50)
         }
-        .padding(.vertical, 10.0)
-        .background(Color.blue)
-        .cornerRadius(6.0)
-        .padding(.horizontal, 50)
     }
 }
 

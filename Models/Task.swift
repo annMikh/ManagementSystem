@@ -16,8 +16,8 @@ class Task : Comparable, Hashable, ObservableObject {
 
     var author: User?
     var date = Date()
-    var name = ""
-    var description = ""
+    var name = "example"
+    var description = "task"
     var assignedUser: User?
     var priority = Priority.low
     var status = Status.New

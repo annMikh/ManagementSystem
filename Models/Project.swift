@@ -26,6 +26,7 @@ class Project : Hashable,  ObservableObject {
         self.description = description
         self.accessType = accessType
         self.date = Date()
+        self.tasks = [User(name: "masha", lastName: "dsdds", position: Position.Manager) : [Task()], User(name: "anna", lastName: "jfkd", position: Position.Designer) : [Task()], User(name: "anna", lastName: "mikhaleva", position: Position.Developer) : [Task()]]
     }
     
     var name: String
@@ -34,6 +35,8 @@ class Project : Hashable,  ObservableObject {
     var date: Date
     
     var tags = Set<Tag>()
-    var participants = Set<User>()
+    var participants = [User]()
+    
+    var tasks : [User : [Task]]
     
 }

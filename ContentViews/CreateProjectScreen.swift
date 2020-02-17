@@ -12,21 +12,54 @@ import SwiftUI
 struct CreateProjectScreen : View {
     
     @State private var selection = true
+    @State private var input = ""
+    @State static private var inputValue = ""
+    @Environment(\.presentationMode) var presentationMode
     
     private let types = ["open", "close"]
     
+    static var testBinding = Binding<String>(get: { inputValue }, set: {
+            print("New value: \($0)")
+            inputValue = $0 } )
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            LabelTextField(label: "Project name", placeHolder: "Fill in project name")
-            LabelTextField(label: "Description", placeHolder: "Fill in project description")
-            
-            Text("Tags")
-        
-            
-            Toggle(isOn: $selection) {
-                Text("Open access")
-            }.padding()
-            
+        NavigationView {
+            VStack(alignment: .leading) {
+                LabelTextField(label: "Project name", placeHolder: "Fill in project name")
+                
+                Text("Description").font(.headline).foregroundColor(Color.white)
+                MultilineTextField("Fill in project description", text: CreateProjectScreen.testBinding, onCommit: {
+                    print("Final text: ")
+                })
+                    .padding(.all)
+                    .border(Color.gray, width: 2)
+                    .cornerRadius(5.0)
+                    .padding(.all, 10)
+                    
+                Text("Tags")
+                
+                Toggle(isOn: $selection) {
+                    Text("Open access")
+                }.padding()
+                
+                Spacer()
+            }.navigationBarItems(leading: cancelButton, trailing: doneButton)
+        }
+    }
+    
+    private var cancelButton: some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            Text("Cancel").foregroundColor(Color.blue)
+        }
+    }
+    
+    private var doneButton: some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            Text("Done").foregroundColor(Color.blue)
         }
     }
     
@@ -42,7 +75,7 @@ struct LabelTextField : View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(label).font(.headline).foregroundColor(Color.black)
+            Text(label).font(.headline).foregroundColor(Color.white)
             TextField(placeHolder, text: $value)
                 .padding(.all)
                 .border(Color.gray, width: 2)

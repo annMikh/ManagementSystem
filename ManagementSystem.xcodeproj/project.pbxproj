@@ -28,8 +28,10 @@
 		5BBB4C0C23E4858F0027ACEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB4C0B23E4858F0027ACEA /* Main.storyboard */; };
 		5BBB4C0F23E5F7D20027ACEA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C0E23E5F7D20027ACEA /* Coordinator.swift */; };
 		5BBB4C1223E615B80027ACEA /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1123E615B80027ACEA /* MainScreen.swift */; };
-		5BBB4C1423E6231F0027ACEA /* ProjectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1323E6231F0027ACEA /* ProjectScreen.swift */; };
+		5BBB4C1423E6231F0027ACEA /* ProjectContentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1323E6231F0027ACEA /* ProjectContentScreen.swift */; };
 		5BBB4C1723E626150027ACEA /* CommonDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1623E626150027ACEA /* CommonDateFormatter.swift */; };
+		5BBB4C1A23E768710027ACEA /* MultiLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1923E768710027ACEA /* MultiLineTextField.swift */; };
+		5BC37B7923FAD3960058A7CC /* CreateTaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC37B7823FAD3960058A7CC /* CreateTaskScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,8 +79,10 @@
 		5BBB4C0B23E4858F0027ACEA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5BBB4C0E23E5F7D20027ACEA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5BBB4C1123E615B80027ACEA /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
-		5BBB4C1323E6231F0027ACEA /* ProjectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectScreen.swift; sourceTree = "<group>"; };
+		5BBB4C1323E6231F0027ACEA /* ProjectContentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentScreen.swift; sourceTree = "<group>"; };
 		5BBB4C1623E626150027ACEA /* CommonDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDateFormatter.swift; sourceTree = "<group>"; };
+		5BBB4C1923E768710027ACEA /* MultiLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineTextField.swift; sourceTree = "<group>"; };
+		5BC37B7823FAD3960058A7CC /* CreateTaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,11 +177,13 @@
 		5B854B2A23DCCE8900F902B7 /* ContentViews */ = {
 			isa = PBXGroup;
 			children = (
+				5BBB4C1823E768530027ACEA /* Custom */,
 				5B854AFD23DCB02F00F902B7 /* LoginScreen.swift */,
 				5B854B2B23DCCEC300F902B7 /* RegisterScreen.swift */,
 				5B854B4123DDFBCB00F902B7 /* CreateProjectScreen.swift */,
 				5BBB4C1123E615B80027ACEA /* MainScreen.swift */,
-				5BBB4C1323E6231F0027ACEA /* ProjectScreen.swift */,
+				5BBB4C1323E6231F0027ACEA /* ProjectContentScreen.swift */,
+				5BC37B7823FAD3960058A7CC /* CreateTaskScreen.swift */,
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
@@ -211,6 +217,14 @@
 				5BBB4C1623E626150027ACEA /* CommonDateFormatter.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		5BBB4C1823E768530027ACEA /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				5BBB4C1923E768710027ACEA /* MultiLineTextField.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,7 +364,7 @@
 				5B854AFA23DCB02F00F902B7 /* AppDelegate.swift in Sources */,
 				5B854B3E23DDEEB700F902B7 /* Position.swift in Sources */,
 				5B854AFC23DCB02F00F902B7 /* SceneDelegate.swift in Sources */,
-				5BBB4C1423E6231F0027ACEA /* ProjectScreen.swift in Sources */,
+				5BBB4C1423E6231F0027ACEA /* ProjectContentScreen.swift in Sources */,
 				5B854B3523DDE02300F902B7 /* Status.swift in Sources */,
 				5B854B2F23DDDF7F00F902B7 /* User.swift in Sources */,
 				5B854B3A23DDE53F00F902B7 /* AccessType.swift in Sources */,
@@ -358,7 +372,9 @@
 				5BBB4C1723E626150027ACEA /* CommonDateFormatter.swift in Sources */,
 				5B854AFE23DCB02F00F902B7 /* LoginScreen.swift in Sources */,
 				5B854B3323DDE00000F902B7 /* Task.swift in Sources */,
+				5BBB4C1A23E768710027ACEA /* MultiLineTextField.swift in Sources */,
 				5B854B3123DDDFF200F902B7 /* Project.swift in Sources */,
+				5BC37B7923FAD3960058A7CC /* CreateTaskScreen.swift in Sources */,
 				5BBB4C1223E615B80027ACEA /* MainScreen.swift in Sources */,
 				5B854B3723DDE3BD00F902B7 /* Priority.swift in Sources */,
 				5B854B4223DDFBCB00F902B7 /* CreateProjectScreen.swift in Sources */,

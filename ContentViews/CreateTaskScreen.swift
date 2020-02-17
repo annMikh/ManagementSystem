@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct CreateTaskScreen : View {
+    
+    var body : some View {
+        Text("create task")
+    }
+}

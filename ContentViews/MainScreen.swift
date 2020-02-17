@@ -12,13 +12,13 @@ import SwiftUI
 struct MainScreen : View {
 
     @State var isPresentingModal: Bool = false
-        @State var selectorIndex: Int = 0
-    @State private var searchValue : String = ""
+    @State var selectorIndex: Int = 0
+    @State var searchValue : String = ""
     
     private var projects = [Project(name: "first", description: ""), Project(name: "second", description: "description")]
     
     var body : some View {
-        NavigationView{
+        NavigationView {
             VStack(alignment: .leading) {
                 SearchBar(input: $searchValue)
   
@@ -26,18 +26,15 @@ struct MainScreen : View {
                     Text("new")
                     Text("personal")
                 }
-                .pickerStyle(SegmentedPickerStyle())
+                    .pickerStyle(SegmentedPickerStyle())
                 
-                ForEach(projects, id: \.name) { proj in
-                    ProjectRowView(project: proj)
+                List {
+                    ForEach(projects, id: \.name) { proj in
+                        ProjectView(project: proj)
+                    }
+                    .onDelete(perform: delete)
+                    .onMove(perform: move)
                 }
-                
-                //in List {}
-//                ForEach(self.names.filter{
-//                    self.searchTerm.isEmpty ? true : $0.localizedStandardContains(self.searchTerm)
-//                }, id: \.self) { name in
-//                    Text(name)
-//                }
                 
                 Spacer()
             }.navigationBarTitle(
@@ -45,8 +42,14 @@ struct MainScreen : View {
                     .font(.largeTitle)
                     .foregroundColor(.primary))
             .navigationBarItems(leading: EditButton(), trailing: addProject)
-
         }
+    }
+    
+    private func delete(at offsets: IndexSet) {
+    
+    }
+
+    private func move(from source: IndexSet, to destination: Int) {
     }
     
     private var addProject: some View {
@@ -62,14 +65,21 @@ struct MainScreen : View {
 }
 
 struct Boards : View {
+    
+    @State private var showingDetail = false
+    
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             Text("Boards")
                 .font(.largeTitle)
                 .foregroundColor(.primary)
             Spacer()
+        
             Image(systemName: "plus")
                 .padding(.all, 10)
+                .sheet(isPresented: $showingDetail) {
+                    CreateProjectScreen()
+                }
         }
     }
 }
@@ -90,7 +100,7 @@ struct SearchBar : UIViewRepresentable {
         }
     }
     
-    func makeCoordinator() -> SearchBar.Cordinator {
+    func makeCoordinator() -> Cordinator {
         return Cordinator(text: $input)
     }
     
@@ -106,18 +116,11 @@ struct SearchBar : UIViewRepresentable {
     
 }
 
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainScreen()
-    }
-}
-
-struct ProjectRowView : View {
+struct ProjectView : View {
     @ObservedObject var project: Project
     
     var body: some View {
-        NavigationLink(destination: ProjectView(project: project)) {
+        NavigationLink(destination: ProjectContentScreen(project: project)) {
             HStack(alignment: .firstTextBaseline) {
                 Image(systemName: "heart.circle.fill")
                     .resizable()
@@ -125,17 +128,24 @@ struct ProjectRowView : View {
                     .padding(.horizontal, 10)
                 
                 Text(project.name)
-                    .lineLimit(nil)
+                    .lineLimit(1)
                     .font(.title)
                 
                 Spacer()
-                
                 Text(CommonDateFormatter().getStringWithFormate(date: project.date))
                     .lineLimit(nil)
                     .font(.title)
             }
             .padding([.trailing, .top, .bottom])
         }
+    }
+    
+}
+
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainScreen()
     }
 }
 
