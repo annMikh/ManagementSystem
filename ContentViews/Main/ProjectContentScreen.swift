@@ -13,6 +13,9 @@ struct ProjectContentScreen : View {
     
     init(project: Project){
         self.project = project
+        UISegmentedControl.appearance().selectedSegmentTintColor = .blue
+    UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+    UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .normal)
     }
     
     @ObservedObject var project: Project
@@ -22,14 +25,14 @@ struct ProjectContentScreen : View {
     private var me = User(name: "anna", lastName: "mikhaleva", position: Position.Developer)
     
     var body: some View {
-        NavigationView {
+        //NavigationView {
           VStack(alignment: .leading) {
               Picker("projects", selection: $selectorIndex) {
-                Text("In Progress")
-                Text("Assigned")
-                Text("Completed")
+                Text("In Progress").tag(0)
+                Text("Assigned").tag(1)
+                Text("Completed").tag(2)
               }
-                  .pickerStyle(SegmentedPickerStyle())
+                .pickerStyle(SegmentedPickerStyle())
               
               List {
                 ForEach(getTasks(), id: \.self) { task in
@@ -44,14 +47,14 @@ struct ProjectContentScreen : View {
           .navigationBarTitle(
             Text(project.name)
               .font(.largeTitle)
-              .foregroundColor(.primary))
-            .navigationBarBackButtonHidden(false)
+              .foregroundColor(.primary)
+          )
           .navigationBarItems(leading: EditButton(), trailing: addTask)
-        }
+        //}
     }
     
     private func getTasks() -> Array<Task> {
-        return Array(project.tasks.first{ $0.key == me }?.value ?? [Task(), Task()])
+        return Array(project.tasks.first{ $0.key == me }?.value ?? [Task.builder().build(), Task.builder().build()])
     }
     
     private func delete(at offsets: IndexSet) {
@@ -80,9 +83,35 @@ struct TaskView: View {
     @ObservedObject var task: Task
     
     var body : some View {
-        VStack {
-            Text(task.name).foregroundColor(.white)
-            Text(task.description).foregroundColor(.white)
+        NavigationLink(destination: TaskContentScreen(task: task)) {
+            HStack(alignment: .top) {
+                Divider().background(Color.red)
+            
+                Image(systemName: "heart.circle.fill")
+                    .resizable()
+                    .frame(width: 50.0, height: 50.0)
+                    .padding(.horizontal, 10)
+            
+                
+                VStack(alignment: .leading) {
+                    Text(task.name)
+                        .lineLimit(1)
+                        .font(.title)
+                    
+                    HStack(alignment: .firstTextBaseline) {
+                        Text(task.description)
+                            .lineLimit(1)
+                            .font(.footnote)
+                        Spacer()
+                        Text(CommonDateFormatter().getStringWithFormate(date: task.date))
+                            .lineLimit(nil)
+                            .font(.footnote)
+                            .foregroundColor(.white)
+                    }
+                }
+            }
+            .frame(height: 50)
+            .padding([.trailing, .top, .bottom])
         }
     }
 }

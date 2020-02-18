@@ -10,8 +10,8 @@ import Foundation
 
 class Task : Comparable, Hashable, ObservableObject {
     
-    static func builder(author: User) -> TaskBuilder {
-        return TaskBuilder(author: author)
+    static func builder(author: User = User(name: "name", lastName: "lastname", position: Position.Designer), assignee: User = User(name: "name1", lastName: "lastname1", position: Position.Developer)) -> TaskBuilder {
+        return TaskBuilder(author: author, assignee: assignee)
     }
 
     var author: User?
@@ -45,8 +45,9 @@ class TaskBuilder {
     
     private var task = Task()
     
-    init(author: User) {
+    init(author: User, assignee: User) {
         task.author = author
+        task.assignedUser = assignee
     }
     
     func setAssignedUser(assignedUser: User) {

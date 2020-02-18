@@ -13,11 +13,12 @@ class CommonDateFormatter {
         
     private var formatter = DateFormatter()
     
-    func getDateWithFormate(formate : String = "MMMM-dd-yyyy HH:mm") -> Date {
+    func getDateWithFormate(formate : String = "dd.MM.yyyy") -> Date {
         return formatter.date(from: formate) ?? Date()
     }
     
-    func getStringWithFormate(date: Date, formate : String = "MMMM-dd-yyyy HH:mm") -> String {
+    func getStringWithFormate(date: Date, formate : String = "dd.MM.yyyy") -> String {
+        formatter.dateFormat = formate
         return formatter.string(from: date)
     }
 }

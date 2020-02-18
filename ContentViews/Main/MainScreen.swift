@@ -15,7 +15,13 @@ struct MainScreen : View {
     @State var selectorIndex: Int = 0
     @State var searchValue : String = ""
     
-    private var projects = [Project(name: "first", description: ""), Project(name: "second", description: "description")]
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = .blue
+    UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+    UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .normal)
+    }
+    
+    private var projects = [Project(name: "first", description: "vjsvjjvsljvldjvs"), Project(name: "second", description: "description")]
     
     var body : some View {
         NavigationView {
@@ -23,8 +29,8 @@ struct MainScreen : View {
                 SearchBar(input: $searchValue)
   
                 Picker("projects", selection: $selectorIndex) {
-                    Text("new")
-                    Text("personal")
+                    Text("new").tag(0)
+                    Text("personal").tag(1)
                 }
                     .pickerStyle(SegmentedPickerStyle())
                 
@@ -40,7 +46,8 @@ struct MainScreen : View {
             }.navigationBarTitle(
                 Text("Boards")
                     .font(.largeTitle)
-                    .foregroundColor(.primary))
+                    .foregroundColor(.primary)
+            )
             .navigationBarItems(leading: EditButton(), trailing: addProject)
         }
     }
@@ -117,25 +124,38 @@ struct SearchBar : UIViewRepresentable {
 }
 
 struct ProjectView : View {
+    
     @ObservedObject var project: Project
     
     var body: some View {
         NavigationLink(destination: ProjectContentScreen(project: project)) {
-            HStack(alignment: .firstTextBaseline) {
+            HStack(alignment: .top) {
+                Divider().background(Color.red)
+            
                 Image(systemName: "heart.circle.fill")
                     .resizable()
                     .frame(width: 50.0, height: 50.0)
                     .padding(.horizontal, 10)
+            
                 
-                Text(project.name)
-                    .lineLimit(1)
-                    .font(.title)
-                
-                Spacer()
-                Text(CommonDateFormatter().getStringWithFormate(date: project.date))
-                    .lineLimit(nil)
-                    .font(.title)
+                VStack(alignment: .leading) {
+                    Text(project.name)
+                        .lineLimit(1)
+                        .font(.title)
+                    
+                    HStack(alignment: .firstTextBaseline) {
+                        Text(project.description)
+                            .lineLimit(1)
+                            .font(.footnote)
+                        Spacer()
+                        Text(CommonDateFormatter().getStringWithFormate(date: project.date))
+                            .lineLimit(nil)
+                            .font(.footnote)
+                            .foregroundColor(.white)
+                    }
+                }
             }
+            .frame(height: 50)
             .padding([.trailing, .top, .bottom])
         }
     }
