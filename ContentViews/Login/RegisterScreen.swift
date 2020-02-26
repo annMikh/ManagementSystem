@@ -43,7 +43,7 @@ struct RegisterView: View {
                                             Text(self.positions[index]).tag(index)
                                         }
                                 }
-                            }.padding()
+                        }.padding()
                            
                     }
                 

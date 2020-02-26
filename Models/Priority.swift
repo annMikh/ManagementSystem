@@ -9,6 +9,6 @@
 import Foundation
 
 
-enum Priority {
+enum Priority : CaseIterable {
     case low, medium, high, critical
 }
