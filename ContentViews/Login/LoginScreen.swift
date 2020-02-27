@@ -11,7 +11,11 @@ import SwiftUI
 struct LoginView: View {
     @State var email: String = ""
     @State var password: String = ""
+    @State var isLogIn: Bool = false
+    @State var isPresentingModal: Bool = false
     
+    @EnvironmentObject var session: FirebaseSession
+
     var body: some View {
     
         NavigationView {
@@ -21,56 +25,57 @@ struct LoginView: View {
                         TextField("email address", text: $email).padding()
                         SecureField("password", text: $password).padding()
 
-                    }
-                    .border(Color.black, width: 2)
-                    .padding(.all, 10)
-                    
-                NextButton()
+                }
+                .border(Color.black, width: 2)
+                .padding(.all, 10)
                 
-                Spacer()
-                NavigationLink(destination: RegisterView()) {
-                    Text("Haven't got an account?")
-                        .foregroundColor(.blue)
-                        .padding(.horizontal, 110)
+                NavigationLink(destination: MainScreen(), isActive: $isLogIn) {
+                    Button(action: {
+                        if (!self.email.isEmpty && !self.password.isEmpty){
+                            self.session.logIn(email: self.email, password: self.password) { (res, error) in
+                                if error != nil {
+                                    self.isLogIn = false
+                                } else {
+                                    self.isLogIn = true
+                                    self.email = ""
+                                    self.password = ""
+                                }
+                            }
+                        }
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("NEXT")
+                                .font(.headline)
+                                .foregroundColor(Color.white)
+                            Spacer()
+                        }
+                    }
+                    .padding(.vertical, 10.0)
+                    .background(Color.blue)
+                    .cornerRadius(6.0)
+                    .padding(.horizontal, 50)
                 }
                 
-            }
-                .navigationBarTitle(
+                Spacer()
+                
+                Button(action: {self.isPresentingModal = true } )
+                {
+                    HStack {
+                        Spacer()
+                        Text("Haven't got an account?").foregroundColor(.blue).padding(.bottom, 20)
+                        Spacer()
+                    }
+                }.navigationBarTitle(
                     Text("Log In")
                         .font(.largeTitle)
                         .foregroundColor(.primary)
                 )
-    }
-
-    }
-}
-
-struct NextButton : View {
-    
-    var body: some View {
-        NavigationLink(destination: MainScreen()) {
-            Button(action: {
-                print("login tapped")
-            }) {
-                HStack {
-                    Spacer()
-                    Text("NEXT")
-                        .font(.headline)
-                        .foregroundColor(Color.white)
-                    Spacer()
+                .sheet(isPresented: $isPresentingModal) {
+                    RegisterView()
                 }
-            }
-            .padding(.vertical, 10.0)
-            .background(Color.blue)
-            .cornerRadius(6.0)
-            .padding(.horizontal, 50)
+        }
         }
     }
 }
 
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}

@@ -14,8 +14,8 @@ struct ProjectContentScreen : View {
     init(project: Project){
         self.project = project
         UISegmentedControl.appearance().selectedSegmentTintColor = .blue
-    UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-    UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .normal)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .normal)
     }
     
     @ObservedObject var project: Project

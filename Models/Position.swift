@@ -9,5 +9,5 @@
 import Foundation
 
 enum Position : CaseIterable{
-    case Developer, Tester, Manager, Designer, Other
+    case Developer, Tester, Manager, Designer, Other, None
 }

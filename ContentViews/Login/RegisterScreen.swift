@@ -11,10 +11,14 @@ import SwiftUI
 struct RegisterView: View {
     @State var email: String = ""
     @State var name: String = ""
-    @State var position: Position = Position.Developer
+    @State var position: Position = Position.None
     @State var password: String = ""
+    @State var isSignedUp: Bool = false
     
     @State private var pickerSelection = 0
+    
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var session: FirebaseSession
     
     private var positions = Position.allCases.map {"\($0)"}
     
@@ -23,7 +27,7 @@ struct RegisterView: View {
     }
         
     var body: some View {
-    
+    NavigationView {
                 VStack(alignment: .leading) {
                         Group {
                             TextField("email address", text: $email).padding()
@@ -47,19 +51,56 @@ struct RegisterView: View {
                            
                     }
                 
-                    NextButton()
+                    NavigationLink(destination: MainScreen(), isActive: $isSignedUp) {
+                        Button(action: {
+                            if (self.isValidInput()){
+                                self.session.signUp(email: self.email, password: self.password) { (res, error) in
+                                    if error != nil {
+                                        self.isSignedUp = false
+                                    } else {
+                                        self.isSignedUp = true
+                                    }
+                                }
+                            }
+                        }) {
+                            HStack {
+                                Spacer()
+                                Text("NEXT")
+                                    .font(.headline)
+                                    .foregroundColor(Color.white)
+                                Spacer()
+                            }
+                        }
+                        .padding(.vertical, 10.0)
+                        .background(Color.blue)
+                        .cornerRadius(6.0)
+                        .padding(.horizontal, 50)
+                    }
+                    
                     Spacer()
                     
-            }.navigationBarTitle(
-                Text("Register")
-                    .font(.largeTitle)
-                    .foregroundColor(.primary)
-            )
+            }.navigationBarTitle(Text("Register"), displayMode: .inline)
+                .navigationBarItems(leading: cancelButton, trailing: doneButton)
+        }
     }
-}
-
-struct RegiesterView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegisterView()
+    
+    private var cancelButton: some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            Text("Cancel").foregroundColor(Color.blue)
+        }
+    }
+    
+    private var doneButton: some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            Text("Done").foregroundColor(Color.blue)
+        }
+    }
+    
+    private func isValidInput() -> Bool {
+        return !self.email.isEmpty && !self.password.isEmpty && !name.isEmpty
     }
 }
