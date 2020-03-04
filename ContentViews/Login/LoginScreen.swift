@@ -11,32 +11,35 @@ import SwiftUI
 struct LoginView: View {
     @State var email: String = ""
     @State var password: String = ""
-    @State var isLogIn: Bool = false
+    @State var isLogin: Bool = false
     @State var isPresentingModal: Bool = false
     
-    @EnvironmentObject var session: FirebaseSession
+    @EnvironmentObject var session: SessionViewModel
 
     var body: some View {
     
         NavigationView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 20) {
                     
-                    Group {
-                        TextField("email address", text: $email).padding()
-                        SecureField("password", text: $password).padding()
-
+                Group {
+                    TextField("email address", text: $email)
+                        .autocapitalization(.none)
+                        .padding()
+                    SecureField("password", text: $password).padding()
                 }
                 .border(Color.black, width: 2)
                 .padding(.all, 10)
                 
-                NavigationLink(destination: MainScreen(), isActive: $isLogIn) {
+                NavigationLink(destination: MainView(), isActive: $isLogin) {
                     Button(action: {
                         if (!self.email.isEmpty && !self.password.isEmpty){
                             self.session.logIn(email: self.email, password: self.password) { (res, error) in
                                 if error != nil {
-                                    self.isLogIn = false
+                                    self.isLogin = false
+                                    UserDefaults.standard.set(false, forKey: "isLogin")
                                 } else {
-                                    self.isLogIn = true
+                                    UserDefaults.standard.set(true, forKey: "isLogin")
+                                    self.isLogin = true
                                     self.email = ""
                                     self.password = ""
                                 }
@@ -59,7 +62,7 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                Button(action: {self.isPresentingModal = true } )
+                Button(action: { self.isPresentingModal = true } )
                 {
                     HStack {
                         Spacer()
@@ -74,7 +77,7 @@ struct LoginView: View {
                 .sheet(isPresented: $isPresentingModal) {
                     RegisterView()
                 }
-        }
+            }
         }
     }
 }

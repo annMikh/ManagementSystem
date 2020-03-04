@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct MainScreen : View {
+struct MainView : View {
 
     @State var isPresentingModal: Bool = false
     @State var selectorIndex: Int = 0
@@ -17,8 +17,8 @@ struct MainScreen : View {
     
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = .blue
-    UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-    UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .normal)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .normal)
     }
     
     private var projects = [Project(name: "first", description: "vjsvjjvsljvldjvs"), Project(name: "second", description: "description")]
@@ -161,9 +161,9 @@ struct ProjectView : View {
 }
 
 
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainScreen()
-    }
-}
+//struct MainView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainScreen()
+//    }
+//}
 

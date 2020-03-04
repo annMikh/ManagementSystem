@@ -18,42 +18,44 @@ struct RegisterView: View {
     @State private var pickerSelection = 0
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var session: FirebaseSession
+    @EnvironmentObject var session: SessionViewModel
     
     private var positions = Position.allCases.map {"\($0)"}
     
     init(){
         UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().separatorColor = .clear
     }
         
     var body: some View {
     NavigationView {
-                VStack(alignment: .leading) {
-                        Group {
-                            TextField("email address", text: $email).padding()
-                            TextField("name", text: $name).padding()
-                            
-                            SecureField("password", text: $password).padding()
-                    
-                        }
-                        .border(Color.black, width: 2)
-                        .padding(.all, 10)
+        VStack(alignment: .leading) {
+                    Group {
+                        TextField("email address", text: $email).padding()
+                        TextField("name", text: $name).padding()
+                        SecureField("password", text: $password).padding()
                 
-                        Form {
-                            Section {
-                                Picker(selection: $pickerSelection, label:
-                                Text("position").foregroundColor(Color.black)) {
-                                        ForEach(0 ..< self.positions.count) { index in
-                                            Text(self.positions[index]).tag(index)
-                                        }
-                                }
-                        }.padding()
-                           
                     }
+                    .border(Color.black, width: 2)
+                    .padding(.all, 10)
+            
+            Text("Choose position").font(.body).foregroundColor(Color.black).padding(.horizontal, 10)
+                    Form {
+                        Picker(selection: $pickerSelection, label:
+                        Text("position").foregroundColor(Color.black)) {
+                                ForEach(0 ..< self.positions.count) { index in
+                                    Text(self.positions[index]).tag(index)
+                                }
+                        }
+                    }
+                    .padding(.horizontal, 10)
+                    
+                    Spacer()
                 
-                    NavigationLink(destination: MainScreen(), isActive: $isSignedUp) {
+                    NavigationLink(destination: MainView(), isActive: $isSignedUp) {
                         Button(action: {
                             if (self.isValidInput()){
+                                self.session.createUser()
                                 self.session.signUp(email: self.email, password: self.password) { (res, error) in
                                     if error != nil {
                                         self.isSignedUp = false
@@ -75,10 +77,9 @@ struct RegisterView: View {
                         .background(Color.blue)
                         .cornerRadius(6.0)
                         .padding(.horizontal, 50)
+                        .padding(.bottom, 50)
                     }
-                    
-                    Spacer()
-                    
+
             }.navigationBarTitle(Text("Register"), displayMode: .inline)
                 .navigationBarItems(leading: cancelButton, trailing: doneButton)
         }

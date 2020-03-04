@@ -9,7 +9,7 @@
 import Foundation
 
 
-class User : Hashable, ObservableObject {
+class User : NSObject, ObservableObject {
     
     init(name: String, lastName: String, position: Position) {
         self.name = name
@@ -17,7 +17,9 @@ class User : Hashable, ObservableObject {
         self.position = position
     }
     
-    init() { }
+    convenience override init() {
+        self.init(name: "anna", lastName: "mikhaleva", position: Position.Developer)
+    }
     
     var name: String = ""
     var lastName: String = ""
@@ -29,11 +31,6 @@ class User : Hashable, ObservableObject {
     static func == (lhs: User, rhs: User) -> Bool {
         return lhs.name == rhs.name && lhs.lastName == rhs.lastName && lhs.position == rhs.position
             && lhs.projects == rhs.projects && lhs.tasks == lhs.tasks
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(lastName)
     }
 
 }

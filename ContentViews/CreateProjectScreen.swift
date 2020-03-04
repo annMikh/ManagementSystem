@@ -13,6 +13,7 @@ struct CreateProjectScreen : View {
     
     @State private var selection = true
     @State private var input = ""
+    @State private var tag = ""
     @State static private var inputValue = ""
     @Environment(\.presentationMode) var presentationMode
     
@@ -24,10 +25,10 @@ struct CreateProjectScreen : View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 20) {
                 LabelTextField(label: "Project name", placeHolder: "Fill in project name")
                 
-                Text("Description").font(.headline).foregroundColor(Color.white)
+                Text("Description").font(.headline).foregroundColor(Color.blue)
                 MultilineTextField("Fill in project description", text: CreateProjectScreen.testBinding, onCommit: {
                     print("Final text: ")
                 })
@@ -36,14 +37,16 @@ struct CreateProjectScreen : View {
                     .cornerRadius(5.0)
                     .padding(.all, 10)
                     
-                Text("Tags")
+                LabelTextField(label: "Tags", placeHolder: "Fill in tags for this project")
                 
                 Toggle(isOn: $selection) {
                     Text("Open access")
                 }.padding()
                 
                 Spacer()
-            }.navigationBarItems(leading: cancelButton, trailing: doneButton)
+            }
+                .navigationBarItems(leading: cancelButton, trailing: doneButton)
+                .padding(.horizontal, 20)
         }
     }
     
@@ -75,7 +78,7 @@ struct LabelTextField : View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(label).font(.headline).foregroundColor(Color.white)
+            Text(label).font(.headline).foregroundColor(Color.blue)
             TextField(placeHolder, text: $value)
                 .padding(.all)
                 .border(Color.gray, width: 2)

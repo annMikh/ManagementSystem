@@ -13,50 +13,55 @@ struct CreateTaskScreen : View {
     
     @State var pickerSelection = 0
     @State var selection = false
+    @State private var selectedDate = Date()
     @Environment(\.presentationMode) var presentationMode
     
     private var task : TaskBuilder = Task.builder()
     private var priorities = Priority.allCases.map { "\($0)" }
     
+    init(){
+        UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().separatorColor = .clear
+    }
+    
     var body : some View {
         NavigationView {
-                VStack(alignment: .leading) {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
                     LabelTextField(label: "Task name", placeHolder: "Fill in task name")
                     
-                    Text("Description").font(.headline).foregroundColor(Color.white)
+                    Text("Description").font(.headline).foregroundColor(Color.blue)
                     MultilineTextField("Fill in task description", text: CreateProjectScreen.testBinding, onCommit: {
                         print("Final text: ")
                     })
                         .padding(.all)
                         .border(Color.gray, width: 2)
                         .cornerRadius(5.0)
-                        .padding(.all, 10)
+                        .padding(.horizontal, 10)
                         
+                    Text("Priority").font(.headline).foregroundColor(Color.blue)
+                    
                     Form {
-                        Section {
-                                Picker(selection: $pickerSelection, label:
-                                Text("Priority").foregroundColor(Color.black)) {
-                                        ForEach(0 ..< self.priorities.count) { index in
-                                            Text(self.priorities[index]).tag(index)
-                                        }
+                        Picker(selection: $pickerSelection, label:
+                        Text("Priority").foregroundColor(Color.black)) {
+                                ForEach(0 ..< self.priorities.count) { index in
+                                    Text(self.priorities[index]).foregroundColor(Color.black).tag(index)
                                 }
-                        }.padding()
+                        }
                     }
+//                        DatePicker("", selection: $selectedDate, label:  Text("Deadline").font(.headline).foregroundColor(Color.blue))
+                    
                     
                     LabelTextField(label: "Assignee", placeHolder: "Fill in the assignee")
-                    
-                    Spacer()
-                    
-                    LabelTextField(label: "Deadline", placeHolder: "Fill in the deadline")
-                        
-                    Spacer()
                     
                     Toggle(isOn: $selection) {
                         Text("No deadline")
                     }.padding()
                     
-                    Spacer()
-                }.navigationBarItems(leading: cancelButton, trailing: doneButton)
+                }
+                    .navigationBarItems(leading: cancelButton, trailing: doneButton)
+                    .padding(.horizontal, 20)
+            }
         }
     }
     
