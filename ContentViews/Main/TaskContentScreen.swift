@@ -13,62 +13,107 @@ struct TaskContentScreen : View {
     
     @ObservedObject var task: Task
     
+    private func getComments() -> Array<Comment> {
+        return [Comment(text: "hello", author: User(), date: Date(), id: 0)] //self.task.comments ?? Array<Comment>()
+    }
+    
+    init(task: Task) {
+        self.task = task
+        UITableView.appearance().separatorColor = .clear
+    }
+    
     var body : some View {
-        VStack(alignment: .leading) {
-                HStack(alignment: .top) {
-                    Image(systemName: "heart.circle.fill")
-                        .resizable()
-                        .frame(width: 50.0, height: 50.0)
-                        .padding(.horizontal, 10)
-                    
-                    Spacer()
-                    HStack {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 10) {
+                
+                Text("Assignee").font(.title).padding()
+                
+                    HStack(alignment: .top) {
+                        Image(systemName: "heart.circle.fill")
+                            .resizable()
+                            .frame(width: 50.0, height: 50.0)
+                            .padding(.horizontal, 10)
+                        
                         Spacer()
-                        Text(task.assignedUser!.name + " " + task.assignedUser!.lastName).padding()
+                        HStack {
+                            Spacer()
+                            Text(task.assignedUser!.name + " " + task.assignedUser!.lastName).padding()
+                            Spacer()
+                        }
+                        .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.blue, lineWidth: 1))
                         Spacer()
                     }
-                    .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.white, lineWidth: 1))
-                    Spacer()
-                }
-                
-                Spacer()
-                
-                Text("Description").font(.title).padding()
-                HStack(alignment: .top) {
-                        Text(task.description)
-                            .frame(minHeight: 100, maxHeight: 100)
-                                .padding()
+                                    
+                    Text("Description").font(.title).padding()
+                    HStack(alignment: .top) {
+                            Text(task.description)
+                                    .padding()
+                            Spacer()
+                    }
+                        .overlay(RoundedRectangle(cornerRadius: 4)
+                        .stroke(Color.blue, lineWidth: 1))
+                                    
+                    Text("Assigned by").font(.title).padding()
+                    HStack {
+                        Spacer()
+                        Text(task.author!.name + " " + task.author!.lastName)
+                            .frame(minWidth: 200, maxWidth: 200)
+                            .padding()
                         Spacer()
                     }
                         .overlay(RoundedRectangle(cornerRadius: 4)
-                                    .stroke(Color.white, lineWidth: 1))
+                                .stroke(Color.blue, lineWidth: 1))
+                                    
+                    HStack(alignment: .center, spacing: 8) {
+                        Text("Comments").font(.title)
+                        
+                        Image(systemName: "heart.circle.fill")
+                            .resizable()
+                            .frame(width: 20.0, height: 20.0)
+                        Spacer()
+                    }
+                
+                    ForEach(getComments(), id: \.id) { comment in
+                        CommentView(comment: comment)
+                    }
                     
-                Spacer()
-                
-                Text("Assigned by").font(.title).padding()
-                HStack {
-                    Spacer()
-                    Text(task.author!.name + " " + task.author!.lastName)
-                        .frame(minWidth: 200, maxWidth: 200)
-                        .padding()
-                    Spacer()
-                }
-                    .overlay(RoundedRectangle(cornerRadius: 4)
-                            .stroke(Color.white, lineWidth: 1))
-                
-                Spacer()
-                
-                HStack(alignment: .firstTextBaseline){
-                    Text("Comments").font(.title).padding()
-                    
-                    Image(systemName: "heart.circle.fill")
-                        .resizable()
-                        .frame(width: 20.0, height: 20.0)
-                        .padding(.horizontal, 5)
-                    Spacer()
-                }
-                
             }.padding()
-        .navigationBarTitle(Text(task.name).font(.title))
+             .navigationBarTitle(Text(task.name).font(.title))
+        }
+    }
+}
+
+
+struct CommentView : View {
+    
+    @ObservedObject var comment: Comment
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack(alignment: .top) {
+                Image(systemName: "heart.circle.fill")
+                    .resizable()
+                    .frame(width: 50.0, height: 50.0)
+                    .padding(.horizontal, 5)
+                
+                VStack(alignment: .leading) {
+                    Text(comment.author.getFullName())
+                        .font(.body)
+                        .bold()
+                        .padding(.horizontal, 10).padding(.top, 5)
+                    
+                    Text(CommonDateFormatter.getStringWithFormate(date: comment.date))
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                        .padding(.horizontal, 10)
+                }
+                Spacer()
+            }.padding(.top, 5)
+            
+            Text(comment.text).font(.body).padding(.horizontal, 20).padding(.bottom, 5)
+            
+        }
+            .overlay(RoundedRectangle(cornerRadius: 4)
+            .stroke(Color.blue, lineWidth: 1))
     }
 }

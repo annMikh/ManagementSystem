@@ -17,9 +17,11 @@ struct LoginView: View {
     @EnvironmentObject var session: SessionViewModel
 
     var body: some View {
-    
-        NavigationView {
             VStack(alignment: .leading, spacing: 20) {
+                
+                Text("Log In")
+                    .font(.largeTitle)
+                    .foregroundColor(.primary)
                     
                 Group {
                     TextField("email address", text: $email)
@@ -69,15 +71,11 @@ struct LoginView: View {
                         Text("Haven't got an account?").foregroundColor(.blue).padding(.bottom, 20)
                         Spacer()
                     }
-                }.navigationBarTitle(
-                    Text("Log In")
-                        .font(.largeTitle)
-                        .foregroundColor(.primary)
-                )
+                }
                 .sheet(isPresented: $isPresentingModal) {
                     RegisterView()
                 }
-            }
+            
         }
     }
 }

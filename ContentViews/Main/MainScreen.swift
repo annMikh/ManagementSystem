@@ -24,6 +24,7 @@ struct MainView : View {
     private var projects = [Project(name: "first", description: "vjsvjjvsljvldjvs"), Project(name: "second", description: "description")]
     
     var body : some View {
+        NavigationView {
             VStack(alignment: .leading) {
                 SearchBar(input: $searchValue)
   
@@ -48,6 +49,7 @@ struct MainView : View {
                     .foregroundColor(.primary)
             )
             .navigationBarItems(leading: EditButton(), trailing: addProject)
+        }
     }
     
     private func delete(at offsets: IndexSet) {
@@ -146,16 +148,15 @@ struct ProjectView : View {
                             .lineLimit(1)
                             .font(.footnote)
                         Spacer()
-                        Text(CommonDateFormatter().getStringWithFormate(date: project.date))
+                        Text(CommonDateFormatter.getStringWithFormate(date: project.date))
                             .lineLimit(nil)
                             .font(.footnote)
-                            .foregroundColor(.white)
                     }
                 }
             }
             .frame(height: 50)
             .padding([.trailing, .top, .bottom])
-        }.isDetailLink(false)
+        }.navigationBarBackButtonHidden(false)
     }
     
 }

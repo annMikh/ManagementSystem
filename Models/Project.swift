@@ -26,7 +26,7 @@ class Project : Hashable,  ObservableObject {
         self.description = description
         self.accessType = accessType
         self.date = Date()
-        self.tasks = [User(name: "masha", lastName: "dsdds", position: Position.Manager) : [Task.builder().build()], User(name: "anna", lastName: "jfkd", position: Position.Designer) : [Task.builder().build()], User(name: "anna", lastName: "mikhaleva", position: Position.Developer) : [Task.builder().build()]]
+        self.tasks = [User(name: "masha", lastName: "dsdds", position: Position.Manager, id: 1) : [Task.builder().build()], User(name: "anna", lastName: "jfkd", position: Position.Designer, id: 2) : [Task.builder().build()], User(name: "anna", lastName: "mikhaleva", position: Position.Developer, id: 0) : [Task.builder().build()]]
     }
     
     var name: String

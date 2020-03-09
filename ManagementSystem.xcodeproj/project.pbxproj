@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B23F0F62416AB9C003A61CA /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B23F0F52416AB9C003A61CA /* Comment.swift */; };
 		5B298A74240E7310005C26A0 /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B298A73240E7310005C26A0 /* ProjectsViewModel.swift */; };
 		5B298A77240EFBD4005C26A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B298A76240EFBD4005C26A0 /* ContentView.swift */; };
 		5B5043CE2406AB10002B9051 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B5043CD2406AB10002B9051 /* GoogleService-Info.plist */; };
@@ -63,6 +64,7 @@
 		13FA16F645D093B2357DE3FC /* Pods-ManagementSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementSystem.release.xcconfig"; path = "Target Support Files/Pods-ManagementSystem/Pods-ManagementSystem.release.xcconfig"; sourceTree = "<group>"; };
 		32B4481FB22054E5190259BF /* Pods-ManagementSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementSystem.debug.xcconfig"; path = "Target Support Files/Pods-ManagementSystem/Pods-ManagementSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		54E3ABE00E5456971E6E09C3 /* Pods-ManagementSystemTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementSystemTests.release.xcconfig"; path = "Target Support Files/Pods-ManagementSystemTests/Pods-ManagementSystemTests.release.xcconfig"; sourceTree = "<group>"; };
+		5B23F0F52416AB9C003A61CA /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		5B298A73240E7310005C26A0 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
 		5B298A76240EFBD4005C26A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5B5043CD2406AB10002B9051 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				5B854B3923DDE53F00F902B7 /* AccessType.swift */,
 				5B854B3B23DDE60200F902B7 /* Tag.swift */,
 				5B854B3D23DDEEB700F902B7 /* Position.swift */,
+				5B23F0F52416AB9C003A61CA /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				5B526AC42406DAFE00127EAE /* SessionViewModel.swift in Sources */,
 				5B298A77240EFBD4005C26A0 /* ContentView.swift in Sources */,
 				5B854B3123DDDFF200F902B7 /* Project.swift in Sources */,
+				5B23F0F62416AB9C003A61CA /* Comment.swift in Sources */,
 				5BC37B7923FAD3960058A7CC /* CreateTaskScreen.swift in Sources */,
 				5BBB4C1223E615B80027ACEA /* MainScreen.swift in Sources */,
 				5B854B3723DDE3BD00F902B7 /* Priority.swift in Sources */,

@@ -22,10 +22,9 @@ struct ProjectContentScreen : View {
     @State var selectorIndex = 0
     @State var isPresentingModal: Bool = false
     
-    private var me = User(name: "anna", lastName: "mikhaleva", position: Position.Developer)
+    private var me = User(name: "anna", lastName: "mikhaleva", position: Position.Developer, id: 0)
     
     var body: some View {
-        //NavigationView {
           VStack(alignment: .leading) {
               Picker("projects", selection: $selectorIndex) {
                 Text("In Progress").tag(0)
@@ -50,7 +49,6 @@ struct ProjectContentScreen : View {
               .foregroundColor(.primary)
           )
           .navigationBarItems(leading: EditButton(), trailing: addTask)
-        //}
     }
     
     private func getTasks() -> Array<Task> {
@@ -103,10 +101,9 @@ struct TaskView: View {
                             .lineLimit(1)
                             .font(.footnote)
                         Spacer()
-                        Text(CommonDateFormatter().getStringWithFormate(date: task.date))
+                        Text(CommonDateFormatter.getStringWithFormate(date: task.date))
                             .lineLimit(nil)
                             .font(.footnote)
-                            .foregroundColor(.white)
                     }
                 }
             }

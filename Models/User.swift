@@ -11,26 +11,31 @@ import Foundation
 
 class User : NSObject, ObservableObject {
     
-    init(name: String, lastName: String, position: Position) {
+    init(name: String, lastName: String, position: Position, id: Int) {
         self.name = name
         self.lastName = lastName
         self.position = position
+        self.id = id
     }
     
     convenience override init() {
-        self.init(name: "anna", lastName: "mikhaleva", position: Position.Developer)
+        self.init(name: "anna", lastName: "mikhaleva", position: Position.Developer, id: 0)
     }
     
     var name: String = ""
     var lastName: String = ""
     var position = Position.Other
+    var id: Int
     
     var projects = Set<Project>()
     var tasks = Set<Task>()
     
     static func == (lhs: User, rhs: User) -> Bool {
-        return lhs.name == rhs.name && lhs.lastName == rhs.lastName && lhs.position == rhs.position
-            && lhs.projects == rhs.projects && lhs.tasks == lhs.tasks
+        return lhs.id == rhs.id
+    }
+    
+    func getFullName() -> String {
+        return "\(name) \(lastName)"
     }
 
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class Task : Comparable, Hashable, ObservableObject {
     
-    static func builder(author: User = User(name: "name", lastName: "lastname", position: Position.Designer), assignee: User = User(name: "name1", lastName: "lastname1", position: Position.Developer)) -> TaskBuilder {
+    static func builder(author: User = User(name: "name", lastName: "lastname", position: Position.Designer, id: 4), assignee: User = User(name: "name1", lastName: "lastname1", position: Position.Developer, id: 9)) -> TaskBuilder {
         return TaskBuilder(author: author, assignee: assignee)
     }
 
@@ -23,6 +23,7 @@ class Task : Comparable, Hashable, ObservableObject {
     var status = Status.New
     
     var deadline: Date?
+    var comments : Array<Comment>?
     
     
     static func < (lhs: Task, rhs: Task) -> Bool {
