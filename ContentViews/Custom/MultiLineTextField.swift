@@ -41,7 +41,7 @@ struct MultilineTextField : View {
     var placeholderView: some View {
         Group {
             if showingPlaceholder {
-                Text(placeholder).foregroundColor(.gray)
+                Text(placeholder).foregroundColor(Color(UIColor(red: 0, green: 0, blue: 0.0980392, alpha: 0.22)))
                     .padding(.leading, 4)
                     .padding(.top, 8)
             }
@@ -75,9 +75,6 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
     func updateUIView(_ uiView: UITextView, context: UIViewRepresentableContext<UITextViewWrapper>) {
         if uiView.text != self.text {
             uiView.text = self.text
-        }
-        if uiView.window != nil, !uiView.isFirstResponder {
-            uiView.becomeFirstResponder()
         }
         UITextViewWrapper.recalculateHeight(view: uiView, result: $calculatedHeight)
     }

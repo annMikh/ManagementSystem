@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Tag : Hashable {
+class Tag : Hashable, Codable {
     
     var value: String = ""
     

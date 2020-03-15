@@ -22,7 +22,7 @@ struct ProjectContentScreen : View {
     @State var selectorIndex = 0
     @State var isPresentingModal: Bool = false
     
-    private var me = User(name: "anna", lastName: "mikhaleva", position: Position.Developer, id: 0)
+    private var me = SessionViewModel.me
     
     var body: some View {
           VStack(alignment: .leading) {
@@ -52,7 +52,7 @@ struct ProjectContentScreen : View {
     }
     
     private func getTasks() -> Array<Task> {
-        return Array(project.tasks.first{ $0.key == me }?.value ?? [Task.builder().build(), Task.builder().build()])
+        return Array(project.tasks.first{ $0.key == me }?.value ?? [])
     }
     
     private func delete(at offsets: IndexSet) {
@@ -71,7 +71,7 @@ struct ProjectContentScreen : View {
                Image(systemName: "plus.circle.fill")
                .font(.title)
            }.sheet(isPresented: $isPresentingModal) {
-               CreateTaskScreen()
+               CreateTaskScreen().environmentObject(session)
            }
        }
 }
@@ -101,7 +101,7 @@ struct TaskView: View {
                             .lineLimit(1)
                             .font(.footnote)
                         Spacer()
-                        Text(CommonDateFormatter.getStringWithFormate(date: task.date))
+                        Text(String(describing: task.priority))
                             .lineLimit(nil)
                             .font(.footnote)
                     }

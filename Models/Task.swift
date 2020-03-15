@@ -8,16 +8,16 @@
 
 import Foundation
 
-class Task : Comparable, Hashable, ObservableObject {
+class Task : Hashable, Codable, ObservableObject  {
     
-    static func builder(author: User = User(name: "name", lastName: "lastname", position: Position.Designer, id: 4), assignee: User = User(name: "name1", lastName: "lastname1", position: Position.Developer, id: 9)) -> TaskBuilder {
+    static func builder(author: User = User(user: SessionViewModel.me), assignee: User) -> TaskBuilder {
         return TaskBuilder(author: author, assignee: assignee)
     }
 
     var author: User?
     var date = Date()
-    var name = "example"
-    var description = "task"
+    var name : String?
+    var description : String?
     var assignedUser: User?
     var priority = Priority.low
     var status = Status.New
@@ -25,19 +25,14 @@ class Task : Comparable, Hashable, ObservableObject {
     var deadline: Date?
     var comments : Array<Comment>?
     
-    
-    static func < (lhs: Task, rhs: Task) -> Bool {
-        return lhs.date.compare(rhs.date).rawValue < 0
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(description)
     }
     
     static func == (lhs: Task, rhs: Task) -> Bool {
         return lhs.author == rhs.author &&  lhs.name == rhs.name && lhs.assignedUser == rhs.assignedUser
             && lhs.description == rhs.description && lhs.priority == rhs.priority
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(description)
     }
     
 }

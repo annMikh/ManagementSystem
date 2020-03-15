@@ -15,6 +15,8 @@ struct MainView : View {
     @State var selectorIndex: Int = 0
     @State var searchValue : String = ""
     
+    @EnvironmentObject var session: SessionViewModel
+    
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = .blue
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
@@ -66,7 +68,7 @@ struct MainView : View {
             Image(systemName: "plus.circle.fill")
             .font(.title)
         }.sheet(isPresented: $isPresentingModal) {
-            CreateProjectScreen()
+            CreateProjectScreen().environmentObject(self.session)
         }
     }
 }

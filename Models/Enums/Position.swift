@@ -8,6 +8,10 @@
 
 import Foundation
 
-enum Position : CaseIterable{
+enum Position : String, CaseIterable, Codable {
     case Developer, Tester, Manager, Designer, Other, None
+    
+    var description: String {
+        return self.rawValue
+    }
 }

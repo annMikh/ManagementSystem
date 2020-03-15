@@ -11,33 +11,32 @@ import SwiftUI
 
 struct CreateProjectScreen : View {
     
-    @State private var selection = true
-    @State private var input = ""
-    @State private var tag = ""
-    @State static private var inputValue = ""
+    @State private var selection = false
+    static private var name = ""
+    static private var tag = ""
+    static private var description = ""
     @Environment(\.presentationMode) var presentationMode
-    
-    private let types = ["open", "close"]
-    
-    static var testBinding = Binding<String>(get: { inputValue }, set: {
-            print("New value: \($0)")
-            inputValue = $0 } )
+    @EnvironmentObject var session: SessionViewModel
+        
+    var nameBinding = Binding<String>(get: { CreateProjectScreen.name }, set: { CreateProjectScreen.name = $0 } )
+    var descriptionBinding = Binding<String>(get: { CreateProjectScreen.description }, set: { CreateProjectScreen.description = $0 } )
+    var tagBinding = Binding<String>(get: { CreateProjectScreen.tag }, set: { CreateProjectScreen.tag = $0 } )
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 20) {
-                LabelTextField(label: "Project name", placeHolder: "Fill in project name")
+                LabelTextField(label: "Project name", placeHolder: "Fill in project name", text: self.nameBinding)
                 
                 Text("Description").font(.headline).foregroundColor(Color.blue)
-                MultilineTextField("Fill in project description", text: CreateProjectScreen.testBinding, onCommit: {
+                MultilineTextField("Fill in project description", text: self.descriptionBinding, onCommit: {
                     print("Final text: ")
                 })
                     .padding(.all)
-                    .border(Color.gray, width: 2)
+                    .border(Color.black, width: 2)
                     .cornerRadius(5.0)
                     .padding(.all, 10)
                     
-                LabelTextField(label: "Tags", placeHolder: "Fill in tags for this project")
+                LabelTextField(label: "Tags", placeHolder: "Fill in tags for this project", text: self.tagBinding)
                 
                 Toggle(isOn: $selection) {
                     Text("Open access")
@@ -60,12 +59,29 @@ struct CreateProjectScreen : View {
     
     private var doneButton: some View {
         Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
+            if (self.isValidInput()) {
+                let project = Project(name: CreateProjectScreen.name, description: CreateProjectScreen.description)
+                self.presentationMode.wrappedValue.dismiss()
+                self.session.createProject(project: project)
+            } else {
+                 print("not valid input")
+            }
+
         }) {
             Text("Done").foregroundColor(Color.blue)
         }
     }
     
+    private func isValidInput() -> Bool {
+        return !CreateProjectScreen.name.isEmpty && !CreateProjectScreen.description.isEmpty
+    }
+    
+    private func clear() {
+        CreateProjectScreen.name = ""
+        CreateProjectScreen.description = ""
+        CreateProjectScreen.tag = ""
+        self.selection = false
+    }
 }
 
 
@@ -74,14 +90,14 @@ struct LabelTextField : View {
     var label: String
     var placeHolder: String
     
-    @State var value: String = ""
+    @Binding var text: String
     
     var body: some View {
         VStack(alignment: .leading) {
             Text(label).font(.headline).foregroundColor(Color.blue)
-            TextField(placeHolder, text: $value)
+            TextField(placeHolder, text: $text)
                 .padding(.all)
-                .border(Color.gray, width: 2)
+                .border(Color.black, width: 2)
                 .cornerRadius(5.0)
                 .padding(.all, 10)
                 
@@ -89,8 +105,8 @@ struct LabelTextField : View {
     }
 }
 
-struct CreateProjectView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateProjectScreen()
-    }
-}
+//struct CreateProjectView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CreateProjectScreen()
+//    }
+//}

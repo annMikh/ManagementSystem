@@ -15,13 +15,29 @@ struct LoginView: View {
     @State var isPresentingModal: Bool = false
     
     @EnvironmentObject var session: SessionViewModel
+    
+    func isActive() -> Bool {
+        return RegisterView.isSignedUp
+    }
 
     var body: some View {
-            VStack(alignment: .leading, spacing: 20) {
+        AnyView({ () -> AnyView in
+            if (self.isActive()) {
+                return AnyView(MainView().environmentObject(session))
+            } else {
+                return AnyView(loginContent)
+            }
+            }())
+    }
+    
+    private var loginContent : some View {
+        VStack(alignment: .leading, spacing: 20) {
                 
                 Text("Log In")
                     .font(.largeTitle)
                     .foregroundColor(.primary)
+                    .bold()
+                    .padding(.top, 40).padding(.horizontal, 20)
                     
                 Group {
                     TextField("email address", text: $email)
@@ -32,7 +48,7 @@ struct LoginView: View {
                 .border(Color.black, width: 2)
                 .padding(.all, 10)
                 
-                NavigationLink(destination: MainView(), isActive: $isLogin) {
+                NavigationLink(destination: MainView().environmentObject(session), isActive: $isLogin) {
                     Button(action: {
                         if (!self.email.isEmpty && !self.password.isEmpty){
                             self.session.logIn(email: self.email, password: self.password) { (res, error) in
@@ -73,9 +89,8 @@ struct LoginView: View {
                     }
                 }
                 .sheet(isPresented: $isPresentingModal) {
-                    RegisterView()
+                    RegisterView().environmentObject(self.session)
                 }
-            
         }
     }
 }

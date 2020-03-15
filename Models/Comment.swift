@@ -9,19 +9,18 @@
 import Foundation
 
 
-class Comment : Hashable,  ObservableObject {
+class Comment : Hashable, Codable, ObservableObject {
     
-    init(text: String, author: User, date: Date, id: Int) {
+    init(text: String, author: User, date: Date = Date()) {
         self.text = text
         self.author = author
         self.date = date
-        self.id = id
     }
     
     var text : String
     var author: User
     var date: Date
-    var id: Int
+    var id: Int?
     
     static func == (lhs: Comment, rhs: Comment) -> Bool {
         return lhs.id == rhs.id

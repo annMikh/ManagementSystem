@@ -11,9 +11,10 @@ import SwiftUI
 struct RegisterView: View {
     @State var email: String = ""
     @State var name: String = ""
+    @State var lastName: String = ""
     @State var position: Position = Position.None
     @State var password: String = ""
-    @State var isSignedUp: Bool = false
+    static var isSignedUp: Bool = false
     
     @State private var pickerSelection = 0
     
@@ -33,13 +34,13 @@ struct RegisterView: View {
                     Group {
                         TextField("email address", text: $email).padding()
                         TextField("name", text: $name).padding()
+                        TextField("last name", text: $lastName).padding()
                         SecureField("password", text: $password).padding()
-                
                     }
                     .border(Color.black, width: 2)
-                    .padding(.all, 10)
+                    .padding(.all, 15)
             
-            Text("Choose position").font(.body).foregroundColor(Color.black).padding(.horizontal, 10)
+            Text("Choose position").font(.headline).bold().foregroundColor(Color.black).padding(.horizontal, 10)
                     Form {
                         Picker(selection: $pickerSelection, label:
                         Text("position").foregroundColor(Color.black)) {
@@ -52,36 +53,36 @@ struct RegisterView: View {
                     
                     Spacer()
                 
-                    NavigationLink(destination: MainView(), isActive: $isSignedUp) {
-                        Button(action: {
-                            if (self.isValidInput()){
-                                self.session.createUser()
-                                self.session.signUp(email: self.email, password: self.password) { (res, error) in
-                                    if error != nil {
-                                        self.isSignedUp = false
-                                    } else {
-                                        self.isSignedUp = true
-                                    }
-                                }
-                            }
-                        }) {
-                            HStack {
-                                Spacer()
-                                Text("NEXT")
-                                    .font(.headline)
-                                    .foregroundColor(Color.white)
-                                Spacer()
+                    Button(action: {
+                        if (self.isValidInput()) {
+                            let user = User(name: self.name,
+                                            lastName: self.lastName,
+                                            position: Position.allCases[self.pickerSelection],
+                                            email: self.email)
+                            self.session.createUser(user: user)
+                            self.session.signUp(email: self.email, password: self.password) { (res, error) in
+                                RegisterView.self.isSignedUp = error != nil
+                                self.presentationMode.wrappedValue.dismiss()
                             }
                         }
-                        .padding(.vertical, 10.0)
-                        .background(Color.blue)
-                        .cornerRadius(6.0)
-                        .padding(.horizontal, 50)
-                        .padding(.bottom, 50)
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("NEXT")
+                                .font(.headline)
+                                .foregroundColor(Color.white)
+                            Spacer()
+                        }
                     }
+                    .padding(.vertical, 10.0)
+                    .background(Color.blue)
+                    .cornerRadius(6.0)
+                    .padding(.horizontal, 50)
+                    .padding(.bottom, 50)
+                    
 
-            }.navigationBarTitle(Text("Register"), displayMode: .inline)
-                .navigationBarItems(leading: cancelButton, trailing: doneButton)
+        }.navigationBarTitle(Text("Register").bold(), displayMode: .inline)
+                .navigationBarItems(leading: cancelButton)
         }
     }
     
@@ -90,14 +91,6 @@ struct RegisterView: View {
             self.presentationMode.wrappedValue.dismiss()
         }) {
             Text("Cancel").foregroundColor(Color.blue)
-        }
-    }
-    
-    private var doneButton: some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
-            Text("Done").foregroundColor(Color.blue)
         }
     }
     

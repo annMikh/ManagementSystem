@@ -18,7 +18,7 @@ struct ContentView : View {
             if (!UserDefaults.standard.bool(forKey: "isLogin")) {
                 return AnyView(LoginView().environmentObject(session))
             } else {
-                return AnyView(MainView())
+                return AnyView(MainView().environmentObject(session))
             }
             }())
             .onAppear {  }

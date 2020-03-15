@@ -13,11 +13,18 @@ struct CreateTaskScreen : View {
     
     @State var pickerSelection = 0
     @State var selection = false
+    @State private static var name = ""
+    @State private static var description = ""
+    @State private static var assignee = ""
     @State private var selectedDate = Date()
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var session: SessionViewModel
     
-    private var task : TaskBuilder = Task.builder()
     private var priorities = Priority.allCases.map { "\($0)" }
+    
+    var taskBinding = Binding<String>(get: { name }, set: { name = $0 } )
+    var descriptionBinding = Binding<String>(get: { description }, set: { description = $0 } )
+    var asigneeBinding = Binding<String>(get: { assignee }, set: { assignee = $0 } )
     
     init(){
         UITableView.appearance().backgroundColor = .clear
@@ -28,10 +35,10 @@ struct CreateTaskScreen : View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    LabelTextField(label: "Task name", placeHolder: "Fill in task name")
+                    LabelTextField(label: "Task name", placeHolder: "Fill in task name", text: self.taskBinding)
                     
                     Text("Description").font(.headline).foregroundColor(Color.blue)
-                    MultilineTextField("Fill in task description", text: CreateProjectScreen.testBinding, onCommit: {
+                    MultilineTextField("Fill in task description", text: self.descriptionBinding, onCommit: {
                         print("Final text: ")
                     })
                         .padding(.all)
@@ -49,10 +56,9 @@ struct CreateTaskScreen : View {
                                 }
                         }
                     }
-//                        DatePicker("", selection: $selectedDate, label:  Text("Deadline").font(.headline).foregroundColor(Color.blue))
+                    //DatePicker("", selection: $selectedDate, label:  Text("Deadline").font(.headline).foregroundColor(Color.blue))
                     
-                    
-                    LabelTextField(label: "Assignee", placeHolder: "Fill in the assignee")
+                    LabelTextField(label: "Assignee", placeHolder: "Fill in the assignee", text: self.taskBinding)
                     
                     Toggle(isOn: $selection) {
                         Text("No deadline")
@@ -75,9 +81,32 @@ struct CreateTaskScreen : View {
     
     private var doneButton: some View {
         Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
+            let task = self.buildTask()
+            
+            if self.isTaskValid(task) {
+                self.session.createTask(task: task)
+                self.presentationMode.wrappedValue.dismiss()
+            }
         }) {
             Text("Done").foregroundColor(Color.blue)
         }
+    }
+    
+    private func buildTask() -> Task {
+        let taskBuilder = TaskBuilder(author: SessionViewModel.me!,
+                                      assignee: User(name: "name", lastName: "surname", position: Position.Designer, email: "mail")
+        )
+        
+        taskBuilder.setName(name: CreateTaskScreen.name)
+        taskBuilder.setDescription(description: CreateTaskScreen.description)
+        taskBuilder.setStatus(status: Status.New)
+        taskBuilder.setPriority(priority: Priority.allCases[self.pickerSelection])
+
+        return taskBuilder.build()
+    }
+    
+    private func isTaskValid(_ task: Task) -> Bool {
+        return !(task.name?.isEmpty ?? false) && !(task.description?.isEmpty ?? false) &&
+            task.deadline != nil && !(task.comments?.isEmpty ?? false) && task.author != nil  && task.assignedUser != nil
     }
 }

@@ -9,6 +9,11 @@
 import Foundation
 
 
-enum AccessType {
-    case open, close
+enum AccessType: String, CaseIterable, Codable {
+    
+    case open, close 
+    
+    var description: String {
+        return self.rawValue
+    }
 }

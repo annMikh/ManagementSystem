@@ -14,7 +14,7 @@ struct TaskContentScreen : View {
     @ObservedObject var task: Task
     
     private func getComments() -> Array<Comment> {
-        return [Comment(text: "hello", author: User(), date: Date(), id: 0)] //self.task.comments ?? Array<Comment>()
+        return [Comment(text: "hello", author: User(user: SessionViewModel.me))] //self.task.comments ?? Array<Comment>()
     }
     
     init(task: Task) {
