@@ -28,57 +28,57 @@ struct TaskContentScreen : View {
                 
                 Text("Assignee").font(.title).padding()
                 
-                    HStack(alignment: .top) {
+                HStack(alignment: .top) {
                         Image(systemName: "heart.circle.fill")
                             .resizable()
                             .frame(width: 50.0, height: 50.0)
                             .padding(.horizontal, 10)
-                        
+
                         Spacer()
                         HStack {
                             Spacer()
-                            Text(task.assignedUser!.name + " " + task.assignedUser!.lastName).padding()
+                            Text(task.assignedUser.bound.getFullName()).padding()
                             Spacer()
                         }
                         .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.blue, lineWidth: 1))
                         Spacer()
-                    }
-                                    
-                    Text("Description").font(.title).padding()
-                    HStack(alignment: .top) {
-                            Text(task.description)
-                                    .padding()
-                            Spacer()
-                    }
-                        .overlay(RoundedRectangle(cornerRadius: 4)
-                        .stroke(Color.blue, lineWidth: 1))
-                                    
-                    Text("Assigned by").font(.title).padding()
-                    HStack {
+                }
+
+                Text("Description").font(.title).padding()
+                HStack(alignment: .top) {
+                        Text(task.description.bound)
+                                .padding()
                         Spacer()
-                        Text(task.author!.name + " " + task.author!.lastName)
-                            .frame(minWidth: 200, maxWidth: 200)
-                            .padding()
-                        Spacer()
-                    }
-                        .overlay(RoundedRectangle(cornerRadius: 4)
-                                .stroke(Color.blue, lineWidth: 1))
-                                    
-                    HStack(alignment: .center, spacing: 8) {
-                        Text("Comments").font(.title)
-                        
-                        Image(systemName: "heart.circle.fill")
-                            .resizable()
-                            .frame(width: 20.0, height: 20.0)
-                        Spacer()
-                    }
-                
-                    ForEach(getComments(), id: \.id) { comment in
-                        CommentView(comment: comment)
-                    }
+                }
+                    .overlay(RoundedRectangle(cornerRadius: 4)
+                    .stroke(Color.blue, lineWidth: 1))
+
+                Text("Assigned by").font(.title).padding()
+                HStack {
+                    Spacer()
+                    Text(task.author.bound.getFullName())
+                        .frame(minWidth: 200, maxWidth: 200)
+                        .padding()
+                    Spacer()
+                }
+                    .overlay(RoundedRectangle(cornerRadius: 4)
+                    .stroke(Color.blue, lineWidth: 1))
+
+                HStack(alignment: .center, spacing: 8) {
+                    Text("Comments").font(.title)
+
+                    Image(systemName: "heart.circle.fill")
+                        .resizable()
+                        .frame(width: 20.0, height: 20.0)
+                    Spacer()
+                }
+
+                ForEach(getComments(), id: \.id) { comment in
+                    CommentView(comment: comment)
+                }
                     
             }.padding()
-             .navigationBarTitle(Text(task.name).font(.title))
+                .navigationBarTitle(Text(task.name.bound).font(.title))
         }
     }
 }

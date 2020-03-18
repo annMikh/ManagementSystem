@@ -23,6 +23,7 @@ struct ProjectContentScreen : View {
     @State var isPresentingModal: Bool = false
     
     private var me = SessionViewModel.me
+    @EnvironmentObject var session: SessionViewModel
     
     var body: some View {
           VStack(alignment: .leading) {
@@ -71,12 +72,12 @@ struct ProjectContentScreen : View {
                Image(systemName: "plus.circle.fill")
                .font(.title)
            }.sheet(isPresented: $isPresentingModal) {
-               CreateTaskScreen().environmentObject(session)
+                CreateTaskScreen().environmentObject(self.session)
            }
        }
 }
 
-struct TaskView: View {
+struct TaskView : View {
     
     @ObservedObject var task: Task
     
@@ -92,12 +93,12 @@ struct TaskView: View {
             
                 
                 VStack(alignment: .leading) {
-                    Text(task.name)
+                    Text(task.name.bound)
                         .lineLimit(1)
                         .font(.title)
                     
                     HStack(alignment: .firstTextBaseline) {
-                        Text(task.description)
+                        Text(task.description.bound)
                             .lineLimit(1)
                             .font(.footnote)
                         Spacer()

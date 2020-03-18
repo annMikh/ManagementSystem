@@ -16,7 +16,7 @@ struct CreateTaskScreen : View {
     @State private static var name = ""
     @State private static var description = ""
     @State private static var assignee = ""
-    @State private var selectedDate = Date()
+    private var selectedDate = Date()
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var session: SessionViewModel
     
@@ -55,8 +55,10 @@ struct CreateTaskScreen : View {
                                     Text(self.priorities[index]).foregroundColor(Color.black).tag(index)
                                 }
                         }
+//                        DatePicker(selectedDate) {
+//                            Text("Deadline")
+//                        }
                     }
-                    //DatePicker("", selection: $selectedDate, label:  Text("Deadline").font(.headline).foregroundColor(Color.blue))
                     
                     LabelTextField(label: "Assignee", placeHolder: "Fill in the assignee", text: self.taskBinding)
                     
