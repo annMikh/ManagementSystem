@@ -29,7 +29,7 @@ struct TaskContentScreen : View {
                 Text("Assignee").font(.title).padding()
                 
                 HStack(alignment: .top) {
-                        Image(systemName: "heart.circle.fill")
+                        Image(systemName: "person")
                             .resizable()
                             .frame(width: 50.0, height: 50.0)
                             .padding(.horizontal, 10)
@@ -67,7 +67,7 @@ struct TaskContentScreen : View {
                 HStack(alignment: .center, spacing: 8) {
                     Text("Comments").font(.title)
 
-                    Image(systemName: "heart.circle.fill")
+                    Image(systemName: "text.bubble")
                         .resizable()
                         .frame(width: 20.0, height: 20.0)
                     Spacer()
@@ -91,7 +91,7 @@ struct CommentView : View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .top) {
-                Image(systemName: "heart.circle.fill")
+                Image(systemName: "person")
                     .resizable()
                     .frame(width: 50.0, height: 50.0)
                     .padding(.horizontal, 5)

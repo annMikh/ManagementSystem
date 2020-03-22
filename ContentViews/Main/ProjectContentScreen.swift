@@ -69,7 +69,7 @@ struct ProjectContentScreen : View {
            Button(action: {
                self.isPresentingModal = true
            }) {
-               Image(systemName: "plus.circle.fill")
+               Image(systemName: "plus")
                .font(.title)
            }.sheet(isPresented: $isPresentingModal) {
                 CreateTaskScreen().environmentObject(self.session)
@@ -86,7 +86,7 @@ struct TaskView : View {
             HStack(alignment: .top) {
                 Divider().background(Color.red)
             
-                Image(systemName: "heart.circle.fill")
+                Image(systemName: "paperplane")
                     .resizable()
                     .frame(width: 50.0, height: 50.0)
                     .padding(.horizontal, 10)

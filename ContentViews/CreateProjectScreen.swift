@@ -28,9 +28,7 @@ struct CreateProjectScreen : View {
                 LabelTextField(label: "Project name", placeHolder: "Fill in project name", text: self.nameBinding)
                 
                 Text("Description").font(.headline).foregroundColor(Color.blue)
-                MultilineTextField("Fill in project description", text: self.descriptionBinding, onCommit: {
-                    print("Final text: ")
-                })
+                MultilineTextField("Fill in project description", text: self.descriptionBinding, onCommit: { })
                     .padding(.all)
                     .border(Color.black, width: 2)
                     .cornerRadius(5.0)

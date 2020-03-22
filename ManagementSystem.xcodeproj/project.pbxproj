@@ -11,6 +11,8 @@
 		5B298A77240EFBD4005C26A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B298A76240EFBD4005C26A0 /* ContentView.swift */; };
 		5B5043CE2406AB10002B9051 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B5043CD2406AB10002B9051 /* GoogleService-Info.plist */; };
 		5B526AC42406DAFE00127EAE /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B526AC32406DAFE00127EAE /* SessionViewModel.swift */; };
+		5B764453242245230051D79B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B764452242245230051D79B /* Extensions.swift */; };
+		5B764455242245A30051D79B /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B764454242245A30051D79B /* ProfileScreen.swift */; };
 		5B854AFA23DCB02F00F902B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854AF923DCB02F00F902B7 /* AppDelegate.swift */; };
 		5B854AFC23DCB02F00F902B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854AFB23DCB02F00F902B7 /* SceneDelegate.swift */; };
 		5B854AFE23DCB02F00F902B7 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854AFD23DCB02F00F902B7 /* LoginScreen.swift */; };
@@ -68,6 +70,8 @@
 		5B298A76240EFBD4005C26A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5B5043CD2406AB10002B9051 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B526AC32406DAFE00127EAE /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
+		5B764452242245230051D79B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5B764454242245A30051D79B /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		5B854AF623DCB02F00F902B7 /* ManagementSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManagementSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B854AF923DCB02F00F902B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B854AFB23DCB02F00F902B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -253,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				5BBB4C1623E626150027ACEA /* CommonDateFormatter.swift */,
+				5B764452242245230051D79B /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 				5BBB4C1123E615B80027ACEA /* MainScreen.swift */,
 				5BC37B7C23FB07730058A7CC /* TaskContentScreen.swift */,
 				5B298A76240EFBD4005C26A0 /* ContentView.swift */,
+				5B764454242245A30051D79B /* ProfileScreen.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 				5B854B2C23DCCEC300F902B7 /* RegisterScreen.swift in Sources */,
 				5B854AFA23DCB02F00F902B7 /* AppDelegate.swift in Sources */,
 				5B854B3E23DDEEB700F902B7 /* Position.swift in Sources */,
+				5B764455242245A30051D79B /* ProfileScreen.swift in Sources */,
 				5B854AFC23DCB02F00F902B7 /* SceneDelegate.swift in Sources */,
 				5BBB4C1423E6231F0027ACEA /* ProjectContentScreen.swift in Sources */,
 				5B854B3523DDE02300F902B7 /* Status.swift in Sources */,
@@ -580,6 +587,7 @@
 				5B298A77240EFBD4005C26A0 /* ContentView.swift in Sources */,
 				5B854B3123DDDFF200F902B7 /* Project.swift in Sources */,
 				5B23F0F62416AB9C003A61CA /* Comment.swift in Sources */,
+				5B764453242245230051D79B /* Extensions.swift in Sources */,
 				5BC37B7923FAD3960058A7CC /* CreateTaskScreen.swift in Sources */,
 				5BBB4C1223E615B80027ACEA /* MainScreen.swift in Sources */,
 				5B854B3723DDE3BD00F902B7 /* Priority.swift in Sources */,

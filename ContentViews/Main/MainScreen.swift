@@ -14,6 +14,7 @@ struct MainView : View {
     @State var isPresentingModal: Bool = false
     @State var selectorIndex: Int = 0
     @State var searchValue : String = ""
+    @State var isClickedProfile = false
     
     @EnvironmentObject var session: SessionViewModel
     
@@ -28,7 +29,20 @@ struct MainView : View {
     var body : some View {
         NavigationView {
             VStack(alignment: .leading) {
-                SearchBar(input: $searchValue)
+                
+                HStack {
+                    NavigationLink(destination: ProfileView().environmentObject(session), isActive: $isClickedProfile) {
+                        Button(action: {
+                            self.isClickedProfile = true
+                        }){
+                        Image(systemName: "person")
+                            .resizable()
+                            .frame(width: 25.0, height: 25.0)
+                            .padding(.horizontal, 10)
+                        }
+                    }
+                    SearchBar(input: $searchValue)
+                }
   
                 Picker("projects", selection: $selectorIndex) {
                     Text("new").tag(0)
@@ -65,9 +79,9 @@ struct MainView : View {
         Button(action: {
             self.isPresentingModal = true
         }) {
-            Image(systemName: "plus.circle.fill")
+            Image(systemName: "plus")
             .font(.title)
-        }.sheet(isPresented: $isPresentingModal) {
+        }.sheet(isPresented: self.$isPresentingModal) {
             CreateProjectScreen().environmentObject(self.session)
         }
     }
@@ -134,9 +148,9 @@ struct ProjectView : View {
             HStack(alignment: .top) {
                 Divider().background(Color.red)
             
-                Image(systemName: "heart.circle.fill")
+                Image(systemName: "folder")
                     .resizable()
-                    .frame(width: 50.0, height: 50.0)
+                    .frame(width: 40.0, height: 40.0)
                     .padding(.horizontal, 10)
             
                 
