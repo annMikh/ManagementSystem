@@ -15,13 +15,26 @@ struct ContentView : View {
 
     var body: some View {
         AnyView({ () -> AnyView in
-            if (!UserDefaults.standard.bool(forKey: "isLogin")) {
+            if (!UserPreferences.getLogIn()) {
                 return AnyView(LoginView().environmentObject(session))
             } else {
-                return AnyView(MainView().environmentObject(session))
+                return AnyView(mainView)
             }
             }())
             .onAppear {  }
             .onDisappear {  }
+    }
+    
+    var mainView : some View {
+        NavigationView {
+            MainView()
+                .environmentObject(session)
+                .navigationBarTitle(
+                 Text("Boards")
+                     .font(.largeTitle)
+                     .foregroundColor(.primary)
+                )
+                .navigationBarBackButtonHidden(true)
+        }
     }
 }

@@ -25,13 +25,11 @@ struct MainView : View {
     }
     
     private var projects = [Project(name: "first", description: "vjsvjjvsljvldjvs"), Project(name: "second", description: "description")]
-    
+        
     var body : some View {
-        NavigationView {
             VStack(alignment: .leading) {
-                
                 HStack {
-                    NavigationLink(destination: ProfileView().environmentObject(session), isActive: $isClickedProfile) {
+                    NavigationLink(destination: profileContent, isActive: $isClickedProfile) {
                         Button(action: {
                             self.isClickedProfile = true
                         }){
@@ -45,34 +43,50 @@ struct MainView : View {
                 }
   
                 Picker("projects", selection: $selectorIndex) {
-                    Text("new").tag(0)
+                    Text("all").tag(0)
                     Text("personal").tag(1)
-                }
-                    .pickerStyle(SegmentedPickerStyle())
+                }.pickerStyle(SegmentedPickerStyle())
                 
                 List {
-                    ForEach(projects, id: \.name) { proj in
-                        ProjectView(project: proj)
+                    if self.$selectorIndex.wrappedValue == 0 {
+                        ForEach(projects, id: \.name) { proj in
+                            ProjectView(project: proj)
+                        }
+                        .onDelete(perform: delete)
+                        .onMove(perform: move)
+                    } else {
+                        ForEach(self.getOnlyMyProjects(), id: \.name) { proj in
+                            ProjectView(project: proj)
+                        }
+                        .onDelete(perform: delete)
+                        .onMove(perform: move)
                     }
-                    .onDelete(perform: delete)
-                    .onMove(perform: move)
                 }
                 
                 Spacer()
-            }.navigationBarTitle(
-                Text("Boards")
-                    .font(.largeTitle)
-                    .foregroundColor(.primary)
-            )
-            .navigationBarItems(leading: EditButton(), trailing: addProject)
+            .navigationViewStyle(StackNavigationViewStyle())
+        }.onAppear{
+            //Database().getProjects()
         }
     }
+    
+    private func getOnlyMyProjects() -> [Project] {
+        return self.projects.filter { $0.creator == SessionViewModel.me }
+    }
+    
     
     private func delete(at offsets: IndexSet) {
     
     }
 
     private func move(from source: IndexSet, to destination: Int) {
+    }
+    
+    private var profileContent : some View {
+        ProfileView()
+            .navigationBarTitle(Text("Profile").bold())
+            .navigationBarBackButtonHidden(false)
+            .environmentObject(session)
     }
     
     private var addProject: some View {
@@ -144,9 +158,9 @@ struct ProjectView : View {
     @ObservedObject var project: Project
     
     var body: some View {
-        NavigationLink(destination: ProjectContentScreen(project: project)) {
+        NavigationLink(destination: projectContent) {
             HStack(alignment: .top) {
-                Divider().background(Color.red)
+                Divider().background(AccessType.getColor(type: project.accessType))
             
                 Image(systemName: "folder")
                     .resizable()
@@ -172,15 +186,14 @@ struct ProjectView : View {
             }
             .frame(height: 50)
             .padding([.trailing, .top, .bottom])
-        }.navigationBarBackButtonHidden(false)
+        }
+    }
+
+    
+    var projectContent : some View {
+        ProjectContentScreen(project: project)
+                                .navigationBarTitle(project.name)
+                                .navigationBarBackButtonHidden(false)
     }
     
 }
-
-
-//struct MainView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainScreen()
-//    }
-//}
-

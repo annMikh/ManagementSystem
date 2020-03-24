@@ -28,20 +28,20 @@ struct ProjectContentScreen : View {
     var body: some View {
           VStack(alignment: .leading) {
               Picker("projects", selection: $selectorIndex) {
-                Text("In Progress").tag(0)
-                Text("Assigned").tag(1)
-                Text("Completed").tag(2)
+                Text("Low").tag(0)
+                Text("Medium").tag(1)
+                Text("High").tag(2)
+                Text("Critical").tag(3)
               }
                 .pickerStyle(SegmentedPickerStyle())
               
-              List {
+            List {
                 ForEach(getTasks(), id: \.self) { task in
                     TaskView(task: task)
                   }
                   .onDelete(perform: delete)
                   .onMove(perform: move)
-              }
-
+            }
               Spacer()
           }
           .navigationBarTitle(
@@ -49,23 +49,23 @@ struct ProjectContentScreen : View {
               .font(.largeTitle)
               .foregroundColor(.primary)
           )
-          .navigationBarItems(leading: EditButton(), trailing: addTask)
+            .navigationViewStyle(StackNavigationViewStyle())
     }
     
-    private func getTasks() -> Array<Task> {
-        return Array(project.tasks.first{ $0.key == me }?.value ?? [])
+    private func getTasks() -> [Task] {
+        return project.tasks.filter{ $0.priority == Priority.allCases[$selectorIndex.wrappedValue] }
     }
     
     private func delete(at offsets: IndexSet) {
-        var tasks = project.tasks.first{ $0.key == me }?.value
-        tasks?.remove(atOffsets: offsets)
+        var tasks = project.tasks
+        tasks.remove(atOffsets: offsets)
     }
 
     private func move(from source: IndexSet, to destination: Int) {
         
     }
     
-    private var addTask: some View {
+    var addTask: some View {
            Button(action: {
                self.isPresentingModal = true
            }) {
@@ -74,7 +74,7 @@ struct ProjectContentScreen : View {
            }.sheet(isPresented: $isPresentingModal) {
                 CreateTaskScreen().environmentObject(self.session)
            }
-       }
+    }
 }
 
 struct TaskView : View {
@@ -82,9 +82,9 @@ struct TaskView : View {
     @ObservedObject var task: Task
     
     var body : some View {
-        NavigationLink(destination: TaskContentScreen(task: task)) {
-            HStack(alignment: .top) {
-                Divider().background(Color.red)
+        NavigationLink(destination: taskContent) {
+            HStack(alignment: .center, spacing: 3) {
+                Divider().background(Priority.getColor(priority: task.priority))
             
                 Image(systemName: "paperplane")
                     .resizable()
@@ -102,14 +102,30 @@ struct TaskView : View {
                             .lineLimit(1)
                             .font(.footnote)
                         Spacer()
-                        Text(String(describing: task.priority))
-                            .lineLimit(nil)
+                    }
+                    
+                    Text(String(describing: task.priority))
+                        .lineLimit(1)
+                        .font(.footnote)
+                        .foregroundColor(Priority.getColor(priority: task.priority))
+                    
+                    HStack {
+                        Spacer()
+                        Text(CommonDateFormatter.getStringWithFormate(date: task.deadline))
+                            .lineLimit(1)
                             .font(.footnote)
+                            .foregroundColor(.gray)
                     }
                 }
             }
             .frame(height: 50)
             .padding([.trailing, .top, .bottom])
         }
+    }
+    
+    var taskContent : some View {
+        TaskContentScreen(task: task)
+            .navigationBarTitle(task.name.bound)
+            .navigationBarBackButtonHidden(false)
     }
 }

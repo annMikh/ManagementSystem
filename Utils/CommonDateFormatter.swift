@@ -17,8 +17,8 @@ class CommonDateFormatter {
         return formatter.date(from: formate) ?? Date()
     }
     
-    static func getStringWithFormate(date: Date, formate : String = "dd.MM.yyyy") -> String {
+    static func getStringWithFormate(date: Date?, formate : String = "dd.MM.yyyy") -> String {
         formatter.dateFormat = formate
-        return formatter.string(from: date)
+        return formatter.string(from: date ?? Date())
     }
 }

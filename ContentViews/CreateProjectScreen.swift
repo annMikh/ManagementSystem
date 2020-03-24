@@ -102,9 +102,3 @@ struct LabelTextField : View {
         }
     }
 }
-
-//struct CreateProjectView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CreateProjectScreen()
-//    }
-//}

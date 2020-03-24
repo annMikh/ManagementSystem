@@ -58,7 +58,7 @@ struct ProfileView : View {
                     .padding()
                 }
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .center) {
                     Text("Roles in projects").font(.headline).padding(.all, 10)
                     
                     List {
@@ -66,31 +66,42 @@ struct ProfileView : View {
                             PositionView(position: role, project: name)
                         }
                     }
+                    Spacer()
+                    
+                    Button(action: {
+                        self.isClickedEdit = !self.isClickedEdit
+                    }){
+                        HStack(alignment: .center) {
+                            Image(systemName: nameForPencil())
+                                .resizable()
+                                .frame(width: 20.0, height: 20.0)
+                                .padding(.horizontal, 10)
+                            
+                            Text("Edit profile")
+                        }
+                    }.padding(.top, 15)
+                     .padding(.bottom, 10)
+                    
+                    Button(action: {
+                        UserPreferences.setLogIn(false)
+                        self.isClickedLogOut = true
+                    }){
+                        NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true), isActive: $isClickedLogOut) {
+                            HStack(alignment: .center) {
+                                Image("logOut")
+                                    .resizable()
+                                    .frame(width: 20.0, height: 20.0)
+                                    .padding(.horizontal, 10)
+                                
+                                Text("Log Out")
+                            }
+                        }
+                    }.padding(.top, 15)
+                     .padding(.bottom, 10)
+
                 }
                 
-            }.navigationBarItems(leading: editButton, trailing: logOut)
-             .navigationBarTitle(Text("Profile").bold(), displayMode: .inline)
-    }
-    
-    private var logOut: some View {
-        NavigationLink(destination: LoginView(), isActive: $isClickedLogOut) {
-            Image("logOut")
-                .resizable()
-                .frame(width: 20.0, height: 20.0)
-                .padding(.horizontal, 10)
-        }
-    }
-    
-    private var editButton: some View {
-        Button(action: {
-            self.isClickedEdit = !self.isClickedEdit
-        }) {
-            Image(systemName: nameForPencil())
-                .resizable()
-                .frame(width: 20.0, height: 20.0)
-                .padding(.horizontal, 10)
-        }
-        
+            }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     private func nameForPencil() -> String {

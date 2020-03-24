@@ -8,19 +8,13 @@
 
 import Foundation
 import Firebase
-import FirebaseAuth
-import FirebaseCore
-import FirebaseFirestore
-import FirebaseFirestoreSwift
-
 
 class SessionViewModel : ObservableObject {
     
     @Published var session: User?
     @Published var isLogIn: Bool?
-    static var me : User?
+    static var me : User? = User(name: "anna", lastName: "mikhaleva", position: Position.Manager, email: "dfdv")
     
-    let db = Firestore.firestore()
     
     func listen() {
         _ = Auth.auth().addStateDidChangeListener { (auth, user) in
@@ -45,33 +39,12 @@ class SessionViewModel : ObservableObject {
     }
     
     func createUser(user: User) {
-        do {
-            try db.collection("users").document().setData(from: user) { err in
-                print(err == nil ? "no error" : err!)
-            }
-        } catch let err {
-            print(err)
-        }
     }
     
     func createProject(project: Project) {
-        do {
-            try db.collection("projects").document().setData(from: project) { err in
-                print(err == nil ? "no error" : err!)
-            }
-        } catch let err {
-            print(err)
-        }
     }
     
     func createTask(task: Task) {
-        do {
-            try db.collection("tasks").document().setData(from: task) { err in
-                print(err == nil ? "no error" : err!)
-            }
-        } catch let err {
-            print(err)
-        }
     }
     
 }

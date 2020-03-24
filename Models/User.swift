@@ -40,7 +40,7 @@ class User : Codable, Hashable, ObservableObject {
     var tasks: Set<Task>
     
     static func == (lhs: User, rhs: User) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.id == rhs.id && lhs.name == rhs.name //todo delete name
     }
     
     func hash(into hasher: inout Hasher) {

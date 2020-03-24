@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 
 extension Optional where Wrapped == String {
     
@@ -52,7 +52,6 @@ extension Optional where Wrapped == User {
 }
 
 extension Position {
-    
     static func getImage(pos : Position) -> String {
         switch pos {
             case .Designer:
@@ -65,6 +64,47 @@ extension Position {
                 return "person.3"
             default:
                 return "person.circle"
+        }
+    }
+    
+    static func getColor(pos : Position) -> Color {
+        switch pos {
+            case .Designer:
+                return .pink
+            case .Developer:
+                return .blue
+            case .Manager:
+                return .green
+            case .Tester:
+                return .purple
+            default:
+                return .red
+        }
+    }
+}
+
+extension Priority {
+    static func getColor(priority: Priority) -> Color {
+        switch priority {
+        case .low:
+            return .yellow
+        case .critical:
+            return .red
+        case .medium:
+            return .purple
+        case .high:
+            return .blue
+        }
+    }
+}
+
+extension AccessType {
+    static func getColor(type: AccessType) -> Color {
+        switch type {
+        case .open:
+            return .purple
+        case .close:
+            return .green
         }
     }
 }

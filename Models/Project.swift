@@ -16,7 +16,16 @@ class Project : Hashable, Codable, ObservableObject  {
         self.description = description
         self.accessType = accessType
         self.date = Date()
-        self.tasks = [User : [Task]]()
+        self.creator = User(name: "fsdfds", lastName: "fghjkfd", position: Position.Manager, email: "dfdfd")
+        
+        let u = self.creator
+        let a = User(name: "anya", lastName: "mikhaleva", position: Position.Designer, email: "adsds")
+        let b = Task.builder(author: u, assignee: a)
+        b.setDescription(description: "fdshfhdsjfs")
+        b.setDeadline(deadline: Date())
+        b.setName(name: "fdhsfjhd")
+        
+        self.tasks = [b.build()]
         self.participants = []
         self.tags = Set<Tag>()
     }
@@ -34,11 +43,12 @@ class Project : Hashable, Codable, ObservableObject  {
     var name: String
     var description: String
     var accessType: AccessType
+    var creator: User
     var date: Date
     
     var tags : Set<Tag>
     var participants : [User]
     
-    var tasks : [User : [Task]]
+    var tasks : [Task]
     
 }
