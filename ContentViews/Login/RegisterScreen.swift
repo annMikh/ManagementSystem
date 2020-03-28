@@ -23,11 +23,6 @@ struct RegisterView: View {
     
     private var positions = Position.allCases.map {"\($0)"}
     
-    init(){
-        UITableView.appearance().backgroundColor = .clear
-        UITableView.appearance().separatorColor = .clear
-    }
-        
     var body: some View {
     NavigationView {
         VStack(alignment: .leading) {

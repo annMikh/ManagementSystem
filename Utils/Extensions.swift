@@ -51,6 +51,27 @@ extension Optional where Wrapped == User {
     }
 }
 
+extension Optional where Wrapped == Int {
+    
+    var _bound: Int? {
+        get {
+            return self
+        }
+        set {
+            self = newValue
+        }
+    }
+    
+    internal var bound: Int {
+        get {
+            return _bound ?? -1
+        }
+        set {
+            _bound = newValue
+        }
+    }
+}
+
 extension Position {
     static func getImage(pos : Position) -> String {
         switch pos {
@@ -108,3 +129,4 @@ extension AccessType {
         }
     }
 }
+

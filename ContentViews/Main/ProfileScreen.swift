@@ -34,74 +34,81 @@ struct ProfileView : View {
     @EnvironmentObject var session : SessionViewModel
     
     var body : some View {
+        ScrollView {
             VStack {
-                HStack(alignment: .center, spacing: 30) {
-                    Image(systemName: "person")
-                        .resizable()
-                        .frame(width: 50.0, height: 50.0)
-                        .padding(.top, 20)
-                        .padding(.leading, 20)
-                
-                    LabelTextField(label: "Email address", placeHolder: "", text: $email)
-                        .disabled(true)
-                        .disableAutocorrection(true)
-                        .padding(.top, 20)
-                }
-                
-                Group {
-                 LabelTextField(label: "Your name", placeHolder: "enter your name", text: $_name)
-                    .disabled(!self.isClickedEdit)
-                    .padding()
-                    
-                 LabelTextField(label: "Your lastname", placeHolder: "enter your lastname", text: $_lastName)
-                    .disabled(!self.isClickedEdit)
-                    .padding()
-                }
-                
-                VStack(alignment: .center) {
-                    Text("Roles in projects").font(.headline).padding(.all, 10)
-                    
-                    List {
-                        ForEach(roles, id: \.proj) { (role, name) in
-                            PositionView(position: role, project: name)
-                        }
+                    HStack(alignment: .center, spacing: 30) {
+                        Image(systemName: "person")
+                            .resizable()
+                            .frame(width: 50.0, height: 50.0)
+                            .padding(.top, 20)
+                            .padding(.leading, 20)
+
+                        LabelTextField(label: "Email address", placeHolder: "", text: $email)
+                            .disabled(true)
+                            .disableAutocorrection(true)
+                            .padding(.top, 20)
                     }
-                    Spacer()
-                    
-                    Button(action: {
-                        self.isClickedEdit = !self.isClickedEdit
-                    }){
-                        HStack(alignment: .center) {
-                            Image(systemName: nameForPencil())
-                                .resizable()
-                                .frame(width: 20.0, height: 20.0)
-                                .padding(.horizontal, 10)
-                            
-                            Text("Edit profile")
-                        }
-                    }.padding(.top, 15)
-                     .padding(.bottom, 10)
-                    
-                    Button(action: {
-                        UserPreferences.setLogIn(false)
-                        self.isClickedLogOut = true
-                    }){
-                        NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true), isActive: $isClickedLogOut) {
-                            HStack(alignment: .center) {
-                                Image("logOut")
-                                    .resizable()
-                                    .frame(width: 20.0, height: 20.0)
-                                    .padding(.horizontal, 10)
-                                
-                                Text("Log Out")
+
+                    Group {
+                     LabelTextField(label: "Your name", placeHolder: "enter your name", text: $_name)
+                        .disabled(!self.isClickedEdit)
+                        .padding()
+
+                     LabelTextField(label: "Your lastname", placeHolder: "enter your lastname", text: $_lastName)
+                        .disabled(!self.isClickedEdit)
+                        .padding()
+                    }
+                
+                    VStack(alignment: .leading) {
+                        
+                        Text("Roles in projects")
+                            .font(.headline)
+                            .foregroundColor(Color.blue)
+                            .padding(.all, 10)
+                            .padding()
+                        
+                        ForEach(0 ..< roles.count) { i in
+                            PositionView(position: self.roles[i].pos, project: self.roles[i].proj)
+                            if i != self.roles.count - 1 {
+                                Divider()
                             }
                         }
-                    }.padding(.top, 15)
-                     .padding(.bottom, 10)
-
-                }
+                        
+                        Button(action: {
+                            self.isClickedEdit = !self.isClickedEdit
+                        }){
+                            HStack(alignment: .center) {
+                                Image(systemName: nameForPencil())
+                                    .resizable()
+                                    .frame(width: 15.0, height: 15.0)
+                                    .padding(.horizontal, 10)
+                                
+                                Text("Edit profile")
+                            }
+                        }.padding()
+                        
+                        Divider()
+                        
+                        Button(action: {
+                            UserPreferences.setLogIn(false)
+                            self.isClickedLogOut = true
+                        }){
+                            NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true), isActive: $isClickedLogOut) {
+                                HStack(alignment: .center) {
+                                    Image("logOut")
+                                        .resizable()
+                                        .frame(width: 15.0, height: 15.0)
+                                        .foregroundColor(.red)
+                                        .padding(.horizontal, 10)
+                                    
+                                    Text("Log Out").foregroundColor(.red)
+                                }
+                            }
+                        }.padding()
+                    }
                 
-            }.navigationViewStyle(StackNavigationViewStyle())
+            }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     private func nameForPencil() -> String {
@@ -116,18 +123,16 @@ struct PositionView : View {
     let project : String
     
     var body : some View {
-        HStack {
-            Divider().background(Color.red)
             HStack {
                 Image(systemName: Position.getImage(pos: position))
                     .resizable()
                     .frame(width: 20.0, height: 20.0)
                     .padding(.horizontal, 10)
                 
-                Text(String(describing: position)).font(.title)
+                Text(String(describing: position)).bold().font(.body)
                 Spacer()
-                Text(project).foregroundColor(.gray).font(.body)
+                Text(project).foregroundColor(.gray).font(.body).padding(.trailing, 10)
             }
-        }
+        
     }
 }

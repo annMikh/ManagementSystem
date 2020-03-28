@@ -11,7 +11,17 @@ import Firebase
 
 class Database : ObservableObject {
     
-    func getProjects() //-> [Project] {
-
+    let db = Firestore.firestore()
+    
+    func getProjects(me: User) { //-> [Project] {
+        db.collection("projects")
+            .whereField("projects", arrayContains: me.projects.map { $0.hashValue} )
+            .addSnapshotListener { querySnapshot, error in
+                guard let snapshot = querySnapshot else {
+                    print("Error retreiving snapshots \(error!)")
+                    return
+                }
+                print("Current projects: \(snapshot.documents.map { $0.data() })")
+            }
     }
 }

@@ -26,13 +26,13 @@ class Task : Hashable, Codable, ObservableObject  {
     var comments : Array<Comment>?
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(description)
+        hasher.combine(author)
+        hasher.combine(assignedUser)
+        hasher.combine(date)
     }
     
     static func == (lhs: Task, rhs: Task) -> Bool {
-        return lhs.author == rhs.author &&  lhs.name == rhs.name && lhs.assignedUser == rhs.assignedUser
-            && lhs.description == rhs.description && lhs.priority == rhs.priority
+        return lhs.author == rhs.author && lhs.assignedUser == rhs.assignedUser && lhs.date == rhs.date
     }
     
 }

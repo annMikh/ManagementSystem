@@ -16,7 +16,6 @@ class User : Codable, Hashable, ObservableObject {
         self.lastName = lastName
         self.position = position
         self.email = email
-        self.id = nil
         self.projects = Set<Project>()
         self.tasks = Set<Task>()
     }
@@ -34,20 +33,16 @@ class User : Codable, Hashable, ObservableObject {
     var lastName: String
     var email: String
     var position: Position
-    var id: Int?
     
     var projects: Set<Project>
     var tasks: Set<Task>
     
     static func == (lhs: User, rhs: User) -> Bool {
-        return lhs.id == rhs.id && lhs.name == rhs.name //todo delete name
+        return lhs.email == rhs.email
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(lastName)
-        hasher.combine(position)
-        hasher.combine(id)
+        hasher.combine(email)
     }
     
     func getFullName() -> String {

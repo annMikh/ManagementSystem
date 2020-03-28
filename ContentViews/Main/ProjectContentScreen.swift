@@ -20,36 +20,47 @@ struct ProjectContentScreen : View {
     
     @ObservedObject var project: Project
     @State var selectorIndex = 0
-    @State var isPresentingModal: Bool = false
+    
+    @State var isPresentingAdd: Bool = false
+    @State var isPresentingEdit: Bool = false
     
     private var me = SessionViewModel.me
     @EnvironmentObject var session: SessionViewModel
     
     var body: some View {
-          VStack(alignment: .leading) {
-              Picker("projects", selection: $selectorIndex) {
-                Text("Low").tag(0)
-                Text("Medium").tag(1)
-                Text("High").tag(2)
-                Text("Critical").tag(3)
-              }
-                .pickerStyle(SegmentedPickerStyle())
-              
-            List {
-                ForEach(getTasks(), id: \.self) { task in
-                    TaskView(task: task)
+        ZStack(alignment: .bottomTrailing) {
+              VStack(alignment: .leading) {
+                  Picker("projects", selection: $selectorIndex) {
+                    Text("Low").tag(0)
+                    Text("Medium").tag(1)
+                    Text("High").tag(2)
+                    Text("Critical").tag(3)
                   }
-                  .onDelete(perform: delete)
-                  .onMove(perform: move)
+                    .pickerStyle(SegmentedPickerStyle())
+                  
+                List {
+                    ForEach(getTasks(), id: \.self) { task in
+                        TaskView(task: task)
+                      }
+                      .onDelete(perform: delete)
+                      .onMove(perform: move)
+                }
+                  Spacer()
+              }
+            
+              FloatingButton(actionAdd: { self.isPresentingAdd.toggle() },
+                 actionEdit: { self.isPresentingEdit.toggle() })
+                  .padding()
+                  .sheet(isPresented: self.$isPresentingAdd){
+                      CreateTaskScreen(project: self.project).environmentObject(self.session)
+              }
             }
-              Spacer()
-          }
-          .navigationBarTitle(
-            Text(project.name)
-              .font(.largeTitle)
-              .foregroundColor(.primary)
-          )
-            .navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarTitle(
+              Text(project.name)
+                .font(.largeTitle)
+                .foregroundColor(.primary)
+            )
+              .navigationViewStyle(StackNavigationViewStyle())
     }
     
     private func getTasks() -> [Task] {
@@ -64,17 +75,6 @@ struct ProjectContentScreen : View {
     private func move(from source: IndexSet, to destination: Int) {
         
     }
-    
-    var addTask: some View {
-           Button(action: {
-               self.isPresentingModal = true
-           }) {
-               Image(systemName: "plus")
-               .font(.title)
-           }.sheet(isPresented: $isPresentingModal) {
-                CreateTaskScreen().environmentObject(self.session)
-           }
-    }
 }
 
 struct TaskView : View {
@@ -82,48 +82,52 @@ struct TaskView : View {
     @ObservedObject var task: Task
     
     var body : some View {
-        NavigationLink(destination: taskContent) {
-            HStack(alignment: .center, spacing: 3) {
-                Divider().background(Priority.getColor(priority: task.priority))
-            
-                Image(systemName: "paperplane")
-                    .resizable()
-                    .frame(width: 50.0, height: 50.0)
-                    .padding(.horizontal, 10)
-            
+        NavigationLink(destination: TaskContent) {
+            VStack {
+                HStack(alignment: .center, spacing: 3) {
+                    Divider().background(Priority.getColor(priority: task.priority))
                 
-                VStack(alignment: .leading) {
-                    Text(task.name.bound)
-                        .lineLimit(1)
-                        .font(.title)
+                    Image(systemName: "paperplane")
+                        .resizable()
+                        .frame(width: 50.0, height: 50.0)
+                        .padding(.horizontal, 10)
+                
                     
-                    HStack(alignment: .firstTextBaseline) {
-                        Text(task.description.bound)
+                    VStack(alignment: .leading) {
+                        Text(task.name.bound)
+                            .lineLimit(1)
+                            .font(.title)
+                        
+                        HStack(alignment: .firstTextBaseline) {
+                            Text(task.description.bound)
+                                .lineLimit(1)
+                                .font(.footnote)
+                            Spacer()
+                        }
+                        
+                        Text(String(describing: task.priority))
                             .lineLimit(1)
                             .font(.footnote)
-                        Spacer()
-                    }
-                    
-                    Text(String(describing: task.priority))
-                        .lineLimit(1)
-                        .font(.footnote)
-                        .foregroundColor(Priority.getColor(priority: task.priority))
-                    
-                    HStack {
-                        Spacer()
-                        Text(CommonDateFormatter.getStringWithFormate(date: task.deadline))
-                            .lineLimit(1)
-                            .font(.footnote)
-                            .foregroundColor(.gray)
+                            .foregroundColor(Priority.getColor(priority: task.priority))
+                        
+                        HStack {
+                            Spacer()
+                            Text(DFormatter.getStringWithFormate(date: task.deadline))
+                                .lineLimit(1)
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
+                .frame(height: 50)
+                .padding([.trailing, .top, .bottom])
+                
+                Divider()
             }
-            .frame(height: 50)
-            .padding([.trailing, .top, .bottom])
         }
     }
     
-    var taskContent : some View {
+    var TaskContent : some View {
         TaskContentScreen(task: task)
             .navigationBarTitle(task.name.bound)
             .navigationBarBackButtonHidden(false)

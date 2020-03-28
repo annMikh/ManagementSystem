@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -36,13 +36,15 @@
 		5BBB4C0F23E5F7D20027ACEA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C0E23E5F7D20027ACEA /* Coordinator.swift */; };
 		5BBB4C1223E615B80027ACEA /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1123E615B80027ACEA /* MainScreen.swift */; };
 		5BBB4C1423E6231F0027ACEA /* ProjectContentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1323E6231F0027ACEA /* ProjectContentScreen.swift */; };
-		5BBB4C1723E626150027ACEA /* CommonDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1623E626150027ACEA /* CommonDateFormatter.swift */; };
+		5BBB4C1723E626150027ACEA /* DFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1623E626150027ACEA /* DFormatter.swift */; };
 		5BBB4C1A23E768710027ACEA /* MultiLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1923E768710027ACEA /* MultiLineTextField.swift */; };
 		5BC37B7923FAD3960058A7CC /* CreateTaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC37B7823FAD3960058A7CC /* CreateTaskScreen.swift */; };
 		5BC37B7D23FB07730058A7CC /* TaskContentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC37B7C23FB07730058A7CC /* TaskContentScreen.swift */; };
 		5BECE99B2428AF3100AFFE62 /* TextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BECE99A2428AF3100AFFE62 /* TextFieldAlert.swift */; };
 		5BECE99D2429080500AFFE62 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BECE99C2429080500AFFE62 /* Database.swift */; };
 		5BECE9A02429250900AFFE62 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BECE99F2429250900AFFE62 /* UserPreferences.swift */; };
+		5BF21357242F521D009AEED4 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF21356242F521D009AEED4 /* FloatingButton.swift */; };
+		5BF21359242F5A85009AEED4 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF21358242F5A85009AEED4 /* SearchBar.swift */; };
 		82BABBED051EE385B2258B84 /* libPods-ManagementSystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C76F1A183A1557F14CFEAD /* libPods-ManagementSystem.a */; };
 /* End PBXBuildFile section */
 
@@ -100,13 +102,15 @@
 		5BBB4C0E23E5F7D20027ACEA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5BBB4C1123E615B80027ACEA /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		5BBB4C1323E6231F0027ACEA /* ProjectContentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentScreen.swift; sourceTree = "<group>"; };
-		5BBB4C1623E626150027ACEA /* CommonDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDateFormatter.swift; sourceTree = "<group>"; };
+		5BBB4C1623E626150027ACEA /* DFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFormatter.swift; sourceTree = "<group>"; };
 		5BBB4C1923E768710027ACEA /* MultiLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineTextField.swift; sourceTree = "<group>"; };
 		5BC37B7823FAD3960058A7CC /* CreateTaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskScreen.swift; sourceTree = "<group>"; };
 		5BC37B7C23FB07730058A7CC /* TaskContentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskContentScreen.swift; sourceTree = "<group>"; };
 		5BECE99A2428AF3100AFFE62 /* TextFieldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlert.swift; sourceTree = "<group>"; };
 		5BECE99C2429080500AFFE62 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		5BECE99F2429250900AFFE62 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		5BF21356242F521D009AEED4 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		5BF21358242F5A85009AEED4 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		94C76F1A183A1557F14CFEAD /* libPods-ManagementSystem.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ManagementSystem.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A96F211BB36B72ED9D09E2E7 /* Pods-ManagementSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementSystem.debug.xcconfig"; path = "Target Support Files/Pods-ManagementSystem/Pods-ManagementSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		AB8885FCA8498DB71680CD77 /* Pods-ManagementSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementSystem.release.xcconfig"; path = "Target Support Files/Pods-ManagementSystem/Pods-ManagementSystem.release.xcconfig"; sourceTree = "<group>"; };
@@ -254,7 +258,7 @@
 		5BBB4C1523E625FD0027ACEA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				5BBB4C1623E626150027ACEA /* CommonDateFormatter.swift */,
+				5BBB4C1623E626150027ACEA /* DFormatter.swift */,
 				5B764452242245230051D79B /* Extensions.swift */,
 			);
 			path = Utils;
@@ -265,6 +269,8 @@
 			children = (
 				5BBB4C1923E768710027ACEA /* MultiLineTextField.swift */,
 				5BECE99A2428AF3100AFFE62 /* TextFieldAlert.swift */,
+				5BF21356242F521D009AEED4 /* FloatingButton.swift */,
+				5BF21358242F5A85009AEED4 /* SearchBar.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -516,13 +522,15 @@
 				5B854B2F23DDDF7F00F902B7 /* User.swift in Sources */,
 				5B854B3A23DDE53F00F902B7 /* AccessType.swift in Sources */,
 				5B854B3C23DDE60200F902B7 /* Tag.swift in Sources */,
-				5BBB4C1723E626150027ACEA /* CommonDateFormatter.swift in Sources */,
+				5BBB4C1723E626150027ACEA /* DFormatter.swift in Sources */,
 				5BECE99B2428AF3100AFFE62 /* TextFieldAlert.swift in Sources */,
 				5B854AFE23DCB02F00F902B7 /* LoginScreen.swift in Sources */,
 				5BC37B7D23FB07730058A7CC /* TaskContentScreen.swift in Sources */,
 				5B854B3323DDE00000F902B7 /* Task.swift in Sources */,
+				5BF21359242F5A85009AEED4 /* SearchBar.swift in Sources */,
 				5BBB4C1A23E768710027ACEA /* MultiLineTextField.swift in Sources */,
 				5B526AC42406DAFE00127EAE /* SessionViewModel.swift in Sources */,
+				5BF21357242F521D009AEED4 /* FloatingButton.swift in Sources */,
 				5B298A77240EFBD4005C26A0 /* ContentView.swift in Sources */,
 				5B854B3123DDDFF200F902B7 /* Project.swift in Sources */,
 				5B23F0F62416AB9C003A61CA /* Comment.swift in Sources */,

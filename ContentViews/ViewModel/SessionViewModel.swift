@@ -15,6 +15,7 @@ class SessionViewModel : ObservableObject {
     @Published var isLogIn: Bool?
     static var me : User? = User(name: "anna", lastName: "mikhaleva", position: Position.Manager, email: "dfdv")
     
+    let db = Firestore.firestore()
     
     func listen() {
         _ = Auth.auth().addStateDidChangeListener { (auth, user) in
@@ -39,12 +40,52 @@ class SessionViewModel : ObservableObject {
     }
     
     func createUser(user: User) {
+        db.collection("users").document(String(user.hashValue)).setData([
+            "name": user.name,
+            "lastName": user.lastName,
+            "email": user.email,
+            "position": user.position,
+            "projects": user.projects
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
     }
     
     func createProject(project: Project) {
+        db.collection("projects").document(String(project.hashValue)).setData([
+            "name": project.name,
+            "description": project.description,
+            "date": project.date,
+            "accessType":  project.accessType,
+            "creator": project.creator,
+            "participants": project.participants,
+            "tags": project.tags,
+            "tasks": project.tasks
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
     }
     
-    func createTask(task: Task) {
+    func createTask(task: Task, project: Project) {
+        var tasks = project.tasks
+        tasks.append(task)
+        db.collection("projects").document(String(project.hashValue)).updateData([
+            "tasks": tasks
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
     }
     
 }

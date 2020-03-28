@@ -31,13 +31,12 @@ class Project : Hashable, Codable, ObservableObject  {
     }
     
     static func == (lhs: Project, rhs: Project) -> Bool {
-        return lhs.name == rhs.name && lhs.description == rhs.description && lhs.accessType == rhs.accessType
-            && lhs.participants == rhs.participants && lhs.tags == rhs.tags
+        return lhs.creator == rhs.creator && lhs.date == rhs.date
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(description)
+        hasher.combine(creator)
+        hasher.combine(date)
     }
     
     var name: String
@@ -48,7 +47,6 @@ class Project : Hashable, Codable, ObservableObject  {
     
     var tags : Set<Tag>
     var participants : [User]
-    
     var tasks : [Task]
     
 }

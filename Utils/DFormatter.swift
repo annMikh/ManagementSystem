@@ -9,7 +9,7 @@
 import Foundation
 
 
-class CommonDateFormatter {
+class DFormatter {
         
     private static var formatter = DateFormatter()
     

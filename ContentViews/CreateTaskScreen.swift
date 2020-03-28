@@ -11,6 +11,8 @@ import SwiftUI
 
 struct CreateTaskScreen : View {
     
+    var project: Project
+    
     @State var pickerSelection = 0
     @State var selection = false
     @State private static var name = ""
@@ -26,9 +28,8 @@ struct CreateTaskScreen : View {
     var descriptionBinding = Binding<String>(get: { description }, set: { description = $0 } )
     var asigneeBinding = Binding<String>(get: { assignee }, set: { assignee = $0 } )
     
-    init(){
-        UITableView.appearance().backgroundColor = .clear
-        UITableView.appearance().separatorColor = .clear
+    init(project: Project){
+        self.project = project
     }
     
     var body : some View {
@@ -86,7 +87,7 @@ struct CreateTaskScreen : View {
             let task = self.buildTask()
             
             if self.isTaskValid(task) {
-                self.session.createTask(task: task)
+                self.session.createTask(task: task, project: self.project)
                 self.presentationMode.wrappedValue.dismiss()
             }
         }) {

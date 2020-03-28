@@ -16,18 +16,14 @@ struct TaskContentScreen : View {
     @State private var alertInput = ""
     
     private func getComments() -> Array<Comment> {
-        return [Comment(text: "hello", author: User(user: SessionViewModel.me))] //self.task.comments ?? Array<Comment>()
+        return task.comments ?? Array<Comment>()
     }
     
-    init(task: Task) {
-        self.task = task
-        UITableView.appearance().separatorColor = .clear
-    }
     
     var body : some View {
         ZStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 10) {
+                VStack {
                     
                     Text("Assignee").font(.title).padding()
                     
@@ -81,24 +77,25 @@ struct TaskContentScreen : View {
                         }
                         Spacer()
                     }
-
-                    ForEach(getComments(), id: \.id) { comment in
-                        CommentView(comment: comment)
+                    
+                    List {
+                        ForEach(self.getComments(), id: \.hashValue) { comment in
+                            CommentView(comment: comment)
+                        }
                     }
                         
-                }.padding()
-                 .navigationViewStyle(StackNavigationViewStyle())
+                }
             }
             
             TextFieldAlert(isShowing: $isShowingAlert, comment: alertInput)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
 
 struct CommentView : View {
     
-    @ObservedObject var comment: Comment
+    var comment: Comment
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -114,13 +111,14 @@ struct CommentView : View {
                         .bold()
                         .padding(.horizontal, 10).padding(.top, 5)
                     
-                    Text(CommonDateFormatter.getStringWithFormate(date: comment.date))
+                    Text(DFormatter.getStringWithFormate(date: comment.date))
                         .font(.footnote)
                         .foregroundColor(.gray)
                         .padding(.horizontal, 10)
                 }
                 Spacer()
             }.padding(.top, 5)
+            
             Divider()
             Text(comment.text).font(.body).padding(.horizontal, 20).padding(.bottom, 5)
             

@@ -11,25 +11,27 @@ import Foundation
 
 class Comment : Hashable, Codable, ObservableObject {
     
-    init(text: String, author: User, date: Date = Date()) {
+    init(text: String, author: User, task: Task, date: Date) {
         self.text = text
         self.author = author
         self.date = date
+        self.task = task
     }
     
     var text : String
     var author: User
     var date: Date
-    var id: Int?
+    var task: Task
     
     static func == (lhs: Comment, rhs: Comment) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.task == rhs.task
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(text)
-        hasher.combine(id)
         hasher.combine(date)
+        hasher.combine(task)
+        hasher.combine(author)
     }
     
 }

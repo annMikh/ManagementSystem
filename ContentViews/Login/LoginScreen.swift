@@ -16,6 +16,11 @@ struct LoginView: View {
     
     @EnvironmentObject var session: SessionViewModel
     
+    init(){
+        UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().separatorColor = .clear
+    }
+    
     func isActive() -> Bool {
         return RegisterView.isSignedUp
     }

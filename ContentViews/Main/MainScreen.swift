@@ -11,7 +11,8 @@ import SwiftUI
 
 struct MainView : View {
 
-    @State var isPresentingModal: Bool = false
+    @State var isPresentingAdd: Bool = false
+    @State var isPresentingEdit: Bool = false
     @State var selectorIndex: Int = 0
     @State var searchValue : String = ""
     @State var isClickedProfile = false
@@ -22,14 +23,18 @@ struct MainView : View {
         UISegmentedControl.appearance().selectedSegmentTintColor = .blue
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .normal)
+        
+        UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().separatorColor = .clear
     }
     
     private var projects = [Project(name: "first", description: "vjsvjjvsljvldjvs"), Project(name: "second", description: "description")]
         
     var body : some View {
+        ZStack(alignment: .bottomTrailing) {
             VStack(alignment: .leading) {
                 HStack {
-                    NavigationLink(destination: profileContent, isActive: $isClickedProfile) {
+                    NavigationLink(destination: ProfileContent, isActive: $isClickedProfile) {
                         Button(action: {
                             self.isClickedProfile = true
                         }){
@@ -64,10 +69,17 @@ struct MainView : View {
                 }
                 
                 Spacer()
-            .navigationViewStyle(StackNavigationViewStyle())
-        }.onAppear{
-            //Database().getProjects()
-        }
+
+            }
+            
+            FloatingButton(actionAdd: { self.isPresentingAdd.toggle() },
+                           actionEdit: { self.isPresentingEdit.toggle() })
+                .padding()
+                .sheet(isPresented: self.$isPresentingAdd){
+                    CreateProjectScreen().environmentObject(self.session)
+            }
+            
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     private func getOnlyMyProjects() -> [Project] {
@@ -82,22 +94,11 @@ struct MainView : View {
     private func move(from source: IndexSet, to destination: Int) {
     }
     
-    private var profileContent : some View {
+    private var ProfileContent : some View {
         ProfileView()
             .navigationBarTitle(Text("Profile").bold())
             .navigationBarBackButtonHidden(false)
             .environmentObject(session)
-    }
-    
-    private var addProject: some View {
-        Button(action: {
-            self.isPresentingModal = true
-        }) {
-            Image(systemName: "plus")
-            .font(.title)
-        }.sheet(isPresented: self.$isPresentingModal) {
-            CreateProjectScreen().environmentObject(self.session)
-        }
     }
 }
 
@@ -110,6 +111,7 @@ struct Boards : View {
             Text("Boards")
                 .font(.largeTitle)
                 .foregroundColor(.primary)
+            
             Spacer()
         
             Image(systemName: "plus")
@@ -121,71 +123,43 @@ struct Boards : View {
     }
 }
 
-struct SearchBar : UIViewRepresentable {
-    @Binding var input : String
-    
-    class Cordinator : NSObject, UISearchBarDelegate {
-        
-        @Binding var text : String
-        
-        init(text : Binding<String>) {
-            _text = text
-        }
-        
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            text = searchText
-        }
-    }
-    
-    func makeCoordinator() -> Cordinator {
-        return Cordinator(text: $input)
-    }
-    
-    func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
-        let searchBar = UISearchBar(frame: .zero)
-        searchBar.delegate = context.coordinator
-        return searchBar
-    }
-    
-    func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
-        uiView.text = input
-    }
-    
-}
-
 struct ProjectView : View {
     
     @ObservedObject var project: Project
     
     var body: some View {
         NavigationLink(destination: projectContent) {
-            HStack(alignment: .top) {
-                Divider().background(AccessType.getColor(type: project.accessType))
-            
-                Image(systemName: "folder")
-                    .resizable()
-                    .frame(width: 40.0, height: 40.0)
-                    .padding(.horizontal, 10)
-            
+            VStack {
+                HStack(alignment: .top) {
+                    Divider().background(AccessType.getColor(type: project.accessType))
                 
-                VStack(alignment: .leading) {
-                    Text(project.name)
-                        .lineLimit(1)
-                        .font(.title)
+                    Image(systemName: "folder")
+                        .resizable()
+                        .frame(width: 40.0, height: 40.0)
+                        .padding(.horizontal, 10)
+                
                     
-                    HStack(alignment: .firstTextBaseline) {
-                        Text(project.description)
+                    VStack(alignment: .leading) {
+                        Text(project.name)
                             .lineLimit(1)
-                            .font(.footnote)
-                        Spacer()
-                        Text(CommonDateFormatter.getStringWithFormate(date: project.date))
-                            .lineLimit(nil)
-                            .font(.footnote)
+                            .font(.title)
+                        
+                        HStack(alignment: .firstTextBaseline) {
+                            Text(project.description)
+                                .lineLimit(1)
+                                .font(.footnote)
+                            Spacer()
+                            Text(DFormatter.getStringWithFormate(date: project.date))
+                                .lineLimit(nil)
+                                .font(.footnote)
+                        }
                     }
                 }
+                .frame(height: 50)
+                .padding([.trailing, .top, .bottom])
+                
+                Divider()
             }
-            .frame(height: 50)
-            .padding([.trailing, .top, .bottom])
         }
     }
 
