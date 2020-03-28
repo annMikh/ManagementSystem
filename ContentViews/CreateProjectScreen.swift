@@ -11,30 +11,28 @@ import SwiftUI
 
 struct CreateProjectScreen : View {
     
-    @State private var selection = false
-    static private var name = ""
-    static private var tag = ""
-    static private var description = ""
-    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var session: SessionViewModel
-        
-    var nameBinding = Binding<String>(get: { CreateProjectScreen.name }, set: { CreateProjectScreen.name = $0 } )
-    var descriptionBinding = Binding<String>(get: { CreateProjectScreen.description }, set: { CreateProjectScreen.description = $0 } )
-    var tagBinding = Binding<String>(get: { CreateProjectScreen.tag }, set: { CreateProjectScreen.tag = $0 } )
+    @Environment(\.presentationMode) var presentationMode
+
+    @State private var name = ""
+    @State private var tag = ""
+    @State private var description = ""
+    @State var isCorrectInput : Bool = false
+    @State private var selection = false
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 20) {
-                LabelTextField(label: "Project name", placeHolder: "Fill in project name", text: self.nameBinding)
+                LabelTextField(label: "Project name", placeHolder: "Fill in project name", text: self.$name)
                 
                 Text("Description").font(.headline).foregroundColor(Color.blue)
-                MultilineTextField("Fill in project description", text: self.descriptionBinding, onCommit: { })
+                MultilineTextField("Fill in project description", text: self.$description, onCommit: { })
                     .padding(.all)
                     .border(Color.black, width: 2)
                     .cornerRadius(5.0)
                     .padding(.all, 10)
                     
-                LabelTextField(label: "Tags", placeHolder: "Fill in tags for this project", text: self.tagBinding)
+                LabelTextField(label: "Tags", placeHolder: "Fill in tags for this project", text: self.$tag)
                 
                 Toggle(isOn: $selection) {
                     Text("Open access")
@@ -42,42 +40,45 @@ struct CreateProjectScreen : View {
                 
                 Spacer()
             }
-                .navigationBarItems(leading: cancelButton, trailing: doneButton)
+                .navigationBarItems(leading: CancelButton, trailing: DoneButton)
                 .padding(.horizontal, 20)
         }
     }
     
-    private var cancelButton: some View {
+    private var CancelButton: some View {
         Button(action: {
             self.presentationMode.wrappedValue.dismiss()
+            self.clear()
         }) {
             Text("Cancel").foregroundColor(Color.blue)
         }
     }
     
-    private var doneButton: some View {
+    private var DoneButton: some View {
         Button(action: {
-            if (self.isValidInput()) {
-                let project = Project(name: CreateProjectScreen.name, description: CreateProjectScreen.description)
+            self.isCorrectInput = self.isValidInput()
+            
+            if (self.isCorrectInput) {
+                let project = Project(name: self.name, description: self.description)
                 self.presentationMode.wrappedValue.dismiss()
                 self.session.createProject(project: project)
+                self.clear()
             } else {
                  print("not valid input")
             }
-
         }) {
             Text("Done").foregroundColor(Color.blue)
-        }
+        }.showAlertError(title: "Error", text: "Incorrect input", isPresent: self.$isCorrectInput)
     }
     
     private func isValidInput() -> Bool {
-        return !CreateProjectScreen.name.isEmpty && !CreateProjectScreen.description.isEmpty
+        return !self.name.isEmpty && !self.description.isEmpty
     }
     
     private func clear() {
-        CreateProjectScreen.name = ""
-        CreateProjectScreen.description = ""
-        CreateProjectScreen.tag = ""
+        self.name = ""
+        self.description = ""
+        self.tag = ""
         self.selection = false
     }
 }

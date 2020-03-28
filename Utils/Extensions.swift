@@ -130,3 +130,13 @@ extension AccessType {
     }
 }
 
+
+extension View {
+    public func showAlertError(title: String, text: String, isPresent: Binding<Bool>) -> some View  {
+        return alert(isPresented: isPresent) {
+            Alert(title: Text(title),
+                  message: Text(text),
+                  dismissButton: .default(Text("OK")))
+        }
+    }
+}

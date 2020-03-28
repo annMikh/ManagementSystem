@@ -75,9 +75,9 @@ struct MainView : View {
             FloatingButton(actionAdd: { self.isPresentingAdd.toggle() },
                            actionEdit: { self.isPresentingEdit.toggle() })
                 .padding()
-                .sheet(isPresented: self.$isPresentingAdd){
+                .sheet(isPresented: self.$isPresentingAdd) {
                     CreateProjectScreen().environmentObject(self.session)
-            }
+                }
             
         }.navigationViewStyle(StackNavigationViewStyle())
     }
@@ -120,54 +120,6 @@ struct Boards : View {
                     CreateProjectScreen()
                 }
         }
-    }
-}
-
-struct ProjectView : View {
-    
-    @ObservedObject var project: Project
-    
-    var body: some View {
-        NavigationLink(destination: projectContent) {
-            VStack {
-                HStack(alignment: .top) {
-                    Divider().background(AccessType.getColor(type: project.accessType))
-                
-                    Image(systemName: "folder")
-                        .resizable()
-                        .frame(width: 40.0, height: 40.0)
-                        .padding(.horizontal, 10)
-                
-                    
-                    VStack(alignment: .leading) {
-                        Text(project.name)
-                            .lineLimit(1)
-                            .font(.title)
-                        
-                        HStack(alignment: .firstTextBaseline) {
-                            Text(project.description)
-                                .lineLimit(1)
-                                .font(.footnote)
-                            Spacer()
-                            Text(DFormatter.getStringWithFormate(date: project.date))
-                                .lineLimit(nil)
-                                .font(.footnote)
-                        }
-                    }
-                }
-                .frame(height: 50)
-                .padding([.trailing, .top, .bottom])
-                
-                Divider()
-            }
-        }
-    }
-
-    
-    var projectContent : some View {
-        ProjectContentScreen(project: project)
-                                .navigationBarTitle(project.name)
-                                .navigationBarBackButtonHidden(false)
     }
     
 }
