@@ -14,7 +14,7 @@ struct RegisterView: View {
     @State var lastName: String = ""
     @State var position: Position = Position.None
     @State var password: String = ""
-    static var isSignedUp: Bool = false
+    @State static var isSignedUp: Bool = false
     
     @State private var pickerSelection = 0
     
@@ -27,10 +27,10 @@ struct RegisterView: View {
     NavigationView {
         VStack(alignment: .leading) {
                     Group {
-                        TextField("email address", text: $email).padding()
+                        TextField("email address", text: $email).autocapitalization(.none).padding()
                         TextField("name", text: $name).padding()
                         TextField("last name", text: $lastName).padding()
-                        SecureField("password", text: $password).padding()
+                        SecureField("password", text: $password).autocapitalization(.none).padding()
                     }
                     .border(Color.black, width: 2)
                     .padding(.all, 15)
@@ -53,11 +53,15 @@ struct RegisterView: View {
                             let user = User(name: self.name,
                                             lastName: self.lastName,
                                             position: Position.allCases[self.pickerSelection],
-                                            email: self.email)
-                            self.session.createUser(user: user)
+                                            email: self.email,
+                                            uid: "")
                             self.session.signUp(email: self.email, password: self.password) { (res, error) in
-                                RegisterView.self.isSignedUp = error != nil
-                                self.presentationMode.wrappedValue.dismiss()
+                                RegisterView.isSignedUp = error == nil
+                                if RegisterView.isSignedUp {
+                                    self.session.saveUserData(response: res?.user)
+                                    self.session.createUser(user: user)
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }
                             }
                         }
                     }) {
@@ -68,7 +72,7 @@ struct RegisterView: View {
                                 .foregroundColor(Color.white)
                             Spacer()
                         }
-                    }
+                    }.showAlertError(title: Constant.ErrorTitle, text: Constant.ErrorRegister, isPresent: RegisterView.$isSignedUp)
                     .padding(.vertical, 10.0)
                     .background(Color.blue)
                     .cornerRadius(6.0)
@@ -77,11 +81,11 @@ struct RegisterView: View {
                     
 
         }.navigationBarTitle(Text("Register").bold(), displayMode: .inline)
-                .navigationBarItems(leading: cancelButton)
+         .navigationBarItems(leading: CancelButton)
         }
     }
     
-    private var cancelButton: some View {
+    private var CancelButton: some View {
         Button(action: {
             self.presentationMode.wrappedValue.dismiss()
         }) {

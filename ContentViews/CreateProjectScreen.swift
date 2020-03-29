@@ -17,8 +17,14 @@ struct CreateProjectScreen : View {
     @State private var name = ""
     @State private var tag = ""
     @State private var description = ""
-    @State var isCorrectInput : Bool = false
-    @State private var selection = false
+    @State private var isOpenProject : Bool = false
+    @State private var isIncorrectInput : Bool = false
+    
+    private var pr : Project
+    
+    init(project: Project = Project()) {
+        self.pr = project
+    }
     
     var body: some View {
         NavigationView {
@@ -34,7 +40,7 @@ struct CreateProjectScreen : View {
                     
                 LabelTextField(label: "Tags", placeHolder: "Fill in tags for this project", text: self.$tag)
                 
-                Toggle(isOn: $selection) {
+                Toggle(isOn: $isOpenProject) {
                     Text("Open access")
                 }.padding()
                 
@@ -42,6 +48,11 @@ struct CreateProjectScreen : View {
             }
                 .navigationBarItems(leading: CancelButton, trailing: DoneButton)
                 .padding(.horizontal, 20)
+        }.showAlertError(title: Constant.ErrorTitle, text: Constant.ErrorInput, isPresent: self.$isIncorrectInput)
+        .onAppear{
+            self.setFields()
+        }.onDisappear {
+            self.clear()
         }
     }
     
@@ -56,19 +67,18 @@ struct CreateProjectScreen : View {
     
     private var DoneButton: some View {
         Button(action: {
-            self.isCorrectInput = self.isValidInput()
+            self.isIncorrectInput = !self.isValidInput()
             
-            if (self.isCorrectInput) {
+            if !self.isIncorrectInput {
                 let project = Project(name: self.name, description: self.description)
                 self.presentationMode.wrappedValue.dismiss()
                 self.session.createProject(project: project)
-                self.clear()
             } else {
                  print("not valid input")
             }
         }) {
             Text("Done").foregroundColor(Color.blue)
-        }.showAlertError(title: "Error", text: "Incorrect input", isPresent: self.$isCorrectInput)
+        }
     }
     
     private func isValidInput() -> Bool {
@@ -79,27 +89,13 @@ struct CreateProjectScreen : View {
         self.name = ""
         self.description = ""
         self.tag = ""
-        self.selection = false
+        self.isOpenProject = false
     }
-}
-
-
-struct LabelTextField : View {
     
-    var label: String
-    var placeHolder: String
-    
-    @Binding var text: String
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(label).font(.headline).foregroundColor(Color.blue)
-            TextField(placeHolder, text: $text)
-                .padding(.all)
-                .border(Color.black, width: 2)
-                .cornerRadius(5.0)
-                .padding(.all, 10)
-                
-        }
+    private func setFields() {
+        self.name = self.pr.name
+        self.description = self.pr.description
+        self.tag = ""
+        self.isOpenProject = self.pr.accessType.isOpen()
     }
 }

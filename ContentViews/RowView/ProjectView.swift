@@ -17,7 +17,7 @@ struct ProjectView : View {
         NavigationLink(destination: ProjectContent) {
             VStack {
                 HStack(alignment: .top) {
-                    Divider().background(AccessType.getColor(type: project.accessType))
+                    Divider().background(AccessType.getColor(type: project.accessType)).frame(width: 3)
                 
                     Image(systemName: "folder")
                         .resizable()

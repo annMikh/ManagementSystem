@@ -11,11 +11,12 @@ import Foundation
 
 class User : Codable, Hashable, ObservableObject {
     
-    init(name: String, lastName: String, position: Position, email: String) {
+    init(name: String, lastName: String, position: Position, email: String, uid: String) {
         self.name = name
         self.lastName = lastName
         self.position = position
         self.email = email
+        self.uid = uid
         self.projects = Set<Project>()
         self.tasks = Set<Task>()
     }
@@ -27,12 +28,14 @@ class User : Codable, Hashable, ObservableObject {
         self.email = user?.email ?? ""
         self.projects = Set<Project>()
         self.tasks = Set<Task>()
+        self.uid = ""
     }
     
     var name: String
     var lastName: String
     var email: String
     var position: Position
+    var uid: String
     
     var projects: Set<Project>
     var tasks: Set<Task>

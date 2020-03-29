@@ -21,8 +21,9 @@ struct ProjectContentScreen : View {
     @ObservedObject var project: Project
     @State var selectorIndex = 0
     
-    @State var isPresentingAdd: Bool = false
-    @State var isPresentingEdit: Bool = false
+    @State var isSheetShown: Bool = false
+    @State var activeSheet : ActiveSheet = .task
+    var priorities = Priority.allCases.map { "\($0)".capitalizingFirstLetter() }
     
     private var me = SessionViewModel.me
     @EnvironmentObject var session: SessionViewModel
@@ -31,10 +32,9 @@ struct ProjectContentScreen : View {
         ZStack(alignment: .bottomTrailing) {
               VStack(alignment: .leading) {
                   Picker("projects", selection: $selectorIndex) {
-                    Text("Low").tag(0)
-                    Text("Medium").tag(1)
-                    Text("High").tag(2)
-                    Text("Critical").tag(3)
+                    ForEach(0 ..< self.priorities.count) { index in
+                        Text(self.priorities[index]).foregroundColor(Color.black).tag(index)
+                    }
                   }
                     .pickerStyle(SegmentedPickerStyle())
                   
@@ -48,12 +48,25 @@ struct ProjectContentScreen : View {
                   Spacer()
               }
             
-              FloatingButton(actionAdd: { self.isPresentingAdd.toggle() },
-                 actionEdit: { self.isPresentingEdit.toggle() })
+              FloatingButton(actionAdd: {
+                                 self.activeSheet = .task
+                                 self.isSheetShown.toggle()
+              },
+                             actionEdit: {
+                                 self.activeSheet = .project
+                                 self.isSheetShown.toggle()
+                                
+              })
                   .padding()
-                  .sheet(isPresented: self.$isPresentingAdd){
+                  .sheet(isPresented: self.$isSheetShown) {
+                    
+                    if self.activeSheet == .task {
                       CreateTaskScreen(project: self.project).environmentObject(self.session)
-              }
+                    } else {
+                      CreateProjectScreen(project: self.project).environmentObject(self.session)
+                    }
+                    
+                  }
             }
             .navigationBarTitle(
               Text(project.name)
@@ -75,4 +88,8 @@ struct ProjectContentScreen : View {
     private func move(from source: IndexSet, to destination: Int) {
         
     }
+}
+
+enum ActiveSheet {
+   case task, project
 }

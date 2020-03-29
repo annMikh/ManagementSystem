@@ -10,15 +10,15 @@ import Foundation
 
 class Task : Hashable, Codable, ObservableObject  {
     
-    static func builder(author: User = User(user: SessionViewModel.me), assignee: User) -> TaskBuilder {
+    static func builder(author: String, assignee: String) -> TaskBuilder {
         return TaskBuilder(author: author, assignee: assignee)
     }
 
-    var author: User?
+    var author: String?
     var date = Date()
     var name : String?
     var description : String?
-    var assignedUser: User?
+    var assignedUser: String?
     var priority = Priority.low
     var status = Status.New
     
@@ -41,12 +41,12 @@ class TaskBuilder {
     
     private var task = Task()
     
-    init(author: User, assignee: User) {
+    init(author: String, assignee: String) {
         task.author = author
         task.assignedUser = assignee
     }
     
-    func setAssignedUser(assignedUser: User) {
+    func setAssignedUser(assignedUser: String) {
         task.assignedUser = assignedUser
     }
     

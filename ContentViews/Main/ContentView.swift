@@ -21,7 +21,7 @@ struct ContentView : View {
                 return AnyView(mainView)
             }
             }())
-            .onAppear {  }
+            .onAppear { self.session.currentSession() }
             .onDisappear {  }
     }
     

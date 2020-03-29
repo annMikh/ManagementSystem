@@ -73,42 +73,59 @@ struct ProfileView : View {
                                 Divider()
                             }
                         }
+                        Spacer(minLength: 35)
+                        Divider()
                         
-                        Button(action: {
-                            self.isClickedEdit = !self.isClickedEdit
-                        }){
-                            HStack(alignment: .center) {
-                                Image(systemName: nameForPencil())
-                                    .resizable()
-                                    .frame(width: 15.0, height: 15.0)
-                                    .padding(.horizontal, 10)
-                                
-                                Text("Edit profile")
+                        HStack(alignment: .center) {
+                            Spacer()
+                            Button(action: {
+                                self.isClickedEdit = !self.isClickedEdit
+                            }){
+                                HStack(alignment: .center) {
+                                    Image(systemName: nameForPencil())
+                                        .resizable()
+                                        .frame(width: 15.0, height: 15.0)
+                                        .padding(.all, 4)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 4)
+                                                .stroke(Color.blue, lineWidth: 1)
+                                        )
+                                    Text("Edit profile")
+                                }
                             }
-                        }.padding()
+                            Spacer()
+                        }
                         
                         Divider()
                         
-                        Button(action: {
-                            UserPreferences.setLogIn(false)
-                            self.isClickedLogOut = true
-                        }){
-                            NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true), isActive: $isClickedLogOut) {
-                                HStack(alignment: .center) {
-                                    Image("logOut")
-                                        .resizable()
-                                        .frame(width: 15.0, height: 15.0)
-                                        .foregroundColor(.red)
-                                        .padding(.horizontal, 10)
-                                    
-                                    Text("Log Out").foregroundColor(.red)
-                                }
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                UserPreferences.setLogIn(false)
+                                self.isClickedLogOut = true
+                            }){
+                                NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true), isActive: $isClickedLogOut) {
+                                    HStack(alignment: .center) {
+                                        Image("logOut")
+                                            .resizable()
+                                            .frame(width: 15.0, height: 15.0)
+                                            .foregroundColor(.red)
+                                            .padding(.all, 4)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 2)
+                                                    .stroke(Color.red, lineWidth: 1)
+                                            )
+                                        
+                                        Text("Log Out").foregroundColor(.red)
+                                    }
+                                }.isDetailLink(false)
                             }
-                        }.padding()
+                            Spacer()
+                        }
                     }
                 
             }
-        }.navigationViewStyle(StackNavigationViewStyle())
+            }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     private func nameForPencil() -> String {

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct LoginView: View {
     @State var email: String = ""
@@ -16,7 +17,7 @@ struct LoginView: View {
     
     @EnvironmentObject var session: SessionViewModel
     
-    init(){
+    init() {
         UITableView.appearance().backgroundColor = .clear
         UITableView.appearance().separatorColor = .clear
     }
@@ -28,14 +29,27 @@ struct LoginView: View {
     var body: some View {
         AnyView({ () -> AnyView in
             if (self.isActive()) {
-                return AnyView(MainView().environmentObject(session))
+                return AnyView(Main)
             } else {
-                return AnyView(loginContent)
+                return AnyView(LoginContent)
             }
             }())
     }
     
-    private var loginContent : some View {
+    private var Main : some View {
+         VStack {
+            MainView()
+                .environmentObject(session)
+                .navigationBarTitle(
+                 Text("Boards")
+                     .font(.largeTitle)
+                     .foregroundColor(.primary)
+                )
+                .navigationBarBackButtonHidden(true)
+        }
+    }
+    
+    private var LoginContent : some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 20) {
                     
@@ -59,17 +73,12 @@ struct LoginView: View {
                             print("blya")
                             if (!self.email.isEmpty && !self.password.isEmpty){
                                 self.session.logIn(email: self.email, password: self.password) { (res, error) in
-                                    if error != nil {
-                                        print("error")
-                                        self.isLogin = false
-                                    } else {
-                                        print("not error")
-                                        self.isLogin = true
-                                        self.email = ""
-                                        self.password = ""
-                                    }
-                                    print("suka")
+                                    self.isLogin = error == nil
                                     UserPreferences.setLogIn(self.isLogin)
+                                    if self.isLogin {
+                                        self.clear()
+                                        self.session.saveUserData(response: res?.user)
+                                    }
                                 }
                             }
                         }) {
@@ -103,6 +112,11 @@ struct LoginView: View {
                     Spacer()
             }
         }
+    }
+    
+    private func clear() {
+        self.email = ""
+        self.password = ""
     }
     
     private var mainContent : some View {

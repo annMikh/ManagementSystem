@@ -11,24 +11,28 @@ import Firebase
 
 class SessionViewModel : ObservableObject {
     
-    @Published var session: User?
+    @Published var session: Firebase.User?
     @Published var isLogIn: Bool?
-    static var me : User? = User(name: "anna", lastName: "mikhaleva", position: Position.Manager, email: "dfdv")
+    static var me : User?
     
     let db = Firestore.firestore()
     
-    func listen() {
-        _ = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user != nil {
-                self.session = nil
-                self.isLogIn = true
-                SessionViewModel.me = nil
-            } else {
-                self.isLogIn = false
-                self.session = nil
-                SessionViewModel.me = nil
-            }
-        }
+    func currentSession() {
+        self.session = Auth.auth().currentUser
+        self.saveUserData(response: session)
+        
+//        var handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+//            print(user?.email)
+//        }
+    }
+    
+    func saveUserData(response: Firebase.User?) {
+        self.session = response
+        SessionViewModel.me = User(name: "",
+                       lastName: "",
+                       position: Position.None,
+                       email: self.session?.email ?? "",
+                       uid: self.session?.uid ?? "")
     }
     
     func logIn(email: String, password: String, handler: @escaping AuthDataResultCallback) {
@@ -40,12 +44,12 @@ class SessionViewModel : ObservableObject {
     }
     
     func createUser(user: User) {
-        db.collection("users").document(String(user.hashValue)).setData([
+        db.collection("users").document(user.uid).setData([
             "name": user.name,
             "lastName": user.lastName,
             "email": user.email,
-            "position": user.position,
-            "projects": user.projects
+            "position": user.position.rawValue,
+            "uid": user.uid
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -60,11 +64,8 @@ class SessionViewModel : ObservableObject {
             "name": project.name,
             "description": project.description,
             "date": project.date,
-            "accessType":  project.accessType,
-            "creator": project.creator,
-            "participants": project.participants,
-            "tags": project.tags,
-            "tasks": project.tasks
+            "accessType":  project.accessType.rawValue,
+            "creator": project.creator
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -77,7 +78,7 @@ class SessionViewModel : ObservableObject {
     func createTask(task: Task, project: Project) {
         var tasks = project.tasks
         tasks.append(task)
-        db.collection("projects").document(String(project.hashValue)).updateData([
+        db.collection("tasks").document(String(task.hashValue)).updateData([
             "tasks": tasks
         ]) { err in
             if let err = err {

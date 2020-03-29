@@ -46,6 +46,9 @@
 		5BF21359242F5A85009AEED4 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF21358242F5A85009AEED4 /* SearchBar.swift */; };
 		5BF2135C242F5BA2009AEED4 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2135B242F5BA2009AEED4 /* TaskView.swift */; };
 		5BF2135E242F5BAA009AEED4 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2135D242F5BAA009AEED4 /* ProjectView.swift */; };
+		5BF21362242F7FE2009AEED4 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF21361242F7FE2009AEED4 /* CommentView.swift */; };
+		5BF21364242F889E009AEED4 /* LabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF21363242F889E009AEED4 /* LabelTextField.swift */; };
+		5BF21366242FB83F009AEED4 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF21365242FB83F009AEED4 /* Constant.swift */; };
 		82BABBED051EE385B2258B84 /* libPods-ManagementSystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C76F1A183A1557F14CFEAD /* libPods-ManagementSystem.a */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +116,9 @@
 		5BF21358242F5A85009AEED4 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		5BF2135B242F5BA2009AEED4 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		5BF2135D242F5BAA009AEED4 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
+		5BF21361242F7FE2009AEED4 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
+		5BF21363242F889E009AEED4 /* LabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextField.swift; sourceTree = "<group>"; };
+		5BF21365242FB83F009AEED4 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		94C76F1A183A1557F14CFEAD /* libPods-ManagementSystem.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ManagementSystem.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A96F211BB36B72ED9D09E2E7 /* Pods-ManagementSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementSystem.debug.xcconfig"; path = "Target Support Files/Pods-ManagementSystem/Pods-ManagementSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		AB8885FCA8498DB71680CD77 /* Pods-ManagementSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementSystem.release.xcconfig"; path = "Target Support Files/Pods-ManagementSystem/Pods-ManagementSystem.release.xcconfig"; sourceTree = "<group>"; };
@@ -254,6 +260,7 @@
 			children = (
 				5BBB4C1623E626150027ACEA /* DFormatter.swift */,
 				5B764452242245230051D79B /* Extensions.swift */,
+				5BF21365242FB83F009AEED4 /* Constant.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -265,6 +272,7 @@
 				5BECE99A2428AF3100AFFE62 /* TextFieldAlert.swift */,
 				5BF21356242F521D009AEED4 /* FloatingButton.swift */,
 				5BF21358242F5A85009AEED4 /* SearchBar.swift */,
+				5BF21363242F889E009AEED4 /* LabelTextField.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -314,6 +322,7 @@
 			children = (
 				5BF2135B242F5BA2009AEED4 /* TaskView.swift */,
 				5BF2135D242F5BAA009AEED4 /* ProjectView.swift */,
+				5BF21361242F7FE2009AEED4 /* CommentView.swift */,
 			);
 			path = RowView;
 			sourceTree = "<group>";
@@ -514,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BECE9A02429250900AFFE62 /* UserPreferences.swift in Sources */,
+				5BF21366242FB83F009AEED4 /* Constant.swift in Sources */,
 				5B854B2C23DCCEC300F902B7 /* RegisterScreen.swift in Sources */,
 				5B854AFA23DCB02F00F902B7 /* AppDelegate.swift in Sources */,
 				5B854B3E23DDEEB700F902B7 /* Position.swift in Sources */,
@@ -530,6 +540,7 @@
 				5B854AFE23DCB02F00F902B7 /* LoginScreen.swift in Sources */,
 				5BC37B7D23FB07730058A7CC /* TaskContentScreen.swift in Sources */,
 				5B854B3323DDE00000F902B7 /* Task.swift in Sources */,
+				5BF21364242F889E009AEED4 /* LabelTextField.swift in Sources */,
 				5BF21359242F5A85009AEED4 /* SearchBar.swift in Sources */,
 				5BBB4C1A23E768710027ACEA /* MultiLineTextField.swift in Sources */,
 				5B526AC42406DAFE00127EAE /* SessionViewModel.swift in Sources */,
@@ -539,6 +550,7 @@
 				5B23F0F62416AB9C003A61CA /* Comment.swift in Sources */,
 				5B764453242245230051D79B /* Extensions.swift in Sources */,
 				5BC37B7923FAD3960058A7CC /* CreateTaskScreen.swift in Sources */,
+				5BF21362242F7FE2009AEED4 /* CommentView.swift in Sources */,
 				5BBB4C1223E615B80027ACEA /* MainScreen.swift in Sources */,
 				5BECE99D2429080500AFFE62 /* Database.swift in Sources */,
 				5B854B3723DDE3BD00F902B7 /* Priority.swift in Sources */,

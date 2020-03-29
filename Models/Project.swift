@@ -16,14 +16,29 @@ class Project : Hashable, Codable, ObservableObject  {
         self.description = description
         self.accessType = accessType
         self.date = Date()
-        self.creator = User(name: "fsdfds", lastName: "fghjkfd", position: Position.Manager, email: "dfdfd")
+        self.creator = SessionViewModel.me?.uid ?? ""
         
-        let u = self.creator
-        let a = User(name: "anya", lastName: "mikhaleva", position: Position.Designer, email: "adsds")
-        let b = Task.builder(author: u, assignee: a)
+        let b = Task.builder(author: "", assignee: "")
         b.setDescription(description: "fdshfhdsjfs")
         b.setDeadline(deadline: Date())
         b.setName(name: "fdhsfjhd")
+        
+        self.tasks = [b.build()]
+        self.participants = []
+        self.tags = Set<Tag>()
+    }
+    
+    init() {
+        self.name = ""
+        self.description = ""
+        self.accessType = .close
+        self.date = Date()
+        self.creator = ""
+        
+        let b = Task.builder(author: "", assignee: "")
+        b.setDescription(description: "fdshfhffdsjfs")
+        b.setDeadline(deadline: Date())
+        b.setName(name: "fdhsaafjhd")
         
         self.tasks = [b.build()]
         self.participants = []
@@ -42,7 +57,7 @@ class Project : Hashable, Codable, ObservableObject  {
     var name: String
     var description: String
     var accessType: AccessType
-    var creator: User
+    var creator: String
     var date: Date
     
     var tags : Set<Tag>

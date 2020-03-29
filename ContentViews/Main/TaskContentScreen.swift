@@ -14,12 +14,7 @@ struct TaskContentScreen : View {
     @ObservedObject var task: Task
     @State private var isShowingAlert = false
     @State private var alertInput = ""
-    
-    private func getComments() -> Array<Comment> {
-        return task.comments ?? Array<Comment>()
-    }
-    
-    
+
     var body : some View {
         ZStack {
             ScrollView {
@@ -36,10 +31,12 @@ struct TaskContentScreen : View {
                             Spacer()
                             HStack {
                                 Spacer()
-                                Text(task.assignedUser.bound.getFullName()).padding()
+                                Text("").padding()//task.assignedUser.bound.getFullName()
                                 Spacer()
                             }
-                            .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.blue, lineWidth: 1))
+                            .overlay(RoundedRectangle(cornerRadius: 4)
+                            .stroke(Color.blue, lineWidth: 1))
+                            .padding(.horizontal, 25)
                             Spacer()
                     }
 
@@ -51,17 +48,19 @@ struct TaskContentScreen : View {
                     }
                         .overlay(RoundedRectangle(cornerRadius: 4)
                         .stroke(Color.blue, lineWidth: 1))
+                        .padding(.horizontal, 25)
 
                     Text("Assigned by").font(.title).padding()
                     HStack {
                         Spacer()
-                        Text(task.author.bound.getFullName())
+                        Text("")// task.author.bound.getFullName()
                             .frame(minWidth: 200, maxWidth: 200)
                             .padding()
                         Spacer()
                     }
                         .overlay(RoundedRectangle(cornerRadius: 4)
                         .stroke(Color.blue, lineWidth: 1))
+                        .padding(.horizontal, 25)
 
                     HStack(alignment: .center, spacing: 8) {
                         Text("Comments").font(.title)
@@ -86,44 +85,10 @@ struct TaskContentScreen : View {
                         
                 }
             }
-            
-            TextFieldAlert(isShowing: $isShowingAlert, comment: alertInput)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
-}
-
-
-struct CommentView : View {
     
-    var comment: Comment
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            HStack(alignment: .top) {
-                Image(systemName: "person")
-                    .resizable()
-                    .frame(width: 50.0, height: 50.0)
-                    .padding(.horizontal, 5)
-                
-                VStack(alignment: .leading) {
-                    Text(comment.author.getFullName())
-                        .font(.body)
-                        .bold()
-                        .padding(.horizontal, 10).padding(.top, 5)
-                    
-                    Text(DFormatter.getStringWithFormate(date: comment.date))
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                        .padding(.horizontal, 10)
-                }
-                Spacer()
-            }.padding(.top, 5)
-            
-            Divider()
-            Text(comment.text).font(.body).padding(.horizontal, 20).padding(.bottom, 5)
-            
-        }
-            .overlay(RoundedRectangle(cornerRadius: 4)
-            .stroke(Color.blue, lineWidth: 1))
+    private func getComments() -> Array<Comment> {
+        return task.comments ?? Array<Comment>()
     }
 }

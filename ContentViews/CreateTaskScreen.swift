@@ -15,20 +15,18 @@ struct CreateTaskScreen : View {
     
     @State var pickerSelection = 0
     @State var selection = false
-    @State private static var name = ""
-    @State private static var description = ""
-    @State private static var assignee = ""
-    private var selectedDate = Date()
+    @State var name : String = ""
+    @State var description : String = ""
+    @State var assignee : String = ""
+    @State var selectedDate = Date()
+    
+    @State var isIncorrectInput : Bool = false
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var session: SessionViewModel
     
     private var priorities = Priority.allCases.map { "\($0)" }
     
-    var taskBinding = Binding<String>(get: { name }, set: { name = $0 } )
-    var descriptionBinding = Binding<String>(get: { description }, set: { description = $0 } )
-    var asigneeBinding = Binding<String>(get: { assignee }, set: { assignee = $0 } )
-    
-    init(project: Project){
+    init(project: Project) {
         self.project = project
     }
     
@@ -36,32 +34,28 @@ struct CreateTaskScreen : View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    LabelTextField(label: "Task name", placeHolder: "Fill in task name", text: self.taskBinding)
+                    LabelTextField(label: "Task name", placeHolder: "Fill in task name", text: self.$name)
                     
                     Text("Description").font(.headline).foregroundColor(Color.blue)
-                    MultilineTextField("Fill in task description", text: self.descriptionBinding, onCommit: {
+                    MultilineTextField("Fill in task description", text: self.$description, onCommit: {
                         print("Final text: ")
                     })
                         .padding(.all)
-                        .border(Color.gray, width: 2)
+                        .border(Color.black, width: 2)
                         .cornerRadius(5.0)
                         .padding(.horizontal, 10)
-                        
+                                        
                     Text("Priority").font(.headline).foregroundColor(Color.blue)
+                    Picker(selection: $pickerSelection, label: Text("Priority")) {
+                            ForEach(0 ..< self.priorities.count) { index in
+                                Text(self.priorities[index]).foregroundColor(Color.black).tag(index)
+                            }
+                    }.pickerStyle(SegmentedPickerStyle())
                     
-                    Form {
-                        Picker(selection: $pickerSelection, label:
-                        Text("Priority").foregroundColor(Color.black)) {
-                                ForEach(0 ..< self.priorities.count) { index in
-                                    Text(self.priorities[index]).foregroundColor(Color.black).tag(index)
-                                }
-                        }
-//                        DatePicker(selectedDate) {
-//                            Text("Deadline")
-//                        }
-                    }
+                    LabelTextField(label: "Assignee", placeHolder: "Fill in the assignee", text: self.$assignee)
                     
-                    LabelTextField(label: "Assignee", placeHolder: "Fill in the assignee", text: self.taskBinding)
+                    Text("Deadline").font(.headline).foregroundColor(Color.blue)
+                    DatePicker("", selection: $selectedDate, in: ...Date(), displayedComponents: [.date, .hourAndMinute]).labelsHidden()
                     
                     Toggle(isOn: $selection) {
                         Text("No deadline")
@@ -71,7 +65,7 @@ struct CreateTaskScreen : View {
                     .navigationBarItems(leading: cancelButton, trailing: doneButton)
                     .padding(.horizontal, 20)
             }
-        }
+        }.showAlertError(title: Constant.ErrorTitle, text: Constant.ErrorInput, isPresent: self.$isIncorrectInput)
     }
     
     private var cancelButton: some View {
@@ -85,8 +79,8 @@ struct CreateTaskScreen : View {
     private var doneButton: some View {
         Button(action: {
             let task = self.buildTask()
-            
-            if self.isTaskValid(task) {
+            self.isIncorrectInput = !self.isTaskValid(task)
+            if !self.isIncorrectInput {
                 self.session.createTask(task: task, project: self.project)
                 self.presentationMode.wrappedValue.dismiss()
             }
@@ -96,12 +90,12 @@ struct CreateTaskScreen : View {
     }
     
     private func buildTask() -> Task {
-        let taskBuilder = TaskBuilder(author: SessionViewModel.me!,
-                                      assignee: User(name: "name", lastName: "surname", position: Position.Designer, email: "mail")
+        let taskBuilder = TaskBuilder(author: "",
+                                      assignee: ""
         )
         
-        taskBuilder.setName(name: CreateTaskScreen.name)
-        taskBuilder.setDescription(description: CreateTaskScreen.description)
+        taskBuilder.setName(name: self.name)
+        taskBuilder.setDescription(description: self.description)
         taskBuilder.setStatus(status: Status.New)
         taskBuilder.setPriority(priority: Priority.allCases[self.pickerSelection])
 

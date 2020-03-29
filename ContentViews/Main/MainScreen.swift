@@ -43,7 +43,7 @@ struct MainView : View {
                             .frame(width: 25.0, height: 25.0)
                             .padding(.horizontal, 10)
                         }
-                    }
+                    }.isDetailLink(false)
                     SearchBar(input: $searchValue)
                 }
   
@@ -83,7 +83,7 @@ struct MainView : View {
     }
     
     private func getOnlyMyProjects() -> [Project] {
-        return self.projects.filter { $0.creator == SessionViewModel.me }
+        return self.projects.filter { $0.creator == "" }
     }
     
     

@@ -17,7 +17,7 @@ struct TaskView : View {
         NavigationLink(destination: TaskContent) {
             VStack {
                 HStack(alignment: .center, spacing: 3) {
-                    Divider().background(Priority.getColor(priority: task.priority))
+                    Divider().background(Priority.getColor(priority: task.priority)).frame(width: 3)
                 
                     Image(systemName: "paperplane")
                         .resizable()

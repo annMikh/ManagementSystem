@@ -43,7 +43,7 @@ extension Optional where Wrapped == User {
     
     internal var bound: User {
         get {
-            return _bound ?? User(name: "", lastName: "", position: Position.None, email: "")
+            return _bound ?? User(name: "", lastName: "", position: Position.None, email: "", uid: "")
         }
         set {
             _bound = newValue
@@ -138,5 +138,15 @@ extension View {
                   message: Text(text),
                   dismissButton: .default(Text("OK")))
         }
+    }
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
     }
 }
