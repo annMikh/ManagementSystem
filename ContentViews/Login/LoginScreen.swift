@@ -32,11 +32,10 @@ struct LoginView: View {
             } else {
                 return AnyView(LoginContent)
             }
-            }())
+        }())
     }
     
     private var Main : some View {
-         VStack {
             MainView()
                 .environmentObject(session)
                 .navigationBarTitle(
@@ -45,75 +44,69 @@ struct LoginView: View {
                      .foregroundColor(.primary)
                 )
                 .navigationBarBackButtonHidden(true)
-        }
     }
     
     private var LoginContent : some View {
-        NavigationView {
-            VStack(alignment: .leading, spacing: 20) {
-                    
-                Text("Log In")
-                    .font(.largeTitle)
-                    .foregroundColor(.primary)
-                    .bold()
-                    .padding(.top, 40).padding(.horizontal, 20)
-                    
-                Group {
-                    TextField("email address", text: $email)
-                        .autocapitalization(.none)
-                        .padding()
-                    SecureField("password", text: $password)
-                        .padding()
-                }
-                .border(Color.black, width: 2)
-                .padding(.all, 10)
+        VStack(alignment: .leading, spacing: 20) {
                 
-                Button(action: { self.isForgetPassword.toggle() }) {
-                    HStack {
-                        Spacer()
-                        Text("Forget password?").foregroundColor(.blue).padding(.vertical, 5.0)
-                        Spacer()
-                    }
-                }.sheet(isPresented: $isForgetPassword) {
-                   // TODO create view for forget password
-                    RegisterView().environmentObject(self.session)
-                }
+            Text("Log In")
+                .font(.largeTitle)
+                .foregroundColor(.primary)
+                .bold()
+                .padding(.top, 40).padding(.horizontal, 20)
                 
-                NavigationLink(destination: Main, isActive: $isLogin) {
-                    Button(action: {
-                        print(Formatter.checkInput(self.email, self.password))
-                        if Formatter.checkInput(self.email, self.password) {
-                            self.session.logIn(email: self.email,
-                                               password: self.password,
-                                               handler: self.handleLogin(res:error:))
-                        }
-                    }) {
-                        HStack {
-                            Spacer()
-                            Text("NEXT")
-                                .font(.headline)
-                                .foregroundColor(Color.white)
-                            Spacer()
-                        }
-                    }
-                    .padding(.vertical, 10.0)
-                    .background(Color.blue)
-                    .cornerRadius(6.0)
-                    .padding(.horizontal, 50)
-                }
+            Group {
+                TextField("email address", text: $email)
+                    .autocapitalization(.none)
+                    .padding()
+                SecureField("password", text: $password)
+                    .padding()
+            }
+            .border(Color.black, width: 2)
+            .padding(.all, 10)
             
-                Spacer()
-                
-                Button(action: { self.isPresentingModal = true } ) {
+            Button(action: { self.isForgetPassword.toggle() }) {
+                HStack {
+                    Spacer()
+                    Text("Forget password?").foregroundColor(.blue).padding(.vertical, 5.0)
+                    Spacer()
+                }
+            }.sheet(isPresented: $isForgetPassword) {
+                ResetPasswordScreen().environmentObject(self.session)
+            }
+            
+            NavigationLink(destination: Main, isActive: $isLogin) {
+                Button(action: {
+                    if Formatter.checkInput(self.email, self.password) {
+                        self.session.logIn(email: self.email,
+                                           password: self.password,
+                                           handler: self.handleLogin(res:error:))
+                    }
+                }) {
                     HStack {
                         Spacer()
-                        Text("Haven't got an account?").foregroundColor(.blue).padding(.bottom, 20)
+                        Text("NEXT")
+                            .font(.headline)
+                            .foregroundColor(Color.white)
                         Spacer()
                     }
                 }
-                .sheet(isPresented: $isPresentingModal) {
-                    RegisterView().environmentObject(self.session)
+                .padding(.vertical, 10.0)
+                .background(Color.blue)
+                .cornerRadius(6.0)
+                .padding(.horizontal, 50)
+            }.isDetailLink(false)
+            Spacer()
+            
+            Button(action: { self.isPresentingModal = true } ) {
+                HStack {
+                    Spacer()
+                    Text("Haven't got an account?").foregroundColor(.blue).padding(.bottom, 20)
+                    Spacer()
                 }
+            }
+            .sheet(isPresented: $isPresentingModal) {
+                RegisterView().environmentObject(self.session)
             }
         }
     }
@@ -123,7 +116,7 @@ struct LoginView: View {
         UserPreferences.setLogIn(self.isLogin)
         if self.isLogin {
             clear()
-            session.saveUserData(response: res?.user)
+            session.currentSession()
         }
     }
     
@@ -133,7 +126,8 @@ struct LoginView: View {
     }
     
     func isActive() -> Bool {
-        return RegisterView.isSignedUp
+        print(UserPreferences.isLogIn())
+        return UserPreferences.isLogIn()
     }
 }
 

@@ -35,11 +35,18 @@ class Formatter {
         for input in inputs {
             switch input {
             case let input as String:
-                flag = flag && !input.isEmpty
+                flag = flag && !input.isEmpty && Formatter.checkLength255(input)
             default:
                 flag = flag && input != nil
             }
         }
         return flag
+    }
+    
+    static func handleTag(_ tag: String) -> String {
+        return tag.trimmingCharacters(in: .whitespaces)
+                  .words
+                  .joined(separator: "")
+                  .lowercased()
     }
 }

@@ -55,12 +55,14 @@ struct CreateTaskScreen : View {
                             }
                     }.pickerStyle(SegmentedPickerStyle())
                     
-                    
-                    Picker(selection: $pickStatus, label: Text("Status")) {
-                        ForEach(0 ..< self.statuses.count) { index in
-                            Text(self.statuses[index]).foregroundColor(Color.black).tag(index)
-                        }
-                    }.pickerStyle(SegmentedPickerStyle())
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text("Status").font(.headline).foregroundColor(Color.blue)
+                        Picker(selection: $pickStatus, label: Text("Status")) {
+                            ForEach(0 ..< self.statuses.count) { index in
+                                Text(self.statuses[index]).foregroundColor(Color.black).tag(index)
+                            }
+                        }.pickerStyle(SegmentedPickerStyle())
+                    }
                     
                     LabelTextField(label: "Assignee", placeHolder: "Fill in the assignee", text: self.$assignee)
                     
@@ -75,7 +77,7 @@ struct CreateTaskScreen : View {
                     .navigationBarItems(leading: cancelButton, trailing: doneButton)
                     .padding(.horizontal, 20)
             }
-        }.showAlertError(title: Constant.ErrorTitle, text: Constant.ErrorInput, isPresent: self.$isIncorrectInput)
+        }.showAlert(title: Constant.ErrorTitle, text: Constant.ErrorInput, isPresent: self.$isIncorrectInput)
     }
     
     private var cancelButton: some View {
@@ -89,7 +91,8 @@ struct CreateTaskScreen : View {
     private var doneButton: some View {
         Button(action: {
             let task = self.buildTask()
-            self.isIncorrectInput = !self.isTaskValid(task)
+            self.isIncorrectInput = !Formatter.checkInput(task.name, task.description, task.status, task.priority, task.date)
+                                    || !Formatter.checkLength50(task.name.bound)
             if !self.isIncorrectInput {
                 self.session.createTask(task: task, project: self.project)
                 self.presentationMode.wrappedValue.dismiss()
@@ -110,9 +113,5 @@ struct CreateTaskScreen : View {
         taskBuilder.setStatus(status: Status.allCases[self.pickStatus])
 
         return taskBuilder.build()
-    }
-    
-    private func isTaskValid(_ task: Task) -> Bool {
-        return !(task.name?.isEmpty ?? true) && !(task.description?.isEmpty ?? true) && task.author != nil  && task.assignedUser != nil
     }
 }

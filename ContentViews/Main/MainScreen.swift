@@ -41,13 +41,13 @@ struct MainView : View, Searchable {
             VStack(alignment: .leading) {
                 HStack {
                     NavigationLink(destination: ProfileContent, isActive: $isClickedProfile) {
-                        Button(action: { self.isClickedProfile = true }){
+                        Button(action: { self.isClickedProfile.toggle() }){
                         Image(systemName: "person")
                             .resizable()
                             .frame(width: 25.0, height: 25.0)
                             .padding(.horizontal, 10)
                         }
-                    }//.isDetailLink(false)
+                    }
                     SearchBar()
                 }
   
@@ -80,7 +80,7 @@ struct MainView : View, Searchable {
             FloatButton
             
         }.navigationViewStyle(StackNavigationViewStyle())
-            .onAppear(perform: self.onAppear)
+         .onAppear(perform: self.onAppear)
     }
     
     private func getOnlyMyProjects() -> [Project] {
@@ -88,7 +88,7 @@ struct MainView : View, Searchable {
     }
     
     private func shoudShowList() -> Bool {
-        self.onAppear()
+        //self.onAppear()
         return !self.isSearchMode
     }
     
@@ -106,17 +106,17 @@ struct MainView : View, Searchable {
     private func onAppear() {
         Database().getProjects(me: self.session.currentUser.bound,
                                com: self.updateProjects(snap:err:))
+        self.session.currentSession()
     }
     
     private func updateProjects(snap: QuerySnapshot?, err: Error?) {
         let result = Result {
-                           try snap!.documents.compactMap {
-                               try $0.data(as: Project.self)
-                           }
-                       }
+               try snap!.documents.compactMap {
+                   try $0.data(as: Project.self)
+               }
+        }
        switch result {
            case .success(let proj):
-            print(proj.count)
                self.projects = proj
            case .failure(let error):
                print("Error decoding projects: \(error)")
@@ -127,11 +127,13 @@ struct MainView : View, Searchable {
     private func delete(at offsets: IndexSet) {
         // TODO delete by index
         for index in offsets {
-            self.session.deleteProject(self.projects[index]) { err in
-                if let err = err {
-                    print("Error removing document: \(err)")
-                } else {
-                    self.projects.remove(atOffsets: offsets)
+            if Permission.toEditProject(project: self.projects[index]) {
+                self.session.deleteProject(self.projects[index]) { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        self.projects.remove(atOffsets: offsets)
+                    }
                 }
             }
         }
@@ -150,7 +152,6 @@ struct MainView : View, Searchable {
                        actionEdit: {
                         self.activeSheet = .edit
                         self.isPresentingEdit.toggle()
-                        
         })
             .padding()
             .sheet(isPresented: self.$isPresentingAdd) {

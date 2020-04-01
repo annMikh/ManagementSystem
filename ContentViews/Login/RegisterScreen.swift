@@ -17,7 +17,6 @@ struct RegisterView: View {
     @State private var position: Position = Position.None
     @State private var password: String = ""
     
-    @State static var isSignedUp: Bool = false
     @State private var isIncorrectInput: Bool = false
     @State private var pickerSelection = 0
     
@@ -65,7 +64,7 @@ struct RegisterView: View {
                                     .foregroundColor(Color.white)
                                 Spacer()
                             }
-                        }.showAlertError(title: Constant.ErrorTitle, text: Constant.ErrorRegister, isPresent: $isIncorrectInput)
+                        }.showAlert(title: Constant.ErrorTitle, text: Constant.ErrorRegister, isPresent: $isIncorrectInput)
                         .padding(.vertical, 10.0)
                         .background(Color.blue)
                         .cornerRadius(6.0)
@@ -99,10 +98,10 @@ struct RegisterView: View {
                             uid: "")
             
             self.session.signUp(email: self.email, password: self.password) { (res, error) in
-                RegisterView.isSignedUp = res != nil
-                if RegisterView.isSignedUp {
-                    self.session.saveUserData(response: res?.user)
+                if error == nil {
+                    user.uid = res?.user.uid ?? ""
                     self.session.createUser(user)
+                    UserPreferences.setLogIn(true)
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }

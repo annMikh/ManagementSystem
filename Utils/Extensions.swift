@@ -132,16 +132,21 @@ extension AccessType {
 
 
 extension View {
-    public func showAlertError(title: String, text: String, isPresent: Binding<Bool>) -> some View  {
+    public func showAlert(title: String, text: String, isPresent: Binding<Bool>, action: @escaping () -> Void = {}) -> some View  {
         return alert(isPresented: isPresent) {
             Alert(title: Text(title),
                   message: Text(text),
-                  dismissButton: .default(Text("OK")))
+                  dismissButton: .default(Text("OK"), action: action))
         }
     }
 }
 
 extension String {
+    
+    var words: [SubSequence] {
+        return split{ !$0.isLetter }
+    }
+    
     func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()
     }

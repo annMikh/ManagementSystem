@@ -11,6 +11,8 @@
 		5B298A77240EFBD4005C26A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B298A76240EFBD4005C26A0 /* ContentView.swift */; };
 		5B5043CE2406AB10002B9051 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B5043CD2406AB10002B9051 /* GoogleService-Info.plist */; };
 		5B526AC42406DAFE00127EAE /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B526AC32406DAFE00127EAE /* SessionViewModel.swift */; };
+		5B59F7692434A46800486A32 /* ResetPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59F7682434A46800486A32 /* ResetPasswordScreen.swift */; };
+		5B59F76B2434CDE500486A32 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59F76A2434CDE500486A32 /* Permission.swift */; };
 		5B764453242245230051D79B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B764452242245230051D79B /* Extensions.swift */; };
 		5B764455242245A30051D79B /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B764454242245A30051D79B /* ProfileScreen.swift */; };
 		5B854AFA23DCB02F00F902B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854AF923DCB02F00F902B7 /* AppDelegate.swift */; };
@@ -40,7 +42,6 @@
 		5BBB4C1A23E768710027ACEA /* MultiLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1923E768710027ACEA /* MultiLineTextField.swift */; };
 		5BC37B7923FAD3960058A7CC /* CreateTaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC37B7823FAD3960058A7CC /* CreateTaskScreen.swift */; };
 		5BC37B7D23FB07730058A7CC /* TaskContentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC37B7C23FB07730058A7CC /* TaskContentScreen.swift */; };
-		5BECE99B2428AF3100AFFE62 /* TextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BECE99A2428AF3100AFFE62 /* TextFieldAlert.swift */; };
 		5BECE99D2429080500AFFE62 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BECE99C2429080500AFFE62 /* Database.swift */; };
 		5BECE9A02429250900AFFE62 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BECE99F2429250900AFFE62 /* UserPreferences.swift */; };
 		5BF21357242F521D009AEED4 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF21356242F521D009AEED4 /* FloatingButton.swift */; };
@@ -79,6 +80,8 @@
 		5B298A76240EFBD4005C26A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5B5043CD2406AB10002B9051 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B526AC32406DAFE00127EAE /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
+		5B59F7682434A46800486A32 /* ResetPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordScreen.swift; sourceTree = "<group>"; };
+		5B59F76A2434CDE500486A32 /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		5B764452242245230051D79B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5B764454242245A30051D79B /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		5B854AF623DCB02F00F902B7 /* ManagementSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManagementSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,7 +118,6 @@
 		5BBB4C1923E768710027ACEA /* MultiLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineTextField.swift; sourceTree = "<group>"; };
 		5BC37B7823FAD3960058A7CC /* CreateTaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskScreen.swift; sourceTree = "<group>"; };
 		5BC37B7C23FB07730058A7CC /* TaskContentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskContentScreen.swift; sourceTree = "<group>"; };
-		5BECE99A2428AF3100AFFE62 /* TextFieldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlert.swift; sourceTree = "<group>"; };
 		5BECE99C2429080500AFFE62 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		5BECE99F2429250900AFFE62 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5BF21356242F521D009AEED4 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		5B854B2D23DDDF6C00F902B7 /* Models */ = {
 			isa = PBXGroup;
@@ -272,6 +275,7 @@
 				5B764452242245230051D79B /* Extensions.swift */,
 				5BF21365242FB83F009AEED4 /* Constant.swift */,
 				5BF2137224324D06009AEED4 /* Searchable.swift */,
+				5B59F76A2434CDE500486A32 /* Permission.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -280,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				5BBB4C1923E768710027ACEA /* MultiLineTextField.swift */,
-				5BECE99A2428AF3100AFFE62 /* TextFieldAlert.swift */,
 				5BF21356242F521D009AEED4 /* FloatingButton.swift */,
 				5BF21358242F5A85009AEED4 /* SearchBar.swift */,
 				5BF21363242F889E009AEED4 /* LabelTextField.swift */,
@@ -319,6 +322,7 @@
 			children = (
 				5B854B2B23DCCEC300F902B7 /* RegisterScreen.swift */,
 				5B854AFD23DCB02F00F902B7 /* LoginScreen.swift */,
+				5B59F7682434A46800486A32 /* ResetPasswordScreen.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -545,6 +549,7 @@
 				5BF21366242FB83F009AEED4 /* Constant.swift in Sources */,
 				5B854B2C23DCCEC300F902B7 /* RegisterScreen.swift in Sources */,
 				5B854AFA23DCB02F00F902B7 /* AppDelegate.swift in Sources */,
+				5B59F76B2434CDE500486A32 /* Permission.swift in Sources */,
 				5B854B3E23DDEEB700F902B7 /* Position.swift in Sources */,
 				5B8619502434768F005C242C /* PositionView.swift in Sources */,
 				5B764455242245A30051D79B /* ProfileScreen.swift in Sources */,
@@ -560,7 +565,6 @@
 				5BF2136A2431079A009AEED4 /* EmptyListTextView.swift in Sources */,
 				5BF213682430B965009AEED4 /* Deadline.swift in Sources */,
 				5BBB4C1723E626150027ACEA /* Formatter.swift in Sources */,
-				5BECE99B2428AF3100AFFE62 /* TextFieldAlert.swift in Sources */,
 				5B854AFE23DCB02F00F902B7 /* LoginScreen.swift in Sources */,
 				5BC37B7D23FB07730058A7CC /* TaskContentScreen.swift in Sources */,
 				5B854B3323DDE00000F902B7 /* Task.swift in Sources */,
@@ -575,6 +579,7 @@
 				5B764453242245230051D79B /* Extensions.swift in Sources */,
 				5BC37B7923FAD3960058A7CC /* CreateTaskScreen.swift in Sources */,
 				5BF21362242F7FE2009AEED4 /* CommentView.swift in Sources */,
+				5B59F7692434A46800486A32 /* ResetPasswordScreen.swift in Sources */,
 				5BBB4C1223E615B80027ACEA /* MainScreen.swift in Sources */,
 				5BECE99D2429080500AFFE62 /* Database.swift in Sources */,
 				5B854B3723DDE3BD00F902B7 /* Priority.swift in Sources */,

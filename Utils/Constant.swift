@@ -18,4 +18,9 @@ public struct Constant {
     public static let EmptyProjectsTitle = "You don't have any projects yet"
     public static let EmptyTasksTitle = "There aren't any tasks with chosen priority yet"
     
+    public static let ResetPasswordErrorTitle = "Reset error"
+    public static let ResetPasswordErrorText = "Check your email address"
+    
+    public static let ResetPasswordTitle = "Reset password"
+    public static let ResetPasswordText = "We have just sent you a password reset email.\nPlease, check your inbox and follow the instructions to reset your password."
 }

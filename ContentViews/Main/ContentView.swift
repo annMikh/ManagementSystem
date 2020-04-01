@@ -15,16 +15,15 @@ struct ContentView : View {
 
     var body: some View {
         AnyView({ () -> AnyView in
-            if (!UserPreferences.isLogIn()) {
-                return AnyView(LoginView().environmentObject(session))
+            if (UserPreferences.isLogIn()) {
+                return AnyView(Main)
             } else {
-                return AnyView(mainView)
+                return AnyView(Login)
             }
             }())
-            .onAppear { self.session.currentSession() }
     }
     
-    var mainView : some View {
+    var Main : some View {
         NavigationView {
             MainView()
                 .environmentObject(session)
@@ -34,6 +33,12 @@ struct ContentView : View {
                      .foregroundColor(.primary)
                 )
                 .navigationBarBackButtonHidden(true)
+        }
+    }
+    
+    var Login : some View {
+        NavigationView {
+            LoginView().environmentObject(session)
         }
     }
 }

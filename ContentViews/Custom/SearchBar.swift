@@ -40,7 +40,7 @@ struct SearchBar : View {
                     }) {
                         Image("Cancel")
                             .resizable()
-                            .frame(width: 55.0, height: 18.0)
+                            .frame(width: 53.0, height: 16.0)
                     }
                 }
             }.padding(.horizontal)

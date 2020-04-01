@@ -11,13 +11,14 @@ import Firebase
 
 class Project : Hashable, Codable, ObservableObject  {
     
-    init(name: String = "", description: String = "", accessType: AccessType = AccessType.open, creator: String = "", id: Int = 0) {
+    init(name: String = "", description: String = "", accessType: AccessType = AccessType.open, creator: String = "", tag: String = "", id: Int = 0) {
         self.name = name
         self.description = description
         self.accessType = accessType
         self.date = Date()
         self.creator = creator
         self.id = id
+        self.tag = tag
     }
     
     static func == (lhs: Project, rhs: Project) -> Bool {
@@ -38,5 +39,6 @@ class Project : Hashable, Codable, ObservableObject  {
     
     var participants = [String]()
     var tasks = [Int]()
+    var tag : String
     
 }

@@ -62,7 +62,8 @@ struct ProjectContentScreen : View {
                              self.activeSheet = .edit
                              self.isSheetShown.toggle()
                             
-          })
+          },
+                         project: self.project)
               .padding()
               .sheet(isPresented: self.$isSheetShown) {
                 if self.activeSheet == .add {

@@ -16,7 +16,7 @@ struct ProfileView : View {
     @State private var isClickedEdit = false
     @State private var user : User?
     @State private var roles = [(pos: Position, proj: String)]()
-
+    
     @EnvironmentObject var session : SessionViewModel
         
     var body : some View {
@@ -29,36 +29,36 @@ struct ProfileView : View {
                         .padding(.top, 20)
                         .padding(.leading, 20)
 
-                    LabelTextField(label: "Email address", placeHolder: "", text: $user.bound.email)
+                    LabelTextField(label: "Email address", placeHolder: "", text: $session.currentUser.bound.email)
                         .disabled(true)
                         .disableAutocorrection(true)
                         .padding(.top, 20)
                 }
 
                 Group {
-                    LabelTextField(label: "Your name", placeHolder: "enter your name", text: $user.bound.name)
-                    LabelTextField(label: "Your lastname", placeHolder: "enter your lastname", text: $user.bound.lastName)
+                    LabelTextField(label: "Your name", placeHolder: "enter your name", text: $session.currentUser.bound.name)
+                    LabelTextField(label: "Your lastname", placeHolder: "enter your lastname", text: $session.currentUser.bound.lastName)
                 }
                 .foregroundColor(self.isClickedEdit ? Color.blue : Color.black)
                 .disabled(!self.isClickedEdit)
                 .padding()
                 
                 VStack(alignment: .leading) {
-                    if !self.roles.isEmpty {
+                    if self.roles.count > 0 {
                         Text("Roles in projects")
                             .font(.headline)
                             .foregroundColor(Color.blue)
                             .padding(.all, 10)
                             .padding()
+                        
+                        ForEach(0 ..< roles.count) { i in
+                            PositionView(position: self.roles[i].pos, project: self.roles[i].proj).tag(i)
+                            if i != self.roles.count - 1 {
+                                Divider()
+                            }
+                        }
                     } else {
                         Spacer()
-                    }
-                    
-                    ForEach(0 ..< roles.count) { i in
-                        PositionView(position: self.roles[i].pos, project: self.roles[i].proj)
-                        if i != self.roles.count - 1 {
-                            Divider()
-                        }
                     }
                     
                     Spacer()
@@ -69,12 +69,12 @@ struct ProfileView : View {
                 }
             }
         }.navigationViewStyle(StackNavigationViewStyle())
-         .onAppear(perform: loadProfile)
+         .onAppear { self.loadProfile(self.session.currentUser.bound) }
     }
     
-    private func loadProfile() {
-        user = session.currentUser
-        Database().getProjects(me: user.bound) { (snap, error) in
+    private func loadProfile(_ user: User) {
+        self.session.currentSession()
+        Database().getProjects(me: user) { (snap, error) in
             let result = Result {
                 try snap!.documents.compactMap {
                     try $0.data(as: Project.self)
@@ -91,20 +91,21 @@ struct ProfileView : View {
             }
         }
     }
-    
-    private var Login : some View {
-        LoginView()
-            .navigationBarBackButtonHidden(true)
-    }
+
     
     private var LogOutButton : some View {
         HStack {
             Spacer()
-            Button(action: {
-                UserPreferences.setLogIn(false)
-                self.isClickedLogOut = true
-            }){
-                NavigationLink(destination: Login, isActive: $isClickedLogOut) {
+            NavigationLink(destination: Login, isActive: $isClickedLogOut) {
+                Button(action: {
+                    do {
+                        try self.session.logOut()
+                        UserPreferences.setLogIn(false)
+                        self.isClickedLogOut.toggle()
+                    } catch {
+                        print("log out error")
+                    }
+                }){
                     HStack(alignment: .center) {
                         Image("logOut")
                             .resizable()
@@ -112,17 +113,23 @@ struct ProfileView : View {
                             .foregroundColor(.red)
                             .padding(.all, 4)
                             .overlay(
-                                RoundedRectangle(cornerRadius: 2)
-                                    .stroke(Color.red, lineWidth: 1)
+                                RoundedRectangle(cornerRadius: CGFloat(2.0))
+                                    .stroke(Color.red, lineWidth: CGFloat(1.0))
                             )
-                        
+
                         Text("Log Out").foregroundColor(.red)
                     }
-                }//.isDetailLink(false)
+                }
             }
             Spacer()
         }
     }
+    
+    private var Login : some View {
+        LoginView()
+            .navigationBarBackButtonHidden(true)
+    }
+    
     
     private var EditProfileButton : some View {
         HStack(alignment: .center) {

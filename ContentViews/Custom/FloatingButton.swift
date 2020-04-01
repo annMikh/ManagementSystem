@@ -14,6 +14,16 @@ struct FloatingButton : View {
     @State var showMenuAdd = false
     @State var showMenuEdit = false
     
+    private var project: Project
+    private var task: Task
+    
+    init(actionAdd: @escaping ()->(), actionEdit: @escaping ()->(), task: Task = Task(), project: Project = Project()) {
+        self.project = project
+        self.task = task
+        self.actionAdd = actionAdd
+        self.actionEdit = actionEdit
+    }
+    
     var actionAdd: ()->()
     var actionEdit: ()->()
     

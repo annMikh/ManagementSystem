@@ -17,8 +17,6 @@ class User : Codable, Hashable, ObservableObject {
         self.position = position
         self.email = email
         self.uid = uid
-        self.projects = Set<Project>()
-        self.tasks = Set<Task>()
     }
     
     init(user: User?) {
@@ -26,8 +24,6 @@ class User : Codable, Hashable, ObservableObject {
         self.lastName = user?.lastName ?? ""
         self.position = user?.position ?? Position.None
         self.email = user?.email ?? ""
-        self.projects = Set<Project>()
-        self.tasks = Set<Task>()
         self.uid = ""
     }
     
@@ -36,9 +32,6 @@ class User : Codable, Hashable, ObservableObject {
     var email: String
     var position: Position
     var uid: String
-    
-    var projects: Set<Project>
-    var tasks: Set<Task>
     
     static func == (lhs: User, rhs: User) -> Bool {
         return lhs.email == rhs.email

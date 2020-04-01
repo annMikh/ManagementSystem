@@ -61,7 +61,7 @@ struct CreateProjectScreen : View {
                 .navigationBarItems(leading: CancelButton, trailing: DoneButton)
                 .padding(.horizontal, 20)
         }
-            .showAlertError(title: Constant.ErrorTitle, text: Constant.ErrorInput, isPresent: self.$isIncorrectInput)
+            .showAlert(title: Constant.ErrorTitle, text: Constant.ErrorInput, isPresent: self.$isIncorrectInput)
             .onAppear(perform: self.setFields)
             .onDisappear(perform: self.clear)
     }
@@ -77,12 +77,13 @@ struct CreateProjectScreen : View {
     
     private var DoneButton: some View {
         Button(action: {
-            self.isIncorrectInput = !Formatter.checkInput(self.name, self.description)
+            self.isIncorrectInput = !Formatter.checkInput(self.name, self.description) || !Formatter.checkLength50(self.name)
             
             if !self.isIncorrectInput {
                 let project = Project(name: self.name,
                                       description: self.description,
-                                      creator: self.session.currentUser.bound.uid)
+                                      creator: self.session.currentUser.bound.uid,
+                                      tag: Formatter.handleTag(self.tag))
                 project.participants.append(self.session.currentUser.bound.uid)
                 self.presentationMode.wrappedValue.dismiss()
                 self.session.createProject(project)
@@ -100,7 +101,7 @@ struct CreateProjectScreen : View {
     private func setFields() {
         self.name = self.pr.name
         self.description = self.pr.description
-        self.tag = "" // TODO set tag
+        self.tag = self.pr.tag
         self.isOpenProject = self.pr.accessType.isOpen()
     }
 }

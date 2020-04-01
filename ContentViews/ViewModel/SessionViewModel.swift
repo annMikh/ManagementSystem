@@ -11,39 +11,62 @@ import Firebase
 
 class SessionViewModel : ObservableObject {
     
+    static let shared = SessionViewModel()
+    
+    private init() {
+        currentSession()
+    }
+    
     var session: Firebase.User?
     var currentUser : User?
     
+    // MARK: for main and login  flow
     func currentSession() {
         self.session = Auth.auth().currentUser
-        self.saveUserData(response: session)
-        
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if self.session != user {
-                self.saveUserData(response: user)
+        self.getUserInfo(user: self.session) { (doc, err) in
+            if err == nil {
+                let result = Result {
+                    try doc.map {
+                        try $0.data(as: User.self)
+                    }
+                }
+                switch result {
+                    case .success(let u):
+                        self.currentUser = u!
+                    case .failure(let error):
+                        print("Error decoding user: \(error)")
+                }
+                
             }
         }
-    }
-    
-    func saveUserData(response: Firebase.User?) {
-        self.session = response
-        self.currentUser = User(name: "",
-                       lastName: "",
-                       position: Position.None,
-                       email: self.session?.email ?? "",
-                       uid: self.session?.uid ?? "")
+        
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            // TODO
+            //self.session = auth.currentUser
+        }
     }
     
     func logIn(email: String, password: String, handler: @escaping AuthDataResultCallback) {
         Auth.auth().signIn(withEmail: email, password: password, completion: handler)
     }
     
+    func logOut() throws {
+        try Auth.auth().signOut()
+        self.session = Auth.auth().currentUser
+    }
+    
     func signUp(email: String, password: String, handler: @escaping AuthDataResultCallback) {
         Auth.auth().createUser(withEmail: email, password: password, completion: handler)
     }
     
+    func resetPassword(email: String, handler: @escaping SendPasswordResetCallback) {
+        Auth.auth().sendPasswordReset(withEmail: email, completion: handler)
+    }
+    
+    // MARK: register flow
     func createUser(_ user: User) {
-        self.refUsers.document(user.uid).setData([
+        self.session = Auth.auth().currentUser
+        db.collection(SessionViewModel.USERS).document(user.uid).setData([
             "name": user.name,
             "lastName": user.lastName,
             "email": user.email,
@@ -51,11 +74,16 @@ class SessionViewModel : ObservableObject {
             "uid": user.uid
         ]) { err in
             if let err = err {
+                self.currentSession()
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
             }
         }
+    }
+    
+    func getUserInfo(user: Firebase.User?, handler: @escaping FIRDocumentSnapshotBlock) {
+        db.collection(SessionViewModel.USERS).document(user?.uid ?? "").getDocument(completion: handler)
     }
     
     func createProject(_ project: Project) {
@@ -69,6 +97,7 @@ class SessionViewModel : ObservableObject {
             "creator": project.creator,
             "participants": project.participants,
             "tasks": project.tasks,
+            "tag": project.tag,
             "id": id
         ]) { err in
             if let err = err {
@@ -121,8 +150,8 @@ class SessionViewModel : ObservableObject {
     private static let TASKS = "tasks"
     private static let USERS = "users"
     
-    private static let db = Firestore.firestore()
-    private let refProjects = db.collection(SessionViewModel.PROJECTS)
-    private let refTasks = db.collection(SessionViewModel.TASKS)
-    private let refUsers = db.collection(SessionViewModel.USERS)
+    private let db = Firestore.firestore()
+    private lazy var refProjects = db.collection(SessionViewModel.PROJECTS)
+    private lazy var refTasks = db.collection(SessionViewModel.TASKS)
+    private lazy var refUsers = db.collection(SessionViewModel.USERS)
 }
