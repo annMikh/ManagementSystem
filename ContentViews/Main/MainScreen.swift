@@ -8,14 +8,22 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
-struct MainView : View {
+struct MainView : View, Searchable {
 
-    @State var isPresentingAdd: Bool = false
-    @State var isPresentingEdit: Bool = false
-    @State var selectorIndex: Int = 0
-    @State var searchValue : String = ""
-    @State var isClickedProfile = false
+
+    @State private var selectorType: Int = 0
+    @State private var searchValue : String = ""
+    @State private var activeSheet : ActiveSheet = .add
+    
+    @State private var isClickedProfile = false
+    @State private var isProjectLoaded = false
+    @State private var isSearchMode = false
+    @State private var isPresentingAdd: Bool = false
+    @State private var isPresentingEdit: Bool = false
+    
+    @State private var projects = [Project]()
     
     @EnvironmentObject var session: SessionViewModel
     
@@ -27,71 +35,137 @@ struct MainView : View {
         UITableView.appearance().backgroundColor = .clear
         UITableView.appearance().separatorColor = .clear
     }
-    
-    private var projects = [Project(name: "first", description: "vjsvjjvsljvldjvs"), Project(name: "second", description: "description")]
-        
+            
     var body : some View {
         ZStack(alignment: .bottomTrailing) {
             VStack(alignment: .leading) {
                 HStack {
                     NavigationLink(destination: ProfileContent, isActive: $isClickedProfile) {
-                        Button(action: {
-                            self.isClickedProfile = true
-                        }){
+                        Button(action: { self.isClickedProfile = true }){
                         Image(systemName: "person")
                             .resizable()
                             .frame(width: 25.0, height: 25.0)
                             .padding(.horizontal, 10)
                         }
-                    }.isDetailLink(false)
-                    SearchBar(input: $searchValue)
+                    }//.isDetailLink(false)
+                    SearchBar()
                 }
   
-                Picker("projects", selection: $selectorIndex) {
+                Picker("projects", selection: $selectorType) {
                     Text("all").tag(0)
                     Text("personal").tag(1)
                 }.pickerStyle(SegmentedPickerStyle())
                 
-                List {
-                    if self.$selectorIndex.wrappedValue == 0 {
-                        ForEach(projects, id: \.name) { proj in
-                            ProjectView(project: proj)
-                        }
-                        .onDelete(perform: delete)
-                        .onMove(perform: move)
-                    } else {
-                        ForEach(self.getOnlyMyProjects(), id: \.name) { proj in
+                if self.shoudShowList() {
+                    List {
+                        ForEach(self.$selectorType.wrappedValue == 0 ? self.projects : self.getOnlyMyProjects(), id: \.id) { proj in
                             ProjectView(project: proj)
                         }
                         .onDelete(perform: delete)
                         .onMove(perform: move)
                     }
+                    .environment(\.editMode, .constant(self.isPresentingEdit ? EditMode.active : EditMode.inactive))
+                    .animation(Animation.spring())
+                } else {
+                    SearchList
                 }
                 
                 Spacer()
-
             }
             
-            FloatingButton(actionAdd: { self.isPresentingAdd.toggle() },
-                           actionEdit: { self.isPresentingEdit.toggle() })
-                .padding()
-                .sheet(isPresented: self.$isPresentingAdd) {
-                    CreateProjectScreen().environmentObject(self.session)
-                }
+            if self.isEmptyListShown() {
+                EmptyListTextView(title: Constant.EmptyProjectsTitle).animation(.easeInOut)
+            }
+            
+            FloatButton
             
         }.navigationViewStyle(StackNavigationViewStyle())
+            .onAppear(perform: self.onAppear)
     }
     
     private func getOnlyMyProjects() -> [Project] {
-        return self.projects.filter { $0.creator == "" }
+        return self.projects.filter { $0.creator == self.session.currentUser.bound.uid }
     }
     
+    private func shoudShowList() -> Bool {
+        self.onAppear()
+        return !self.isSearchMode
+    }
+    
+    private func isEmptyListShown() -> Bool {
+        return self.isProjectLoaded && self.projects.isEmpty && !self.isSearchMode
+    }
+    
+    func updateSearchResult(input: String) {
+        if self.isSearchMode {
+            Database().loadProjectsByName(input: input,
+                                          com: self.updateProjects(snap:err:))
+        }
+    }
+    
+    private func onAppear() {
+        Database().getProjects(me: self.session.currentUser.bound,
+                               com: self.updateProjects(snap:err:))
+    }
+    
+    private func updateProjects(snap: QuerySnapshot?, err: Error?) {
+        let result = Result {
+                           try snap!.documents.compactMap {
+                               try $0.data(as: Project.self)
+                           }
+                       }
+       switch result {
+           case .success(let proj):
+            print(proj.count)
+               self.projects = proj
+           case .failure(let error):
+               print("Error decoding projects: \(error)")
+       }
+       self.isProjectLoaded = true
+    }
     
     private func delete(at offsets: IndexSet) {
-    
+        // TODO delete by index
+        for index in offsets {
+            self.session.deleteProject(self.projects[index]) { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    self.projects.remove(atOffsets: offsets)
+                }
+            }
+        }
     }
 
     private func move(from source: IndexSet, to destination: Int) {
+        self.projects.move(fromOffsets: source, toOffset: destination)
+    }
+    
+    private var FloatButton : some View {
+        FloatingButton(actionAdd: {
+                        self.activeSheet = .add
+                        self.isPresentingAdd.toggle()
+            
+        },
+                       actionEdit: {
+                        self.activeSheet = .edit
+                        self.isPresentingEdit.toggle()
+                        
+        })
+            .padding()
+            .sheet(isPresented: self.$isPresentingAdd) {
+                if self.activeSheet == .add {
+                   CreateProjectScreen().environmentObject(self.session)
+                }
+            }
+    }
+    
+    private var SearchList : some View {
+        List {
+            ForEach(self.projects, id: \.id) { proj in
+                ProjectView(project: proj)
+            }
+        }
     }
     
     private var ProfileContent : some View {
@@ -100,26 +174,4 @@ struct MainView : View {
             .navigationBarBackButtonHidden(false)
             .environmentObject(session)
     }
-}
-
-struct Boards : View {
-    
-    @State private var showingDetail = false
-    
-    var body: some View {
-        HStack(alignment: .firstTextBaseline) {
-            Text("Boards")
-                .font(.largeTitle)
-                .foregroundColor(.primary)
-            
-            Spacer()
-        
-            Image(systemName: "plus")
-                .padding(.all, 10)
-                .sheet(isPresented: $showingDetail) {
-                    CreateProjectScreen()
-                }
-        }
-    }
-    
 }

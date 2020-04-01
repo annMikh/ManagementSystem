@@ -27,7 +27,7 @@ struct CommentView : View {
                         .bold()
                         .padding(.horizontal, 10).padding(.top, 5)
                     
-                    Text(DFormatter.getStringWithFormate(date: comment.date))
+                    Text(Formatter.getStringWithFormate(date: comment.date))
                         .font(.footnote)
                         .foregroundColor(.gray)
                         .padding(.horizontal, 10)

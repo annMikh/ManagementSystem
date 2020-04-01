@@ -10,9 +10,6 @@ import Foundation
 import SwiftUI
 
 struct CreateProjectScreen : View {
-    
-    @EnvironmentObject var session: SessionViewModel
-    @Environment(\.presentationMode) var presentationMode
 
     @State private var name = ""
     @State private var tag = ""
@@ -21,6 +18,9 @@ struct CreateProjectScreen : View {
     @State private var isIncorrectInput : Bool = false
     
     private var pr : Project
+    
+    @EnvironmentObject var session: SessionViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     init(project: Project = Project()) {
         self.pr = project
@@ -40,6 +40,18 @@ struct CreateProjectScreen : View {
                     
                 LabelTextField(label: "Tags", placeHolder: "Fill in tags for this project", text: self.$tag)
                 
+                HStack {
+                    Text("Participants").font(.headline).foregroundColor(Color.blue)
+                    Button(action: {
+                        // TODO add participants logic
+                    }) {
+                        Image(systemName: "plus")
+                            .resizable()
+                            .frame(width: 20.0, height: 20.0)
+                            .padding(.horizontal, 10)
+                    }
+                }
+                
                 Toggle(isOn: $isOpenProject) {
                     Text("Open access")
                 }.padding()
@@ -48,12 +60,10 @@ struct CreateProjectScreen : View {
             }
                 .navigationBarItems(leading: CancelButton, trailing: DoneButton)
                 .padding(.horizontal, 20)
-        }.showAlertError(title: Constant.ErrorTitle, text: Constant.ErrorInput, isPresent: self.$isIncorrectInput)
-        .onAppear{
-            self.setFields()
-        }.onDisappear {
-            self.clear()
         }
+            .showAlertError(title: Constant.ErrorTitle, text: Constant.ErrorInput, isPresent: self.$isIncorrectInput)
+            .onAppear(perform: self.setFields)
+            .onDisappear(perform: self.clear)
     }
     
     private var CancelButton: some View {
@@ -67,35 +77,30 @@ struct CreateProjectScreen : View {
     
     private var DoneButton: some View {
         Button(action: {
-            self.isIncorrectInput = !self.isValidInput()
+            self.isIncorrectInput = !Formatter.checkInput(self.name, self.description)
             
             if !self.isIncorrectInput {
-                let project = Project(name: self.name, description: self.description)
+                let project = Project(name: self.name,
+                                      description: self.description,
+                                      creator: self.session.currentUser.bound.uid)
+                project.participants.append(self.session.currentUser.bound.uid)
                 self.presentationMode.wrappedValue.dismiss()
-                self.session.createProject(project: project)
-            } else {
-                 print("not valid input")
+                self.session.createProject(project)
             }
-        }) {
-            Text("Done").foregroundColor(Color.blue)
-        }
-    }
-    
-    private func isValidInput() -> Bool {
-        return !self.name.isEmpty && !self.description.isEmpty
+        }) { Text("Done").foregroundColor(Color.blue) }
     }
     
     private func clear() {
-        self.name = ""
-        self.description = ""
-        self.tag = ""
+        self.name.removeAll()
+        self.description.removeAll()
+        self.tag.removeAll()
         self.isOpenProject = false
     }
     
     private func setFields() {
         self.name = self.pr.name
         self.description = self.pr.description
-        self.tag = ""
+        self.tag = "" // TODO set tag
         self.isOpenProject = self.pr.accessType.isOpen()
     }
 }

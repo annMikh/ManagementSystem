@@ -8,20 +8,28 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestoreSwift
 
 class Database : ObservableObject {
     
     let db = Firestore.firestore()
     
-    func getProjects(me: User) { //-> [Project] {
+    func getProjects(me: User, com: @escaping FIRQuerySnapshotBlock) {
         db.collection("projects")
-            .whereField("projects", arrayContains: me.projects.map { $0.hashValue} )
-            .addSnapshotListener { querySnapshot, error in
-                guard let snapshot = querySnapshot else {
-                    print("Error retreiving snapshots \(error!)")
-                    return
-                }
-                print("Current projects: \(snapshot.documents.map { $0.data() })")
-            }
+            .whereField("participants", arrayContains: me.uid).getDocuments(completion: com)
+    }
+
+    
+    func getTasks(project: Project, com: @escaping FIRQuerySnapshotBlock) {
+        db.collection("tasks")
+            .whereField("project_id", isEqualTo: project.id).getDocuments(completion: com)
+    }
+    
+    func getUser(userId: String, com: @escaping FIRDocumentSnapshotBlock) {
+        db.collection("user").document(userId).getDocument(completion: com)
+    }
+    
+    func loadProjectsByName(input: String, com: @escaping FIRQuerySnapshotBlock) {
+        db.collection("projects").whereField("name", isEqualTo: input).getDocuments(completion: com)
     }
 }

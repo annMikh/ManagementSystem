@@ -44,7 +44,7 @@ struct TaskView : View {
                         
                         HStack {
                             Spacer()
-                            Text(DFormatter.getStringWithFormate(date: task.deadline))
+                            Text("")
                                 .lineLimit(1)
                                 .font(.footnote)
                                 .foregroundColor(.gray)

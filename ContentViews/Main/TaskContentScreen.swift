@@ -11,9 +11,11 @@ import SwiftUI
 
 struct TaskContentScreen : View {
     
-    @ObservedObject var task: Task
+    var task: Task
+    
     @State private var isShowingAlert = false
     @State private var alertInput = ""
+    @State private var author : User?
 
     var body : some View {
         ZStack {
@@ -21,7 +23,6 @@ struct TaskContentScreen : View {
                 VStack {
                     
                     Text("Assignee").font(.title).padding()
-                    
                     HStack(alignment: .top) {
                             Image(systemName: "person")
                                 .resizable()
@@ -53,7 +54,7 @@ struct TaskContentScreen : View {
                     Text("Assigned by").font(.title).padding()
                     HStack {
                         Spacer()
-                        Text("")// task.author.bound.getFullName()
+                        Text($author.wrappedValue.bound.getFullName())
                             .frame(minWidth: 200, maxWidth: 200)
                             .padding()
                         Spacer()
@@ -64,7 +65,6 @@ struct TaskContentScreen : View {
 
                     HStack(alignment: .center, spacing: 8) {
                         Text("Comments").font(.title)
-
                         Button(action: {
                             withAnimation {
                                 self.isShowingAlert.toggle()
@@ -85,10 +85,29 @@ struct TaskContentScreen : View {
                         
                 }
             }
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .onAppear(perform: self.onAppear)
+    }
+    
+    private func onAppear()  {
+        Database().getUser(userId: self.task.author.bound) { (doc, err) in
+            let result = Result { try doc!.data(as: User.self) }
+            switch result {
+                case .success(let user):
+                    print("name" + (user?.name ?? ""))
+                    self.author = user
+                case .failure(let error):
+                    print("Error decoding projects: \(error)")
+            }
+        }
+        
+        Database().getUser(userId: self.task.assignedUser.bound) { (doc, err) in
+            
+        }
     }
     
     private func getComments() -> Array<Comment> {
-        return task.comments ?? Array<Comment>()
+        return Array<Comment>()
     }
 }

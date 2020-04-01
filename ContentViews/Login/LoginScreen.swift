@@ -10,20 +10,19 @@ import SwiftUI
 import Firebase
 
 struct LoginView: View {
-    @State var email: String = ""
-    @State var password: String = ""
-    @State var isLogin: Bool = false
-    @State var isPresentingModal: Bool = false
+    
+    @State private var email: String = ""
+    @State private var password: String = ""
+    
+    @State private var isLogin: Bool = false
+    @State private var isPresentingModal: Bool = false
+    @State private var isForgetPassword: Bool = false
     
     @EnvironmentObject var session: SessionViewModel
     
     init() {
         UITableView.appearance().backgroundColor = .clear
         UITableView.appearance().separatorColor = .clear
-    }
-    
-    func isActive() -> Bool {
-        return RegisterView.isSignedUp
     }
 
     var body: some View {
@@ -53,81 +52,88 @@ struct LoginView: View {
         NavigationView {
             VStack(alignment: .leading, spacing: 20) {
                     
-                    Text("Log In")
-                        .font(.largeTitle)
-                        .foregroundColor(.primary)
-                        .bold()
-                        .padding(.top, 40).padding(.horizontal, 20)
-                        
-                    Group {
-                        TextField("email address", text: $email)
-                            .autocapitalization(.none)
-                            .padding()
-                        SecureField("password", text: $password).padding()
-                    }
-                    .border(Color.black, width: 2)
-                    .padding(.all, 10)
+                Text("Log In")
+                    .font(.largeTitle)
+                    .foregroundColor(.primary)
+                    .bold()
+                    .padding(.top, 40).padding(.horizontal, 20)
                     
-                    NavigationLink(destination:mainContent, isActive: $isLogin) {
-                        Button(action: {
-                            print("blya")
-                            if (!self.email.isEmpty && !self.password.isEmpty){
-                                self.session.logIn(email: self.email, password: self.password) { (res, error) in
-                                    self.isLogin = error == nil
-                                    UserPreferences.setLogIn(self.isLogin)
-                                    if self.isLogin {
-                                        self.clear()
-                                        self.session.saveUserData(response: res?.user)
-                                    }
-                                }
-                            }
-                        }) {
-                            HStack {
-                                Spacer()
-                                Text("NEXT")
-                                    .font(.headline)
-                                    .foregroundColor(Color.white)
-                                Spacer()
-                            }
+                Group {
+                    TextField("email address", text: $email)
+                        .autocapitalization(.none)
+                        .padding()
+                    SecureField("password", text: $password)
+                        .padding()
+                }
+                .border(Color.black, width: 2)
+                .padding(.all, 10)
+                
+                Button(action: { self.isForgetPassword.toggle() }) {
+                    HStack {
+                        Spacer()
+                        Text("Forget password?").foregroundColor(.blue).padding(.vertical, 5.0)
+                        Spacer()
+                    }
+                }.sheet(isPresented: $isForgetPassword) {
+                   // TODO create view for forget password
+                    RegisterView().environmentObject(self.session)
+                }
+                
+                NavigationLink(destination: Main, isActive: $isLogin) {
+                    Button(action: {
+                        print(Formatter.checkInput(self.email, self.password))
+                        if Formatter.checkInput(self.email, self.password) {
+                            self.session.logIn(email: self.email,
+                                               password: self.password,
+                                               handler: self.handleLogin(res:error:))
                         }
-                        .padding(.vertical, 10.0)
-                        .background(Color.blue)
-                        .cornerRadius(6.0)
-                        .padding(.horizontal, 50)
-                    }
-                    
-                    Spacer()
-                    
-                    Button(action: { self.isPresentingModal = true } )
-                    {
+                    }) {
                         HStack {
                             Spacer()
-                            Text("Haven't got an account?").foregroundColor(.blue).padding(.bottom, 20)
+                            Text("NEXT")
+                                .font(.headline)
+                                .foregroundColor(Color.white)
                             Spacer()
                         }
                     }
-                    .sheet(isPresented: $isPresentingModal) {
-                        RegisterView().environmentObject(self.session)
+                    .padding(.vertical, 10.0)
+                    .background(Color.blue)
+                    .cornerRadius(6.0)
+                    .padding(.horizontal, 50)
+                }
+            
+                Spacer()
+                
+                Button(action: { self.isPresentingModal = true } ) {
+                    HStack {
+                        Spacer()
+                        Text("Haven't got an account?").foregroundColor(.blue).padding(.bottom, 20)
+                        Spacer()
                     }
-                    Spacer()
+                }
+                .sheet(isPresented: $isPresentingModal) {
+                    RegisterView().environmentObject(self.session)
+                }
             }
         }
     }
     
-    private func clear() {
-        self.email = ""
-        self.password = ""
+    private func handleLogin(res: AuthDataResult?, error: Error?) {
+        self.isLogin = error == nil
+        UserPreferences.setLogIn(self.isLogin)
+        if self.isLogin {
+            clear()
+            session.saveUserData(response: res?.user)
+        }
     }
     
-    private var mainContent : some View {
-         MainView()
-            .navigationBarTitle(
-             Text("Boards")
-                 .font(.largeTitle)
-                 .foregroundColor(.primary)
-            )
-            .navigationBarBackButtonHidden(true)
-            .environmentObject(session)
+    private func clear() {
+        email = ""
+        password = ""
+    }
+    
+    func isActive() -> Bool {
+        return RegisterView.isSignedUp
     }
 }
 

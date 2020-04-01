@@ -11,24 +11,23 @@ import Firebase
 
 class SessionViewModel : ObservableObject {
     
-    @Published var session: Firebase.User?
-    @Published var isLogIn: Bool?
-    static var me : User?
-    
-    let db = Firestore.firestore()
+    var session: Firebase.User?
+    var currentUser : User?
     
     func currentSession() {
         self.session = Auth.auth().currentUser
         self.saveUserData(response: session)
         
-//        var handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-//            print(user?.email)
-//        }
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if self.session != user {
+                self.saveUserData(response: user)
+            }
+        }
     }
     
     func saveUserData(response: Firebase.User?) {
         self.session = response
-        SessionViewModel.me = User(name: "",
+        self.currentUser = User(name: "",
                        lastName: "",
                        position: Position.None,
                        email: self.session?.email ?? "",
@@ -43,8 +42,8 @@ class SessionViewModel : ObservableObject {
         Auth.auth().createUser(withEmail: email, password: password, completion: handler)
     }
     
-    func createUser(user: User) {
-        db.collection("users").document(user.uid).setData([
+    func createUser(_ user: User) {
+        self.refUsers.document(user.uid).setData([
             "name": user.name,
             "lastName": user.lastName,
             "email": user.email,
@@ -59,13 +58,18 @@ class SessionViewModel : ObservableObject {
         }
     }
     
-    func createProject(project: Project) {
-        db.collection("projects").document(String(project.hashValue)).setData([
+    func createProject(_ project: Project) {
+        let id = project.hashValue
+        project.id = id
+        self.refProjects.document(String(id)).setData([
             "name": project.name,
             "description": project.description,
             "date": project.date,
             "accessType":  project.accessType.rawValue,
-            "creator": project.creator
+            "creator": project.creator,
+            "participants": project.participants,
+            "tasks": project.tasks,
+            "id": id
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -76,10 +80,30 @@ class SessionViewModel : ObservableObject {
     }
     
     func createTask(task: Task, project: Project) {
-        var tasks = project.tasks
-        tasks.append(task)
-        db.collection("tasks").document(String(task.hashValue)).updateData([
-            "tasks": tasks
+        self.refTasks.document(String(task.hashValue)).setData([
+            "author": task.author.bound,
+            "name": task.name.bound,
+            "date": task.date,
+            "description": task.description.bound,
+            "assignedUser": task.assignedUser.bound,
+            "priority": task.priority.rawValue,
+            "status": task.status.rawValue,
+            "deadline": task.deadline ?? Deadline.NoDeadline.rawValue,
+            "project_id": project.id
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                self.updateProject(project, task)
+                print("Document successfully written!")
+            }
+        }
+    }
+    
+    private func updateProject(_ project: Project, _ task: Task) {
+        project.tasks.append(task.hashValue)
+        self.refProjects.document(String(project.id)).updateData([
+            "tasks": project.tasks
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -89,4 +113,16 @@ class SessionViewModel : ObservableObject {
         }
     }
     
+    func deleteProject(_ project: Project, com: @escaping (Error?) -> Void) {
+        self.refProjects.document(String(project.id)).delete(completion: com)
+    }
+    
+    private static let PROJECTS = "projects"
+    private static let TASKS = "tasks"
+    private static let USERS = "users"
+    
+    private static let db = Firestore.firestore()
+    private let refProjects = db.collection(SessionViewModel.PROJECTS)
+    private let refTasks = db.collection(SessionViewModel.TASKS)
+    private let refUsers = db.collection(SessionViewModel.USERS)
 }

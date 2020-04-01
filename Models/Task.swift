@@ -21,9 +21,10 @@ class Task : Hashable, Codable, ObservableObject  {
     var assignedUser: String?
     var priority = Priority.low
     var status = Status.New
+    var project_id: Int?
     
-    var deadline: Date?
-    var comments : Array<Comment>?
+    var deadline: String?
+    //var comments : Array<Comment>?
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(author)
@@ -66,7 +67,7 @@ class TaskBuilder {
         task.priority = priority
     }
     
-    func setDeadline(deadline: Date) {
+    func setDeadline(deadline: String) {
         task.deadline = deadline
     }
 

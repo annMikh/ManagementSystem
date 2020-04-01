@@ -15,14 +15,13 @@ struct ContentView : View {
 
     var body: some View {
         AnyView({ () -> AnyView in
-            if (!UserPreferences.getLogIn()) {
+            if (!UserPreferences.isLogIn()) {
                 return AnyView(LoginView().environmentObject(session))
             } else {
                 return AnyView(mainView)
             }
             }())
             .onAppear { self.session.currentSession() }
-            .onDisappear {  }
     }
     
     var mainView : some View {

@@ -35,7 +35,7 @@ struct ProjectView : View {
                                 .lineLimit(1)
                                 .font(.footnote)
                             Spacer()
-                            Text(DFormatter.getStringWithFormate(date: project.date))
+                            Text(Formatter.getStringWithFormate(date: project.date))
                                 .lineLimit(nil)
                                 .font(.footnote)
                         }

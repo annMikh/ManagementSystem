@@ -13,7 +13,9 @@ struct CreateTaskScreen : View {
     
     var project: Project
     
-    @State var pickerSelection = 0
+    @State var pickPriority = 0
+    @State var pickStatus = 0
+    
     @State var selection = false
     @State var name : String = ""
     @State var description : String = ""
@@ -25,6 +27,7 @@ struct CreateTaskScreen : View {
     @EnvironmentObject var session: SessionViewModel
     
     private var priorities = Priority.allCases.map { "\($0)" }
+    private var statuses = Status.allCases.map { "\($0)" }
     
     init(project: Project) {
         self.project = project
@@ -46,10 +49,17 @@ struct CreateTaskScreen : View {
                         .padding(.horizontal, 10)
                                         
                     Text("Priority").font(.headline).foregroundColor(Color.blue)
-                    Picker(selection: $pickerSelection, label: Text("Priority")) {
+                    Picker(selection: $pickPriority, label: Text("Priority")) {
                             ForEach(0 ..< self.priorities.count) { index in
                                 Text(self.priorities[index]).foregroundColor(Color.black).tag(index)
                             }
+                    }.pickerStyle(SegmentedPickerStyle())
+                    
+                    
+                    Picker(selection: $pickStatus, label: Text("Status")) {
+                        ForEach(0 ..< self.statuses.count) { index in
+                            Text(self.statuses[index]).foregroundColor(Color.black).tag(index)
+                        }
                     }.pickerStyle(SegmentedPickerStyle())
                     
                     LabelTextField(label: "Assignee", placeHolder: "Fill in the assignee", text: self.$assignee)
@@ -90,20 +100,19 @@ struct CreateTaskScreen : View {
     }
     
     private func buildTask() -> Task {
-        let taskBuilder = TaskBuilder(author: "",
-                                      assignee: ""
-        )
+        let taskBuilder = TaskBuilder(author: self.session.currentUser?.uid ?? "",
+                                      assignee: self.assignee)
         
         taskBuilder.setName(name: self.name)
         taskBuilder.setDescription(description: self.description)
         taskBuilder.setStatus(status: Status.New)
-        taskBuilder.setPriority(priority: Priority.allCases[self.pickerSelection])
+        taskBuilder.setPriority(priority: Priority.allCases[self.pickPriority])
+        taskBuilder.setStatus(status: Status.allCases[self.pickStatus])
 
         return taskBuilder.build()
     }
     
     private func isTaskValid(_ task: Task) -> Bool {
-        return !(task.name?.isEmpty ?? false) && !(task.description?.isEmpty ?? false) &&
-            task.deadline != nil && !(task.comments?.isEmpty ?? false) && task.author != nil  && task.assignedUser != nil
+        return !(task.name?.isEmpty ?? true) && !(task.description?.isEmpty ?? true) && task.author != nil  && task.assignedUser != nil
     }
 }

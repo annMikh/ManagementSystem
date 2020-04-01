@@ -8,148 +8,141 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 struct ProfileView : View {
     
     @State private var isClickedLogOut = false
     @State private var isClickedEdit = false
-
-    private let roles : [(pos: Position, proj: String)] = [(Position.Designer, "project 1"), (Position.Developer, "project 2")]
-    private var me : User? = SessionViewModel.me
-    
-    @State private var _lastName = "mikhaleva"
-    @State private var _name = "anna"
-    @State private var email = "admikhaleva@yandex.ru"
-    
-    private var name : String {
-        get { return self._name }
-        set { self._name = newValue }
-    }
-    
-    private var lastName : String {
-        get { return self._lastName }
-        set { self._lastName = newValue }
-    }
+    @State private var user : User?
+    @State private var roles = [(pos: Position, proj: String)]()
 
     @EnvironmentObject var session : SessionViewModel
-    
+        
     var body : some View {
         ScrollView {
             VStack {
-                    HStack(alignment: .center, spacing: 30) {
-                        Image(systemName: "person")
-                            .resizable()
-                            .frame(width: 50.0, height: 50.0)
-                            .padding(.top, 20)
-                            .padding(.leading, 20)
+                HStack(alignment: .center, spacing: 30) {
+                    Image(systemName: "person")
+                        .resizable()
+                        .frame(width: 50.0, height: 50.0)
+                        .padding(.top, 20)
+                        .padding(.leading, 20)
 
-                        LabelTextField(label: "Email address", placeHolder: "", text: $email)
-                            .disabled(true)
-                            .disableAutocorrection(true)
-                            .padding(.top, 20)
-                    }
+                    LabelTextField(label: "Email address", placeHolder: "", text: $user.bound.email)
+                        .disabled(true)
+                        .disableAutocorrection(true)
+                        .padding(.top, 20)
+                }
 
-                    Group {
-                     LabelTextField(label: "Your name", placeHolder: "enter your name", text: $_name)
-                        .disabled(!self.isClickedEdit)
-                        .padding()
-
-                     LabelTextField(label: "Your lastname", placeHolder: "enter your lastname", text: $_lastName)
-                        .disabled(!self.isClickedEdit)
-                        .padding()
-                    }
+                Group {
+                    LabelTextField(label: "Your name", placeHolder: "enter your name", text: $user.bound.name)
+                    LabelTextField(label: "Your lastname", placeHolder: "enter your lastname", text: $user.bound.lastName)
+                }
+                .foregroundColor(self.isClickedEdit ? Color.blue : Color.black)
+                .disabled(!self.isClickedEdit)
+                .padding()
                 
-                    VStack(alignment: .leading) {
-                        
+                VStack(alignment: .leading) {
+                    if !self.roles.isEmpty {
                         Text("Roles in projects")
                             .font(.headline)
                             .foregroundColor(Color.blue)
                             .padding(.all, 10)
                             .padding()
-                        
-                        ForEach(0 ..< roles.count) { i in
-                            PositionView(position: self.roles[i].pos, project: self.roles[i].proj)
-                            if i != self.roles.count - 1 {
-                                Divider()
-                            }
-                        }
-                        Spacer(minLength: 35)
-                        Divider()
-                        
-                        HStack(alignment: .center) {
-                            Spacer()
-                            Button(action: {
-                                self.isClickedEdit = !self.isClickedEdit
-                            }){
-                                HStack(alignment: .center) {
-                                    Image(systemName: nameForPencil())
-                                        .resizable()
-                                        .frame(width: 15.0, height: 15.0)
-                                        .padding(.all, 4)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 4)
-                                                .stroke(Color.blue, lineWidth: 1)
-                                        )
-                                    Text("Edit profile")
-                                }
-                            }
-                            Spacer()
-                        }
-                        
-                        Divider()
-                        
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                UserPreferences.setLogIn(false)
-                                self.isClickedLogOut = true
-                            }){
-                                NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true), isActive: $isClickedLogOut) {
-                                    HStack(alignment: .center) {
-                                        Image("logOut")
-                                            .resizable()
-                                            .frame(width: 15.0, height: 15.0)
-                                            .foregroundColor(.red)
-                                            .padding(.all, 4)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 2)
-                                                    .stroke(Color.red, lineWidth: 1)
-                                            )
-                                        
-                                        Text("Log Out").foregroundColor(.red)
-                                    }
-                                }.isDetailLink(false)
-                            }
-                            Spacer()
+                    } else {
+                        Spacer()
+                    }
+                    
+                    ForEach(0 ..< roles.count) { i in
+                        PositionView(position: self.roles[i].pos, project: self.roles[i].proj)
+                        if i != self.roles.count - 1 {
+                            Divider()
                         }
                     }
-                
+                    
+                    Spacer()
+                    Divider()
+                    EditProfileButton
+                    Divider()
+                    LogOutButton
+                }
             }
-            }.navigationViewStyle(StackNavigationViewStyle())
+        }.navigationViewStyle(StackNavigationViewStyle())
+         .onAppear(perform: loadProfile)
     }
     
-    private func nameForPencil() -> String {
-        return self.isClickedEdit ? "pencil.slash" : "pencil"
-    }
-}
-
-
-struct PositionView : View {
-    
-    let position : Position
-    let project : String
-    
-    var body : some View {
-            HStack {
-                Image(systemName: Position.getImage(pos: position))
-                    .resizable()
-                    .frame(width: 20.0, height: 20.0)
-                    .padding(.horizontal, 10)
-                
-                Text(String(describing: position)).bold().font(.body)
-                Spacer()
-                Text(project).foregroundColor(.gray).font(.body).padding(.trailing, 10)
+    private func loadProfile() {
+        user = session.currentUser
+        Database().getProjects(me: user.bound) { (snap, error) in
+            let result = Result {
+                try snap!.documents.compactMap {
+                    try $0.data(as: Project.self)
+                }
             }
-        
+            switch result {
+                case .success(let proj):
+                    for p in proj {
+                        // TODO get roles for every project
+                        self.roles.append((pos: Position.None, proj: p.name))
+                    }
+                case .failure(let error):
+                    print("Error decoding projects: \(error)")
+            }
+        }
+    }
+    
+    private var Login : some View {
+        LoginView()
+            .navigationBarBackButtonHidden(true)
+    }
+    
+    private var LogOutButton : some View {
+        HStack {
+            Spacer()
+            Button(action: {
+                UserPreferences.setLogIn(false)
+                self.isClickedLogOut = true
+            }){
+                NavigationLink(destination: Login, isActive: $isClickedLogOut) {
+                    HStack(alignment: .center) {
+                        Image("logOut")
+                            .resizable()
+                            .frame(width: 15.0, height: 15.0)
+                            .foregroundColor(.red)
+                            .padding(.all, 4)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 2)
+                                    .stroke(Color.red, lineWidth: 1)
+                            )
+                        
+                        Text("Log Out").foregroundColor(.red)
+                    }
+                }//.isDetailLink(false)
+            }
+            Spacer()
+        }
+    }
+    
+    private var EditProfileButton : some View {
+        HStack(alignment: .center) {
+            Spacer()
+            Button(action: {
+                self.isClickedEdit = !self.isClickedEdit
+            }){
+                HStack(alignment: .center) {
+                    Image(systemName: self.isClickedEdit ? "pencil.slash" : "pencil")
+                        .resizable()
+                        .frame(width: 15.0, height: 15.0)
+                        .padding(.all, 4)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke(Color.blue, lineWidth: 1)
+                        )
+                    Text("Edit profile")
+                }
+            }
+            Spacer()
+        }
     }
 }

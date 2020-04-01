@@ -56,6 +56,17 @@ struct FloatingButton : View {
             }
         })
     }
+    
+    func hideMenu() {
+        withAnimation {
+            self.showMenuEdit = false
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            withAnimation {
+                self.showMenuAdd = false
+            }
+        })
+    }
 }
 
 struct MenuItem: View {
