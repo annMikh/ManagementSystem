@@ -11,26 +11,22 @@ import SwiftUI
 
 struct PositionView : View {
     
-    let position : Position
+    let type : AccessType
     let project : String
     
     var body : some View {
         HStack {
-            Image(systemName: Position.getImage(pos: position))
+            Image(systemName: AccessType.getImage(acc: type))
                 .resizable()
-                .frame(width: 20.0, height: 20.0)
+                .frame(width: 15.0, height: 20.0)
                 .padding(.horizontal, 10)
             
-            Text(String(describing: position))
+            Text(project)
                 .bold()
                 .font(.body)
-            
+                .padding(.trailing, 10)
             Spacer()
             
-            Text(project)
-                .foregroundColor(.gray)
-                .font(.body)
-                .padding(.trailing, 10)
         }
     }
 }

@@ -23,4 +23,6 @@ public struct Constant {
     
     public static let ResetPasswordTitle = "Reset password"
     public static let ResetPasswordText = "We have just sent you a password reset email.\nPlease, check your inbox and follow the instructions to reset your password."
+    
+    public static let CommentTitle = "New comment"
 }

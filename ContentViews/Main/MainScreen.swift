@@ -10,22 +10,20 @@ import Foundation
 import SwiftUI
 import Firebase
 
-struct MainView : View, Searchable {
-
+struct MainView : View {
 
     @State private var selectorType: Int = 0
     @State private var searchValue : String = ""
     @State private var activeSheet : ActiveSheet = .add
     
     @State private var isClickedProfile = false
-    @State private var isProjectLoaded = false
-    @State private var isSearchMode = false
+    @State private var isClickedSearch = false
     @State private var isPresentingAdd: Bool = false
     @State private var isPresentingEdit: Bool = false
     
-    @State private var projects = [Project]()
-    
-    @EnvironmentObject var session: SessionViewModel
+    @Environment(\.presentationMode) var presentationMode
+    @State var session = SessionViewModel.shared
+    @ObservedObject var store = ProjectStore.shared
     
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = .blue
@@ -48,7 +46,16 @@ struct MainView : View, Searchable {
                             .padding(.horizontal, 10)
                         }
                     }
-                    SearchBar()
+                    
+                    Spacer()
+                    NavigationLink(destination: SearchView, isActive: $isClickedSearch) {
+                        Button(action: { self.isClickedSearch.toggle() }) {
+                            Image(systemName: "magnifyingglass")
+                                .resizable()
+                                .frame(width: 25.0, height: 25.0)
+                                .padding(.horizontal, 10)
+                        }
+                    }
                 }
   
                 Picker("projects", selection: $selectorType) {
@@ -56,25 +63,24 @@ struct MainView : View, Searchable {
                     Text("personal").tag(1)
                 }.pickerStyle(SegmentedPickerStyle())
                 
-                if self.shoudShowList() {
-                    List {
-                        ForEach(self.$selectorType.wrappedValue == 0 ? self.projects : self.getOnlyMyProjects(), id: \.id) { proj in
-                            ProjectView(project: proj)
-                        }
-                        .onDelete(perform: delete)
-                        .onMove(perform: move)
+                List {
+                    ForEach(self.$selectorType.wrappedValue == 0 ?
+                        self.store.projects : self.store.projects.filter { $0.creator == self.session.currentUser.bound.uid },
+                            id: \.id) { proj in
+                        ProjectView(project: proj)
                     }
-                    .environment(\.editMode, .constant(self.isPresentingEdit ? EditMode.active : EditMode.inactive))
-                    .animation(Animation.spring())
-                } else {
-                    SearchList
+                    .onDelete(perform: delete)
+                    .onMove(perform: move)
                 }
+                .environment(\.editMode, .constant(self.isPresentingEdit ? EditMode.active : EditMode.inactive))
                 
                 Spacer()
             }
             
             if self.isEmptyListShown() {
-                EmptyListTextView(title: Constant.EmptyProjectsTitle).animation(.easeInOut)
+                EmptyListTextView(title: Constant.EmptyProjectsTitle)
+                    .opacity(self.store.isLoad ? 1.0 : 0.0)
+                    .animation(.easeInOut)
             }
             
             FloatButton
@@ -83,96 +89,55 @@ struct MainView : View, Searchable {
          .onAppear(perform: self.onAppear)
     }
     
-    private func getOnlyMyProjects() -> [Project] {
-        return self.projects.filter { $0.creator == self.session.currentUser.bound.uid }
-    }
-    
-    private func shoudShowList() -> Bool {
-        //self.onAppear()
-        return !self.isSearchMode
-    }
-    
     private func isEmptyListShown() -> Bool {
-        return self.isProjectLoaded && self.projects.isEmpty && !self.isSearchMode
-    }
-    
-    func updateSearchResult(input: String) {
-        if self.isSearchMode {
-            Database().loadProjectsByName(input: input,
-                                          com: self.updateProjects(snap:err:))
-        }
+        return self.store.projects.isEmpty
     }
     
     private func onAppear() {
-        Database().getProjects(me: self.session.currentUser.bound,
-                               com: self.updateProjects(snap:err:))
-        self.session.currentSession()
-    }
-    
-    private func updateProjects(snap: QuerySnapshot?, err: Error?) {
-        let result = Result {
-               try snap!.documents.compactMap {
-                   try $0.data(as: Project.self)
-               }
+        if self.session.currentUser == nil {
+            self.session.currentSession()
         }
-       switch result {
-           case .success(let proj):
-               self.projects = proj
-           case .failure(let error):
-               print("Error decoding projects: \(error)")
-       }
-       self.isProjectLoaded = true
+        self.store.loadProjects(user: self.session.session)
     }
     
     private func delete(at offsets: IndexSet) {
-        // TODO delete by index
-        for index in offsets {
-            if Permission.toEditProject(project: self.projects[index]) {
-                self.session.deleteProject(self.projects[index]) { err in
-                    if let err = err {
-                        print("Error removing document: \(err)")
-                    } else {
-                        self.projects.remove(atOffsets: offsets)
-                    }
-                }
-            }
+        offsets.forEach { index in
+            self.store.deleteProject(index)
         }
     }
 
     private func move(from source: IndexSet, to destination: Int) {
-        self.projects.move(fromOffsets: source, toOffset: destination)
+        self.store.move(source: source, destination: destination)
     }
     
     private var FloatButton : some View {
         FloatingButton(actionAdd: {
                         self.activeSheet = .add
                         self.isPresentingAdd.toggle()
-            
+                        self.store.setState(state: .Add)
         },
                        actionEdit: {
                         self.activeSheet = .edit
                         self.isPresentingEdit.toggle()
+                        self.store.setState(state: .Edit)
         })
             .padding()
             .sheet(isPresented: self.$isPresentingAdd) {
                 if self.activeSheet == .add {
-                   CreateProjectScreen().environmentObject(self.session)
+                    CreateProjectScreen()
                 }
             }
-    }
-    
-    private var SearchList : some View {
-        List {
-            ForEach(self.projects, id: \.id) { proj in
-                ProjectView(project: proj)
-            }
-        }
     }
     
     private var ProfileContent : some View {
         ProfileView()
             .navigationBarTitle(Text("Profile").bold())
             .navigationBarBackButtonHidden(false)
-            .environmentObject(session)
+    }
+    
+    private var SearchView : some View {
+        SearchScreen()
+            .navigationBarTitle(Text("Search").bold())
+            .navigationBarBackButtonHidden(false)
     }
 }

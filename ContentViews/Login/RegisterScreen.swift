@@ -21,7 +21,7 @@ struct RegisterView: View {
     @State private var pickerSelection = 0
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var session: SessionViewModel
+    @State var session = SessionViewModel.shared
     
     private var positions = Position.allCases.map {"\($0)"}
     
@@ -44,19 +44,19 @@ struct RegisterView: View {
                 .padding(.all, 15)
                 
                 Text("Choose position").font(.headline).bold().foregroundColor(Color.black).padding(.horizontal, 10)
-                        Form {
-                            Picker(selection: $pickerSelection, label:
-                            Text("position").foregroundColor(Color.black)) {
-                                    ForEach(0 ..< self.positions.count) { index in
-                                        Text(self.positions[index]).tag(index)
-                                    }
+                Form {
+                    Picker(selection: $pickerSelection, label:
+                    Text("position").foregroundColor(Color.black)) {
+                            ForEach(0 ..< self.positions.count) { index in
+                                Text(self.positions[index]).tag(index)
                             }
-                        }
-                        .padding(.horizontal, 10)
+                    }
+                }
+                .padding(.horizontal, 10)
                         
                 Spacer()
                     
-                Button(action: self.handleResponse) {
+                Button(action: self.handleRequest) {
                             HStack {
                                 Spacer()
                                 Text("NEXT")
@@ -85,16 +85,16 @@ struct RegisterView: View {
         }
     }
     
-    private func handleResponse() {
+    private func handleRequest() {
         self.isIncorrectInput = !Formatter.checkInput(self.email,
                                                     self.name,
                                                     self.lastName,
                                                     Position.allCases[self.pickerSelection])
         if (!self.isIncorrectInput) {
-            let user = User(name: self.name,
+            var user = User(name: self.name,
                             lastName: self.lastName,
-                            position: Position.allCases[self.pickerSelection],
                             email: self.email,
+                            position: Position.allCases[self.pickerSelection],
                             uid: "")
             
             self.session.signUp(email: self.email, password: self.password) { (res, error) in

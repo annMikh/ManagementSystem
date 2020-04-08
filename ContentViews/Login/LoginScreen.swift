@@ -18,7 +18,7 @@ struct LoginView: View {
     @State private var isPresentingModal: Bool = false
     @State private var isForgetPassword: Bool = false
     
-    @EnvironmentObject var session: SessionViewModel
+    @State var session = SessionViewModel.shared
     
     init() {
         UITableView.appearance().backgroundColor = .clear
@@ -37,7 +37,6 @@ struct LoginView: View {
     
     private var Main : some View {
             MainView()
-                .environmentObject(session)
                 .navigationBarTitle(
                  Text("Boards")
                      .font(.largeTitle)
@@ -72,7 +71,7 @@ struct LoginView: View {
                     Spacer()
                 }
             }.sheet(isPresented: $isForgetPassword) {
-                ResetPasswordScreen().environmentObject(self.session)
+                ResetPasswordScreen()
             }
             
             NavigationLink(destination: Main, isActive: $isLogin) {
@@ -96,6 +95,7 @@ struct LoginView: View {
                 .cornerRadius(6.0)
                 .padding(.horizontal, 50)
             }.isDetailLink(false)
+            
             Spacer()
             
             Button(action: { self.isPresentingModal = true } ) {
@@ -106,7 +106,7 @@ struct LoginView: View {
                 }
             }
             .sheet(isPresented: $isPresentingModal) {
-                RegisterView().environmentObject(self.session)
+                RegisterView()
             }
         }
     }
@@ -126,7 +126,6 @@ struct LoginView: View {
     }
     
     func isActive() -> Bool {
-        print(UserPreferences.isLogIn())
         return UserPreferences.isLogIn()
     }
 }

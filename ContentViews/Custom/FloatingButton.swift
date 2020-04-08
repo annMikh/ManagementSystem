@@ -11,22 +11,16 @@ import SwiftUI
 
 struct FloatingButton : View {
     
-    @State var showMenuAdd = false
-    @State var showMenuEdit = false
-    
-    private var project: Project
-    private var task: Task
-    
-    init(actionAdd: @escaping ()->(), actionEdit: @escaping ()->(), task: Task = Task(), project: Project = Project()) {
-        self.project = project
-        self.task = task
-        self.actionAdd = actionAdd
-        self.actionEdit = actionEdit
-    }
+    @State var showMenuAdd: Bool = false
+    @State var showMenuEdit: Bool = false
     
     var actionAdd: ()->()
     var actionEdit: ()->()
     
+    init(actionAdd: @escaping ()->(), actionEdit: @escaping ()->()) {
+        self.actionAdd = actionAdd
+        self.actionEdit = actionEdit
+    }
     
     var body : some View {
         VStack {
@@ -45,7 +39,7 @@ struct FloatingButton : View {
             }
             
             Button(action: {
-                self.showMenu()
+                self.changeMenuVisibility()
             }) {
                 Image(systemName: "plus.circle.fill")
                     .resizable()
@@ -56,24 +50,13 @@ struct FloatingButton : View {
         }
     }
     
-    func showMenu() {
+    func changeMenuVisibility() {
         withAnimation {
             self.showMenuEdit.toggle()
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             withAnimation {
                 self.showMenuAdd.toggle()
-            }
-        })
-    }
-    
-    func hideMenu() {
-        withAnimation {
-            self.showMenuEdit = false
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-            withAnimation {
-                self.showMenuAdd = false
             }
         })
     }
@@ -88,6 +71,7 @@ struct MenuItem: View {
             Circle()
                 .foregroundColor(.blue)
                 .frame(width: 45, height: 45)
+            
             Image(systemName: self.icon)
                 .resizable()
                 .frame(width: 25, height: 25)

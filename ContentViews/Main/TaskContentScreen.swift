@@ -11,63 +11,47 @@ import SwiftUI
 
 struct TaskContentScreen : View {
     
-    var task: Task
-    
-    @State private var isShowingAlert = false
+    @State var task: Task
     @State private var alertInput = ""
-    @State private var author : User?
+    @State private var isClickedEdit = false
+    @State private var session = SessionViewModel.shared
+    
+    @ObservedObject var store = CommentStore.shared
 
     var body : some View {
-        ZStack {
             ScrollView {
-                VStack {
-                    
-                    Text("Assignee").font(.title).padding()
-                    HStack(alignment: .top) {
-                            Image(systemName: "person")
-                                .resizable()
-                                .frame(width: 50.0, height: 50.0)
-                                .padding(.horizontal, 10)
-
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                Text("").padding()//task.assignedUser.bound.getFullName()
-                                Spacer()
-                            }
-                            .overlay(RoundedRectangle(cornerRadius: 4)
-                            .stroke(Color.blue, lineWidth: 1))
-                            .padding(.horizontal, 25)
-                            Spacer()
-                    }
-
-                    Text("Description").font(.title).padding()
-                    HStack(alignment: .top) {
-                            Spacer()
-                            Text(task.description.bound).padding()
-                            Spacer()
-                    }
-                        .overlay(RoundedRectangle(cornerRadius: 4)
-                        .stroke(Color.blue, lineWidth: 1))
-                        .padding(.horizontal, 25)
-
-                    Text("Assigned by").font(.title).padding()
                     HStack {
                         Spacer()
-                        Text($author.wrappedValue.bound.getFullName())
-                            .frame(minWidth: 200, maxWidth: 200)
-                            .padding()
-                        Spacer()
+                        Button(action: {
+                            self.isClickedEdit = !self.isClickedEdit
+                        }){
+                            Image(systemName: self.isClickedEdit ? "pencil.slash" : "pencil")
+                                .resizable()
+                                .frame(width: 15.0, height: 15.0)
+                                .padding(.all, 10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 4)
+                                        .stroke(Color.blue, lineWidth: 1)
+                                )
+                        }
+                    }.padding(.trailing, 20)
+                    
+                    Group {
+                        LabelTextField(label: "Name", placeHolder: "enter task name", text: $task.name)
+                        LabelTextField(label: "Description", placeHolder: "enter description", text: $task.description)
+                        LabelTextField(label: "Deadline", placeHolder: "enter deadline", text: $task.deadline)
+                        LabelTextField(label: "Assigned user", placeHolder: "enter assigned user", text: $store.assigned.bound.email)
+                        LabelTextField(label: "Assigned by", placeHolder: "enter user assigned by", text: $store.author.bound.email)
                     }
-                        .overlay(RoundedRectangle(cornerRadius: 4)
-                        .stroke(Color.blue, lineWidth: 1))
-                        .padding(.horizontal, 25)
-
-                    HStack(alignment: .center, spacing: 8) {
-                        Text("Comments").font(.title)
+                    .foregroundColor(self.isClickedEdit ? Color.blue : Color.black)
+                    .disabled(!self.isClickedEdit)
+                    .padding()
+            
+                    HStack(alignment: .center, spacing: 10) {
+                        Text("Comments").font(.headline).foregroundColor(Color.black).padding(.leading, 10)
                         Button(action: {
                             withAnimation {
-                                self.isShowingAlert.toggle()
+                                self.alert()
                             }
                         }) {
                             Image(systemName: "text.bubble")
@@ -77,37 +61,89 @@ struct TaskContentScreen : View {
                         Spacer()
                     }
                     
-                    List {
-                        ForEach(self.getComments(), id: \.hashValue) { comment in
-                            CommentView(comment: comment)
-                        }
+                    ForEach(self.store.comments, id: \.id) { comment in
+                        CommentView(comment: comment)
                     }
-                        
-                }
             }
-        }
+            .navigationBarTitle("Task")
             .navigationViewStyle(StackNavigationViewStyle())
             .onAppear(perform: self.onAppear)
     }
     
     private func onAppear()  {
-        Database().getUser(userId: self.task.author.bound) { (doc, err) in
-            let result = Result { try doc!.data(as: User.self) }
-            switch result {
-                case .success(let user):
-                    print("name" + (user?.name ?? ""))
-                    self.author = user
-                case .failure(let error):
-                    print("Error decoding projects: \(error)")
-            }
-        }
-        
-        Database().getUser(userId: self.task.assignedUser.bound) { (doc, err) in
-            
-        }
+        self.store.loadAssigned(userId: self.task.assignedUser)
+        self.store.loadAuthor(userId: self.task.author)
+        self.store.loadComments(task: self.task)
     }
     
-    private func getComments() -> Array<Comment> {
-        return Array<Comment>()
+    private func alert() {
+        let alert = UIAlertController(title: "New Comment", message: "", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter your comment"
+        }
+        let textField = alert.textFields![0] as UITextField
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default) { _ in
+            
+        })
+        alert.addAction(UIAlertAction(title: "Done", style: .default) { _ in
+            self.alertInput = textField.text ?? ""
+            self.createComment()
+        })
+        showAlert(alert: alert)
     }
+    
+    func showAlert(alert: UIAlertController) {
+       if let controller = topMostViewController() {
+           controller.present(alert, animated: true)
+       }
+    }
+    
+    private func topMostViewController() -> UIViewController? {
+       guard let rootController = keyWindow()?.rootViewController else {
+            return nil
+       }
+       return topMostViewController(for: rootController)
+     }
+    
+    private func keyWindow() -> UIWindow? {
+        return UIApplication
+                    .shared.connectedScenes
+                    .filter {$0.activationState == .foregroundActive}
+                    .compactMap {$0 as? UIWindowScene}
+                    .first?.windows.filter {$0.isKeyWindow}.first
+    }
+    
+    private func topMostViewController(for controller: UIViewController) -> UIViewController {
+        if let presentedController = controller.presentedViewController {
+            
+            return topMostViewController(for: presentedController)
+            
+        } else if let navigationController = controller as? UINavigationController {
+            
+            guard let topController = navigationController.topViewController else {
+                return navigationController
+            }
+            return topMostViewController(for: topController)
+            
+        } else if let tabController = controller as? UITabBarController {
+            
+            guard let topController = tabController.selectedViewController else {
+                return tabController
+            }
+            
+            return topMostViewController(for: topController)
+        }
+        return controller
+    }
+    
+    private func createComment() {
+        let comment = Comment(text: alertInput,
+                               author: session.currentUser.bound.uid,
+                               task: task.id,
+                               date: Date(),
+                               id: Date().hashValue)
+        self.session.createComment(comment)
+    }
+
 }

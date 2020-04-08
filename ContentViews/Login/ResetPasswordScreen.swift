@@ -17,7 +17,7 @@ struct ResetPasswordScreen : View {
     @State private var isSuccessAuth: Bool = false
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var session: SessionViewModel
+    @State var session = SessionViewModel.shared
     
     var body : some View {
         NavigationView {

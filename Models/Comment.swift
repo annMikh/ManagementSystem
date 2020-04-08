@@ -7,22 +7,27 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestore
 
+struct Comment : Codable, Hashable {
 
-class Comment : Hashable, Codable, ObservableObject {
-    
-    init(text: String, author: User, task: Task, date: Date) {
-        self.text = text
-        self.author = author
-        self.date = date
-        self.task = task
-    }
-    
     var text : String
-    var author: User
+    var author: String
     var date: Date
-    var task: Task
+    var task: Int
+    var id: Int
     
+    var documentData: [String : Any] {
+      return [
+        "text": text,
+        "author": author,
+        "date": date,
+        "task": task,
+        "id": id
+      ]
+    }
+
     static func == (lhs: Comment, rhs: Comment) -> Bool {
         return lhs.task == rhs.task
     }
@@ -34,4 +39,39 @@ class Comment : Hashable, Codable, ObservableObject {
         hasher.combine(author)
     }
     
+}
+
+
+extension Comment : DocumentSerializable {
+    
+    init(text: String = "", author: String = "", task: Int = 0, date: Date = Date(), id: Int = 0) {
+        self.init(text: text,
+                  author: author,
+                  date: date,
+                  task: task,
+                  id: id)
+    }
+    
+    private init?(documentID: String, dictionary: [String: Any]) {
+      guard let text = dictionary["text"] as? String,
+          let author = dictionary["author"] as? String,
+          let date = dictionary["date"] as? Timestamp,
+          let task = dictionary["task"] as? Int,
+          let id = dictionary["id"] as? Int else { return nil }
+
+      self.init(text: text,
+                author: author,
+                task: task,
+                date: date.dateValue(),
+                id: id)
+    }
+    
+    init?(document: QueryDocumentSnapshot) {
+        self.init(documentID: document.documentID, dictionary: document.data())
+    }
+    
+    init?(document: DocumentSnapshot) {
+        guard let data = document.data() else { return nil }
+        self.init(documentID: document.documentID, dictionary: data)
+    }
 }

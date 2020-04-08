@@ -9,6 +9,24 @@
 import Foundation
 
 enum Position : String, CaseIterable, Codable {
+    
+    init(position: String){
+        switch position {
+        case "Developer":
+            self  = .Developer
+        case "Tester":
+            self  = .Tester
+        case "Manager":
+            self  = .Manager
+        case "Designer":
+            self  = .Designer
+        case "Other":
+            self  = .Other
+        default:
+            self = .None
+        }
+    }
+    
     case Developer, Tester, Manager, Designer, Other, None
     
     var description: String {

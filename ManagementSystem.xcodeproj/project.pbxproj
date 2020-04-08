@@ -10,9 +10,12 @@
 		5B23F0F62416AB9C003A61CA /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B23F0F52416AB9C003A61CA /* Comment.swift */; };
 		5B298A77240EFBD4005C26A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B298A76240EFBD4005C26A0 /* ContentView.swift */; };
 		5B5043CE2406AB10002B9051 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B5043CD2406AB10002B9051 /* GoogleService-Info.plist */; };
-		5B526AC42406DAFE00127EAE /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B526AC32406DAFE00127EAE /* SessionViewModel.swift */; };
+		5B526AC42406DAFE00127EAE /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B526AC32406DAFE00127EAE /* Session.swift */; };
 		5B59F7692434A46800486A32 /* ResetPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59F7682434A46800486A32 /* ResetPasswordScreen.swift */; };
 		5B59F76B2434CDE500486A32 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59F76A2434CDE500486A32 /* Permission.swift */; };
+		5B5D18032439FFC4000BA895 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5D18022439FFC4000BA895 /* TaskStore.swift */; };
+		5B5D1805243A0E66000BA895 /* SearchAssignee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5D1804243A0E66000BA895 /* SearchAssignee.swift */; };
+		5B5D1807243A3888000BA895 /* CommentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5D1806243A3888000BA895 /* CommentStore.swift */; };
 		5B764453242245230051D79B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B764452242245230051D79B /* Extensions.swift */; };
 		5B764455242245A30051D79B /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B764454242245A30051D79B /* ProfileScreen.swift */; };
 		5B854AFA23DCB02F00F902B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854AF923DCB02F00F902B7 /* AppDelegate.swift */; };
@@ -30,7 +33,6 @@
 		5B854B3523DDE02300F902B7 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854B3423DDE02300F902B7 /* Status.swift */; };
 		5B854B3723DDE3BD00F902B7 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854B3623DDE3BD00F902B7 /* Priority.swift */; };
 		5B854B3A23DDE53F00F902B7 /* AccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854B3923DDE53F00F902B7 /* AccessType.swift */; };
-		5B854B3C23DDE60200F902B7 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854B3B23DDE60200F902B7 /* Tag.swift */; };
 		5B854B3E23DDEEB700F902B7 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854B3D23DDEEB700F902B7 /* Position.swift */; };
 		5B854B4223DDFBCB00F902B7 /* CreateProjectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854B4123DDFBCB00F902B7 /* CreateProjectScreen.swift */; };
 		5B8619502434768F005C242C /* PositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B86194F2434768F005C242C /* PositionView.swift */; };
@@ -40,8 +42,15 @@
 		5BBB4C1423E6231F0027ACEA /* ProjectContentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1323E6231F0027ACEA /* ProjectContentScreen.swift */; };
 		5BBB4C1723E626150027ACEA /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1623E626150027ACEA /* Formatter.swift */; };
 		5BBB4C1A23E768710027ACEA /* MultiLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1923E768710027ACEA /* MultiLineTextField.swift */; };
+		5BBD75CA2435104600D705A9 /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD75C92435104600D705A9 /* ProjectListViewModel.swift */; };
+		5BBD75CC2435B4CB00D705A9 /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD75CB2435B4CB00D705A9 /* SearchScreen.swift */; };
+		5BBD75CE2435C69600D705A9 /* SearchParticipants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD75CD2435C69600D705A9 /* SearchParticipants.swift */; };
+		5BBD75D02435C6D200D705A9 /* ParticipantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD75CF2435C6D200D705A9 /* ParticipantView.swift */; };
+		5BBD75D22435C76C00D705A9 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD75D12435C76C00D705A9 /* UserListViewModel.swift */; };
 		5BC37B7923FAD3960058A7CC /* CreateTaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC37B7823FAD3960058A7CC /* CreateTaskScreen.swift */; };
 		5BC37B7D23FB07730058A7CC /* TaskContentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC37B7C23FB07730058A7CC /* TaskContentScreen.swift */; };
+		5BCDD8032438BAE00005CD91 /* DocumentSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCDD8022438BAE00005CD91 /* DocumentSerializable.swift */; };
+		5BCDD8072439B9B60005CD91 /* ProjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCDD8062439B9B60005CD91 /* ProjectStore.swift */; };
 		5BECE99D2429080500AFFE62 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BECE99C2429080500AFFE62 /* Database.swift */; };
 		5BECE9A02429250900AFFE62 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BECE99F2429250900AFFE62 /* UserPreferences.swift */; };
 		5BF21357242F521D009AEED4 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF21356242F521D009AEED4 /* FloatingButton.swift */; };
@@ -54,8 +63,7 @@
 		5BF213682430B965009AEED4 /* Deadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF213672430B964009AEED4 /* Deadline.swift */; };
 		5BF2136A2431079A009AEED4 /* EmptyListTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF213692431079A009AEED4 /* EmptyListTextView.swift */; };
 		5BF2136C24311AA5009AEED4 /* Boards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2136B24311AA5009AEED4 /* Boards.swift */; };
-		5BF2137324324D06009AEED4 /* Searchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2137224324D06009AEED4 /* Searchable.swift */; };
-		986640B72199579C46BB8AED /* Pods_ManagementSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F406D169975D3970AE636923 /* Pods_ManagementSystem.framework */; };
+		D24A11D9EC5B5498B87E4508 /* Pods_ManagementSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A74D0CB8DFA5657ABE56546 /* Pods_ManagementSystem.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,12 +84,647 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A74D0CB8DFA5657ABE56546 /* Pods_ManagementSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ManagementSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B23F0F52416AB9C003A61CA /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		5B298A76240EFBD4005C26A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5B5043CD2406AB10002B9051 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		5B526AC32406DAFE00127EAE /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
+		5B526AC32406DAFE00127EAE /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		5B59F7682434A46800486A32 /* ResetPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordScreen.swift; sourceTree = "<group>"; };
 		5B59F76A2434CDE500486A32 /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
+		5B5D154F2439FB5D000BA895 /* FIRDatabaseConfig_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDatabaseConfig_Private.h; sourceTree = "<group>"; };
+		5B5D15502439FB5D000BA895 /* FIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIndex.h; sourceTree = "<group>"; };
+		5B5D15512439FB5D000BA895 /* FViewProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FViewProcessor.h; sourceTree = "<group>"; };
+		5B5D15522439FB5D000BA895 /* FIRDatabaseReference.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRDatabaseReference.m; sourceTree = "<group>"; };
+		5B5D15542439FB5D000BA895 /* FLeafNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLeafNode.h; sourceTree = "<group>"; };
+		5B5D15552439FB5D000BA895 /* FCompoundWrite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCompoundWrite.h; sourceTree = "<group>"; };
+		5B5D15562439FB5D000BA895 /* FSnapshotUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSnapshotUtilities.m; sourceTree = "<group>"; };
+		5B5D15572439FB5D000BA895 /* FEmptyNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEmptyNode.h; sourceTree = "<group>"; };
+		5B5D15582439FB5D000BA895 /* FChildrenNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FChildrenNode.h; sourceTree = "<group>"; };
+		5B5D15592439FB5D000BA895 /* FIndexedNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIndexedNode.h; sourceTree = "<group>"; };
+		5B5D155A2439FB5D000BA895 /* FNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FNode.h; sourceTree = "<group>"; };
+		5B5D155B2439FB5D000BA895 /* FLeafNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLeafNode.m; sourceTree = "<group>"; };
+		5B5D155C2439FB5D000BA895 /* FEmptyNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEmptyNode.m; sourceTree = "<group>"; };
+		5B5D155D2439FB5D000BA895 /* FSnapshotUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSnapshotUtilities.h; sourceTree = "<group>"; };
+		5B5D155E2439FB5D000BA895 /* FCompoundWrite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCompoundWrite.m; sourceTree = "<group>"; };
+		5B5D155F2439FB5D000BA895 /* FIndexedNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIndexedNode.m; sourceTree = "<group>"; };
+		5B5D15602439FB5D000BA895 /* FChildrenNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FChildrenNode.m; sourceTree = "<group>"; };
+		5B5D15612439FB5D000BA895 /* FPriorityIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPriorityIndex.h; sourceTree = "<group>"; };
+		5B5D15622439FB5D000BA895 /* FPathIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPathIndex.h; sourceTree = "<group>"; };
+		5B5D15632439FB5D000BA895 /* FTransformedEnumerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTransformedEnumerator.m; sourceTree = "<group>"; };
+		5B5D15662439FB5D000BA895 /* FAckUserWrite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAckUserWrite.h; sourceTree = "<group>"; };
+		5B5D15672439FB5D000BA895 /* FOperationSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOperationSource.m; sourceTree = "<group>"; };
+		5B5D15682439FB5D000BA895 /* FMerge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMerge.h; sourceTree = "<group>"; };
+		5B5D15692439FB5D000BA895 /* FOverwrite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOverwrite.h; sourceTree = "<group>"; };
+		5B5D156A2439FB5D000BA895 /* FAckUserWrite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAckUserWrite.m; sourceTree = "<group>"; };
+		5B5D156B2439FB5D000BA895 /* FOperationSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOperationSource.h; sourceTree = "<group>"; };
+		5B5D156C2439FB5D000BA895 /* FOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOperation.h; sourceTree = "<group>"; };
+		5B5D156D2439FB5D000BA895 /* FOverwrite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOverwrite.m; sourceTree = "<group>"; };
+		5B5D156E2439FB5D000BA895 /* FMerge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMerge.m; sourceTree = "<group>"; };
+		5B5D156F2439FB5D000BA895 /* FWriteTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWriteTree.m; sourceTree = "<group>"; };
+		5B5D15702439FB5D000BA895 /* FServerValues.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FServerValues.m; sourceTree = "<group>"; };
+		5B5D15712439FB5D000BA895 /* FWriteRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWriteRecord.h; sourceTree = "<group>"; };
+		5B5D15722439FB5D000BA895 /* FCompoundHash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCompoundHash.m; sourceTree = "<group>"; };
+		5B5D15732439FB5D000BA895 /* FRepoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRepoManager.h; sourceTree = "<group>"; };
+		5B5D15742439FB5D000BA895 /* FListenProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FListenProvider.h; sourceTree = "<group>"; };
+		5B5D15752439FB5D000BA895 /* FRepo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRepo.h; sourceTree = "<group>"; };
+		5B5D15762439FB5D000BA895 /* FSyncTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSyncTree.m; sourceTree = "<group>"; };
+		5B5D15772439FB5D000BA895 /* FSyncPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSyncPoint.m; sourceTree = "<group>"; };
+		5B5D15782439FB5D000BA895 /* FRepoInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRepoInfo.m; sourceTree = "<group>"; };
+		5B5D15792439FB5D000BA895 /* FWriteTreeRef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWriteTreeRef.h; sourceTree = "<group>"; };
+		5B5D157A2439FB5D000BA895 /* FSnapshotHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSnapshotHolder.m; sourceTree = "<group>"; };
+		5B5D157B2439FB5D000BA895 /* FRangeMerge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRangeMerge.m; sourceTree = "<group>"; };
+		5B5D157C2439FB5D000BA895 /* FQueryParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FQueryParams.h; sourceTree = "<group>"; };
+		5B5D157D2439FB5D000BA895 /* FQuerySpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FQuerySpec.m; sourceTree = "<group>"; };
+		5B5D157E2439FB5D000BA895 /* FPersistentConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPersistentConnection.m; sourceTree = "<group>"; };
+		5B5D157F2439FB5D000BA895 /* FSparseSnapshotTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSparseSnapshotTree.m; sourceTree = "<group>"; };
+		5B5D15812439FB5D000BA895 /* FImmutableTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FImmutableTree.h; sourceTree = "<group>"; };
+		5B5D15822439FB5D000BA895 /* FIRRetryHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRRetryHelper.m; sourceTree = "<group>"; };
+		5B5D15832439FB5D000BA895 /* FTreeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTreeNode.h; sourceTree = "<group>"; };
+		5B5D15842439FB5D000BA895 /* FTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTree.m; sourceTree = "<group>"; };
+		5B5D15852439FB5D000BA895 /* FPath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPath.m; sourceTree = "<group>"; };
+		5B5D15862439FB5D000BA895 /* FIRRetryHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRRetryHelper.h; sourceTree = "<group>"; };
+		5B5D15872439FB5D000BA895 /* FImmutableTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FImmutableTree.m; sourceTree = "<group>"; };
+		5B5D15882439FB5D000BA895 /* FTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTree.h; sourceTree = "<group>"; };
+		5B5D15892439FB5D000BA895 /* FTreeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTreeNode.m; sourceTree = "<group>"; };
+		5B5D158A2439FB5D000BA895 /* FPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPath.h; sourceTree = "<group>"; };
+		5B5D158B2439FB5D000BA895 /* FServerValues.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FServerValues.h; sourceTree = "<group>"; };
+		5B5D158C2439FB5D000BA895 /* FWriteRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWriteRecord.m; sourceTree = "<group>"; };
+		5B5D158D2439FB5D000BA895 /* FWriteTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWriteTree.h; sourceTree = "<group>"; };
+		5B5D158E2439FB5D000BA895 /* FRepo_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRepo_Private.h; sourceTree = "<group>"; };
+		5B5D158F2439FB5D000BA895 /* FRepoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRepoManager.m; sourceTree = "<group>"; };
+		5B5D15902439FB5D000BA895 /* FCompoundHash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCompoundHash.h; sourceTree = "<group>"; };
+		5B5D15922439FB5D000BA895 /* FCancelEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCancelEvent.h; sourceTree = "<group>"; };
+		5B5D15932439FB5D000BA895 /* FDataEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDataEvent.m; sourceTree = "<group>"; };
+		5B5D15942439FB5D000BA895 /* FKeepSyncedEventRegistration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKeepSyncedEventRegistration.h; sourceTree = "<group>"; };
+		5B5D15952439FB5D000BA895 /* FChildEventRegistration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FChildEventRegistration.m; sourceTree = "<group>"; };
+		5B5D15962439FB5D000BA895 /* FEventRaiser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEventRaiser.m; sourceTree = "<group>"; };
+		5B5D15972439FB5D000BA895 /* FView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FView.m; sourceTree = "<group>"; };
+		5B5D15982439FB5D000BA895 /* FCacheNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCacheNode.m; sourceTree = "<group>"; };
+		5B5D15992439FB5D000BA895 /* FEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEvent.h; sourceTree = "<group>"; };
+		5B5D159A2439FB5D000BA895 /* FChange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FChange.m; sourceTree = "<group>"; };
+		5B5D159B2439FB5D000BA895 /* FViewCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FViewCache.m; sourceTree = "<group>"; };
+		5B5D159C2439FB5D000BA895 /* FValueEventRegistration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FValueEventRegistration.h; sourceTree = "<group>"; };
+		5B5D159D2439FB5D000BA895 /* FEventRaiser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEventRaiser.h; sourceTree = "<group>"; };
+		5B5D159E2439FB5D000BA895 /* FChildEventRegistration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FChildEventRegistration.h; sourceTree = "<group>"; };
+		5B5D159F2439FB5D000BA895 /* FEventRegistration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEventRegistration.h; sourceTree = "<group>"; };
+		5B5D15A02439FB5D000BA895 /* FDataEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDataEvent.h; sourceTree = "<group>"; };
+		5B5D15A12439FB5D000BA895 /* FKeepSyncedEventRegistration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FKeepSyncedEventRegistration.m; sourceTree = "<group>"; };
+		5B5D15A22439FB5D000BA895 /* FCancelEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCancelEvent.m; sourceTree = "<group>"; };
+		5B5D15A32439FB5D000BA895 /* FCacheNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCacheNode.h; sourceTree = "<group>"; };
+		5B5D15A42439FB5D000BA895 /* FView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FView.h; sourceTree = "<group>"; };
+		5B5D15A52439FB5D000BA895 /* FViewCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FViewCache.h; sourceTree = "<group>"; };
+		5B5D15A62439FB5D000BA895 /* FChange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FChange.h; sourceTree = "<group>"; };
+		5B5D15A82439FB5D000BA895 /* FChildChangeAccumulator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FChildChangeAccumulator.h; sourceTree = "<group>"; };
+		5B5D15A92439FB5D000BA895 /* FNodeFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FNodeFilter.h; sourceTree = "<group>"; };
+		5B5D15AA2439FB5D000BA895 /* FLimitedFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLimitedFilter.h; sourceTree = "<group>"; };
+		5B5D15AB2439FB5D000BA895 /* FIndexedFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIndexedFilter.h; sourceTree = "<group>"; };
+		5B5D15AC2439FB5D000BA895 /* FChildChangeAccumulator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FChildChangeAccumulator.m; sourceTree = "<group>"; };
+		5B5D15AD2439FB5D000BA895 /* FCompleteChildSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCompleteChildSource.h; sourceTree = "<group>"; };
+		5B5D15AE2439FB5D000BA895 /* FIndexedFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIndexedFilter.m; sourceTree = "<group>"; };
+		5B5D15AF2439FB5D000BA895 /* FLimitedFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLimitedFilter.m; sourceTree = "<group>"; };
+		5B5D15B02439FB5D000BA895 /* FValueEventRegistration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FValueEventRegistration.m; sourceTree = "<group>"; };
+		5B5D15B12439FB5D000BA895 /* FSnapshotHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSnapshotHolder.h; sourceTree = "<group>"; };
+		5B5D15B22439FB5D000BA895 /* FWriteTreeRef.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWriteTreeRef.m; sourceTree = "<group>"; };
+		5B5D15B32439FB5D000BA895 /* FSyncPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSyncPoint.h; sourceTree = "<group>"; };
+		5B5D15B42439FB5D000BA895 /* FRepoInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRepoInfo.h; sourceTree = "<group>"; };
+		5B5D15B52439FB5D000BA895 /* FSyncTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSyncTree.h; sourceTree = "<group>"; };
+		5B5D15B62439FB5D000BA895 /* FRepo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRepo.m; sourceTree = "<group>"; };
+		5B5D15B72439FB5D000BA895 /* FListenProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FListenProvider.m; sourceTree = "<group>"; };
+		5B5D15B82439FB5D000BA895 /* FSparseSnapshotTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSparseSnapshotTree.h; sourceTree = "<group>"; };
+		5B5D15B92439FB5D000BA895 /* FPersistentConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPersistentConnection.h; sourceTree = "<group>"; };
+		5B5D15BA2439FB5D000BA895 /* FQuerySpec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FQuerySpec.h; sourceTree = "<group>"; };
+		5B5D15BB2439FB5D000BA895 /* FQueryParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FQueryParams.m; sourceTree = "<group>"; };
+		5B5D15BC2439FB5D000BA895 /* FRangeMerge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRangeMerge.h; sourceTree = "<group>"; };
+		5B5D15BD2439FB5D000BA895 /* FValueIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FValueIndex.h; sourceTree = "<group>"; };
+		5B5D15BE2439FB5D000BA895 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		5B5D15BF2439FB5D000BA895 /* Firebase-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Firebase-Prefix.pch"; sourceTree = "<group>"; };
+		5B5D15C02439FB5D000BA895 /* FEventGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEventGenerator.m; sourceTree = "<group>"; };
+		5B5D15C22439FB5D000BA895 /* FConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FConstants.m; sourceTree = "<group>"; };
+		5B5D15C32439FB5D000BA895 /* FConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FConstants.h; sourceTree = "<group>"; };
+		5B5D15C42439FB5D000BA895 /* FListenComplete.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FListenComplete.m; sourceTree = "<group>"; };
+		5B5D15C52439FB5D000BA895 /* FViewProcessorResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FViewProcessorResult.h; sourceTree = "<group>"; };
+		5B5D15C62439FB5D000BA895 /* FKeyIndex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FKeyIndex.m; sourceTree = "<group>"; };
+		5B5D15C72439FB5D000BA895 /* FNamedNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FNamedNode.m; sourceTree = "<group>"; };
+		5B5D15C82439FB5D000BA895 /* FMaxNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMaxNode.m; sourceTree = "<group>"; };
+		5B5D15C92439FB5D000BA895 /* FClock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FClock.m; sourceTree = "<group>"; };
+		5B5D15CA2439FB5D000BA895 /* FRangedFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRangedFilter.m; sourceTree = "<group>"; };
+		5B5D15CB2439FB5D000BA895 /* FPathIndex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPathIndex.m; sourceTree = "<group>"; };
+		5B5D15CC2439FB5D000BA895 /* FPriorityIndex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPriorityIndex.m; sourceTree = "<group>"; };
+		5B5D15CE2439FB5D000BA895 /* FConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FConnection.m; sourceTree = "<group>"; };
+		5B5D15CF2439FB5D000BA895 /* FWebSocketConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWebSocketConnection.h; sourceTree = "<group>"; };
+		5B5D15D02439FB5D000BA895 /* FConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FConnection.h; sourceTree = "<group>"; };
+		5B5D15D12439FB5D000BA895 /* FWebSocketConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWebSocketConnection.m; sourceTree = "<group>"; };
+		5B5D15D32439FB5D000BA895 /* FEventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEventEmitter.m; sourceTree = "<group>"; };
+		5B5D15D42439FB5D000BA895 /* FValidation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FValidation.h; sourceTree = "<group>"; };
+		5B5D15D52439FB5D000BA895 /* FAtomicNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAtomicNumber.m; sourceTree = "<group>"; };
+		5B5D15D72439FB5D000BA895 /* FTupleNodePath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTupleNodePath.m; sourceTree = "<group>"; };
+		5B5D15D82439FB5D000BA895 /* FTuplePathValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTuplePathValue.h; sourceTree = "<group>"; };
+		5B5D15D92439FB5D000BA895 /* FTupleTSN.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTupleTSN.m; sourceTree = "<group>"; };
+		5B5D15DA2439FB5D000BA895 /* FTupleSetIdPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTupleSetIdPath.h; sourceTree = "<group>"; };
+		5B5D15DB2439FB5D000BA895 /* FTupleBoolBlock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTupleBoolBlock.m; sourceTree = "<group>"; };
+		5B5D15DC2439FB5D000BA895 /* FTupleCallbackStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTupleCallbackStatus.h; sourceTree = "<group>"; };
+		5B5D15DD2439FB5D000BA895 /* FTupleObjectNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTupleObjectNode.h; sourceTree = "<group>"; };
+		5B5D15DE2439FB5D000BA895 /* FTupleObjects.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTupleObjects.m; sourceTree = "<group>"; };
+		5B5D15DF2439FB5D000BA895 /* FTupleTransaction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTupleTransaction.h; sourceTree = "<group>"; };
+		5B5D15E02439FB5D000BA895 /* FTupleRemovedQueriesEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTupleRemovedQueriesEvents.h; sourceTree = "<group>"; };
+		5B5D15E12439FB5D000BA895 /* FTupleUserCallback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTupleUserCallback.h; sourceTree = "<group>"; };
+		5B5D15E22439FB5D000BA895 /* FTupleStringNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTupleStringNode.h; sourceTree = "<group>"; };
+		5B5D15E32439FB5D000BA895 /* FTupleOnDisconnect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTupleOnDisconnect.h; sourceTree = "<group>"; };
+		5B5D15E42439FB5D000BA895 /* FTupleFirebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTupleFirebase.h; sourceTree = "<group>"; };
+		5B5D15E52439FB5D000BA895 /* FTupleCallbackStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTupleCallbackStatus.m; sourceTree = "<group>"; };
+		5B5D15E62439FB5D000BA895 /* FTupleBoolBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTupleBoolBlock.h; sourceTree = "<group>"; };
+		5B5D15E72439FB5D000BA895 /* FTupleSetIdPath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTupleSetIdPath.m; sourceTree = "<group>"; };
+		5B5D15E82439FB5D000BA895 /* FTupleTSN.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTupleTSN.h; sourceTree = "<group>"; };
+		5B5D15E92439FB5D000BA895 /* FTuplePathValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTuplePathValue.m; sourceTree = "<group>"; };
+		5B5D15EA2439FB5D000BA895 /* FTupleNodePath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTupleNodePath.h; sourceTree = "<group>"; };
+		5B5D15EB2439FB5D000BA895 /* FTupleTransaction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTupleTransaction.m; sourceTree = "<group>"; };
+		5B5D15EC2439FB5D000BA895 /* FTupleObjects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTupleObjects.h; sourceTree = "<group>"; };
+		5B5D15ED2439FB5D000BA895 /* FTupleObjectNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTupleObjectNode.m; sourceTree = "<group>"; };
+		5B5D15EE2439FB5D000BA895 /* FTupleStringNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTupleStringNode.m; sourceTree = "<group>"; };
+		5B5D15EF2439FB5D000BA895 /* FTupleUserCallback.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTupleUserCallback.m; sourceTree = "<group>"; };
+		5B5D15F02439FB5D000BA895 /* FTupleRemovedQueriesEvents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTupleRemovedQueriesEvents.m; sourceTree = "<group>"; };
+		5B5D15F12439FB5D000BA895 /* FTupleFirebase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTupleFirebase.m; sourceTree = "<group>"; };
+		5B5D15F22439FB5D000BA895 /* FTupleOnDisconnect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTupleOnDisconnect.m; sourceTree = "<group>"; };
+		5B5D15F32439FB5D000BA895 /* FUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUtilities.h; sourceTree = "<group>"; };
+		5B5D15F42439FB5D000BA895 /* FParsedUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FParsedUrl.h; sourceTree = "<group>"; };
+		5B5D15F52439FB5D000BA895 /* FNextPushId.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FNextPushId.h; sourceTree = "<group>"; };
+		5B5D15F62439FB5D000BA895 /* FStringUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FStringUtilities.m; sourceTree = "<group>"; };
+		5B5D15F72439FB5D000BA895 /* FValidation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FValidation.m; sourceTree = "<group>"; };
+		5B5D15F82439FB5D000BA895 /* FEventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEventEmitter.h; sourceTree = "<group>"; };
+		5B5D15F92439FB5D000BA895 /* FTypedefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTypedefs.h; sourceTree = "<group>"; };
+		5B5D15FA2439FB5D000BA895 /* FParsedUrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FParsedUrl.m; sourceTree = "<group>"; };
+		5B5D15FB2439FB5D000BA895 /* FUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUtilities.m; sourceTree = "<group>"; };
+		5B5D15FC2439FB5D000BA895 /* FAtomicNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAtomicNumber.h; sourceTree = "<group>"; };
+		5B5D15FD2439FB5D000BA895 /* FStringUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FStringUtilities.h; sourceTree = "<group>"; };
+		5B5D15FE2439FB5D000BA895 /* FNextPushId.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FNextPushId.m; sourceTree = "<group>"; };
+		5B5D16012439FB5D000BA895 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		5B5D16022439FB5D000BA895 /* fbase64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fbase64.h; sourceTree = "<group>"; };
+		5B5D16032439FB5D000BA895 /* FSRWebSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSRWebSocket.h; sourceTree = "<group>"; };
+		5B5D16042439FB5D000BA895 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		5B5D16052439FB5D000BA895 /* aa2297808c225710e267afece4439c256f6efdb3 */ = {isa = PBXFileReference; lastKnownFileType = text; path = aa2297808c225710e267afece4439c256f6efdb3; sourceTree = "<group>"; };
+		5B5D16062439FB5D000BA895 /* fbase64.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fbase64.c; sourceTree = "<group>"; };
+		5B5D16072439FB5D000BA895 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		5B5D16082439FB5D000BA895 /* FSRWebSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSRWebSocket.m; sourceTree = "<group>"; };
+		5B5D160A2439FB5D000BA895 /* APLevelDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APLevelDB.h; sourceTree = "<group>"; };
+		5B5D160B2439FB5D000BA895 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		5B5D160C2439FB5D000BA895 /* APLevelDB.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = APLevelDB.mm; sourceTree = "<group>"; };
+		5B5D160E2439FB5D000BA895 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		5B5D16102439FB5D000BA895 /* FImmutableSortedDictionary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FImmutableSortedDictionary-Prefix.pch"; sourceTree = "<group>"; };
+		5B5D16112439FB5D000BA895 /* FLLRBValueNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLLRBValueNode.m; sourceTree = "<group>"; };
+		5B5D16122439FB5D000BA895 /* FTreeSortedDictionaryEnumerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTreeSortedDictionaryEnumerator.m; sourceTree = "<group>"; };
+		5B5D16132439FB5D000BA895 /* FTreeSortedDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTreeSortedDictionary.m; sourceTree = "<group>"; };
+		5B5D16142439FB5D000BA895 /* FArraySortedDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FArraySortedDictionary.m; sourceTree = "<group>"; };
+		5B5D16152439FB5D000BA895 /* FImmutableSortedDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FImmutableSortedDictionary.m; sourceTree = "<group>"; };
+		5B5D16162439FB5D000BA895 /* FLLRBEmptyNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLLRBEmptyNode.h; sourceTree = "<group>"; };
+		5B5D16172439FB5D000BA895 /* FImmutableSortedSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FImmutableSortedSet.m; sourceTree = "<group>"; };
+		5B5D16182439FB5D000BA895 /* FLLRBNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLLRBNode.h; sourceTree = "<group>"; };
+		5B5D16192439FB5D000BA895 /* FTreeSortedDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTreeSortedDictionary.h; sourceTree = "<group>"; };
+		5B5D161A2439FB5D000BA895 /* FArraySortedDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FArraySortedDictionary.h; sourceTree = "<group>"; };
+		5B5D161B2439FB5D000BA895 /* FTreeSortedDictionaryEnumerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTreeSortedDictionaryEnumerator.h; sourceTree = "<group>"; };
+		5B5D161C2439FB5D000BA895 /* FLLRBValueNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLLRBValueNode.h; sourceTree = "<group>"; };
+		5B5D161D2439FB5D000BA895 /* FImmutableSortedSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FImmutableSortedSet.h; sourceTree = "<group>"; };
+		5B5D161E2439FB5D000BA895 /* FLLRBEmptyNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLLRBEmptyNode.m; sourceTree = "<group>"; };
+		5B5D161F2439FB5D000BA895 /* FImmutableSortedDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FImmutableSortedDictionary.h; sourceTree = "<group>"; };
+		5B5D16212439FB5D000BA895 /* FIRDataSnapshot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDataSnapshot.h; sourceTree = "<group>"; };
+		5B5D16222439FB5D000BA895 /* FIRMutableData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMutableData.h; sourceTree = "<group>"; };
+		5B5D16232439FB5D000BA895 /* FIRTransactionResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRTransactionResult.h; sourceTree = "<group>"; };
+		5B5D16242439FB5D000BA895 /* FIRDataEventType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDataEventType.h; sourceTree = "<group>"; };
+		5B5D16252439FB5D000BA895 /* FIRDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDatabase.h; sourceTree = "<group>"; };
+		5B5D16262439FB5D000BA895 /* FIRDatabaseQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDatabaseQuery.h; sourceTree = "<group>"; };
+		5B5D16272439FB5D000BA895 /* FIRDatabaseReference.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDatabaseReference.h; sourceTree = "<group>"; };
+		5B5D16282439FB5D000BA895 /* FIRServerValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRServerValue.h; sourceTree = "<group>"; };
+		5B5D16292439FB5D000BA895 /* FirebaseDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseDatabase.h; sourceTree = "<group>"; };
+		5B5D162A2439FB5D000BA895 /* FViewProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FViewProcessor.m; sourceTree = "<group>"; };
+		5B5D162B2439FB5D000BA895 /* FIndex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIndex.m; sourceTree = "<group>"; };
+		5B5D162D2439FB5D000BA895 /* FTrackedQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTrackedQuery.h; sourceTree = "<group>"; };
+		5B5D162E2439FB5D000BA895 /* FLevelDBStorageEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLevelDBStorageEngine.h; sourceTree = "<group>"; };
+		5B5D162F2439FB5D000BA895 /* FPruneForest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPruneForest.m; sourceTree = "<group>"; };
+		5B5D16302439FB5D000BA895 /* FCachePolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCachePolicy.h; sourceTree = "<group>"; };
+		5B5D16312439FB5D000BA895 /* FPersistenceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPersistenceManager.h; sourceTree = "<group>"; };
+		5B5D16322439FB5D000BA895 /* FTrackedQueryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTrackedQueryManager.h; sourceTree = "<group>"; };
+		5B5D16332439FB5D000BA895 /* FStorageEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FStorageEngine.h; sourceTree = "<group>"; };
+		5B5D16342439FB5D000BA895 /* FPendingPut.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPendingPut.m; sourceTree = "<group>"; };
+		5B5D16352439FB5D000BA895 /* FTrackedQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTrackedQuery.m; sourceTree = "<group>"; };
+		5B5D16362439FB5D000BA895 /* FPruneForest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPruneForest.h; sourceTree = "<group>"; };
+		5B5D16372439FB5D000BA895 /* FLevelDBStorageEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLevelDBStorageEngine.m; sourceTree = "<group>"; };
+		5B5D16382439FB5D000BA895 /* FTrackedQueryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTrackedQueryManager.m; sourceTree = "<group>"; };
+		5B5D16392439FB5D000BA895 /* FPersistenceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPersistenceManager.m; sourceTree = "<group>"; };
+		5B5D163A2439FB5D000BA895 /* FCachePolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCachePolicy.m; sourceTree = "<group>"; };
+		5B5D163B2439FB5D000BA895 /* FPendingPut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPendingPut.h; sourceTree = "<group>"; };
+		5B5D163C2439FB5D000BA895 /* .clang-format */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
+		5B5D163D2439FB5D000BA895 /* FValueIndex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FValueIndex.m; sourceTree = "<group>"; };
+		5B5D163F2439FB5D000BA895 /* FIRDatabaseConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRDatabaseConfig.m; sourceTree = "<group>"; };
+		5B5D16402439FB5D000BA895 /* FIRDatabaseQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRDatabaseQuery.m; sourceTree = "<group>"; };
+		5B5D16412439FB5D000BA895 /* FIRDatabase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRDatabase.m; sourceTree = "<group>"; };
+		5B5D16422439FB5D000BA895 /* FIRDatabaseComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRDatabaseComponent.m; sourceTree = "<group>"; };
+		5B5D16432439FB5D000BA895 /* FIRServerValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRServerValue.m; sourceTree = "<group>"; };
+		5B5D16442439FB5D000BA895 /* FIRDatabaseComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDatabaseComponent.h; sourceTree = "<group>"; };
+		5B5D16452439FB5D000BA895 /* FIRDataSnapshot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRDataSnapshot.m; sourceTree = "<group>"; };
+		5B5D16462439FB5D000BA895 /* FIRDatabaseConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDatabaseConfig.h; sourceTree = "<group>"; };
+		5B5D16482439FB5D000BA895 /* FIRDatabaseQuery_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDatabaseQuery_Private.h; sourceTree = "<group>"; };
+		5B5D16492439FB5D000BA895 /* FIRDatabaseReference_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDatabaseReference_Private.h; sourceTree = "<group>"; };
+		5B5D164A2439FB5D000BA895 /* FIRDatabase_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDatabase_Private.h; sourceTree = "<group>"; };
+		5B5D164B2439FB5D000BA895 /* FIRDataSnapshot_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDataSnapshot_Private.h; sourceTree = "<group>"; };
+		5B5D164C2439FB5D000BA895 /* FTypedefs_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTypedefs_Private.h; sourceTree = "<group>"; };
+		5B5D164D2439FB5D000BA895 /* FIRMutableData_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMutableData_Private.h; sourceTree = "<group>"; };
+		5B5D164E2439FB5D000BA895 /* FIRTransactionResult_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRTransactionResult_Private.h; sourceTree = "<group>"; };
+		5B5D164F2439FB5D000BA895 /* FIRMutableData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMutableData.m; sourceTree = "<group>"; };
+		5B5D16502439FB5D000BA895 /* FIRTransactionResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRTransactionResult.m; sourceTree = "<group>"; };
+		5B5D16512439FB5D000BA895 /* FTransformedEnumerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTransformedEnumerator.h; sourceTree = "<group>"; };
+		5B5D16522439FB5D000BA895 /* FListenComplete.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FListenComplete.h; sourceTree = "<group>"; };
+		5B5D16532439FB5D000BA895 /* FEventGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEventGenerator.h; sourceTree = "<group>"; };
+		5B5D16542439FB5D000BA895 /* FClock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FClock.h; sourceTree = "<group>"; };
+		5B5D16552439FB5D000BA895 /* FRangedFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRangedFilter.h; sourceTree = "<group>"; };
+		5B5D16562439FB5D000BA895 /* FMaxNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMaxNode.h; sourceTree = "<group>"; };
+		5B5D16572439FB5D000BA895 /* FNamedNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FNamedNode.h; sourceTree = "<group>"; };
+		5B5D16582439FB5D000BA895 /* FKeyIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKeyIndex.h; sourceTree = "<group>"; };
+		5B5D165A2439FB5D000BA895 /* FIRNoopAuthTokenProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRNoopAuthTokenProvider.m; sourceTree = "<group>"; };
+		5B5D165B2439FB5D000BA895 /* FAuthTokenProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAuthTokenProvider.m; sourceTree = "<group>"; };
+		5B5D165C2439FB5D000BA895 /* FIRNoopAuthTokenProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRNoopAuthTokenProvider.h; sourceTree = "<group>"; };
+		5B5D165D2439FB5D000BA895 /* FAuthTokenProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAuthTokenProvider.h; sourceTree = "<group>"; };
+		5B5D165E2439FB5D000BA895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B5D165F2439FB5D000BA895 /* FViewProcessorResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FViewProcessorResult.m; sourceTree = "<group>"; };
+		5B5D16612439FB5D000BA895 /* FIRInstanceIDLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDLogger.h; sourceTree = "<group>"; };
+		5B5D16622439FB5D000BA895 /* FIRInstanceIDAuthService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDAuthService.h; sourceTree = "<group>"; };
+		5B5D16632439FB5D000BA895 /* FIRInstanceIDCheckinService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDCheckinService.m; sourceTree = "<group>"; };
+		5B5D16642439FB5D000BA895 /* NSError+FIRInstanceID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+FIRInstanceID.h"; sourceTree = "<group>"; };
+		5B5D16652439FB5D000BA895 /* FIRInstanceIDBackupExcludedPlist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDBackupExcludedPlist.m; sourceTree = "<group>"; };
+		5B5D16662439FB5D000BA895 /* FIRInstanceIDAPNSInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDAPNSInfo.h; sourceTree = "<group>"; };
+		5B5D16672439FB5D000BA895 /* FIRInstanceIDTokenManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDTokenManager.m; sourceTree = "<group>"; };
+		5B5D16682439FB5D000BA895 /* FIRInstanceIDAuthKeyChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDAuthKeyChain.h; sourceTree = "<group>"; };
+		5B5D16692439FB5D000BA895 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		5B5D166A2439FB5D000BA895 /* FIRInstanceIDConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDConstants.m; sourceTree = "<group>"; };
+		5B5D166B2439FB5D000BA895 /* FIRInstanceIDTokenDeleteOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDTokenDeleteOperation.h; sourceTree = "<group>"; };
+		5B5D166C2439FB5D000BA895 /* FIRInstanceIDCombinedHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDCombinedHandler.m; sourceTree = "<group>"; };
+		5B5D166D2439FB5D000BA895 /* FIRInstanceIDVersionUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDVersionUtilities.h; sourceTree = "<group>"; };
+		5B5D166E2439FB5D000BA895 /* FIRInstanceIDTokenInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDTokenInfo.h; sourceTree = "<group>"; };
+		5B5D166F2439FB5D000BA895 /* FIRInstanceIDCheckinStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDCheckinStore.m; sourceTree = "<group>"; };
+		5B5D16702439FB5D000BA895 /* FIRInstanceID+Private.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FIRInstanceID+Private.m"; sourceTree = "<group>"; };
+		5B5D16712439FB5D000BA895 /* FIRInstanceIDURLQueryItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDURLQueryItem.h; sourceTree = "<group>"; };
+		5B5D16722439FB5D000BA895 /* FIRInstanceIDTokenFetchOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDTokenFetchOperation.m; sourceTree = "<group>"; };
+		5B5D16732439FB5D000BA895 /* FIRInstanceIDStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDStore.h; sourceTree = "<group>"; };
+		5B5D16742439FB5D000BA895 /* FIRInstanceIDTokenStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDTokenStore.h; sourceTree = "<group>"; };
+		5B5D16752439FB5D000BA895 /* FIRInstanceIDTokenOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDTokenOperation.h; sourceTree = "<group>"; };
+		5B5D16762439FB5D000BA895 /* FIRInstanceIDKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDKeychain.h; sourceTree = "<group>"; };
+		5B5D16772439FB5D000BA895 /* FIRInstanceIDUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDUtilities.h; sourceTree = "<group>"; };
+		5B5D16782439FB5D000BA895 /* FIRInstanceIDCheckinPreferences+Internal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FIRInstanceIDCheckinPreferences+Internal.m"; sourceTree = "<group>"; };
+		5B5D16792439FB5D000BA895 /* FIRInstanceIDTokenOperation+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FIRInstanceIDTokenOperation+Private.h"; sourceTree = "<group>"; };
+		5B5D167A2439FB5D000BA895 /* FIRInstanceIDBackupExcludedPlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDBackupExcludedPlist.h; sourceTree = "<group>"; };
+		5B5D167B2439FB5D000BA895 /* NSError+FIRInstanceID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+FIRInstanceID.m"; sourceTree = "<group>"; };
+		5B5D167C2439FB5D000BA895 /* FIRInstanceIDAuthService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDAuthService.m; sourceTree = "<group>"; };
+		5B5D167D2439FB5D000BA895 /* FIRInstanceIDCheckinService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDCheckinService.h; sourceTree = "<group>"; };
+		5B5D167E2439FB5D000BA895 /* FIRInstanceIDDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDDefines.h; sourceTree = "<group>"; };
+		5B5D167F2439FB5D000BA895 /* FIRInstanceIDLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDLogger.m; sourceTree = "<group>"; };
+		5B5D16812439FB5D000BA895 /* FirebaseInstanceID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseInstanceID.h; sourceTree = "<group>"; };
+		5B5D16822439FB5D000BA895 /* FIRInstanceID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceID.h; sourceTree = "<group>"; };
+		5B5D16842439FB5D000BA895 /* FIRInstanceIDCheckinPreferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDCheckinPreferences.h; sourceTree = "<group>"; };
+		5B5D16852439FB5D000BA895 /* FIRInstanceID_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceID_Private.h; sourceTree = "<group>"; };
+		5B5D16862439FB5D000BA895 /* FIRInstanceID+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FIRInstanceID+Private.h"; sourceTree = "<group>"; };
+		5B5D16872439FB5D000BA895 /* FIRInstanceIDVersionUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDVersionUtilities.m; sourceTree = "<group>"; };
+		5B5D16882439FB5D000BA895 /* FIRInstanceIDCombinedHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDCombinedHandler.h; sourceTree = "<group>"; };
+		5B5D16892439FB5D000BA895 /* FIRInstanceIDConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDConstants.h; sourceTree = "<group>"; };
+		5B5D168A2439FB5D000BA895 /* FIRInstanceIDTokenDeleteOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDTokenDeleteOperation.m; sourceTree = "<group>"; };
+		5B5D168B2439FB5D000BA895 /* FIRInstanceIDAuthKeyChain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDAuthKeyChain.m; sourceTree = "<group>"; };
+		5B5D168C2439FB5D000BA895 /* FIRInstanceIDTokenManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDTokenManager.h; sourceTree = "<group>"; };
+		5B5D168D2439FB5D000BA895 /* FIRInstanceIDAPNSInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDAPNSInfo.m; sourceTree = "<group>"; };
+		5B5D168E2439FB5D000BA895 /* FIRInstanceIDCheckinPreferences_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDCheckinPreferences_Private.h; sourceTree = "<group>"; };
+		5B5D168F2439FB5D000BA895 /* FIRInstanceIDStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDStore.m; sourceTree = "<group>"; };
+		5B5D16902439FB5D000BA895 /* FIRInstanceIDCheckinPreferences.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDCheckinPreferences.m; sourceTree = "<group>"; };
+		5B5D16912439FB5D000BA895 /* FIRInstanceIDTokenFetchOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDTokenFetchOperation.h; sourceTree = "<group>"; };
+		5B5D16922439FB5D000BA895 /* FIRInstanceIDURLQueryItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDURLQueryItem.m; sourceTree = "<group>"; };
+		5B5D16932439FB5D000BA895 /* FIRInstanceIDCheckinStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRInstanceIDCheckinStore.h; sourceTree = "<group>"; };
+		5B5D16942439FB5D000BA895 /* FIRInstanceIDTokenInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDTokenInfo.m; sourceTree = "<group>"; };
+		5B5D16952439FB5E000BA895 /* FIRInstanceID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceID.m; sourceTree = "<group>"; };
+		5B5D16962439FB5E000BA895 /* FIRInstanceIDUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDUtilities.m; sourceTree = "<group>"; };
+		5B5D16972439FB5E000BA895 /* FIRIMessageCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRIMessageCode.h; sourceTree = "<group>"; };
+		5B5D16982439FB5E000BA895 /* FIRInstanceIDCheckinPreferences+Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FIRInstanceIDCheckinPreferences+Internal.h"; sourceTree = "<group>"; };
+		5B5D16992439FB5E000BA895 /* FIRInstanceIDKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDKeychain.m; sourceTree = "<group>"; };
+		5B5D169A2439FB5E000BA895 /* FIRInstanceIDTokenOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDTokenOperation.m; sourceTree = "<group>"; };
+		5B5D169B2439FB5E000BA895 /* FIRInstanceIDTokenStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRInstanceIDTokenStore.m; sourceTree = "<group>"; };
+		5B5D169D2439FB5E000BA895 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		5B5D16A02439FB5E000BA895 /* FIRAuthDispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthDispatcher.h; sourceTree = "<group>"; };
+		5B5D16A12439FB5E000BA895 /* FIRAuthSerialTaskQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthSerialTaskQueue.m; sourceTree = "<group>"; };
+		5B5D16A22439FB5E000BA895 /* FIRAuthDataResult_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthDataResult_Internal.h; sourceTree = "<group>"; };
+		5B5D16A32439FB5E000BA895 /* FIRAuthGlobalWorkQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthGlobalWorkQueue.h; sourceTree = "<group>"; };
+		5B5D16A42439FB5E000BA895 /* FIRAuthOperationType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthOperationType.h; sourceTree = "<group>"; };
+		5B5D16A52439FB5E000BA895 /* FIRAuth.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuth.m; sourceTree = "<group>"; };
+		5B5D16A62439FB5E000BA895 /* FIRAuthDataResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthDataResult.m; sourceTree = "<group>"; };
+		5B5D16A72439FB5E000BA895 /* FIRAuthDispatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthDispatcher.m; sourceTree = "<group>"; };
+		5B5D16A82439FB5E000BA895 /* FIRAuthGlobalWorkQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthGlobalWorkQueue.m; sourceTree = "<group>"; };
+		5B5D16A92439FB5E000BA895 /* FIRAuthSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthSettings.m; sourceTree = "<group>"; };
+		5B5D16AA2439FB5E000BA895 /* FIRAuthSerialTaskQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthSerialTaskQueue.h; sourceTree = "<group>"; };
+		5B5D16AB2439FB5E000BA895 /* FIRAuthTokenResult_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthTokenResult_Internal.h; sourceTree = "<group>"; };
+		5B5D16AC2439FB5E000BA895 /* FIRActionCodeSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRActionCodeSettings.m; sourceTree = "<group>"; };
+		5B5D16AD2439FB5E000BA895 /* FIRAuthTokenResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthTokenResult.m; sourceTree = "<group>"; };
+		5B5D16AE2439FB5E000BA895 /* FIRAuth_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuth_Internal.h; sourceTree = "<group>"; };
+		5B5D16B02439FB5E000BA895 /* FIRSecureTokenService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRSecureTokenService.h; sourceTree = "<group>"; };
+		5B5D16B12439FB5E000BA895 /* FIRAuthAppCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthAppCredential.m; sourceTree = "<group>"; };
+		5B5D16B22439FB5E000BA895 /* FIRAuthNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthNotificationManager.h; sourceTree = "<group>"; };
+		5B5D16B32439FB5E000BA895 /* FIRAuthAPNSTokenManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthAPNSTokenManager.h; sourceTree = "<group>"; };
+		5B5D16B42439FB5E000BA895 /* FIRAuthAppCredentialManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthAppCredentialManager.m; sourceTree = "<group>"; };
+		5B5D16B52439FB5E000BA895 /* FIRAuthStoredUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthStoredUserManager.h; sourceTree = "<group>"; };
+		5B5D16B62439FB5E000BA895 /* FIRAuthAPNSToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthAPNSToken.h; sourceTree = "<group>"; };
+		5B5D16B72439FB5E000BA895 /* FIRSecureTokenService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRSecureTokenService.m; sourceTree = "<group>"; };
+		5B5D16B82439FB5E000BA895 /* FIRAuthAppCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthAppCredential.h; sourceTree = "<group>"; };
+		5B5D16B92439FB5E000BA895 /* FIRAuthAPNSTokenManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthAPNSTokenManager.m; sourceTree = "<group>"; };
+		5B5D16BA2439FB5E000BA895 /* FIRAuthNotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthNotificationManager.m; sourceTree = "<group>"; };
+		5B5D16BB2439FB5E000BA895 /* FIRAuthAPNSToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthAPNSToken.m; sourceTree = "<group>"; };
+		5B5D16BC2439FB5E000BA895 /* FIRAuthStoredUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthStoredUserManager.m; sourceTree = "<group>"; };
+		5B5D16BD2439FB5E000BA895 /* FIRAuthAppCredentialManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthAppCredentialManager.h; sourceTree = "<group>"; };
+		5B5D16BF2439FB5E000BA895 /* FIRMultiFactorInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMultiFactorInfo.m; sourceTree = "<group>"; };
+		5B5D16C02439FB5E000BA895 /* FIRMultiFactorInfo+Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FIRMultiFactorInfo+Internal.h"; sourceTree = "<group>"; };
+		5B5D16C12439FB5E000BA895 /* FIRMultiFactorResolver+Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FIRMultiFactorResolver+Internal.h"; sourceTree = "<group>"; };
+		5B5D16C22439FB5E000BA895 /* FIRMultiFactorAssertion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMultiFactorAssertion.m; sourceTree = "<group>"; };
+		5B5D16C32439FB5E000BA895 /* FIRMultiFactorConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMultiFactorConstants.m; sourceTree = "<group>"; };
+		5B5D16C42439FB5E000BA895 /* FIRMultiFactorSession+Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FIRMultiFactorSession+Internal.h"; sourceTree = "<group>"; };
+		5B5D16C52439FB5E000BA895 /* FIRMultiFactor+Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FIRMultiFactor+Internal.h"; sourceTree = "<group>"; };
+		5B5D16C72439FB5E000BA895 /* FIRPhoneMultiFactorAssertion+Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FIRPhoneMultiFactorAssertion+Internal.h"; sourceTree = "<group>"; };
+		5B5D16C82439FB5E000BA895 /* FIRPhoneMultiFactorGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRPhoneMultiFactorGenerator.m; sourceTree = "<group>"; };
+		5B5D16C92439FB5E000BA895 /* FIRPhoneMultiFactorInfo+Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FIRPhoneMultiFactorInfo+Internal.h"; sourceTree = "<group>"; };
+		5B5D16CA2439FB5E000BA895 /* FIRPhoneMultiFactorAssertion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRPhoneMultiFactorAssertion.m; sourceTree = "<group>"; };
+		5B5D16CB2439FB5E000BA895 /* FIRPhoneMultiFactorInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRPhoneMultiFactorInfo.m; sourceTree = "<group>"; };
+		5B5D16CC2439FB5E000BA895 /* FIRMultiFactorSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMultiFactorSession.m; sourceTree = "<group>"; };
+		5B5D16CD2439FB5E000BA895 /* FIRMultiFactorAssertion+Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FIRMultiFactorAssertion+Internal.h"; sourceTree = "<group>"; };
+		5B5D16CE2439FB5E000BA895 /* FIRMultiFactor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMultiFactor.m; sourceTree = "<group>"; };
+		5B5D16CF2439FB5E000BA895 /* FIRMultiFactorResolver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMultiFactorResolver.m; sourceTree = "<group>"; };
+		5B5D16D12439FB5E000BA895 /* FIRUserInfoImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRUserInfoImpl.h; sourceTree = "<group>"; };
+		5B5D16D22439FB5E000BA895 /* FIRUserMetadata.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRUserMetadata.m; sourceTree = "<group>"; };
+		5B5D16D32439FB5E000BA895 /* FIRUser_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRUser_Internal.h; sourceTree = "<group>"; };
+		5B5D16D42439FB5E000BA895 /* FIRUserMetadata_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRUserMetadata_Internal.h; sourceTree = "<group>"; };
+		5B5D16D52439FB5E000BA895 /* FIRUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRUser.m; sourceTree = "<group>"; };
+		5B5D16D62439FB5E000BA895 /* FIRUserInfoImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRUserInfoImpl.m; sourceTree = "<group>"; };
+		5B5D16D72439FB5E000BA895 /* FIRAdditionalUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAdditionalUserInfo.m; sourceTree = "<group>"; };
+		5B5D16D82439FB5E000BA895 /* FIRAdditionalUserInfo_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAdditionalUserInfo_Internal.h; sourceTree = "<group>"; };
+		5B5D16DA2439FB5E000BA895 /* FIRAuthRPCRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthRPCRequest.h; sourceTree = "<group>"; };
+		5B5D16DB2439FB5E000BA895 /* FIRAuthRPCResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthRPCResponse.h; sourceTree = "<group>"; };
+		5B5D16DC2439FB5E000BA895 /* FIRAuthBackend+MultiFactor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FIRAuthBackend+MultiFactor.h"; sourceTree = "<group>"; };
+		5B5D16DD2439FB5E000BA895 /* FIRAuthBackend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthBackend.m; sourceTree = "<group>"; };
+		5B5D16DE2439FB5E000BA895 /* FIRAuthRequestConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthRequestConfiguration.m; sourceTree = "<group>"; };
+		5B5D16DF2439FB5E000BA895 /* FIRIdentityToolkitRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRIdentityToolkitRequest.m; sourceTree = "<group>"; };
+		5B5D16E02439FB5E000BA895 /* FIRAuthBackend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthBackend.h; sourceTree = "<group>"; };
+		5B5D16E22439FB5E000BA895 /* FIRSignInWithGameCenterRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRSignInWithGameCenterRequest.h; sourceTree = "<group>"; };
+		5B5D16E32439FB5E000BA895 /* FIRSecureTokenRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRSecureTokenRequest.m; sourceTree = "<group>"; };
+		5B5D16E42439FB5E000BA895 /* FIRGetAccountInfoRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRGetAccountInfoRequest.m; sourceTree = "<group>"; };
+		5B5D16E52439FB5E000BA895 /* FIRSignInWithGameCenterResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRSignInWithGameCenterResponse.m; sourceTree = "<group>"; };
+		5B5D16E62439FB5E000BA895 /* FIRGetOOBConfirmationCodeResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRGetOOBConfirmationCodeResponse.m; sourceTree = "<group>"; };
+		5B5D16E72439FB5E000BA895 /* FIRGetOOBConfirmationCodeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRGetOOBConfirmationCodeRequest.m; sourceTree = "<group>"; };
+		5B5D16E82439FB5E000BA895 /* FIRVerifyCustomTokenResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRVerifyCustomTokenResponse.m; sourceTree = "<group>"; };
+		5B5D16E92439FB5E000BA895 /* FIRCreateAuthURIResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRCreateAuthURIResponse.h; sourceTree = "<group>"; };
+		5B5D16EA2439FB5E000BA895 /* FIREmailLinkSignInResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIREmailLinkSignInResponse.h; sourceTree = "<group>"; };
+		5B5D16EB2439FB5E000BA895 /* FIRSendVerificationCodeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRSendVerificationCodeRequest.m; sourceTree = "<group>"; };
+		5B5D16EC2439FB5E000BA895 /* FIRVerifyPhoneNumberResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRVerifyPhoneNumberResponse.h; sourceTree = "<group>"; };
+		5B5D16ED2439FB5E000BA895 /* FIRVerifyPasswordResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRVerifyPasswordResponse.h; sourceTree = "<group>"; };
+		5B5D16EE2439FB5E000BA895 /* FIREmailLinkSignInRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIREmailLinkSignInRequest.h; sourceTree = "<group>"; };
+		5B5D16EF2439FB5E000BA895 /* FIRCreateAuthURIRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRCreateAuthURIRequest.h; sourceTree = "<group>"; };
+		5B5D16F02439FB5E000BA895 /* FIRDeleteAccountResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDeleteAccountResponse.h; sourceTree = "<group>"; };
+		5B5D16F12439FB5E000BA895 /* FIRVerifyAssertionResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRVerifyAssertionResponse.h; sourceTree = "<group>"; };
+		5B5D16F22439FB5E000BA895 /* FIRGetProjectConfigResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRGetProjectConfigResponse.h; sourceTree = "<group>"; };
+		5B5D16F42439FB5E000BA895 /* FIRAuthProtoMFAEnrollment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthProtoMFAEnrollment.m; sourceTree = "<group>"; };
+		5B5D16F62439FB5E000BA895 /* FIRAuthProtoStartMFAPhoneResponseInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthProtoStartMFAPhoneResponseInfo.m; sourceTree = "<group>"; };
+		5B5D16F72439FB5E000BA895 /* FIRAuthProtoStartMFAPhoneRequestInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthProtoStartMFAPhoneRequestInfo.m; sourceTree = "<group>"; };
+		5B5D16F82439FB5E000BA895 /* FIRAuthProtoFinalizeMFAPhoneRequestInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthProtoFinalizeMFAPhoneRequestInfo.m; sourceTree = "<group>"; };
+		5B5D16F92439FB5E000BA895 /* FIRAuthProtoFinalizeMFAPhoneResponseInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthProtoFinalizeMFAPhoneResponseInfo.m; sourceTree = "<group>"; };
+		5B5D16FA2439FB5E000BA895 /* FIRAuthProtoStartMFAPhoneResponseInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthProtoStartMFAPhoneResponseInfo.h; sourceTree = "<group>"; };
+		5B5D16FB2439FB5E000BA895 /* FIRAuthProtoFinalizeMFAPhoneRequestInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthProtoFinalizeMFAPhoneRequestInfo.h; sourceTree = "<group>"; };
+		5B5D16FC2439FB5E000BA895 /* FIRAuthProtoStartMFAPhoneRequestInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthProtoStartMFAPhoneRequestInfo.h; sourceTree = "<group>"; };
+		5B5D16FD2439FB5E000BA895 /* FIRAuthProtoFinalizeMFAPhoneResponseInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthProtoFinalizeMFAPhoneResponseInfo.h; sourceTree = "<group>"; };
+		5B5D16FE2439FB5E000BA895 /* FIRAuthProto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthProto.h; sourceTree = "<group>"; };
+		5B5D16FF2439FB5E000BA895 /* FIRAuthProtoMFAEnrollment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthProtoMFAEnrollment.h; sourceTree = "<group>"; };
+		5B5D17002439FB5E000BA895 /* FIRResetPasswordResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRResetPasswordResponse.h; sourceTree = "<group>"; };
+		5B5D17012439FB5E000BA895 /* FIRGetAccountInfoResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRGetAccountInfoResponse.h; sourceTree = "<group>"; };
+		5B5D17022439FB5E000BA895 /* FIRResetPasswordRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRResetPasswordRequest.m; sourceTree = "<group>"; };
+		5B5D17032439FB5E000BA895 /* FIRDeleteAccountRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRDeleteAccountRequest.h; sourceTree = "<group>"; };
+		5B5D17042439FB5E000BA895 /* FIRVerifyClientResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRVerifyClientResponse.h; sourceTree = "<group>"; };
+		5B5D17052439FB5E000BA895 /* FIRVerifyCustomTokenRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRVerifyCustomTokenRequest.h; sourceTree = "<group>"; };
+		5B5D17062439FB5E000BA895 /* FIRSetAccountInfoRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRSetAccountInfoRequest.h; sourceTree = "<group>"; };
+		5B5D17072439FB5E000BA895 /* FIRSignUpNewUserRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRSignUpNewUserRequest.h; sourceTree = "<group>"; };
+		5B5D170A2439FB5E000BA895 /* FIRStartMFAEnrollmentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRStartMFAEnrollmentRequest.h; sourceTree = "<group>"; };
+		5B5D170B2439FB5E000BA895 /* FIRStartMFAEnrollmentResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRStartMFAEnrollmentResponse.m; sourceTree = "<group>"; };
+		5B5D170C2439FB5E000BA895 /* FIRFinalizeMFAEnrollmentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRFinalizeMFAEnrollmentRequest.h; sourceTree = "<group>"; };
+		5B5D170D2439FB5E000BA895 /* FIRFinalizeMFAEnrollmentResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRFinalizeMFAEnrollmentResponse.h; sourceTree = "<group>"; };
+		5B5D170E2439FB5E000BA895 /* FIRStartMFAEnrollmentResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRStartMFAEnrollmentResponse.h; sourceTree = "<group>"; };
+		5B5D170F2439FB5E000BA895 /* FIRStartMFAEnrollmentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRStartMFAEnrollmentRequest.m; sourceTree = "<group>"; };
+		5B5D17102439FB5E000BA895 /* FIRFinalizeMFAEnrollmentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRFinalizeMFAEnrollmentRequest.m; sourceTree = "<group>"; };
+		5B5D17112439FB5E000BA895 /* FIRFinalizeMFAEnrollmentResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRFinalizeMFAEnrollmentResponse.m; sourceTree = "<group>"; };
+		5B5D17132439FB5E000BA895 /* FIRStartMFASignInResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRStartMFASignInResponse.h; sourceTree = "<group>"; };
+		5B5D17142439FB5E000BA895 /* FIRFinalizeMFASignInRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRFinalizeMFASignInRequest.m; sourceTree = "<group>"; };
+		5B5D17152439FB5E000BA895 /* FIRFinalizeMFASignInResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRFinalizeMFASignInResponse.m; sourceTree = "<group>"; };
+		5B5D17162439FB5E000BA895 /* FIRStartMFASignInRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRStartMFASignInRequest.m; sourceTree = "<group>"; };
+		5B5D17172439FB5E000BA895 /* FIRFinalizeMFASignInRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRFinalizeMFASignInRequest.h; sourceTree = "<group>"; };
+		5B5D17182439FB5E000BA895 /* FIRStartMFASignInResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRStartMFASignInResponse.m; sourceTree = "<group>"; };
+		5B5D17192439FB5E000BA895 /* FIRFinalizeMFASignInResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRFinalizeMFASignInResponse.h; sourceTree = "<group>"; };
+		5B5D171A2439FB5E000BA895 /* FIRStartMFASignInRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRStartMFASignInRequest.h; sourceTree = "<group>"; };
+		5B5D171C2439FB5E000BA895 /* FIRWithdrawMFARequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRWithdrawMFARequest.h; sourceTree = "<group>"; };
+		5B5D171D2439FB5E000BA895 /* FIRWithdrawMFAResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRWithdrawMFAResponse.m; sourceTree = "<group>"; };
+		5B5D171E2439FB5E000BA895 /* FIRWithdrawMFARequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRWithdrawMFARequest.m; sourceTree = "<group>"; };
+		5B5D171F2439FB5E000BA895 /* FIRWithdrawMFAResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRWithdrawMFAResponse.h; sourceTree = "<group>"; };
+		5B5D17202439FB5E000BA895 /* FIRSetAccountInfoResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRSetAccountInfoResponse.m; sourceTree = "<group>"; };
+		5B5D17212439FB5E000BA895 /* FIRVerifyAssertionRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRVerifyAssertionRequest.m; sourceTree = "<group>"; };
+		5B5D17222439FB5E000BA895 /* FIRVerifyClientRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRVerifyClientRequest.h; sourceTree = "<group>"; };
+		5B5D17232439FB5E000BA895 /* FIRGetProjectConfigRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRGetProjectConfigRequest.m; sourceTree = "<group>"; };
+		5B5D17242439FB5E000BA895 /* FIRVerifyPhoneNumberRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRVerifyPhoneNumberRequest.m; sourceTree = "<group>"; };
+		5B5D17252439FB5E000BA895 /* FIRSignUpNewUserResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRSignUpNewUserResponse.h; sourceTree = "<group>"; };
+		5B5D17262439FB5E000BA895 /* FIRVerifyPasswordRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRVerifyPasswordRequest.h; sourceTree = "<group>"; };
+		5B5D17272439FB5E000BA895 /* FIRSecureTokenResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRSecureTokenResponse.h; sourceTree = "<group>"; };
+		5B5D17282439FB5E000BA895 /* FIRSendVerificationCodeResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRSendVerificationCodeResponse.h; sourceTree = "<group>"; };
+		5B5D17292439FB5E000BA895 /* FIREmailLinkSignInResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIREmailLinkSignInResponse.m; sourceTree = "<group>"; };
+		5B5D172A2439FB5E000BA895 /* FIRSendVerificationCodeRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRSendVerificationCodeRequest.h; sourceTree = "<group>"; };
+		5B5D172B2439FB5E000BA895 /* FIRCreateAuthURIResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRCreateAuthURIResponse.m; sourceTree = "<group>"; };
+		5B5D172C2439FB5E000BA895 /* FIRVerifyCustomTokenResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRVerifyCustomTokenResponse.h; sourceTree = "<group>"; };
+		5B5D172D2439FB5E000BA895 /* FIRGetOOBConfirmationCodeResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRGetOOBConfirmationCodeResponse.h; sourceTree = "<group>"; };
+		5B5D172E2439FB5E000BA895 /* FIRGetOOBConfirmationCodeRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRGetOOBConfirmationCodeRequest.h; sourceTree = "<group>"; };
+		5B5D172F2439FB5E000BA895 /* FIRGetAccountInfoRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRGetAccountInfoRequest.h; sourceTree = "<group>"; };
+		5B5D17302439FB5E000BA895 /* FIRSignInWithGameCenterResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRSignInWithGameCenterResponse.h; sourceTree = "<group>"; };
+		5B5D17312439FB5E000BA895 /* FIRSecureTokenRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRSecureTokenRequest.h; sourceTree = "<group>"; };
+		5B5D17322439FB5E000BA895 /* FIRSignInWithGameCenterRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRSignInWithGameCenterRequest.m; sourceTree = "<group>"; };
+		5B5D17332439FB5E000BA895 /* FIRResetPasswordResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRResetPasswordResponse.m; sourceTree = "<group>"; };
+		5B5D17342439FB5E000BA895 /* FIRGetProjectConfigResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRGetProjectConfigResponse.m; sourceTree = "<group>"; };
+		5B5D17352439FB5E000BA895 /* FIRVerifyAssertionResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRVerifyAssertionResponse.m; sourceTree = "<group>"; };
+		5B5D17362439FB5E000BA895 /* FIRDeleteAccountResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRDeleteAccountResponse.m; sourceTree = "<group>"; };
+		5B5D17372439FB5E000BA895 /* FIREmailLinkSignInRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIREmailLinkSignInRequest.m; sourceTree = "<group>"; };
+		5B5D17382439FB5E000BA895 /* FIRCreateAuthURIRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRCreateAuthURIRequest.m; sourceTree = "<group>"; };
+		5B5D17392439FB5E000BA895 /* FIRVerifyPasswordResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRVerifyPasswordResponse.m; sourceTree = "<group>"; };
+		5B5D173A2439FB5E000BA895 /* FIRVerifyPhoneNumberResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRVerifyPhoneNumberResponse.m; sourceTree = "<group>"; };
+		5B5D173B2439FB5E000BA895 /* FIRSignUpNewUserRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRSignUpNewUserRequest.m; sourceTree = "<group>"; };
+		5B5D173C2439FB5E000BA895 /* FIRSetAccountInfoRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRSetAccountInfoRequest.m; sourceTree = "<group>"; };
+		5B5D173D2439FB5E000BA895 /* FIRVerifyCustomTokenRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRVerifyCustomTokenRequest.m; sourceTree = "<group>"; };
+		5B5D173E2439FB5E000BA895 /* FIRVerifyClientResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRVerifyClientResponse.m; sourceTree = "<group>"; };
+		5B5D173F2439FB5E000BA895 /* FIRDeleteAccountRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRDeleteAccountRequest.m; sourceTree = "<group>"; };
+		5B5D17402439FB5E000BA895 /* FIRResetPasswordRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRResetPasswordRequest.h; sourceTree = "<group>"; };
+		5B5D17412439FB5E000BA895 /* FIRGetAccountInfoResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRGetAccountInfoResponse.m; sourceTree = "<group>"; };
+		5B5D17422439FB5E000BA895 /* FIRSendVerificationCodeResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRSendVerificationCodeResponse.m; sourceTree = "<group>"; };
+		5B5D17432439FB5E000BA895 /* FIRVerifyPasswordRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRVerifyPasswordRequest.m; sourceTree = "<group>"; };
+		5B5D17442439FB5E000BA895 /* FIRSecureTokenResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRSecureTokenResponse.m; sourceTree = "<group>"; };
+		5B5D17452439FB5E000BA895 /* FIRVerifyPhoneNumberRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRVerifyPhoneNumberRequest.h; sourceTree = "<group>"; };
+		5B5D17462439FB5E000BA895 /* FIRSignUpNewUserResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRSignUpNewUserResponse.m; sourceTree = "<group>"; };
+		5B5D17472439FB5E000BA895 /* FIRGetProjectConfigRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRGetProjectConfigRequest.h; sourceTree = "<group>"; };
+		5B5D17482439FB5E000BA895 /* FIRVerifyClientRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRVerifyClientRequest.m; sourceTree = "<group>"; };
+		5B5D17492439FB5E000BA895 /* FIRVerifyAssertionRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRVerifyAssertionRequest.h; sourceTree = "<group>"; };
+		5B5D174A2439FB5E000BA895 /* FIRSetAccountInfoResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRSetAccountInfoResponse.h; sourceTree = "<group>"; };
+		5B5D174B2439FB5E000BA895 /* FIRAuthBackend+MultiFactor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FIRAuthBackend+MultiFactor.m"; sourceTree = "<group>"; };
+		5B5D174C2439FB5E000BA895 /* FIRIdentityToolkitRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRIdentityToolkitRequest.h; sourceTree = "<group>"; };
+		5B5D174D2439FB5E000BA895 /* FIRAuthRequestConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthRequestConfiguration.h; sourceTree = "<group>"; };
+		5B5D174F2439FB5E000BA895 /* FIRAuthUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthUserDefaults.h; sourceTree = "<group>"; };
+		5B5D17502439FB5E000BA895 /* FIRAuthKeychainServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthKeychainServices.h; sourceTree = "<group>"; };
+		5B5D17512439FB5E000BA895 /* FIRAuthUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthUserDefaults.m; sourceTree = "<group>"; };
+		5B5D17522439FB5E000BA895 /* FIRAuthKeychainServices.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthKeychainServices.m; sourceTree = "<group>"; };
+		5B5D17542439FB5E000BA895 /* FIRAuthWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthWebView.h; sourceTree = "<group>"; };
+		5B5D17552439FB5E000BA895 /* FIRAuthDefaultUIDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthDefaultUIDelegate.m; sourceTree = "<group>"; };
+		5B5D17562439FB5E000BA895 /* FIRAuthWebUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthWebUtils.h; sourceTree = "<group>"; };
+		5B5D17572439FB5E000BA895 /* FIRAuthExceptionUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthExceptionUtils.h; sourceTree = "<group>"; };
+		5B5D17582439FB5E000BA895 /* FIRAuthErrorUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthErrorUtils.h; sourceTree = "<group>"; };
+		5B5D17592439FB5E000BA895 /* FIRAuthURLPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthURLPresenter.m; sourceTree = "<group>"; };
+		5B5D175A2439FB5E000BA895 /* NSData+FIRBase64.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+FIRBase64.m"; sourceTree = "<group>"; };
+		5B5D175B2439FB5E000BA895 /* FIRAuthWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthWebViewController.h; sourceTree = "<group>"; };
+		5B5D175C2439FB5E000BA895 /* FIRAuthWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthWebView.m; sourceTree = "<group>"; };
+		5B5D175D2439FB5E000BA895 /* FIRAuthDefaultUIDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthDefaultUIDelegate.h; sourceTree = "<group>"; };
+		5B5D175E2439FB5E000BA895 /* FIRAuthErrorUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthErrorUtils.m; sourceTree = "<group>"; };
+		5B5D175F2439FB5E000BA895 /* FIRAuthWebUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthWebUtils.m; sourceTree = "<group>"; };
+		5B5D17602439FB5E000BA895 /* FIRAuthExceptionUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthExceptionUtils.m; sourceTree = "<group>"; };
+		5B5D17612439FB5E000BA895 /* NSData+FIRBase64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+FIRBase64.h"; sourceTree = "<group>"; };
+		5B5D17622439FB5E000BA895 /* FIRAuthURLPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthURLPresenter.h; sourceTree = "<group>"; };
+		5B5D17632439FB5E000BA895 /* FIRAuthInternalErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthInternalErrors.h; sourceTree = "<group>"; };
+		5B5D17642439FB5E000BA895 /* FIRAuthWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthWebViewController.m; sourceTree = "<group>"; };
+		5B5D17662439FB5E000BA895 /* FIRUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRUser.h; sourceTree = "<group>"; };
+		5B5D17672439FB5E000BA895 /* FIRMultiFactorAssertion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMultiFactorAssertion.h; sourceTree = "<group>"; };
+		5B5D17682439FB5E000BA895 /* FIRGitHubAuthProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRGitHubAuthProvider.h; sourceTree = "<group>"; };
+		5B5D17692439FB5E000BA895 /* FIROAuthCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIROAuthCredential.h; sourceTree = "<group>"; };
+		5B5D176A2439FB5E000BA895 /* FIRGameCenterAuthProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRGameCenterAuthProvider.h; sourceTree = "<group>"; };
+		5B5D176B2439FB5E000BA895 /* FIRAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuth.h; sourceTree = "<group>"; };
+		5B5D176C2439FB5E000BA895 /* FIRPhoneAuthCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRPhoneAuthCredential.h; sourceTree = "<group>"; };
+		5B5D176D2439FB5E000BA895 /* FIRMultiFactorSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMultiFactorSession.h; sourceTree = "<group>"; };
+		5B5D176E2439FB5E000BA895 /* FIRFederatedAuthProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRFederatedAuthProvider.h; sourceTree = "<group>"; };
+		5B5D176F2439FB5E000BA895 /* FIREmailAuthProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIREmailAuthProvider.h; sourceTree = "<group>"; };
+		5B5D17702439FB5E000BA895 /* FIRFacebookAuthProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRFacebookAuthProvider.h; sourceTree = "<group>"; };
+		5B5D17712439FB5E000BA895 /* FIRAuthDataResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthDataResult.h; sourceTree = "<group>"; };
+		5B5D17722439FB5E000BA895 /* FirebaseAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseAuth.h; sourceTree = "<group>"; };
+		5B5D17732439FB5E000BA895 /* FIRAdditionalUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAdditionalUserInfo.h; sourceTree = "<group>"; };
+		5B5D17742439FB5E000BA895 /* FIRAuthSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthSettings.h; sourceTree = "<group>"; };
+		5B5D17752439FB5E000BA895 /* FirebaseAuthVersion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseAuthVersion.h; sourceTree = "<group>"; };
+		5B5D17762439FB5E000BA895 /* FIRMultiFactorResolver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMultiFactorResolver.h; sourceTree = "<group>"; };
+		5B5D17772439FB5E000BA895 /* FIRAuthCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthCredential.h; sourceTree = "<group>"; };
+		5B5D17782439FB5E000BA895 /* FIRMultiFactor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMultiFactor.h; sourceTree = "<group>"; };
+		5B5D17792439FB5E000BA895 /* FIRPhoneMultiFactorInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRPhoneMultiFactorInfo.h; sourceTree = "<group>"; };
+		5B5D177A2439FB5E000BA895 /* FIRAuthTokenResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthTokenResult.h; sourceTree = "<group>"; };
+		5B5D177B2439FB5E000BA895 /* FIRActionCodeSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRActionCodeSettings.h; sourceTree = "<group>"; };
+		5B5D177C2439FB5E000BA895 /* FIRTwitterAuthProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRTwitterAuthProvider.h; sourceTree = "<group>"; };
+		5B5D177D2439FB5E000BA895 /* FIRMultiFactorInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMultiFactorInfo.h; sourceTree = "<group>"; };
+		5B5D177E2439FB5E000BA895 /* FIRAuthAPNSTokenType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthAPNSTokenType.h; sourceTree = "<group>"; };
+		5B5D177F2439FB5E000BA895 /* FIRPhoneMultiFactorGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRPhoneMultiFactorGenerator.h; sourceTree = "<group>"; };
+		5B5D17802439FB5E000BA895 /* FIRAuthUIDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthUIDelegate.h; sourceTree = "<group>"; };
+		5B5D17812439FB5E000BA895 /* FIRAuthErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthErrors.h; sourceTree = "<group>"; };
+		5B5D17822439FB5E000BA895 /* FIRUserMetadata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRUserMetadata.h; sourceTree = "<group>"; };
+		5B5D17832439FB5E000BA895 /* FIRPhoneMultiFactorAssertion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRPhoneMultiFactorAssertion.h; sourceTree = "<group>"; };
+		5B5D17842439FB5E000BA895 /* FIRPhoneAuthProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRPhoneAuthProvider.h; sourceTree = "<group>"; };
+		5B5D17852439FB5E000BA895 /* FIROAuthProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIROAuthProvider.h; sourceTree = "<group>"; };
+		5B5D17862439FB5E000BA895 /* FIRGoogleAuthProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRGoogleAuthProvider.h; sourceTree = "<group>"; };
+		5B5D17872439FB5E000BA895 /* FIRUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRUserInfo.h; sourceTree = "<group>"; };
+		5B5D17882439FB5E000BA895 /* FirebaseAuthVersion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirebaseAuthVersion.m; sourceTree = "<group>"; };
+		5B5D178A2439FB5E000BA895 /* FIRAuthCredential_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRAuthCredential_Internal.h; sourceTree = "<group>"; };
+		5B5D178C2439FB5E000BA895 /* FIRGameCenterAuthCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRGameCenterAuthCredential.m; sourceTree = "<group>"; };
+		5B5D178D2439FB5E000BA895 /* FIRGameCenterAuthProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRGameCenterAuthProvider.m; sourceTree = "<group>"; };
+		5B5D178E2439FB5E000BA895 /* FIRGameCenterAuthCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRGameCenterAuthCredential.h; sourceTree = "<group>"; };
+		5B5D17902439FB5E000BA895 /* FIRTwitterAuthProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRTwitterAuthProvider.m; sourceTree = "<group>"; };
+		5B5D17912439FB5E000BA895 /* FIRTwitterAuthCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRTwitterAuthCredential.h; sourceTree = "<group>"; };
+		5B5D17922439FB5E000BA895 /* FIRTwitterAuthCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRTwitterAuthCredential.m; sourceTree = "<group>"; };
+		5B5D17942439FB5E000BA895 /* FIROAuthProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIROAuthProvider.m; sourceTree = "<group>"; };
+		5B5D17952439FB5E000BA895 /* FIROAuthCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIROAuthCredential.m; sourceTree = "<group>"; };
+		5B5D17962439FB5E000BA895 /* FIROAuthCredential_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIROAuthCredential_Internal.h; sourceTree = "<group>"; };
+		5B5D17982439FB5E000BA895 /* FIRGoogleAuthCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRGoogleAuthCredential.m; sourceTree = "<group>"; };
+		5B5D17992439FB5E000BA895 /* FIRGoogleAuthProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRGoogleAuthProvider.m; sourceTree = "<group>"; };
+		5B5D179A2439FB5E000BA895 /* FIRGoogleAuthCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRGoogleAuthCredential.h; sourceTree = "<group>"; };
+		5B5D179B2439FB5E000BA895 /* FIRAuthProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthProvider.m; sourceTree = "<group>"; };
+		5B5D179D2439FB5E000BA895 /* FIRGitHubAuthCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRGitHubAuthCredential.h; sourceTree = "<group>"; };
+		5B5D179E2439FB5E000BA895 /* FIRGitHubAuthProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRGitHubAuthProvider.m; sourceTree = "<group>"; };
+		5B5D179F2439FB5E000BA895 /* FIRGitHubAuthCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRGitHubAuthCredential.m; sourceTree = "<group>"; };
+		5B5D17A12439FB5E000BA895 /* FIRFacebookAuthCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRFacebookAuthCredential.m; sourceTree = "<group>"; };
+		5B5D17A22439FB5E000BA895 /* FIRFacebookAuthCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRFacebookAuthCredential.h; sourceTree = "<group>"; };
+		5B5D17A32439FB5E000BA895 /* FIRFacebookAuthProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRFacebookAuthProvider.m; sourceTree = "<group>"; };
+		5B5D17A52439FB5E000BA895 /* FIRPhoneAuthProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRPhoneAuthProvider.m; sourceTree = "<group>"; };
+		5B5D17A62439FB5E000BA895 /* FIRPhoneAuthCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRPhoneAuthCredential.m; sourceTree = "<group>"; };
+		5B5D17A72439FB5E000BA895 /* FIRPhoneAuthCredential_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRPhoneAuthCredential_Internal.h; sourceTree = "<group>"; };
+		5B5D17A92439FB5E000BA895 /* FIREmailPasswordAuthCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIREmailPasswordAuthCredential.m; sourceTree = "<group>"; };
+		5B5D17AA2439FB5E000BA895 /* FIREmailAuthProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIREmailAuthProvider.m; sourceTree = "<group>"; };
+		5B5D17AB2439FB5E000BA895 /* FIREmailPasswordAuthCredential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIREmailPasswordAuthCredential.h; sourceTree = "<group>"; };
+		5B5D17AC2439FB5E000BA895 /* FIRAuthCredential.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRAuthCredential.m; sourceTree = "<group>"; };
+		5B5D17AE2439FB5E000BA895 /* threading.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = threading.md; sourceTree = "<group>"; };
+		5B5D17AF2439FB5E000BA895 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5B5D17B22439FB5E000BA895 /* FIRCoreDiagnostics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRCoreDiagnostics.m; sourceTree = "<group>"; };
+		5B5D17B52439FB5E000BA895 /* firebasecore.nanopb.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = firebasecore.nanopb.c; sourceTree = "<group>"; };
+		5B5D17B62439FB5E000BA895 /* firebasecore.nanopb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = firebasecore.nanopb.h; sourceTree = "<group>"; };
+		5B5D17B92439FB5E000BA895 /* firebasecore.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = firebasecore.proto; sourceTree = "<group>"; };
+		5B5D17BA2439FB5E000BA895 /* firebasecore.options */ = {isa = PBXFileReference; lastKnownFileType = text; path = firebasecore.options; sourceTree = "<group>"; };
+		5B5D17BB2439FB5E000BA895 /* nanopb_proto_generator.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = nanopb_proto_generator.py; sourceTree = "<group>"; };
+		5B5D17BC2439FB5E000BA895 /* nanopb_build_protos.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = nanopb_build_protos.py; sourceTree = "<group>"; };
+		5B5D17BD2439FB5E000BA895 /* generate_nanopb_protos.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_nanopb_protos.sh; sourceTree = "<group>"; };
+		5B5D17BE2439FB5E000BA895 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		5B5D17BF2439FB5E000BA895 /* generate_project.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_project.sh; sourceTree = "<group>"; };
+		5B5D17C12439FB5E000BA895 /* FIRMessagingRemoteNotificationsProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingRemoteNotificationsProxy.m; sourceTree = "<group>"; };
+		5B5D17C22439FB5E000BA895 /* NSDictionary+FIRMessaging.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+FIRMessaging.m"; sourceTree = "<group>"; };
+		5B5D17C32439FB5E000BA895 /* FIRMessagingPersistentSyncMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingPersistentSyncMessage.h; sourceTree = "<group>"; };
+		5B5D17C52439FB5E000BA895 /* GtalkExtensions.pbobjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GtalkExtensions.pbobjc.h; sourceTree = "<group>"; };
+		5B5D17C62439FB5E000BA895 /* GtalkCore.pbobjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GtalkCore.pbobjc.h; sourceTree = "<group>"; };
+		5B5D17C72439FB5E000BA895 /* GtalkExtensions.pbobjc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GtalkExtensions.pbobjc.m; sourceTree = "<group>"; };
+		5B5D17C82439FB5E000BA895 /* GtalkCore.pbobjc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GtalkCore.pbobjc.m; sourceTree = "<group>"; };
+		5B5D17C92439FB5E000BA895 /* FIRMessagingConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingConstants.m; sourceTree = "<group>"; };
+		5B5D17CA2439FB5E000BA895 /* FIRMessagingSyncMessageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingSyncMessageManager.m; sourceTree = "<group>"; };
+		5B5D17CB2439FB5E000BA895 /* FIRMMessageCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMMessageCode.h; sourceTree = "<group>"; };
+		5B5D17CC2439FB5E000BA895 /* FIRMessagingSecureSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingSecureSocket.m; sourceTree = "<group>"; };
+		5B5D17CD2439FB5E000BA895 /* FIRMessagingExtensionHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingExtensionHelper.m; sourceTree = "<group>"; };
+		5B5D17CE2439FB5E000BA895 /* FIRMessagingTopicOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingTopicOperation.h; sourceTree = "<group>"; };
+		5B5D17CF2439FB5E000BA895 /* FIRMessagingDelayedMessageQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingDelayedMessageQueue.h; sourceTree = "<group>"; };
+		5B5D17D02439FB5E000BA895 /* NSError+FIRMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+FIRMessaging.h"; sourceTree = "<group>"; };
+		5B5D17D12439FB5E000BA895 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		5B5D17D22439FB5E000BA895 /* FIRMessagingConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingConnection.h; sourceTree = "<group>"; };
+		5B5D17D32439FB5E000BA895 /* FIRMessagingAnalytics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingAnalytics.m; sourceTree = "<group>"; };
+		5B5D17D42439FB5E000BA895 /* FIRMessagingClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingClient.h; sourceTree = "<group>"; };
+		5B5D17D52439FB5E000BA895 /* FIRMessagingRmqManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingRmqManager.m; sourceTree = "<group>"; };
+		5B5D17D62439FB5E000BA895 /* FIRMessagingVersionUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingVersionUtilities.m; sourceTree = "<group>"; };
+		5B5D17D72439FB5E000BA895 /* FIRMessagingContextManagerService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingContextManagerService.h; sourceTree = "<group>"; };
+		5B5D17D82439FB5E000BA895 /* FIRMessagingPubSubRegistrar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingPubSubRegistrar.h; sourceTree = "<group>"; };
+		5B5D17D92439FB5E000BA895 /* FIRMessagingPubSub.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingPubSub.h; sourceTree = "<group>"; };
+		5B5D17DA2439FB5E000BA895 /* FIRMessagingPacketQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingPacketQueue.h; sourceTree = "<group>"; };
+		5B5D17DB2439FB5E000BA895 /* FIRMessagingCodedInputStream.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingCodedInputStream.m; sourceTree = "<group>"; };
+		5B5D17DC2439FB5E000BA895 /* FIRMessagingLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingLogger.m; sourceTree = "<group>"; };
+		5B5D17DD2439FB5E000BA895 /* FIRMessaging.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessaging.m; sourceTree = "<group>"; };
+		5B5D17DE2439FB5E000BA895 /* FIRMessagingUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingUtilities.h; sourceTree = "<group>"; };
+		5B5D17DF2439FB5E000BA895 /* FIRMessagingPendingTopicsList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingPendingTopicsList.m; sourceTree = "<group>"; };
+		5B5D17E02439FB5E000BA895 /* FIRMessagingDataMessageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingDataMessageManager.h; sourceTree = "<group>"; };
+		5B5D17E12439FB5E000BA895 /* FIRMessagingReceiver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingReceiver.m; sourceTree = "<group>"; };
+		5B5D17E22439FB5E000BA895 /* FIRMessagingPersistentSyncMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingPersistentSyncMessage.m; sourceTree = "<group>"; };
+		5B5D17E32439FB5E000BA895 /* NSDictionary+FIRMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+FIRMessaging.h"; sourceTree = "<group>"; };
+		5B5D17E52439FB5E000BA895 /* FirebaseMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseMessaging.h; sourceTree = "<group>"; };
+		5B5D17E62439FB5E000BA895 /* FIRMessagingExtensionHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingExtensionHelper.h; sourceTree = "<group>"; };
+		5B5D17E72439FB5E000BA895 /* FIRMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessaging.h; sourceTree = "<group>"; };
+		5B5D17E82439FB5E000BA895 /* FIRMessagingRemoteNotificationsProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingRemoteNotificationsProxy.h; sourceTree = "<group>"; };
+		5B5D17E92439FB5E000BA895 /* FIRMessagingClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingClient.m; sourceTree = "<group>"; };
+		5B5D17EA2439FB5E000BA895 /* FIRMessagingConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingConnection.m; sourceTree = "<group>"; };
+		5B5D17EB2439FB5E000BA895 /* FIRMessagingAnalytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingAnalytics.h; sourceTree = "<group>"; };
+		5B5D17EC2439FB5E000BA895 /* FIRMessagingTopicsCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingTopicsCommon.h; sourceTree = "<group>"; };
+		5B5D17ED2439FB5E000BA895 /* FirebaseMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseMessaging.h; sourceTree = "<group>"; };
+		5B5D17EE2439FB5E000BA895 /* NSError+FIRMessaging.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+FIRMessaging.m"; sourceTree = "<group>"; };
+		5B5D17EF2439FB5E000BA895 /* FIRMessagingDelayedMessageQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingDelayedMessageQueue.m; sourceTree = "<group>"; };
+		5B5D17F02439FB5E000BA895 /* FIRMessagingTopicOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingTopicOperation.m; sourceTree = "<group>"; };
+		5B5D17F12439FB5E000BA895 /* FIRMessagingSecureSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingSecureSocket.h; sourceTree = "<group>"; };
+		5B5D17F22439FB5E000BA895 /* FIRMessagingSyncMessageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingSyncMessageManager.h; sourceTree = "<group>"; };
+		5B5D17F32439FB5E000BA895 /* FIRMessagingDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingDefines.h; sourceTree = "<group>"; };
+		5B5D17F42439FB5E000BA895 /* FIRMessagingConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingConstants.h; sourceTree = "<group>"; };
+		5B5D17F52439FB5E000BA895 /* FIRMessagingCodedInputStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingCodedInputStream.h; sourceTree = "<group>"; };
+		5B5D17F62439FB5E000BA895 /* FIRMessaging_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessaging_Private.h; sourceTree = "<group>"; };
+		5B5D17F72439FB5E000BA895 /* FIRMessagingPacketQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingPacketQueue.m; sourceTree = "<group>"; };
+		5B5D17F82439FB5E000BA895 /* FIRMessagingPubSub.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingPubSub.m; sourceTree = "<group>"; };
+		5B5D17F92439FB5E000BA895 /* FIRMessagingContextManagerService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingContextManagerService.m; sourceTree = "<group>"; };
+		5B5D17FA2439FB5E000BA895 /* FIRMessagingVersionUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingVersionUtilities.h; sourceTree = "<group>"; };
+		5B5D17FB2439FB5E000BA895 /* FIRMessagingPubSubRegistrar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingPubSubRegistrar.m; sourceTree = "<group>"; };
+		5B5D17FC2439FB5E000BA895 /* FIRMessagingRmqManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingRmqManager.h; sourceTree = "<group>"; };
+		5B5D17FD2439FB5E000BA895 /* FIRMessagingReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingReceiver.h; sourceTree = "<group>"; };
+		5B5D17FE2439FB5E000BA895 /* FIRMessagingDataMessageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingDataMessageManager.m; sourceTree = "<group>"; };
+		5B5D17FF2439FB5E000BA895 /* FIRMessagingPendingTopicsList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingPendingTopicsList.h; sourceTree = "<group>"; };
+		5B5D18002439FB5E000BA895 /* FIRMessagingUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FIRMessagingUtilities.m; sourceTree = "<group>"; };
+		5B5D18012439FB5E000BA895 /* FIRMessagingLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FIRMessagingLogger.h; sourceTree = "<group>"; };
+		5B5D18022439FFC4000BA895 /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
+		5B5D1804243A0E66000BA895 /* SearchAssignee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAssignee.swift; sourceTree = "<group>"; };
+		5B5D1806243A3888000BA895 /* CommentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentStore.swift; sourceTree = "<group>"; };
 		5B764452242245230051D79B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5B764454242245A30051D79B /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		5B854AF623DCB02F00F902B7 /* ManagementSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManagementSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +748,6 @@
 		5B854B3423DDE02300F902B7 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		5B854B3623DDE3BD00F902B7 /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		5B854B3923DDE53F00F902B7 /* AccessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessType.swift; sourceTree = "<group>"; };
-		5B854B3B23DDE60200F902B7 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		5B854B3D23DDEEB700F902B7 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		5B854B4123DDFBCB00F902B7 /* CreateProjectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectScreen.swift; sourceTree = "<group>"; };
 		5B86194F2434768F005C242C /* PositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionView.swift; sourceTree = "<group>"; };
@@ -116,8 +758,15 @@
 		5BBB4C1323E6231F0027ACEA /* ProjectContentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentScreen.swift; sourceTree = "<group>"; };
 		5BBB4C1623E626150027ACEA /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		5BBB4C1923E768710027ACEA /* MultiLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineTextField.swift; sourceTree = "<group>"; };
+		5BBD75C92435104600D705A9 /* ProjectListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
+		5BBD75CB2435B4CB00D705A9 /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
+		5BBD75CD2435C69600D705A9 /* SearchParticipants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchParticipants.swift; sourceTree = "<group>"; };
+		5BBD75CF2435C6D200D705A9 /* ParticipantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantView.swift; sourceTree = "<group>"; };
+		5BBD75D12435C76C00D705A9 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		5BC37B7823FAD3960058A7CC /* CreateTaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskScreen.swift; sourceTree = "<group>"; };
 		5BC37B7C23FB07730058A7CC /* TaskContentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskContentScreen.swift; sourceTree = "<group>"; };
+		5BCDD8022438BAE00005CD91 /* DocumentSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSerializable.swift; sourceTree = "<group>"; };
+		5BCDD8062439B9B60005CD91 /* ProjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStore.swift; sourceTree = "<group>"; };
 		5BECE99C2429080500AFFE62 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		5BECE99F2429250900AFFE62 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		5BF21356242F521D009AEED4 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
@@ -130,10 +779,8 @@
 		5BF213672430B964009AEED4 /* Deadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deadline.swift; sourceTree = "<group>"; };
 		5BF213692431079A009AEED4 /* EmptyListTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListTextView.swift; sourceTree = "<group>"; };
 		5BF2136B24311AA5009AEED4 /* Boards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boards.swift; sourceTree = "<group>"; };
-		5BF2137224324D06009AEED4 /* Searchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Searchable.swift; sourceTree = "<group>"; };
-		A96F211BB36B72ED9D09E2E7 /* Pods-ManagementSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementSystem.debug.xcconfig"; path = "Target Support Files/Pods-ManagementSystem/Pods-ManagementSystem.debug.xcconfig"; sourceTree = "<group>"; };
-		AB8885FCA8498DB71680CD77 /* Pods-ManagementSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementSystem.release.xcconfig"; path = "Target Support Files/Pods-ManagementSystem/Pods-ManagementSystem.release.xcconfig"; sourceTree = "<group>"; };
-		F406D169975D3970AE636923 /* Pods_ManagementSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ManagementSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A69CEDFFE6FE18C59EEAD855 /* Pods-ManagementSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementSystem.debug.xcconfig"; path = "Target Support Files/Pods-ManagementSystem/Pods-ManagementSystem.debug.xcconfig"; sourceTree = "<group>"; };
+		C768AEC5CCF676AE641B2814 /* Pods-ManagementSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementSystem.release.xcconfig"; path = "Target Support Files/Pods-ManagementSystem/Pods-ManagementSystem.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +789,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BB4ECC6241CEE3A00738589 /* CloudKit.framework in Frameworks */,
-				986640B72199579C46BB8AED /* Pods_ManagementSystem.framework in Frameworks */,
+				D24A11D9EC5B5498B87E4508 /* Pods_ManagementSystem.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,10 +813,1143 @@
 		5B298A75240E9C1A005C26A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				5B526AC32406DAFE00127EAE /* SessionViewModel.swift */,
+				5B526AC32406DAFE00127EAE /* Session.swift */,
 				5BECE99C2429080500AFFE62 /* Database.swift */,
+				5BBD75C92435104600D705A9 /* ProjectListViewModel.swift */,
+				5BBD75D12435C76C00D705A9 /* UserListViewModel.swift */,
+				5BCDD8022438BAE00005CD91 /* DocumentSerializable.swift */,
+				5BCDD8062439B9B60005CD91 /* ProjectStore.swift */,
+				5B5D18022439FFC4000BA895 /* TaskStore.swift */,
+				5B5D1806243A3888000BA895 /* CommentStore.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5B5D154D2439FB5D000BA895 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D154E2439FB5D000BA895 /* Database */,
+				5B5D16602439FB5D000BA895 /* InstanceID */,
+				5B5D169C2439FB5E000BA895 /* Auth */,
+				5B5D17B02439FB5E000BA895 /* CoreDiagnostics */,
+				5B5D17C02439FB5E000BA895 /* Messaging */,
+			);
+			name = Firebase;
+			path = "../Downloads/firebase-ios-sdk-master/Firebase";
+			sourceTree = "<group>";
+		};
+		5B5D154E2439FB5D000BA895 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D154F2439FB5D000BA895 /* FIRDatabaseConfig_Private.h */,
+				5B5D15502439FB5D000BA895 /* FIndex.h */,
+				5B5D15512439FB5D000BA895 /* FViewProcessor.h */,
+				5B5D15522439FB5D000BA895 /* FIRDatabaseReference.m */,
+				5B5D15532439FB5D000BA895 /* Snapshot */,
+				5B5D15612439FB5D000BA895 /* FPriorityIndex.h */,
+				5B5D15622439FB5D000BA895 /* FPathIndex.h */,
+				5B5D15632439FB5D000BA895 /* FTransformedEnumerator.m */,
+				5B5D15642439FB5D000BA895 /* Core */,
+				5B5D15BD2439FB5D000BA895 /* FValueIndex.h */,
+				5B5D15BE2439FB5D000BA895 /* CHANGELOG.md */,
+				5B5D15BF2439FB5D000BA895 /* Firebase-Prefix.pch */,
+				5B5D15C02439FB5D000BA895 /* FEventGenerator.m */,
+				5B5D15C12439FB5D000BA895 /* Constants */,
+				5B5D15C42439FB5D000BA895 /* FListenComplete.m */,
+				5B5D15C52439FB5D000BA895 /* FViewProcessorResult.h */,
+				5B5D15C62439FB5D000BA895 /* FKeyIndex.m */,
+				5B5D15C72439FB5D000BA895 /* FNamedNode.m */,
+				5B5D15C82439FB5D000BA895 /* FMaxNode.m */,
+				5B5D15C92439FB5D000BA895 /* FClock.m */,
+				5B5D15CA2439FB5D000BA895 /* FRangedFilter.m */,
+				5B5D15CB2439FB5D000BA895 /* FPathIndex.m */,
+				5B5D15CC2439FB5D000BA895 /* FPriorityIndex.m */,
+				5B5D15CD2439FB5D000BA895 /* Realtime */,
+				5B5D15D22439FB5D000BA895 /* Utilities */,
+				5B5D15FF2439FB5D000BA895 /* third_party */,
+				5B5D16202439FB5D000BA895 /* Public */,
+				5B5D162A2439FB5D000BA895 /* FViewProcessor.m */,
+				5B5D162B2439FB5D000BA895 /* FIndex.m */,
+				5B5D162C2439FB5D000BA895 /* Persistence */,
+				5B5D163C2439FB5D000BA895 /* .clang-format */,
+				5B5D163D2439FB5D000BA895 /* FValueIndex.m */,
+				5B5D163E2439FB5D000BA895 /* Api */,
+				5B5D16512439FB5D000BA895 /* FTransformedEnumerator.h */,
+				5B5D16522439FB5D000BA895 /* FListenComplete.h */,
+				5B5D16532439FB5D000BA895 /* FEventGenerator.h */,
+				5B5D16542439FB5D000BA895 /* FClock.h */,
+				5B5D16552439FB5D000BA895 /* FRangedFilter.h */,
+				5B5D16562439FB5D000BA895 /* FMaxNode.h */,
+				5B5D16572439FB5D000BA895 /* FNamedNode.h */,
+				5B5D16582439FB5D000BA895 /* FKeyIndex.h */,
+				5B5D16592439FB5D000BA895 /* Login */,
+				5B5D165E2439FB5D000BA895 /* Info.plist */,
+				5B5D165F2439FB5D000BA895 /* FViewProcessorResult.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		5B5D15532439FB5D000BA895 /* Snapshot */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D15542439FB5D000BA895 /* FLeafNode.h */,
+				5B5D15552439FB5D000BA895 /* FCompoundWrite.h */,
+				5B5D15562439FB5D000BA895 /* FSnapshotUtilities.m */,
+				5B5D15572439FB5D000BA895 /* FEmptyNode.h */,
+				5B5D15582439FB5D000BA895 /* FChildrenNode.h */,
+				5B5D15592439FB5D000BA895 /* FIndexedNode.h */,
+				5B5D155A2439FB5D000BA895 /* FNode.h */,
+				5B5D155B2439FB5D000BA895 /* FLeafNode.m */,
+				5B5D155C2439FB5D000BA895 /* FEmptyNode.m */,
+				5B5D155D2439FB5D000BA895 /* FSnapshotUtilities.h */,
+				5B5D155E2439FB5D000BA895 /* FCompoundWrite.m */,
+				5B5D155F2439FB5D000BA895 /* FIndexedNode.m */,
+				5B5D15602439FB5D000BA895 /* FChildrenNode.m */,
+			);
+			path = Snapshot;
+			sourceTree = "<group>";
+		};
+		5B5D15642439FB5D000BA895 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D15652439FB5D000BA895 /* Operation */,
+				5B5D156F2439FB5D000BA895 /* FWriteTree.m */,
+				5B5D15702439FB5D000BA895 /* FServerValues.m */,
+				5B5D15712439FB5D000BA895 /* FWriteRecord.h */,
+				5B5D15722439FB5D000BA895 /* FCompoundHash.m */,
+				5B5D15732439FB5D000BA895 /* FRepoManager.h */,
+				5B5D15742439FB5D000BA895 /* FListenProvider.h */,
+				5B5D15752439FB5D000BA895 /* FRepo.h */,
+				5B5D15762439FB5D000BA895 /* FSyncTree.m */,
+				5B5D15772439FB5D000BA895 /* FSyncPoint.m */,
+				5B5D15782439FB5D000BA895 /* FRepoInfo.m */,
+				5B5D15792439FB5D000BA895 /* FWriteTreeRef.h */,
+				5B5D157A2439FB5D000BA895 /* FSnapshotHolder.m */,
+				5B5D157B2439FB5D000BA895 /* FRangeMerge.m */,
+				5B5D157C2439FB5D000BA895 /* FQueryParams.h */,
+				5B5D157D2439FB5D000BA895 /* FQuerySpec.m */,
+				5B5D157E2439FB5D000BA895 /* FPersistentConnection.m */,
+				5B5D157F2439FB5D000BA895 /* FSparseSnapshotTree.m */,
+				5B5D15802439FB5D000BA895 /* Utilities */,
+				5B5D158B2439FB5D000BA895 /* FServerValues.h */,
+				5B5D158C2439FB5D000BA895 /* FWriteRecord.m */,
+				5B5D158D2439FB5D000BA895 /* FWriteTree.h */,
+				5B5D158E2439FB5D000BA895 /* FRepo_Private.h */,
+				5B5D158F2439FB5D000BA895 /* FRepoManager.m */,
+				5B5D15902439FB5D000BA895 /* FCompoundHash.h */,
+				5B5D15912439FB5D000BA895 /* View */,
+				5B5D15B12439FB5D000BA895 /* FSnapshotHolder.h */,
+				5B5D15B22439FB5D000BA895 /* FWriteTreeRef.m */,
+				5B5D15B32439FB5D000BA895 /* FSyncPoint.h */,
+				5B5D15B42439FB5D000BA895 /* FRepoInfo.h */,
+				5B5D15B52439FB5D000BA895 /* FSyncTree.h */,
+				5B5D15B62439FB5D000BA895 /* FRepo.m */,
+				5B5D15B72439FB5D000BA895 /* FListenProvider.m */,
+				5B5D15B82439FB5D000BA895 /* FSparseSnapshotTree.h */,
+				5B5D15B92439FB5D000BA895 /* FPersistentConnection.h */,
+				5B5D15BA2439FB5D000BA895 /* FQuerySpec.h */,
+				5B5D15BB2439FB5D000BA895 /* FQueryParams.m */,
+				5B5D15BC2439FB5D000BA895 /* FRangeMerge.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		5B5D15652439FB5D000BA895 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D15662439FB5D000BA895 /* FAckUserWrite.h */,
+				5B5D15672439FB5D000BA895 /* FOperationSource.m */,
+				5B5D15682439FB5D000BA895 /* FMerge.h */,
+				5B5D15692439FB5D000BA895 /* FOverwrite.h */,
+				5B5D156A2439FB5D000BA895 /* FAckUserWrite.m */,
+				5B5D156B2439FB5D000BA895 /* FOperationSource.h */,
+				5B5D156C2439FB5D000BA895 /* FOperation.h */,
+				5B5D156D2439FB5D000BA895 /* FOverwrite.m */,
+				5B5D156E2439FB5D000BA895 /* FMerge.m */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		5B5D15802439FB5D000BA895 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D15812439FB5D000BA895 /* FImmutableTree.h */,
+				5B5D15822439FB5D000BA895 /* FIRRetryHelper.m */,
+				5B5D15832439FB5D000BA895 /* FTreeNode.h */,
+				5B5D15842439FB5D000BA895 /* FTree.m */,
+				5B5D15852439FB5D000BA895 /* FPath.m */,
+				5B5D15862439FB5D000BA895 /* FIRRetryHelper.h */,
+				5B5D15872439FB5D000BA895 /* FImmutableTree.m */,
+				5B5D15882439FB5D000BA895 /* FTree.h */,
+				5B5D15892439FB5D000BA895 /* FTreeNode.m */,
+				5B5D158A2439FB5D000BA895 /* FPath.h */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5B5D15912439FB5D000BA895 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D15922439FB5D000BA895 /* FCancelEvent.h */,
+				5B5D15932439FB5D000BA895 /* FDataEvent.m */,
+				5B5D15942439FB5D000BA895 /* FKeepSyncedEventRegistration.h */,
+				5B5D15952439FB5D000BA895 /* FChildEventRegistration.m */,
+				5B5D15962439FB5D000BA895 /* FEventRaiser.m */,
+				5B5D15972439FB5D000BA895 /* FView.m */,
+				5B5D15982439FB5D000BA895 /* FCacheNode.m */,
+				5B5D15992439FB5D000BA895 /* FEvent.h */,
+				5B5D159A2439FB5D000BA895 /* FChange.m */,
+				5B5D159B2439FB5D000BA895 /* FViewCache.m */,
+				5B5D159C2439FB5D000BA895 /* FValueEventRegistration.h */,
+				5B5D159D2439FB5D000BA895 /* FEventRaiser.h */,
+				5B5D159E2439FB5D000BA895 /* FChildEventRegistration.h */,
+				5B5D159F2439FB5D000BA895 /* FEventRegistration.h */,
+				5B5D15A02439FB5D000BA895 /* FDataEvent.h */,
+				5B5D15A12439FB5D000BA895 /* FKeepSyncedEventRegistration.m */,
+				5B5D15A22439FB5D000BA895 /* FCancelEvent.m */,
+				5B5D15A32439FB5D000BA895 /* FCacheNode.h */,
+				5B5D15A42439FB5D000BA895 /* FView.h */,
+				5B5D15A52439FB5D000BA895 /* FViewCache.h */,
+				5B5D15A62439FB5D000BA895 /* FChange.h */,
+				5B5D15A72439FB5D000BA895 /* Filter */,
+				5B5D15B02439FB5D000BA895 /* FValueEventRegistration.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B5D15A72439FB5D000BA895 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D15A82439FB5D000BA895 /* FChildChangeAccumulator.h */,
+				5B5D15A92439FB5D000BA895 /* FNodeFilter.h */,
+				5B5D15AA2439FB5D000BA895 /* FLimitedFilter.h */,
+				5B5D15AB2439FB5D000BA895 /* FIndexedFilter.h */,
+				5B5D15AC2439FB5D000BA895 /* FChildChangeAccumulator.m */,
+				5B5D15AD2439FB5D000BA895 /* FCompleteChildSource.h */,
+				5B5D15AE2439FB5D000BA895 /* FIndexedFilter.m */,
+				5B5D15AF2439FB5D000BA895 /* FLimitedFilter.m */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		5B5D15C12439FB5D000BA895 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D15C22439FB5D000BA895 /* FConstants.m */,
+				5B5D15C32439FB5D000BA895 /* FConstants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		5B5D15CD2439FB5D000BA895 /* Realtime */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D15CE2439FB5D000BA895 /* FConnection.m */,
+				5B5D15CF2439FB5D000BA895 /* FWebSocketConnection.h */,
+				5B5D15D02439FB5D000BA895 /* FConnection.h */,
+				5B5D15D12439FB5D000BA895 /* FWebSocketConnection.m */,
+			);
+			path = Realtime;
+			sourceTree = "<group>";
+		};
+		5B5D15D22439FB5D000BA895 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D15D32439FB5D000BA895 /* FEventEmitter.m */,
+				5B5D15D42439FB5D000BA895 /* FValidation.h */,
+				5B5D15D52439FB5D000BA895 /* FAtomicNumber.m */,
+				5B5D15D62439FB5D000BA895 /* Tuples */,
+				5B5D15F32439FB5D000BA895 /* FUtilities.h */,
+				5B5D15F42439FB5D000BA895 /* FParsedUrl.h */,
+				5B5D15F52439FB5D000BA895 /* FNextPushId.h */,
+				5B5D15F62439FB5D000BA895 /* FStringUtilities.m */,
+				5B5D15F72439FB5D000BA895 /* FValidation.m */,
+				5B5D15F82439FB5D000BA895 /* FEventEmitter.h */,
+				5B5D15F92439FB5D000BA895 /* FTypedefs.h */,
+				5B5D15FA2439FB5D000BA895 /* FParsedUrl.m */,
+				5B5D15FB2439FB5D000BA895 /* FUtilities.m */,
+				5B5D15FC2439FB5D000BA895 /* FAtomicNumber.h */,
+				5B5D15FD2439FB5D000BA895 /* FStringUtilities.h */,
+				5B5D15FE2439FB5D000BA895 /* FNextPushId.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5B5D15D62439FB5D000BA895 /* Tuples */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D15D72439FB5D000BA895 /* FTupleNodePath.m */,
+				5B5D15D82439FB5D000BA895 /* FTuplePathValue.h */,
+				5B5D15D92439FB5D000BA895 /* FTupleTSN.m */,
+				5B5D15DA2439FB5D000BA895 /* FTupleSetIdPath.h */,
+				5B5D15DB2439FB5D000BA895 /* FTupleBoolBlock.m */,
+				5B5D15DC2439FB5D000BA895 /* FTupleCallbackStatus.h */,
+				5B5D15DD2439FB5D000BA895 /* FTupleObjectNode.h */,
+				5B5D15DE2439FB5D000BA895 /* FTupleObjects.m */,
+				5B5D15DF2439FB5D000BA895 /* FTupleTransaction.h */,
+				5B5D15E02439FB5D000BA895 /* FTupleRemovedQueriesEvents.h */,
+				5B5D15E12439FB5D000BA895 /* FTupleUserCallback.h */,
+				5B5D15E22439FB5D000BA895 /* FTupleStringNode.h */,
+				5B5D15E32439FB5D000BA895 /* FTupleOnDisconnect.h */,
+				5B5D15E42439FB5D000BA895 /* FTupleFirebase.h */,
+				5B5D15E52439FB5D000BA895 /* FTupleCallbackStatus.m */,
+				5B5D15E62439FB5D000BA895 /* FTupleBoolBlock.h */,
+				5B5D15E72439FB5D000BA895 /* FTupleSetIdPath.m */,
+				5B5D15E82439FB5D000BA895 /* FTupleTSN.h */,
+				5B5D15E92439FB5D000BA895 /* FTuplePathValue.m */,
+				5B5D15EA2439FB5D000BA895 /* FTupleNodePath.h */,
+				5B5D15EB2439FB5D000BA895 /* FTupleTransaction.m */,
+				5B5D15EC2439FB5D000BA895 /* FTupleObjects.h */,
+				5B5D15ED2439FB5D000BA895 /* FTupleObjectNode.m */,
+				5B5D15EE2439FB5D000BA895 /* FTupleStringNode.m */,
+				5B5D15EF2439FB5D000BA895 /* FTupleUserCallback.m */,
+				5B5D15F02439FB5D000BA895 /* FTupleRemovedQueriesEvents.m */,
+				5B5D15F12439FB5D000BA895 /* FTupleFirebase.m */,
+				5B5D15F22439FB5D000BA895 /* FTupleOnDisconnect.m */,
+			);
+			path = Tuples;
+			sourceTree = "<group>";
+		};
+		5B5D15FF2439FB5D000BA895 /* third_party */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16002439FB5D000BA895 /* SocketRocket */,
+				5B5D16092439FB5D000BA895 /* Wrap-leveldb */,
+				5B5D160D2439FB5D000BA895 /* FImmutableSortedDictionary */,
+			);
+			path = third_party;
+			sourceTree = "<group>";
+		};
+		5B5D16002439FB5D000BA895 /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16012439FB5D000BA895 /* LICENSE */,
+				5B5D16022439FB5D000BA895 /* fbase64.h */,
+				5B5D16032439FB5D000BA895 /* FSRWebSocket.h */,
+				5B5D16042439FB5D000BA895 /* NSData+SRB64Additions.m */,
+				5B5D16052439FB5D000BA895 /* aa2297808c225710e267afece4439c256f6efdb3 */,
+				5B5D16062439FB5D000BA895 /* fbase64.c */,
+				5B5D16072439FB5D000BA895 /* NSData+SRB64Additions.h */,
+				5B5D16082439FB5D000BA895 /* FSRWebSocket.m */,
+			);
+			path = SocketRocket;
+			sourceTree = "<group>";
+		};
+		5B5D16092439FB5D000BA895 /* Wrap-leveldb */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D160A2439FB5D000BA895 /* APLevelDB.h */,
+				5B5D160B2439FB5D000BA895 /* LICENSE */,
+				5B5D160C2439FB5D000BA895 /* APLevelDB.mm */,
+			);
+			path = "Wrap-leveldb";
+			sourceTree = "<group>";
+		};
+		5B5D160D2439FB5D000BA895 /* FImmutableSortedDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D160E2439FB5D000BA895 /* LICENSE */,
+				5B5D160F2439FB5D000BA895 /* FImmutableSortedDictionary */,
+			);
+			path = FImmutableSortedDictionary;
+			sourceTree = "<group>";
+		};
+		5B5D160F2439FB5D000BA895 /* FImmutableSortedDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16102439FB5D000BA895 /* FImmutableSortedDictionary-Prefix.pch */,
+				5B5D16112439FB5D000BA895 /* FLLRBValueNode.m */,
+				5B5D16122439FB5D000BA895 /* FTreeSortedDictionaryEnumerator.m */,
+				5B5D16132439FB5D000BA895 /* FTreeSortedDictionary.m */,
+				5B5D16142439FB5D000BA895 /* FArraySortedDictionary.m */,
+				5B5D16152439FB5D000BA895 /* FImmutableSortedDictionary.m */,
+				5B5D16162439FB5D000BA895 /* FLLRBEmptyNode.h */,
+				5B5D16172439FB5D000BA895 /* FImmutableSortedSet.m */,
+				5B5D16182439FB5D000BA895 /* FLLRBNode.h */,
+				5B5D16192439FB5D000BA895 /* FTreeSortedDictionary.h */,
+				5B5D161A2439FB5D000BA895 /* FArraySortedDictionary.h */,
+				5B5D161B2439FB5D000BA895 /* FTreeSortedDictionaryEnumerator.h */,
+				5B5D161C2439FB5D000BA895 /* FLLRBValueNode.h */,
+				5B5D161D2439FB5D000BA895 /* FImmutableSortedSet.h */,
+				5B5D161E2439FB5D000BA895 /* FLLRBEmptyNode.m */,
+				5B5D161F2439FB5D000BA895 /* FImmutableSortedDictionary.h */,
+			);
+			path = FImmutableSortedDictionary;
+			sourceTree = "<group>";
+		};
+		5B5D16202439FB5D000BA895 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16212439FB5D000BA895 /* FIRDataSnapshot.h */,
+				5B5D16222439FB5D000BA895 /* FIRMutableData.h */,
+				5B5D16232439FB5D000BA895 /* FIRTransactionResult.h */,
+				5B5D16242439FB5D000BA895 /* FIRDataEventType.h */,
+				5B5D16252439FB5D000BA895 /* FIRDatabase.h */,
+				5B5D16262439FB5D000BA895 /* FIRDatabaseQuery.h */,
+				5B5D16272439FB5D000BA895 /* FIRDatabaseReference.h */,
+				5B5D16282439FB5D000BA895 /* FIRServerValue.h */,
+				5B5D16292439FB5D000BA895 /* FirebaseDatabase.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		5B5D162C2439FB5D000BA895 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D162D2439FB5D000BA895 /* FTrackedQuery.h */,
+				5B5D162E2439FB5D000BA895 /* FLevelDBStorageEngine.h */,
+				5B5D162F2439FB5D000BA895 /* FPruneForest.m */,
+				5B5D16302439FB5D000BA895 /* FCachePolicy.h */,
+				5B5D16312439FB5D000BA895 /* FPersistenceManager.h */,
+				5B5D16322439FB5D000BA895 /* FTrackedQueryManager.h */,
+				5B5D16332439FB5D000BA895 /* FStorageEngine.h */,
+				5B5D16342439FB5D000BA895 /* FPendingPut.m */,
+				5B5D16352439FB5D000BA895 /* FTrackedQuery.m */,
+				5B5D16362439FB5D000BA895 /* FPruneForest.h */,
+				5B5D16372439FB5D000BA895 /* FLevelDBStorageEngine.m */,
+				5B5D16382439FB5D000BA895 /* FTrackedQueryManager.m */,
+				5B5D16392439FB5D000BA895 /* FPersistenceManager.m */,
+				5B5D163A2439FB5D000BA895 /* FCachePolicy.m */,
+				5B5D163B2439FB5D000BA895 /* FPendingPut.h */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		5B5D163E2439FB5D000BA895 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D163F2439FB5D000BA895 /* FIRDatabaseConfig.m */,
+				5B5D16402439FB5D000BA895 /* FIRDatabaseQuery.m */,
+				5B5D16412439FB5D000BA895 /* FIRDatabase.m */,
+				5B5D16422439FB5D000BA895 /* FIRDatabaseComponent.m */,
+				5B5D16432439FB5D000BA895 /* FIRServerValue.m */,
+				5B5D16442439FB5D000BA895 /* FIRDatabaseComponent.h */,
+				5B5D16452439FB5D000BA895 /* FIRDataSnapshot.m */,
+				5B5D16462439FB5D000BA895 /* FIRDatabaseConfig.h */,
+				5B5D16472439FB5D000BA895 /* Private */,
+				5B5D164F2439FB5D000BA895 /* FIRMutableData.m */,
+				5B5D16502439FB5D000BA895 /* FIRTransactionResult.m */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		5B5D16472439FB5D000BA895 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16482439FB5D000BA895 /* FIRDatabaseQuery_Private.h */,
+				5B5D16492439FB5D000BA895 /* FIRDatabaseReference_Private.h */,
+				5B5D164A2439FB5D000BA895 /* FIRDatabase_Private.h */,
+				5B5D164B2439FB5D000BA895 /* FIRDataSnapshot_Private.h */,
+				5B5D164C2439FB5D000BA895 /* FTypedefs_Private.h */,
+				5B5D164D2439FB5D000BA895 /* FIRMutableData_Private.h */,
+				5B5D164E2439FB5D000BA895 /* FIRTransactionResult_Private.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		5B5D16592439FB5D000BA895 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D165A2439FB5D000BA895 /* FIRNoopAuthTokenProvider.m */,
+				5B5D165B2439FB5D000BA895 /* FAuthTokenProvider.m */,
+				5B5D165C2439FB5D000BA895 /* FIRNoopAuthTokenProvider.h */,
+				5B5D165D2439FB5D000BA895 /* FAuthTokenProvider.h */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		5B5D16602439FB5D000BA895 /* InstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16612439FB5D000BA895 /* FIRInstanceIDLogger.h */,
+				5B5D16622439FB5D000BA895 /* FIRInstanceIDAuthService.h */,
+				5B5D16632439FB5D000BA895 /* FIRInstanceIDCheckinService.m */,
+				5B5D16642439FB5D000BA895 /* NSError+FIRInstanceID.h */,
+				5B5D16652439FB5D000BA895 /* FIRInstanceIDBackupExcludedPlist.m */,
+				5B5D16662439FB5D000BA895 /* FIRInstanceIDAPNSInfo.h */,
+				5B5D16672439FB5D000BA895 /* FIRInstanceIDTokenManager.m */,
+				5B5D16682439FB5D000BA895 /* FIRInstanceIDAuthKeyChain.h */,
+				5B5D16692439FB5D000BA895 /* CHANGELOG.md */,
+				5B5D166A2439FB5D000BA895 /* FIRInstanceIDConstants.m */,
+				5B5D166B2439FB5D000BA895 /* FIRInstanceIDTokenDeleteOperation.h */,
+				5B5D166C2439FB5D000BA895 /* FIRInstanceIDCombinedHandler.m */,
+				5B5D166D2439FB5D000BA895 /* FIRInstanceIDVersionUtilities.h */,
+				5B5D166E2439FB5D000BA895 /* FIRInstanceIDTokenInfo.h */,
+				5B5D166F2439FB5D000BA895 /* FIRInstanceIDCheckinStore.m */,
+				5B5D16702439FB5D000BA895 /* FIRInstanceID+Private.m */,
+				5B5D16712439FB5D000BA895 /* FIRInstanceIDURLQueryItem.h */,
+				5B5D16722439FB5D000BA895 /* FIRInstanceIDTokenFetchOperation.m */,
+				5B5D16732439FB5D000BA895 /* FIRInstanceIDStore.h */,
+				5B5D16742439FB5D000BA895 /* FIRInstanceIDTokenStore.h */,
+				5B5D16752439FB5D000BA895 /* FIRInstanceIDTokenOperation.h */,
+				5B5D16762439FB5D000BA895 /* FIRInstanceIDKeychain.h */,
+				5B5D16772439FB5D000BA895 /* FIRInstanceIDUtilities.h */,
+				5B5D16782439FB5D000BA895 /* FIRInstanceIDCheckinPreferences+Internal.m */,
+				5B5D16792439FB5D000BA895 /* FIRInstanceIDTokenOperation+Private.h */,
+				5B5D167A2439FB5D000BA895 /* FIRInstanceIDBackupExcludedPlist.h */,
+				5B5D167B2439FB5D000BA895 /* NSError+FIRInstanceID.m */,
+				5B5D167C2439FB5D000BA895 /* FIRInstanceIDAuthService.m */,
+				5B5D167D2439FB5D000BA895 /* FIRInstanceIDCheckinService.h */,
+				5B5D167E2439FB5D000BA895 /* FIRInstanceIDDefines.h */,
+				5B5D167F2439FB5D000BA895 /* FIRInstanceIDLogger.m */,
+				5B5D16802439FB5D000BA895 /* Public */,
+				5B5D16832439FB5D000BA895 /* Private */,
+				5B5D16872439FB5D000BA895 /* FIRInstanceIDVersionUtilities.m */,
+				5B5D16882439FB5D000BA895 /* FIRInstanceIDCombinedHandler.h */,
+				5B5D16892439FB5D000BA895 /* FIRInstanceIDConstants.h */,
+				5B5D168A2439FB5D000BA895 /* FIRInstanceIDTokenDeleteOperation.m */,
+				5B5D168B2439FB5D000BA895 /* FIRInstanceIDAuthKeyChain.m */,
+				5B5D168C2439FB5D000BA895 /* FIRInstanceIDTokenManager.h */,
+				5B5D168D2439FB5D000BA895 /* FIRInstanceIDAPNSInfo.m */,
+				5B5D168E2439FB5D000BA895 /* FIRInstanceIDCheckinPreferences_Private.h */,
+				5B5D168F2439FB5D000BA895 /* FIRInstanceIDStore.m */,
+				5B5D16902439FB5D000BA895 /* FIRInstanceIDCheckinPreferences.m */,
+				5B5D16912439FB5D000BA895 /* FIRInstanceIDTokenFetchOperation.h */,
+				5B5D16922439FB5D000BA895 /* FIRInstanceIDURLQueryItem.m */,
+				5B5D16932439FB5D000BA895 /* FIRInstanceIDCheckinStore.h */,
+				5B5D16942439FB5D000BA895 /* FIRInstanceIDTokenInfo.m */,
+				5B5D16952439FB5E000BA895 /* FIRInstanceID.m */,
+				5B5D16962439FB5E000BA895 /* FIRInstanceIDUtilities.m */,
+				5B5D16972439FB5E000BA895 /* FIRIMessageCode.h */,
+				5B5D16982439FB5E000BA895 /* FIRInstanceIDCheckinPreferences+Internal.h */,
+				5B5D16992439FB5E000BA895 /* FIRInstanceIDKeychain.m */,
+				5B5D169A2439FB5E000BA895 /* FIRInstanceIDTokenOperation.m */,
+				5B5D169B2439FB5E000BA895 /* FIRInstanceIDTokenStore.m */,
+			);
+			path = InstanceID;
+			sourceTree = "<group>";
+		};
+		5B5D16802439FB5D000BA895 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16812439FB5D000BA895 /* FirebaseInstanceID.h */,
+				5B5D16822439FB5D000BA895 /* FIRInstanceID.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		5B5D16832439FB5D000BA895 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16842439FB5D000BA895 /* FIRInstanceIDCheckinPreferences.h */,
+				5B5D16852439FB5D000BA895 /* FIRInstanceID_Private.h */,
+				5B5D16862439FB5D000BA895 /* FIRInstanceID+Private.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		5B5D169C2439FB5E000BA895 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D169D2439FB5E000BA895 /* CHANGELOG.md */,
+				5B5D169E2439FB5E000BA895 /* Source */,
+				5B5D17AD2439FB5E000BA895 /* Docs */,
+				5B5D17AF2439FB5E000BA895 /* README.md */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		5B5D169E2439FB5E000BA895 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D169F2439FB5E000BA895 /* Auth */,
+				5B5D16AF2439FB5E000BA895 /* SystemService */,
+				5B5D16BE2439FB5E000BA895 /* MultiFactor */,
+				5B5D16D02439FB5E000BA895 /* User */,
+				5B5D16D92439FB5E000BA895 /* Backend */,
+				5B5D174E2439FB5E000BA895 /* Storage */,
+				5B5D17532439FB5E000BA895 /* Utilities */,
+				5B5D17652439FB5E000BA895 /* Public */,
+				5B5D17882439FB5E000BA895 /* FirebaseAuthVersion.m */,
+				5B5D17892439FB5E000BA895 /* AuthProvider */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		5B5D169F2439FB5E000BA895 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16A02439FB5E000BA895 /* FIRAuthDispatcher.h */,
+				5B5D16A12439FB5E000BA895 /* FIRAuthSerialTaskQueue.m */,
+				5B5D16A22439FB5E000BA895 /* FIRAuthDataResult_Internal.h */,
+				5B5D16A32439FB5E000BA895 /* FIRAuthGlobalWorkQueue.h */,
+				5B5D16A42439FB5E000BA895 /* FIRAuthOperationType.h */,
+				5B5D16A52439FB5E000BA895 /* FIRAuth.m */,
+				5B5D16A62439FB5E000BA895 /* FIRAuthDataResult.m */,
+				5B5D16A72439FB5E000BA895 /* FIRAuthDispatcher.m */,
+				5B5D16A82439FB5E000BA895 /* FIRAuthGlobalWorkQueue.m */,
+				5B5D16A92439FB5E000BA895 /* FIRAuthSettings.m */,
+				5B5D16AA2439FB5E000BA895 /* FIRAuthSerialTaskQueue.h */,
+				5B5D16AB2439FB5E000BA895 /* FIRAuthTokenResult_Internal.h */,
+				5B5D16AC2439FB5E000BA895 /* FIRActionCodeSettings.m */,
+				5B5D16AD2439FB5E000BA895 /* FIRAuthTokenResult.m */,
+				5B5D16AE2439FB5E000BA895 /* FIRAuth_Internal.h */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		5B5D16AF2439FB5E000BA895 /* SystemService */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16B02439FB5E000BA895 /* FIRSecureTokenService.h */,
+				5B5D16B12439FB5E000BA895 /* FIRAuthAppCredential.m */,
+				5B5D16B22439FB5E000BA895 /* FIRAuthNotificationManager.h */,
+				5B5D16B32439FB5E000BA895 /* FIRAuthAPNSTokenManager.h */,
+				5B5D16B42439FB5E000BA895 /* FIRAuthAppCredentialManager.m */,
+				5B5D16B52439FB5E000BA895 /* FIRAuthStoredUserManager.h */,
+				5B5D16B62439FB5E000BA895 /* FIRAuthAPNSToken.h */,
+				5B5D16B72439FB5E000BA895 /* FIRSecureTokenService.m */,
+				5B5D16B82439FB5E000BA895 /* FIRAuthAppCredential.h */,
+				5B5D16B92439FB5E000BA895 /* FIRAuthAPNSTokenManager.m */,
+				5B5D16BA2439FB5E000BA895 /* FIRAuthNotificationManager.m */,
+				5B5D16BB2439FB5E000BA895 /* FIRAuthAPNSToken.m */,
+				5B5D16BC2439FB5E000BA895 /* FIRAuthStoredUserManager.m */,
+				5B5D16BD2439FB5E000BA895 /* FIRAuthAppCredentialManager.h */,
+			);
+			path = SystemService;
+			sourceTree = "<group>";
+		};
+		5B5D16BE2439FB5E000BA895 /* MultiFactor */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16BF2439FB5E000BA895 /* FIRMultiFactorInfo.m */,
+				5B5D16C02439FB5E000BA895 /* FIRMultiFactorInfo+Internal.h */,
+				5B5D16C12439FB5E000BA895 /* FIRMultiFactorResolver+Internal.h */,
+				5B5D16C22439FB5E000BA895 /* FIRMultiFactorAssertion.m */,
+				5B5D16C32439FB5E000BA895 /* FIRMultiFactorConstants.m */,
+				5B5D16C42439FB5E000BA895 /* FIRMultiFactorSession+Internal.h */,
+				5B5D16C52439FB5E000BA895 /* FIRMultiFactor+Internal.h */,
+				5B5D16C62439FB5E000BA895 /* Phone */,
+				5B5D16CC2439FB5E000BA895 /* FIRMultiFactorSession.m */,
+				5B5D16CD2439FB5E000BA895 /* FIRMultiFactorAssertion+Internal.h */,
+				5B5D16CE2439FB5E000BA895 /* FIRMultiFactor.m */,
+				5B5D16CF2439FB5E000BA895 /* FIRMultiFactorResolver.m */,
+			);
+			path = MultiFactor;
+			sourceTree = "<group>";
+		};
+		5B5D16C62439FB5E000BA895 /* Phone */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16C72439FB5E000BA895 /* FIRPhoneMultiFactorAssertion+Internal.h */,
+				5B5D16C82439FB5E000BA895 /* FIRPhoneMultiFactorGenerator.m */,
+				5B5D16C92439FB5E000BA895 /* FIRPhoneMultiFactorInfo+Internal.h */,
+				5B5D16CA2439FB5E000BA895 /* FIRPhoneMultiFactorAssertion.m */,
+				5B5D16CB2439FB5E000BA895 /* FIRPhoneMultiFactorInfo.m */,
+			);
+			path = Phone;
+			sourceTree = "<group>";
+		};
+		5B5D16D02439FB5E000BA895 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16D12439FB5E000BA895 /* FIRUserInfoImpl.h */,
+				5B5D16D22439FB5E000BA895 /* FIRUserMetadata.m */,
+				5B5D16D32439FB5E000BA895 /* FIRUser_Internal.h */,
+				5B5D16D42439FB5E000BA895 /* FIRUserMetadata_Internal.h */,
+				5B5D16D52439FB5E000BA895 /* FIRUser.m */,
+				5B5D16D62439FB5E000BA895 /* FIRUserInfoImpl.m */,
+				5B5D16D72439FB5E000BA895 /* FIRAdditionalUserInfo.m */,
+				5B5D16D82439FB5E000BA895 /* FIRAdditionalUserInfo_Internal.h */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		5B5D16D92439FB5E000BA895 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16DA2439FB5E000BA895 /* FIRAuthRPCRequest.h */,
+				5B5D16DB2439FB5E000BA895 /* FIRAuthRPCResponse.h */,
+				5B5D16DC2439FB5E000BA895 /* FIRAuthBackend+MultiFactor.h */,
+				5B5D16DD2439FB5E000BA895 /* FIRAuthBackend.m */,
+				5B5D16DE2439FB5E000BA895 /* FIRAuthRequestConfiguration.m */,
+				5B5D16DF2439FB5E000BA895 /* FIRIdentityToolkitRequest.m */,
+				5B5D16E02439FB5E000BA895 /* FIRAuthBackend.h */,
+				5B5D16E12439FB5E000BA895 /* RPC */,
+				5B5D174B2439FB5E000BA895 /* FIRAuthBackend+MultiFactor.m */,
+				5B5D174C2439FB5E000BA895 /* FIRIdentityToolkitRequest.h */,
+				5B5D174D2439FB5E000BA895 /* FIRAuthRequestConfiguration.h */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		5B5D16E12439FB5E000BA895 /* RPC */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16E22439FB5E000BA895 /* FIRSignInWithGameCenterRequest.h */,
+				5B5D16E32439FB5E000BA895 /* FIRSecureTokenRequest.m */,
+				5B5D16E42439FB5E000BA895 /* FIRGetAccountInfoRequest.m */,
+				5B5D16E52439FB5E000BA895 /* FIRSignInWithGameCenterResponse.m */,
+				5B5D16E62439FB5E000BA895 /* FIRGetOOBConfirmationCodeResponse.m */,
+				5B5D16E72439FB5E000BA895 /* FIRGetOOBConfirmationCodeRequest.m */,
+				5B5D16E82439FB5E000BA895 /* FIRVerifyCustomTokenResponse.m */,
+				5B5D16E92439FB5E000BA895 /* FIRCreateAuthURIResponse.h */,
+				5B5D16EA2439FB5E000BA895 /* FIREmailLinkSignInResponse.h */,
+				5B5D16EB2439FB5E000BA895 /* FIRSendVerificationCodeRequest.m */,
+				5B5D16EC2439FB5E000BA895 /* FIRVerifyPhoneNumberResponse.h */,
+				5B5D16ED2439FB5E000BA895 /* FIRVerifyPasswordResponse.h */,
+				5B5D16EE2439FB5E000BA895 /* FIREmailLinkSignInRequest.h */,
+				5B5D16EF2439FB5E000BA895 /* FIRCreateAuthURIRequest.h */,
+				5B5D16F02439FB5E000BA895 /* FIRDeleteAccountResponse.h */,
+				5B5D16F12439FB5E000BA895 /* FIRVerifyAssertionResponse.h */,
+				5B5D16F22439FB5E000BA895 /* FIRGetProjectConfigResponse.h */,
+				5B5D16F32439FB5E000BA895 /* Proto */,
+				5B5D17002439FB5E000BA895 /* FIRResetPasswordResponse.h */,
+				5B5D17012439FB5E000BA895 /* FIRGetAccountInfoResponse.h */,
+				5B5D17022439FB5E000BA895 /* FIRResetPasswordRequest.m */,
+				5B5D17032439FB5E000BA895 /* FIRDeleteAccountRequest.h */,
+				5B5D17042439FB5E000BA895 /* FIRVerifyClientResponse.h */,
+				5B5D17052439FB5E000BA895 /* FIRVerifyCustomTokenRequest.h */,
+				5B5D17062439FB5E000BA895 /* FIRSetAccountInfoRequest.h */,
+				5B5D17072439FB5E000BA895 /* FIRSignUpNewUserRequest.h */,
+				5B5D17082439FB5E000BA895 /* MultiFactor */,
+				5B5D17202439FB5E000BA895 /* FIRSetAccountInfoResponse.m */,
+				5B5D17212439FB5E000BA895 /* FIRVerifyAssertionRequest.m */,
+				5B5D17222439FB5E000BA895 /* FIRVerifyClientRequest.h */,
+				5B5D17232439FB5E000BA895 /* FIRGetProjectConfigRequest.m */,
+				5B5D17242439FB5E000BA895 /* FIRVerifyPhoneNumberRequest.m */,
+				5B5D17252439FB5E000BA895 /* FIRSignUpNewUserResponse.h */,
+				5B5D17262439FB5E000BA895 /* FIRVerifyPasswordRequest.h */,
+				5B5D17272439FB5E000BA895 /* FIRSecureTokenResponse.h */,
+				5B5D17282439FB5E000BA895 /* FIRSendVerificationCodeResponse.h */,
+				5B5D17292439FB5E000BA895 /* FIREmailLinkSignInResponse.m */,
+				5B5D172A2439FB5E000BA895 /* FIRSendVerificationCodeRequest.h */,
+				5B5D172B2439FB5E000BA895 /* FIRCreateAuthURIResponse.m */,
+				5B5D172C2439FB5E000BA895 /* FIRVerifyCustomTokenResponse.h */,
+				5B5D172D2439FB5E000BA895 /* FIRGetOOBConfirmationCodeResponse.h */,
+				5B5D172E2439FB5E000BA895 /* FIRGetOOBConfirmationCodeRequest.h */,
+				5B5D172F2439FB5E000BA895 /* FIRGetAccountInfoRequest.h */,
+				5B5D17302439FB5E000BA895 /* FIRSignInWithGameCenterResponse.h */,
+				5B5D17312439FB5E000BA895 /* FIRSecureTokenRequest.h */,
+				5B5D17322439FB5E000BA895 /* FIRSignInWithGameCenterRequest.m */,
+				5B5D17332439FB5E000BA895 /* FIRResetPasswordResponse.m */,
+				5B5D17342439FB5E000BA895 /* FIRGetProjectConfigResponse.m */,
+				5B5D17352439FB5E000BA895 /* FIRVerifyAssertionResponse.m */,
+				5B5D17362439FB5E000BA895 /* FIRDeleteAccountResponse.m */,
+				5B5D17372439FB5E000BA895 /* FIREmailLinkSignInRequest.m */,
+				5B5D17382439FB5E000BA895 /* FIRCreateAuthURIRequest.m */,
+				5B5D17392439FB5E000BA895 /* FIRVerifyPasswordResponse.m */,
+				5B5D173A2439FB5E000BA895 /* FIRVerifyPhoneNumberResponse.m */,
+				5B5D173B2439FB5E000BA895 /* FIRSignUpNewUserRequest.m */,
+				5B5D173C2439FB5E000BA895 /* FIRSetAccountInfoRequest.m */,
+				5B5D173D2439FB5E000BA895 /* FIRVerifyCustomTokenRequest.m */,
+				5B5D173E2439FB5E000BA895 /* FIRVerifyClientResponse.m */,
+				5B5D173F2439FB5E000BA895 /* FIRDeleteAccountRequest.m */,
+				5B5D17402439FB5E000BA895 /* FIRResetPasswordRequest.h */,
+				5B5D17412439FB5E000BA895 /* FIRGetAccountInfoResponse.m */,
+				5B5D17422439FB5E000BA895 /* FIRSendVerificationCodeResponse.m */,
+				5B5D17432439FB5E000BA895 /* FIRVerifyPasswordRequest.m */,
+				5B5D17442439FB5E000BA895 /* FIRSecureTokenResponse.m */,
+				5B5D17452439FB5E000BA895 /* FIRVerifyPhoneNumberRequest.h */,
+				5B5D17462439FB5E000BA895 /* FIRSignUpNewUserResponse.m */,
+				5B5D17472439FB5E000BA895 /* FIRGetProjectConfigRequest.h */,
+				5B5D17482439FB5E000BA895 /* FIRVerifyClientRequest.m */,
+				5B5D17492439FB5E000BA895 /* FIRVerifyAssertionRequest.h */,
+				5B5D174A2439FB5E000BA895 /* FIRSetAccountInfoResponse.h */,
+			);
+			path = RPC;
+			sourceTree = "<group>";
+		};
+		5B5D16F32439FB5E000BA895 /* Proto */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16F42439FB5E000BA895 /* FIRAuthProtoMFAEnrollment.m */,
+				5B5D16F52439FB5E000BA895 /* Phone */,
+				5B5D16FE2439FB5E000BA895 /* FIRAuthProto.h */,
+				5B5D16FF2439FB5E000BA895 /* FIRAuthProtoMFAEnrollment.h */,
+			);
+			path = Proto;
+			sourceTree = "<group>";
+		};
+		5B5D16F52439FB5E000BA895 /* Phone */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D16F62439FB5E000BA895 /* FIRAuthProtoStartMFAPhoneResponseInfo.m */,
+				5B5D16F72439FB5E000BA895 /* FIRAuthProtoStartMFAPhoneRequestInfo.m */,
+				5B5D16F82439FB5E000BA895 /* FIRAuthProtoFinalizeMFAPhoneRequestInfo.m */,
+				5B5D16F92439FB5E000BA895 /* FIRAuthProtoFinalizeMFAPhoneResponseInfo.m */,
+				5B5D16FA2439FB5E000BA895 /* FIRAuthProtoStartMFAPhoneResponseInfo.h */,
+				5B5D16FB2439FB5E000BA895 /* FIRAuthProtoFinalizeMFAPhoneRequestInfo.h */,
+				5B5D16FC2439FB5E000BA895 /* FIRAuthProtoStartMFAPhoneRequestInfo.h */,
+				5B5D16FD2439FB5E000BA895 /* FIRAuthProtoFinalizeMFAPhoneResponseInfo.h */,
+			);
+			path = Phone;
+			sourceTree = "<group>";
+		};
+		5B5D17082439FB5E000BA895 /* MultiFactor */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17092439FB5E000BA895 /* Enroll */,
+				5B5D17122439FB5E000BA895 /* SignIn */,
+				5B5D171B2439FB5E000BA895 /* Unenroll */,
+			);
+			path = MultiFactor;
+			sourceTree = "<group>";
+		};
+		5B5D17092439FB5E000BA895 /* Enroll */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D170A2439FB5E000BA895 /* FIRStartMFAEnrollmentRequest.h */,
+				5B5D170B2439FB5E000BA895 /* FIRStartMFAEnrollmentResponse.m */,
+				5B5D170C2439FB5E000BA895 /* FIRFinalizeMFAEnrollmentRequest.h */,
+				5B5D170D2439FB5E000BA895 /* FIRFinalizeMFAEnrollmentResponse.h */,
+				5B5D170E2439FB5E000BA895 /* FIRStartMFAEnrollmentResponse.h */,
+				5B5D170F2439FB5E000BA895 /* FIRStartMFAEnrollmentRequest.m */,
+				5B5D17102439FB5E000BA895 /* FIRFinalizeMFAEnrollmentRequest.m */,
+				5B5D17112439FB5E000BA895 /* FIRFinalizeMFAEnrollmentResponse.m */,
+			);
+			path = Enroll;
+			sourceTree = "<group>";
+		};
+		5B5D17122439FB5E000BA895 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17132439FB5E000BA895 /* FIRStartMFASignInResponse.h */,
+				5B5D17142439FB5E000BA895 /* FIRFinalizeMFASignInRequest.m */,
+				5B5D17152439FB5E000BA895 /* FIRFinalizeMFASignInResponse.m */,
+				5B5D17162439FB5E000BA895 /* FIRStartMFASignInRequest.m */,
+				5B5D17172439FB5E000BA895 /* FIRFinalizeMFASignInRequest.h */,
+				5B5D17182439FB5E000BA895 /* FIRStartMFASignInResponse.m */,
+				5B5D17192439FB5E000BA895 /* FIRFinalizeMFASignInResponse.h */,
+				5B5D171A2439FB5E000BA895 /* FIRStartMFASignInRequest.h */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		5B5D171B2439FB5E000BA895 /* Unenroll */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D171C2439FB5E000BA895 /* FIRWithdrawMFARequest.h */,
+				5B5D171D2439FB5E000BA895 /* FIRWithdrawMFAResponse.m */,
+				5B5D171E2439FB5E000BA895 /* FIRWithdrawMFARequest.m */,
+				5B5D171F2439FB5E000BA895 /* FIRWithdrawMFAResponse.h */,
+			);
+			path = Unenroll;
+			sourceTree = "<group>";
+		};
+		5B5D174E2439FB5E000BA895 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D174F2439FB5E000BA895 /* FIRAuthUserDefaults.h */,
+				5B5D17502439FB5E000BA895 /* FIRAuthKeychainServices.h */,
+				5B5D17512439FB5E000BA895 /* FIRAuthUserDefaults.m */,
+				5B5D17522439FB5E000BA895 /* FIRAuthKeychainServices.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		5B5D17532439FB5E000BA895 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17542439FB5E000BA895 /* FIRAuthWebView.h */,
+				5B5D17552439FB5E000BA895 /* FIRAuthDefaultUIDelegate.m */,
+				5B5D17562439FB5E000BA895 /* FIRAuthWebUtils.h */,
+				5B5D17572439FB5E000BA895 /* FIRAuthExceptionUtils.h */,
+				5B5D17582439FB5E000BA895 /* FIRAuthErrorUtils.h */,
+				5B5D17592439FB5E000BA895 /* FIRAuthURLPresenter.m */,
+				5B5D175A2439FB5E000BA895 /* NSData+FIRBase64.m */,
+				5B5D175B2439FB5E000BA895 /* FIRAuthWebViewController.h */,
+				5B5D175C2439FB5E000BA895 /* FIRAuthWebView.m */,
+				5B5D175D2439FB5E000BA895 /* FIRAuthDefaultUIDelegate.h */,
+				5B5D175E2439FB5E000BA895 /* FIRAuthErrorUtils.m */,
+				5B5D175F2439FB5E000BA895 /* FIRAuthWebUtils.m */,
+				5B5D17602439FB5E000BA895 /* FIRAuthExceptionUtils.m */,
+				5B5D17612439FB5E000BA895 /* NSData+FIRBase64.h */,
+				5B5D17622439FB5E000BA895 /* FIRAuthURLPresenter.h */,
+				5B5D17632439FB5E000BA895 /* FIRAuthInternalErrors.h */,
+				5B5D17642439FB5E000BA895 /* FIRAuthWebViewController.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5B5D17652439FB5E000BA895 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17662439FB5E000BA895 /* FIRUser.h */,
+				5B5D17672439FB5E000BA895 /* FIRMultiFactorAssertion.h */,
+				5B5D17682439FB5E000BA895 /* FIRGitHubAuthProvider.h */,
+				5B5D17692439FB5E000BA895 /* FIROAuthCredential.h */,
+				5B5D176A2439FB5E000BA895 /* FIRGameCenterAuthProvider.h */,
+				5B5D176B2439FB5E000BA895 /* FIRAuth.h */,
+				5B5D176C2439FB5E000BA895 /* FIRPhoneAuthCredential.h */,
+				5B5D176D2439FB5E000BA895 /* FIRMultiFactorSession.h */,
+				5B5D176E2439FB5E000BA895 /* FIRFederatedAuthProvider.h */,
+				5B5D176F2439FB5E000BA895 /* FIREmailAuthProvider.h */,
+				5B5D17702439FB5E000BA895 /* FIRFacebookAuthProvider.h */,
+				5B5D17712439FB5E000BA895 /* FIRAuthDataResult.h */,
+				5B5D17722439FB5E000BA895 /* FirebaseAuth.h */,
+				5B5D17732439FB5E000BA895 /* FIRAdditionalUserInfo.h */,
+				5B5D17742439FB5E000BA895 /* FIRAuthSettings.h */,
+				5B5D17752439FB5E000BA895 /* FirebaseAuthVersion.h */,
+				5B5D17762439FB5E000BA895 /* FIRMultiFactorResolver.h */,
+				5B5D17772439FB5E000BA895 /* FIRAuthCredential.h */,
+				5B5D17782439FB5E000BA895 /* FIRMultiFactor.h */,
+				5B5D17792439FB5E000BA895 /* FIRPhoneMultiFactorInfo.h */,
+				5B5D177A2439FB5E000BA895 /* FIRAuthTokenResult.h */,
+				5B5D177B2439FB5E000BA895 /* FIRActionCodeSettings.h */,
+				5B5D177C2439FB5E000BA895 /* FIRTwitterAuthProvider.h */,
+				5B5D177D2439FB5E000BA895 /* FIRMultiFactorInfo.h */,
+				5B5D177E2439FB5E000BA895 /* FIRAuthAPNSTokenType.h */,
+				5B5D177F2439FB5E000BA895 /* FIRPhoneMultiFactorGenerator.h */,
+				5B5D17802439FB5E000BA895 /* FIRAuthUIDelegate.h */,
+				5B5D17812439FB5E000BA895 /* FIRAuthErrors.h */,
+				5B5D17822439FB5E000BA895 /* FIRUserMetadata.h */,
+				5B5D17832439FB5E000BA895 /* FIRPhoneMultiFactorAssertion.h */,
+				5B5D17842439FB5E000BA895 /* FIRPhoneAuthProvider.h */,
+				5B5D17852439FB5E000BA895 /* FIROAuthProvider.h */,
+				5B5D17862439FB5E000BA895 /* FIRGoogleAuthProvider.h */,
+				5B5D17872439FB5E000BA895 /* FIRUserInfo.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		5B5D17892439FB5E000BA895 /* AuthProvider */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D178A2439FB5E000BA895 /* FIRAuthCredential_Internal.h */,
+				5B5D178B2439FB5E000BA895 /* GameCenter */,
+				5B5D178F2439FB5E000BA895 /* Twitter */,
+				5B5D17932439FB5E000BA895 /* OAuth */,
+				5B5D17972439FB5E000BA895 /* Google */,
+				5B5D179B2439FB5E000BA895 /* FIRAuthProvider.m */,
+				5B5D179C2439FB5E000BA895 /* GitHub */,
+				5B5D17A02439FB5E000BA895 /* Facebook */,
+				5B5D17A42439FB5E000BA895 /* Phone */,
+				5B5D17A82439FB5E000BA895 /* Email */,
+				5B5D17AC2439FB5E000BA895 /* FIRAuthCredential.m */,
+			);
+			path = AuthProvider;
+			sourceTree = "<group>";
+		};
+		5B5D178B2439FB5E000BA895 /* GameCenter */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D178C2439FB5E000BA895 /* FIRGameCenterAuthCredential.m */,
+				5B5D178D2439FB5E000BA895 /* FIRGameCenterAuthProvider.m */,
+				5B5D178E2439FB5E000BA895 /* FIRGameCenterAuthCredential.h */,
+			);
+			path = GameCenter;
+			sourceTree = "<group>";
+		};
+		5B5D178F2439FB5E000BA895 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17902439FB5E000BA895 /* FIRTwitterAuthProvider.m */,
+				5B5D17912439FB5E000BA895 /* FIRTwitterAuthCredential.h */,
+				5B5D17922439FB5E000BA895 /* FIRTwitterAuthCredential.m */,
+			);
+			path = Twitter;
+			sourceTree = "<group>";
+		};
+		5B5D17932439FB5E000BA895 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17942439FB5E000BA895 /* FIROAuthProvider.m */,
+				5B5D17952439FB5E000BA895 /* FIROAuthCredential.m */,
+				5B5D17962439FB5E000BA895 /* FIROAuthCredential_Internal.h */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		5B5D17972439FB5E000BA895 /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17982439FB5E000BA895 /* FIRGoogleAuthCredential.m */,
+				5B5D17992439FB5E000BA895 /* FIRGoogleAuthProvider.m */,
+				5B5D179A2439FB5E000BA895 /* FIRGoogleAuthCredential.h */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		5B5D179C2439FB5E000BA895 /* GitHub */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D179D2439FB5E000BA895 /* FIRGitHubAuthCredential.h */,
+				5B5D179E2439FB5E000BA895 /* FIRGitHubAuthProvider.m */,
+				5B5D179F2439FB5E000BA895 /* FIRGitHubAuthCredential.m */,
+			);
+			path = GitHub;
+			sourceTree = "<group>";
+		};
+		5B5D17A02439FB5E000BA895 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17A12439FB5E000BA895 /* FIRFacebookAuthCredential.m */,
+				5B5D17A22439FB5E000BA895 /* FIRFacebookAuthCredential.h */,
+				5B5D17A32439FB5E000BA895 /* FIRFacebookAuthProvider.m */,
+			);
+			path = Facebook;
+			sourceTree = "<group>";
+		};
+		5B5D17A42439FB5E000BA895 /* Phone */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17A52439FB5E000BA895 /* FIRPhoneAuthProvider.m */,
+				5B5D17A62439FB5E000BA895 /* FIRPhoneAuthCredential.m */,
+				5B5D17A72439FB5E000BA895 /* FIRPhoneAuthCredential_Internal.h */,
+			);
+			path = Phone;
+			sourceTree = "<group>";
+		};
+		5B5D17A82439FB5E000BA895 /* Email */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17A92439FB5E000BA895 /* FIREmailPasswordAuthCredential.m */,
+				5B5D17AA2439FB5E000BA895 /* FIREmailAuthProvider.m */,
+				5B5D17AB2439FB5E000BA895 /* FIREmailPasswordAuthCredential.h */,
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		5B5D17AD2439FB5E000BA895 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17AE2439FB5E000BA895 /* threading.md */,
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
+		5B5D17B02439FB5E000BA895 /* CoreDiagnostics */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17B12439FB5E000BA895 /* FIRCDLibrary */,
+				5B5D17B72439FB5E000BA895 /* ProtoSupport */,
+				5B5D17BE2439FB5E000BA895 /* CHANGELOG.md */,
+				5B5D17BF2439FB5E000BA895 /* generate_project.sh */,
+			);
+			path = CoreDiagnostics;
+			sourceTree = "<group>";
+		};
+		5B5D17B12439FB5E000BA895 /* FIRCDLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17B22439FB5E000BA895 /* FIRCoreDiagnostics.m */,
+				5B5D17B32439FB5E000BA895 /* Protogen */,
+			);
+			path = FIRCDLibrary;
+			sourceTree = "<group>";
+		};
+		5B5D17B32439FB5E000BA895 /* Protogen */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17B42439FB5E000BA895 /* nanopb */,
+			);
+			path = Protogen;
+			sourceTree = "<group>";
+		};
+		5B5D17B42439FB5E000BA895 /* nanopb */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17B52439FB5E000BA895 /* firebasecore.nanopb.c */,
+				5B5D17B62439FB5E000BA895 /* firebasecore.nanopb.h */,
+			);
+			path = nanopb;
+			sourceTree = "<group>";
+		};
+		5B5D17B72439FB5E000BA895 /* ProtoSupport */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17B82439FB5E000BA895 /* Protos */,
+				5B5D17BB2439FB5E000BA895 /* nanopb_proto_generator.py */,
+				5B5D17BC2439FB5E000BA895 /* nanopb_build_protos.py */,
+				5B5D17BD2439FB5E000BA895 /* generate_nanopb_protos.sh */,
+			);
+			path = ProtoSupport;
+			sourceTree = "<group>";
+		};
+		5B5D17B82439FB5E000BA895 /* Protos */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17B92439FB5E000BA895 /* firebasecore.proto */,
+				5B5D17BA2439FB5E000BA895 /* firebasecore.options */,
+			);
+			path = Protos;
+			sourceTree = "<group>";
+		};
+		5B5D17C02439FB5E000BA895 /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17C12439FB5E000BA895 /* FIRMessagingRemoteNotificationsProxy.m */,
+				5B5D17C22439FB5E000BA895 /* NSDictionary+FIRMessaging.m */,
+				5B5D17C32439FB5E000BA895 /* FIRMessagingPersistentSyncMessage.h */,
+				5B5D17C42439FB5E000BA895 /* Protos */,
+				5B5D17C92439FB5E000BA895 /* FIRMessagingConstants.m */,
+				5B5D17CA2439FB5E000BA895 /* FIRMessagingSyncMessageManager.m */,
+				5B5D17CB2439FB5E000BA895 /* FIRMMessageCode.h */,
+				5B5D17CC2439FB5E000BA895 /* FIRMessagingSecureSocket.m */,
+				5B5D17CD2439FB5E000BA895 /* FIRMessagingExtensionHelper.m */,
+				5B5D17CE2439FB5E000BA895 /* FIRMessagingTopicOperation.h */,
+				5B5D17CF2439FB5E000BA895 /* FIRMessagingDelayedMessageQueue.h */,
+				5B5D17D02439FB5E000BA895 /* NSError+FIRMessaging.h */,
+				5B5D17D12439FB5E000BA895 /* CHANGELOG.md */,
+				5B5D17D22439FB5E000BA895 /* FIRMessagingConnection.h */,
+				5B5D17D32439FB5E000BA895 /* FIRMessagingAnalytics.m */,
+				5B5D17D42439FB5E000BA895 /* FIRMessagingClient.h */,
+				5B5D17D52439FB5E000BA895 /* FIRMessagingRmqManager.m */,
+				5B5D17D62439FB5E000BA895 /* FIRMessagingVersionUtilities.m */,
+				5B5D17D72439FB5E000BA895 /* FIRMessagingContextManagerService.h */,
+				5B5D17D82439FB5E000BA895 /* FIRMessagingPubSubRegistrar.h */,
+				5B5D17D92439FB5E000BA895 /* FIRMessagingPubSub.h */,
+				5B5D17DA2439FB5E000BA895 /* FIRMessagingPacketQueue.h */,
+				5B5D17DB2439FB5E000BA895 /* FIRMessagingCodedInputStream.m */,
+				5B5D17DC2439FB5E000BA895 /* FIRMessagingLogger.m */,
+				5B5D17DD2439FB5E000BA895 /* FIRMessaging.m */,
+				5B5D17DE2439FB5E000BA895 /* FIRMessagingUtilities.h */,
+				5B5D17DF2439FB5E000BA895 /* FIRMessagingPendingTopicsList.m */,
+				5B5D17E02439FB5E000BA895 /* FIRMessagingDataMessageManager.h */,
+				5B5D17E12439FB5E000BA895 /* FIRMessagingReceiver.m */,
+				5B5D17E22439FB5E000BA895 /* FIRMessagingPersistentSyncMessage.m */,
+				5B5D17E32439FB5E000BA895 /* NSDictionary+FIRMessaging.h */,
+				5B5D17E42439FB5E000BA895 /* Public */,
+				5B5D17E82439FB5E000BA895 /* FIRMessagingRemoteNotificationsProxy.h */,
+				5B5D17E92439FB5E000BA895 /* FIRMessagingClient.m */,
+				5B5D17EA2439FB5E000BA895 /* FIRMessagingConnection.m */,
+				5B5D17EB2439FB5E000BA895 /* FIRMessagingAnalytics.h */,
+				5B5D17EC2439FB5E000BA895 /* FIRMessagingTopicsCommon.h */,
+				5B5D17ED2439FB5E000BA895 /* FirebaseMessaging.h */,
+				5B5D17EE2439FB5E000BA895 /* NSError+FIRMessaging.m */,
+				5B5D17EF2439FB5E000BA895 /* FIRMessagingDelayedMessageQueue.m */,
+				5B5D17F02439FB5E000BA895 /* FIRMessagingTopicOperation.m */,
+				5B5D17F12439FB5E000BA895 /* FIRMessagingSecureSocket.h */,
+				5B5D17F22439FB5E000BA895 /* FIRMessagingSyncMessageManager.h */,
+				5B5D17F32439FB5E000BA895 /* FIRMessagingDefines.h */,
+				5B5D17F42439FB5E000BA895 /* FIRMessagingConstants.h */,
+				5B5D17F52439FB5E000BA895 /* FIRMessagingCodedInputStream.h */,
+				5B5D17F62439FB5E000BA895 /* FIRMessaging_Private.h */,
+				5B5D17F72439FB5E000BA895 /* FIRMessagingPacketQueue.m */,
+				5B5D17F82439FB5E000BA895 /* FIRMessagingPubSub.m */,
+				5B5D17F92439FB5E000BA895 /* FIRMessagingContextManagerService.m */,
+				5B5D17FA2439FB5E000BA895 /* FIRMessagingVersionUtilities.h */,
+				5B5D17FB2439FB5E000BA895 /* FIRMessagingPubSubRegistrar.m */,
+				5B5D17FC2439FB5E000BA895 /* FIRMessagingRmqManager.h */,
+				5B5D17FD2439FB5E000BA895 /* FIRMessagingReceiver.h */,
+				5B5D17FE2439FB5E000BA895 /* FIRMessagingDataMessageManager.m */,
+				5B5D17FF2439FB5E000BA895 /* FIRMessagingPendingTopicsList.h */,
+				5B5D18002439FB5E000BA895 /* FIRMessagingUtilities.m */,
+				5B5D18012439FB5E000BA895 /* FIRMessagingLogger.h */,
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
+		5B5D17C42439FB5E000BA895 /* Protos */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17C52439FB5E000BA895 /* GtalkExtensions.pbobjc.h */,
+				5B5D17C62439FB5E000BA895 /* GtalkCore.pbobjc.h */,
+				5B5D17C72439FB5E000BA895 /* GtalkExtensions.pbobjc.m */,
+				5B5D17C82439FB5E000BA895 /* GtalkCore.pbobjc.m */,
+			);
+			path = Protos;
+			sourceTree = "<group>";
+		};
+		5B5D17E42439FB5E000BA895 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				5B5D17E52439FB5E000BA895 /* FirebaseMessaging.h */,
+				5B5D17E62439FB5E000BA895 /* FIRMessagingExtensionHelper.h */,
+				5B5D17E72439FB5E000BA895 /* FIRMessaging.h */,
+			);
+			path = Public;
 			sourceTree = "<group>";
 		};
 		5B854AED23DCB02F00F902B7 = {
@@ -243,13 +2023,12 @@
 		5B854B2A23DCCE8900F902B7 /* ContentViews */ = {
 			isa = PBXGroup;
 			children = (
+				5BBD75D3243729C000D705A9 /* Sheets */,
 				5BF2135A242F5B8C009AEED4 /* RowView */,
 				5B298A75240E9C1A005C26A0 /* ViewModel */,
 				5BC37B7B23FB07400058A7CC /* Login */,
 				5BC37B7A23FB07200058A7CC /* Main */,
 				5BBB4C1823E768530027ACEA /* Custom */,
-				5B854B4123DDFBCB00F902B7 /* CreateProjectScreen.swift */,
-				5BC37B7823FAD3960058A7CC /* CreateTaskScreen.swift */,
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
@@ -262,7 +2041,6 @@
 				5B854B2E23DDDF7F00F902B7 /* User.swift */,
 				5B854B3023DDDFF200F902B7 /* Project.swift */,
 				5B854B3223DDE00000F902B7 /* Task.swift */,
-				5B854B3B23DDE60200F902B7 /* Tag.swift */,
 				5B23F0F52416AB9C003A61CA /* Comment.swift */,
 			);
 			path = Models;
@@ -274,7 +2052,6 @@
 				5BBB4C1623E626150027ACEA /* Formatter.swift */,
 				5B764452242245230051D79B /* Extensions.swift */,
 				5BF21365242FB83F009AEED4 /* Constant.swift */,
-				5BF2137224324D06009AEED4 /* Searchable.swift */,
 				5B59F76A2434CDE500486A32 /* Permission.swift */,
 			);
 			path = Utils;
@@ -291,6 +2068,15 @@
 				5BF2136B24311AA5009AEED4 /* Boards.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		5BBD75D3243729C000D705A9 /* Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				5BC37B7823FAD3960058A7CC /* CreateTaskScreen.swift */,
+				5B854B4123DDFBCB00F902B7 /* CreateProjectScreen.swift */,
+			);
+			path = Sheets;
 			sourceTree = "<group>";
 		};
 		5BC216D2241D0D400034C66C /* Enums */ = {
@@ -313,6 +2099,9 @@
 				5BC37B7C23FB07730058A7CC /* TaskContentScreen.swift */,
 				5B298A76240EFBD4005C26A0 /* ContentView.swift */,
 				5B764454242245A30051D79B /* ProfileScreen.swift */,
+				5BBD75CB2435B4CB00D705A9 /* SearchScreen.swift */,
+				5BBD75CD2435C69600D705A9 /* SearchParticipants.swift */,
+				5B5D1804243A0E66000BA895 /* SearchAssignee.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -342,6 +2131,7 @@
 				5BF2135D242F5BAA009AEED4 /* ProjectView.swift */,
 				5BF21361242F7FE2009AEED4 /* CommentView.swift */,
 				5B86194F2434768F005C242C /* PositionView.swift */,
+				5BBD75CF2435C6D200D705A9 /* ParticipantView.swift */,
 			);
 			path = RowView;
 			sourceTree = "<group>";
@@ -349,8 +2139,8 @@
 		9276FBD11062F7B60BE8A2D0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A96F211BB36B72ED9D09E2E7 /* Pods-ManagementSystem.debug.xcconfig */,
-				AB8885FCA8498DB71680CD77 /* Pods-ManagementSystem.release.xcconfig */,
+				A69CEDFFE6FE18C59EEAD855 /* Pods-ManagementSystem.debug.xcconfig */,
+				C768AEC5CCF676AE641B2814 /* Pods-ManagementSystem.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -358,8 +2148,9 @@
 		F2B16874110F58BFD4A3979F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B5D154D2439FB5D000BA895 /* Firebase */,
 				5BB4ECC5241CEE3A00738589 /* CloudKit.framework */,
-				F406D169975D3970AE636923 /* Pods_ManagementSystem.framework */,
+				3A74D0CB8DFA5657ABE56546 /* Pods_ManagementSystem.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -371,19 +2162,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B854B2023DCB03400F902B7 /* Build configuration list for PBXNativeTarget "ManagementSystem" */;
 			buildPhases = (
-				B0404913D1273482EC26143E /* [CP] Check Pods Manifest.lock */,
+				91AC04BE1535E6DD585B9F48 /* [CP] Check Pods Manifest.lock */,
 				5B854AF223DCB02F00F902B7 /* Sources */,
 				5B854AF323DCB02F00F902B7 /* Frameworks */,
 				5B854AF423DCB02F00F902B7 /* Resources */,
-				1E345FEC9EB0C2A7EB4BF70B /* [CP] Embed Pods Frameworks */,
+				2563E94F91A71BE4162D5E81 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = ManagementSystem;
-			packageProductDependencies = (
-			);
 			productName = ManagementSystem;
 			productReference = 5B854AF623DCB02F00F902B7 /* ManagementSystem.app */;
 			productType = "com.apple.product-type.application";
@@ -456,8 +2245,6 @@
 				Base,
 			);
 			mainGroup = 5B854AED23DCB02F00F902B7;
-			packageReferences = (
-			);
 			productRefGroup = 5B854AF723DCB02F00F902B7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -499,7 +2286,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E345FEC9EB0C2A7EB4BF70B /* [CP] Embed Pods Frameworks */ = {
+		2563E94F91A71BE4162D5E81 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -516,7 +2303,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ManagementSystem/Pods-ManagementSystem-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B0404913D1273482EC26143E /* [CP] Check Pods Manifest.lock */ = {
+		91AC04BE1535E6DD585B9F48 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -549,29 +2336,37 @@
 				5BF21366242FB83F009AEED4 /* Constant.swift in Sources */,
 				5B854B2C23DCCEC300F902B7 /* RegisterScreen.swift in Sources */,
 				5B854AFA23DCB02F00F902B7 /* AppDelegate.swift in Sources */,
+				5BBD75D22435C76C00D705A9 /* UserListViewModel.swift in Sources */,
 				5B59F76B2434CDE500486A32 /* Permission.swift in Sources */,
 				5B854B3E23DDEEB700F902B7 /* Position.swift in Sources */,
 				5B8619502434768F005C242C /* PositionView.swift in Sources */,
 				5B764455242245A30051D79B /* ProfileScreen.swift in Sources */,
 				5B854AFC23DCB02F00F902B7 /* SceneDelegate.swift in Sources */,
 				5BBB4C1423E6231F0027ACEA /* ProjectContentScreen.swift in Sources */,
+				5BBD75CE2435C69600D705A9 /* SearchParticipants.swift in Sources */,
+				5BBD75CA2435104600D705A9 /* ProjectListViewModel.swift in Sources */,
 				5B854B3523DDE02300F902B7 /* Status.swift in Sources */,
-				5BF2137324324D06009AEED4 /* Searchable.swift in Sources */,
 				5B854B2F23DDDF7F00F902B7 /* User.swift in Sources */,
+				5B5D1805243A0E66000BA895 /* SearchAssignee.swift in Sources */,
 				5B854B3A23DDE53F00F902B7 /* AccessType.swift in Sources */,
-				5B854B3C23DDE60200F902B7 /* Tag.swift in Sources */,
+				5BCDD8072439B9B60005CD91 /* ProjectStore.swift in Sources */,
+				5B5D1807243A3888000BA895 /* CommentStore.swift in Sources */,
 				5BF2135C242F5BA2009AEED4 /* TaskView.swift in Sources */,
+				5BCDD8032438BAE00005CD91 /* DocumentSerializable.swift in Sources */,
+				5BBD75CC2435B4CB00D705A9 /* SearchScreen.swift in Sources */,
 				5BF2136C24311AA5009AEED4 /* Boards.swift in Sources */,
 				5BF2136A2431079A009AEED4 /* EmptyListTextView.swift in Sources */,
 				5BF213682430B965009AEED4 /* Deadline.swift in Sources */,
 				5BBB4C1723E626150027ACEA /* Formatter.swift in Sources */,
+				5B5D18032439FFC4000BA895 /* TaskStore.swift in Sources */,
 				5B854AFE23DCB02F00F902B7 /* LoginScreen.swift in Sources */,
 				5BC37B7D23FB07730058A7CC /* TaskContentScreen.swift in Sources */,
 				5B854B3323DDE00000F902B7 /* Task.swift in Sources */,
+				5BBD75D02435C6D200D705A9 /* ParticipantView.swift in Sources */,
 				5BF21364242F889E009AEED4 /* LabelTextField.swift in Sources */,
 				5BF21359242F5A85009AEED4 /* SearchBar.swift in Sources */,
 				5BBB4C1A23E768710027ACEA /* MultiLineTextField.swift in Sources */,
-				5B526AC42406DAFE00127EAE /* SessionViewModel.swift in Sources */,
+				5B526AC42406DAFE00127EAE /* Session.swift in Sources */,
 				5BF21357242F521D009AEED4 /* FloatingButton.swift in Sources */,
 				5B298A77240EFBD4005C26A0 /* ContentView.swift in Sources */,
 				5B854B3123DDDFF200F902B7 /* Project.swift in Sources */,
@@ -685,6 +2480,10 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -739,6 +2538,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -749,9 +2552,8 @@
 		};
 		5B854B2123DCB03400F902B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A96F211BB36B72ED9D09E2E7 /* Pods-ManagementSystem.debug.xcconfig */;
+			baseConfigurationReference = A69CEDFFE6FE18C59EEAD855 /* Pods-ManagementSystem.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ManagementSystem/ManagementSystem.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -776,9 +2578,8 @@
 		};
 		5B854B2223DCB03400F902B7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB8885FCA8498DB71680CD77 /* Pods-ManagementSystem.release.xcconfig */;
+			baseConfigurationReference = C768AEC5CCF676AE641B2814 /* Pods-ManagementSystem.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ManagementSystem/ManagementSystem.entitlements;
 				CODE_SIGN_STYLE = Automatic;

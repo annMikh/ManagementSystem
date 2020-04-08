@@ -12,19 +12,19 @@ import Firebase
 
 struct ProjectContentScreen : View {
     
-    @State private var tasks = [Task]()
     @State private var selectType = 0
     @State private var isSheetShown: Bool = false
     @State private var activeSheet : ActiveSheet = .add
     
-    private var project: Project
     private var priorities = Priority.allCases.map { "\($0)".capitalizingFirstLetter() }
     
-    @EnvironmentObject var session: SessionViewModel
+    @ObservedObject var store = ProjectStore.shared
+    @ObservedObject var taskStore = TaskStore.shared
+    @State var session = SessionViewModel.shared
     
-    init(project: Project){
-        self.project = project
-        
+    init(project: Project) {
+        self.store.setState(state: .View)
+        self.store.setProject(project)
         UISegmentedControl.appearance().selectedSegmentTintColor = .blue
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .normal)
@@ -41,8 +41,9 @@ struct ProjectContentScreen : View {
               }.pickerStyle(SegmentedPickerStyle())
               
             List {
-                ForEach(self.tasks.filter{ $0.priority == Priority.allCases[$selectType.wrappedValue] }, id: \.self) { task in
-                    TaskView(task: task)
+                ForEach(self.taskStore.tasks.filter{ $0.priority == Priority.allCases[self.selectType] },
+                        id: \.id) { task in
+                            TaskView(task: task).animation(.easeIn)
                   }
                   .onDelete(perform: delete)
                   .onMove(perform: move)
@@ -50,31 +51,31 @@ struct ProjectContentScreen : View {
             Spacer()
           }
         
-          if self.tasks.isEmpty {
+          if self.showLabel() {
              EmptyListTextView(title: Constant.EmptyTasksTitle)
           }
             
           FloatingButton(actionAdd: {
                              self.activeSheet = .add
                              self.isSheetShown.toggle()
+                             self.taskStore.setState(.Add)
           },
                          actionEdit: {
                              self.activeSheet = .edit
                              self.isSheetShown.toggle()
-                            
-          },
-                         project: self.project)
+                             self.store.setState(state: .Edit)
+          })
               .padding()
               .sheet(isPresented: self.$isSheetShown) {
                 if self.activeSheet == .add {
-                  CreateTaskScreen(project: self.project).environmentObject(self.session)
+                    CreateTaskScreen(project: self.store.project)
                 } else {
-                  CreateProjectScreen(project: self.project).environmentObject(self.session)
+                    CreateProjectScreen()
                 }
             }
         }
         .navigationBarTitle(
-          Text(project.name)
+            Text(self.store.project.name)
             .font(.largeTitle)
             .foregroundColor(.primary)
         )
@@ -83,28 +84,22 @@ struct ProjectContentScreen : View {
     }
     
     private func delete(at offsets: IndexSet) {
-        var tasks = project.tasks
-        tasks.remove(atOffsets: offsets)
+        offsets.forEach(self.taskStore.delete(at:))
     }
 
     private func move(from source: IndexSet, to destination: Int) {
-        
+        self.taskStore.move(source: source, destination: destination)
+    }
+    
+    private func showLabel() -> Bool {
+        return self.taskStore
+                    .tasks
+                    .filter{ $0.priority == Priority.allCases[$selectType.wrappedValue] }
+                    .isEmpty && self.taskStore.isLoad
     }
     
     private func onAppear() {
-        Database().getTasks(project: self.project) { (snap, error) in
-            let result = Result {
-                try snap!.documents.compactMap {
-                    try $0.data(as: Task.self)
-                }
-            }
-            switch result {
-                case .success(let t):
-                    self.tasks = t
-                case .failure(let error):
-                    print("Error decoding projects: \(error)")
-            }
-        }
+        self.taskStore.loadTasks(self.store.project)
     }
     
 }

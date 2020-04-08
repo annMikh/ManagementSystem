@@ -9,65 +9,36 @@
 import Foundation
 import SwiftUI
 
-struct SearchBar : View {
+struct SearchBar : UIViewRepresentable {
     
-    @State private var searchText = ""
-    @State private var showCancelButton: Bool = false
+    @Binding var input : String
 
-    var body: some View {
-            HStack {
-                HStack {
-                    Image(systemName: "magnifyingglass")
+    class Cordinator : NSObject, UISearchBarDelegate {
 
-                    TextField("search", text: $searchText, onEditingChanged: { isEditing in
-                        self.showCancelButton = true
-                    }, onCommit: { }).foregroundColor(.primary)
+       @Binding var text : String
 
-                    Button(action: { self.searchText = "" }) {
-                        Image(systemName: "xmark.circle.fill").opacity(searchText.isEmpty ? 0 : 1)
-                    }
-                }
-                .padding(.all, 7)
-                .foregroundColor(.secondary)
-                .background(Color(.secondarySystemBackground))
-                .cornerRadius(5.0)
+       init(text : Binding<String>) {
+           _text = text
+       }
 
-                if showCancelButton  {
-                    Button(action : {
-                            UIApplication.shared.endEditing(true)
-                            self.searchText = ""
-                            self.showCancelButton = false
-                    }) {
-                        Image("Cancel")
-                            .resizable()
-                            .frame(width: 53.0, height: 16.0)
-                    }
-                }
-            }.padding(.horizontal)
+       func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            text = searchText
+       }
+        
     }
-}
     
+    func makeCoordinator() -> Cordinator {
+         return Cordinator(text: $input)
+    }
+    
+    func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
+         let searchBar = UISearchBar(frame: .zero)
+         searchBar.delegate = context.coordinator
+         return searchBar
+    }
+    
+    func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
+        uiView.text = input
+    }
 
-extension UIApplication {
-    func endEditing(_ force: Bool) {
-        self.windows
-            .filter{$0.isKeyWindow}
-            .first?
-            .endEditing(force)
-    }
-}
-
-struct ResignKeyboardOnDragGesture: ViewModifier {
-    var gesture = DragGesture().onChanged{_ in
-        UIApplication.shared.endEditing(true)
-    }
-    func body(content: Content) -> some View {
-        content.gesture(gesture)
-    }
-}
-
-extension View {
-    func resignKeyboardOnDragGesture() -> some View {
-        return modifier(ResignKeyboardOnDragGesture())
-    }
 }

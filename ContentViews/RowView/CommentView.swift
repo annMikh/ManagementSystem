@@ -11,18 +11,19 @@ import SwiftUI
 
 struct CommentView : View {
     
-    var comment: Comment
+    @State var comment: Comment
+    @State var name : String = ""
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .top) {
                 Image(systemName: "person")
                     .resizable()
-                    .frame(width: 50.0, height: 50.0)
-                    .padding(.horizontal, 5)
+                    .frame(width: 25.0, height: 25.0)
+                    .padding(.all, 5)
                 
                 VStack(alignment: .leading) {
-                    Text(comment.author.getFullName())
+                    Text(name)
                         .font(.body)
                         .bold()
                         .padding(.horizontal, 10).padding(.top, 5)
@@ -31,9 +32,9 @@ struct CommentView : View {
                         .font(.footnote)
                         .foregroundColor(.gray)
                         .padding(.horizontal, 10)
-                }
+                }.padding(.all, 5)
                 Spacer()
-            }.padding(.top, 5)
+            }
             
             Divider()
             Text(comment.text).font(.body).padding(.horizontal, 20).padding(.bottom, 5)
@@ -41,5 +42,16 @@ struct CommentView : View {
         }
             .overlay(RoundedRectangle(cornerRadius: 4)
             .stroke(Color.blue, lineWidth: 1))
+            .padding()
+            .onAppear { self.loadUserName() }
+    }
+    
+    func loadUserName() {
+        Database.shared.getUser(userId: comment.author) { (doc, err) in
+            if err == nil {
+                let user = User(dictionary: doc!.data() ?? [String : Any]())!
+                self.name = user.getFullName()
+            }
+        }
     }
 }

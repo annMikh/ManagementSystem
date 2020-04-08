@@ -13,8 +13,8 @@ class Formatter {
         
     private static var formatter = DateFormatter()
     
-    static func getDateWithFormate(formate : String = "dd.MM.yyyy") -> Date {
-        return formatter.date(from: formate) ?? Date()
+    static func getDateWithFormate(date: String, formate : String = "dd.MM.yyyy") -> Date {
+        return formatter.date(from: date) ?? Date()
     }
     
     static func getStringWithFormate(date: Date?, formate : String = "dd.MM.yyyy") -> String {

@@ -11,13 +11,15 @@ import SwiftUI
 
 struct ProjectView : View {
     
-    @ObservedObject var project: Project
+    @State var project: Project
     
     var body: some View {
         NavigationLink(destination: ProjectContent) {
             VStack {
                 HStack(alignment: .top) {
-                    Divider().background(AccessType.getColor(type: project.accessType)).frame(width: 3)
+                    Divider()
+                        .background(AccessType.getColor(type: project.accessType))
+                        .frame(width: 3)
                 
                     Image(systemName: "folder")
                         .resizable()
@@ -51,9 +53,9 @@ struct ProjectView : View {
 
     
     var ProjectContent : some View {
-        ProjectContentScreen(project: project)
-                                .navigationBarTitle(project.name)
-                                .navigationBarBackButtonHidden(false)
+        ProjectContentScreen(project: self.project)
+            .navigationBarTitle(project.name)
+            .navigationBarBackButtonHidden(false)
     }
     
 }

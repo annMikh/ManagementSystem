@@ -11,13 +11,15 @@ import SwiftUI
 
 struct TaskView : View {
     
-    @ObservedObject var task: Task
+    @State var task: Task
     
     var body : some View {
         NavigationLink(destination: TaskContent) {
             VStack {
                 HStack(alignment: .center, spacing: 3) {
-                    Divider().background(Priority.getColor(priority: task.priority)).frame(width: 3)
+                    Divider()
+                        .background(Priority.getColor(priority: task.priority))
+                        .frame(width: 3)
                 
                     Image(systemName: "paperplane")
                         .resizable()
@@ -26,12 +28,12 @@ struct TaskView : View {
                 
                     
                     VStack(alignment: .leading) {
-                        Text(task.name.bound)
+                        Text(task.name)
                             .lineLimit(1)
                             .font(.title)
                         
                         HStack(alignment: .firstTextBaseline) {
-                            Text(task.description.bound)
+                            Text(task.description)
                                 .lineLimit(1)
                                 .font(.footnote)
                             Spacer()
@@ -60,8 +62,7 @@ struct TaskView : View {
     }
     
     var TaskContent : some View {
-        TaskContentScreen(task: task)
-            .navigationBarTitle(task.name.bound)
+        TaskContentScreen(task: self.task)
             .navigationBarBackButtonHidden(false)
     }
 }

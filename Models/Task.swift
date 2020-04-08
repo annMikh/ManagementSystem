@@ -7,24 +7,36 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestore
 
-class Task : Hashable, Codable, ObservableObject  {
-    
-    static func builder(author: String, assignee: String) -> TaskBuilder {
-        return TaskBuilder(author: author, assignee: assignee)
-    }
+struct Task : Hashable, Codable {
 
-    var author: String?
-    var date = Date()
-    var name : String?
-    var description : String?
-    var assignedUser: String?
-    var priority = Priority.low
-    var status = Status.New
-    var project_id: Int?
+    var author: String
+    var date : Date
+    var name : String
+    var description : String
+    var assignedUser: String
+    var priority : Priority
+    var status : Status
+    var project: Int
+    var id: Int
+    var deadline: String
     
-    var deadline: String?
-    //var comments : Array<Comment>?
+    var documentData: [String: Any] {
+        return [
+          "name": name,
+          "description": description,
+          "author": author,
+          "date": date,
+          "assignedUser": assignedUser,
+          "priority": priority.rawValue,
+          "status": status.rawValue,
+          "project": project,
+          "deadline": deadline,
+          "id": id
+        ]
+      }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(author)
@@ -38,43 +50,64 @@ class Task : Hashable, Codable, ObservableObject  {
     
 }
 
-class TaskBuilder {
-    
-    private var task = Task()
-    
-    init(author: String, assignee: String) {
-        task.author = author
-        task.assignedUser = assignee
-    }
-    
-    func setAssignedUser(assignedUser: String) {
-        task.assignedUser = assignedUser
-    }
-    
-    func setName(name: String) {
-        task.name = name
-    }
-    
-    func setDescription(description: String) {
-        task.description = description
-    }
-    
-    func setStatus(status: Status) {
-        task.status = status
-    }
-    
-    func setPriority(priority: Priority) {
-        task.priority = priority
-    }
-    
-    func setDeadline(deadline: String) {
-        task.deadline = deadline
-    }
 
-    func build() -> Task {
-        task.date = Date()
-        return task
+extension Task : DocumentSerializable {
+    
+    init(name: String = "",
+         description: String = "",
+         project: Int = 0,
+         author: String = "",
+         priority: Priority = Priority.low,
+         status: Status = Status.New,
+         date: Date = Date(),
+         assignedUser: String = "",
+         id: Int = 0,
+         deadline: String = "") {
+        
+        self.init(
+                author: author,
+                date: date,
+                name: name,
+                description: description,
+                assignedUser: assignedUser,
+                priority: priority,
+                status: status,
+                project: project,
+                id: id,
+                deadline: deadline)
     }
     
+    private init?(documentID: String, dictionary: [String: Any]) {
+      guard let name = dictionary["name"] as? String,
+          let description = dictionary["description"] as? String,
+          let project = dictionary["project"] as? Int,
+          let assignedUser = dictionary["assignedUser"] as? String,
+          let date = dictionary["date"] as? Timestamp,
+          let author = dictionary["author"] as? String,
+          let status = dictionary["status"] as? String,
+          let priority = dictionary["priority"] as? String,
+          let deadline = dictionary["deadline"] as? String,
+          let id = dictionary["id"] as? Int else { return nil }
+
+        self.init(name: name,
+                description: description,
+                project: project,
+                author: author,
+                priority: Priority(priority: priority),
+                status: Status(status: status),
+                date: date.dateValue(),
+                assignedUser: assignedUser,
+                id: id,
+                deadline: deadline)
+    }
+    
+    init?(document: QueryDocumentSnapshot) {
+        self.init(documentID: document.documentID, dictionary: document.data())
+    }
+    
+    init?(document: DocumentSnapshot) {
+        guard let data = document.data() else { return nil }
+        self.init(documentID: document.documentID, dictionary: data)
+    }
 }
 

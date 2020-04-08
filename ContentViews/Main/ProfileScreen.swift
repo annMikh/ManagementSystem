@@ -9,19 +9,23 @@
 import Foundation
 import SwiftUI
 import Firebase
+import FirebaseAuth
 
 struct ProfileView : View {
     
     @State private var isClickedLogOut = false
     @State private var isClickedEdit = false
     @State private var user : User?
-    @State private var roles = [(pos: Position, proj: String)]()
+    @State private var roles = [(acc: AccessType, proj: String)]()
     
-    @EnvironmentObject var session : SessionViewModel
+    @State var pickerSelection = 0
+    private var positions = Position.allCases.map {"\($0)"}
+
+    @State var session = SessionViewModel.shared
         
     var body : some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading) {
                 HStack(alignment: .center, spacing: 30) {
                     Image(systemName: "person")
                         .resizable()
@@ -43,55 +47,51 @@ struct ProfileView : View {
                 .disabled(!self.isClickedEdit)
                 .padding()
                 
-                VStack(alignment: .leading) {
-                    if self.roles.count > 0 {
-                        Text("Roles in projects")
-                            .font(.headline)
-                            .foregroundColor(Color.blue)
-                            .padding(.all, 10)
-                            .padding()
-                        
-                        ForEach(0 ..< roles.count) { i in
-                            PositionView(position: self.roles[i].pos, project: self.roles[i].proj).tag(i)
-                            if i != self.roles.count - 1 {
-                                Divider()
+                Text("Position").font(.headline).foregroundColor(Color.blue).padding()
+                
+//                HStack {
+//                    Text(session.currentUser.bound.position.rawValue)
+//                    Spacer()
+//                }
+//                    .padding(.all)
+//                    .border(Color.black, width: 2)
+//                    .cornerRadius(5.0)
+//                    .padding(.horizontal, 25)
+                
+                Form {
+                    Picker(selection: $pickerSelection, label:
+                    Text("position").foregroundColor(Color.black)) {
+                            ForEach(0 ..< self.positions.count) { index in
+                                Text(self.positions[index]).tag(index)
                             }
-                        }
-                    } else {
-                        Spacer()
                     }
-                    
-                    Spacer()
+                }
+                .border(Color.black, width: 2)
+                //.padding(.horizontal, 10)
+            
+                Spacer(minLength: 30.0)
+                
+                VStack(alignment: .leading) {
                     Divider()
                     EditProfileButton
                     Divider()
                     LogOutButton
-                }
+                }.padding()
             }
         }.navigationViewStyle(StackNavigationViewStyle())
-         .onAppear { self.loadProfile(self.session.currentUser.bound) }
+            .onAppear { self.loadProfile(self.session.session) }
     }
     
-    private func loadProfile(_ user: User) {
-        self.session.currentSession()
-        Database().getProjects(me: user) { (snap, error) in
-            let result = Result {
-                try snap!.documents.compactMap {
-                    try $0.data(as: Project.self)
+    private func loadProfile(_ user: FirebaseAuth.UserInfo?) {
+        Database.shared.getProjects(me: user) { (snap, error) in
+            if error == nil {
+                snap?.documents.forEach{
+                    let pr = Project(document: $0)
+                    self.roles.append((acc: pr?.accessType ?? .close, proj: pr?.name ?? ""))
                 }
-            }
-            switch result {
-                case .success(let proj):
-                    for p in proj {
-                        // TODO get roles for every project
-                        self.roles.append((pos: Position.None, proj: p.name))
-                    }
-                case .failure(let error):
-                    print("Error decoding projects: \(error)")
             }
         }
     }
-
     
     private var LogOutButton : some View {
         HStack {
@@ -101,9 +101,10 @@ struct ProfileView : View {
                     do {
                         try self.session.logOut()
                         UserPreferences.setLogIn(false)
+                        self.session.clearSession()
                         self.isClickedLogOut.toggle()
                     } catch {
-                        print("log out error")
+                        print("log out error") //todo show alert
                     }
                 }){
                     HStack(alignment: .center) {
@@ -136,6 +137,9 @@ struct ProfileView : View {
             Spacer()
             Button(action: {
                 self.isClickedEdit = !self.isClickedEdit
+                if !self.isClickedEdit {
+                    self.session.updateProfile(user: self.session.currentUser)
+                }
             }){
                 HStack(alignment: .center) {
                     Image(systemName: self.isClickedEdit ? "pencil.slash" : "pencil")

@@ -8,28 +8,43 @@
 
 import Foundation
 import Firebase
-import FirebaseFirestoreSwift
+import FirebaseAuth
+import FirebaseFirestore
 
 class Database : ObservableObject {
     
+    static let shared = Database()
+    
     let db = Firestore.firestore()
     
-    func getProjects(me: User, com: @escaping FIRQuerySnapshotBlock) {
+    private init() { }
+    
+    func getProjects(me: FirebaseAuth.UserInfo?, com: @escaping FIRQuerySnapshotBlock) {
         db.collection("projects")
-            .whereField("participants", arrayContains: me.uid).getDocuments(completion: com)
+            .whereField("participants", arrayContains: me?.uid ?? "").getDocuments(completion: com)
     }
 
     
     func getTasks(project: Project, com: @escaping FIRQuerySnapshotBlock) {
         db.collection("tasks")
-            .whereField("project_id", isEqualTo: project.id).getDocuments(completion: com)
+            .whereField("project", isEqualTo: project.id).getDocuments(completion: com)
+    }
+    
+    func getComments(task: Task, com: @escaping FIRQuerySnapshotBlock) {
+        db.collection("comments")
+            .whereField("task", isEqualTo: task.id)
+            .getDocuments(completion: com)
     }
     
     func getUser(userId: String, com: @escaping FIRDocumentSnapshotBlock) {
-        db.collection("user").document(userId).getDocument(completion: com)
+        db.collection("users").document(userId).getDocument(completion: com)
     }
     
-    func loadProjectsByName(input: String, com: @escaping FIRQuerySnapshotBlock) {
-        db.collection("projects").whereField("name", isEqualTo: input).getDocuments(completion: com)
+    func getUsers(com: @escaping FIRQuerySnapshotBlock) {
+        db.collection("users").getDocuments(completion: com)
+    }
+    
+    func loadProjects(com: @escaping FIRQuerySnapshotBlock) {
+        db.collection("projects").getDocuments(completion: com)
     }
 }

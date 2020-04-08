@@ -43,7 +43,7 @@ extension Optional where Wrapped == User {
     
     internal var bound: User {
         get {
-            return _bound ?? User(name: "", lastName: "", position: Position.None, email: "", uid: "")
+            return _bound ?? User(name: "", lastName: "", email: "", position: Position.None, uid: "")
         }
         set {
             _bound = newValue
@@ -126,6 +126,15 @@ extension AccessType {
             return .purple
         case .close:
             return .green
+        }
+    }
+    
+    static func getImage(acc : AccessType) -> String {
+        switch acc {
+            case .open:
+                return "lock.open"
+            default:
+                return "lock"
         }
     }
 }

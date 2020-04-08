@@ -11,6 +11,15 @@ import Foundation
 
 enum AccessType: String, CaseIterable, Codable {
     
+    init(mode: String) {
+        switch mode {
+        case "open":
+            self  = .open
+        default:
+            self = .close
+        }
+    }
+    
     case open, close 
     
     var description: String {
