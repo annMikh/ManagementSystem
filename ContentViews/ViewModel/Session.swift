@@ -66,6 +66,8 @@ class SessionViewModel {
         db.users.document(user.uid).setData(user.documentData)
     }
     
+    // MARK: profile
+    
     func getProfile(user: String, handler: @escaping FIRDocumentSnapshotBlock) {
         db.users.document(user).getDocument(completion: handler)
     }
@@ -73,6 +75,8 @@ class SessionViewModel {
     func updateProfile(user: User?) {
         db.users.document(user.bound.uid).updateData(user.bound.documentData)
     }
+    
+    // MARK: project
     
     func createProject(_ project: Project) {
         db.projects.document("\(project.id)").setData(project.documentData)
@@ -86,17 +90,21 @@ class SessionViewModel {
         db.projects.document("\(project.id)").delete(completion: com)
     }
     
+    // MARK: task
+    
     func createTask(task: Task, project: Project) {
         db.tasks.document(String(describing: task.id)).setData(task.documentData)
     }
     
-    private func updateTask(_ task: Task) {
+    func updateTask(_ task: Task) {
         db.tasks.document(String(describing: task.id)).updateData(task.documentData)
     }
     
     func deleteTask(_ task: Task, com: @escaping (Error?) -> Void) {
         db.tasks.document(String(describing: task.id)).delete(completion: com)
     }
+    
+    // MARK: comment
     
     func createComment(_ comment: Comment) {
         db.comments.document("\(comment.id)").setData(comment.documentData)

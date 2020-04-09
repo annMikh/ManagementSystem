@@ -25,4 +25,18 @@ public struct Constant {
     public static let ResetPasswordText = "We have just sent you a password reset email.\nPlease, check your inbox and follow the instructions to reset your password."
     
     public static let CommentTitle = "New comment"
+    
+    public static let ErrorEditTitle = "You haven't got permissions\nto edit this task"
+}
+
+extension Color {
+    
+    public static let primaryBlueUI = UIColor(red: 0.471, green: 0.556, blue: 1, alpha: 1)
+    public static let primaryGrayUI = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1)
+    
+    public static let primaryBlue = Color(UIColor(red: 0.471, green: 0.556, blue: 1, alpha: 1))
+    public static let primaryGray = Color(UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1))
+    
+    public static let fadedRed = Color(UIColor(red: 0.871, green: 0, blue: 0, alpha: 0.67))
+    
 }

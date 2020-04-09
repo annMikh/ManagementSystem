@@ -45,7 +45,7 @@ struct ResetPasswordScreen : View {
                     }
                 }
                 .padding(.vertical, 10.0)
-                .background(Color.blue)
+                .background(Color.primaryBlue)
                 .cornerRadius(6.0)
                 .padding(.horizontal, 50)
                 .padding(.bottom, 50)
@@ -54,6 +54,7 @@ struct ResetPasswordScreen : View {
             }.navigationBarTitle(Text("Reset").bold(), displayMode: .inline)
              .navigationBarItems(leading: CancelButton)
              .showAlert(title: Constant.ResetPasswordErrorTitle, text: Constant.ResetPasswordErrorText, isPresent: $isErrorAuth)
+            
         }.showAlert(title: Constant.ResetPasswordTitle,
                    text: Constant.ResetPasswordText,
                    isPresent: $isSuccessAuth,
@@ -64,7 +65,7 @@ struct ResetPasswordScreen : View {
         Button(action: {
             self.presentationMode.wrappedValue.dismiss()
         }) {
-            Text("Cancel").foregroundColor(Color.blue)
+            Text("Cancel").foregroundColor(Color.primaryBlue)
         }
     }
     

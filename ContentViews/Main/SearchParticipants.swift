@@ -12,9 +12,9 @@ import Firebase
 
 struct SearchParticipants : View {
     
-    @State var input: String = ""
-    @State var selections: Participants
-    @State var users = [User]()
+    @EnvironmentObject var selections : Participants
+    @State private var users = [User]()
+    @State private var input: String = ""
         
     var body : some View {
         VStack {
@@ -29,17 +29,14 @@ struct SearchParticipants : View {
                     Spacer()
                 }
             } else {
-                List {
+                VStack {
                     ForEach(self.getUsers(), id: \.email) { user in
-                        ParticipantView(user: user, input: self.input, selectedItems: self.$selections.users)
-                            .onTapGesture {
-                                if self.selections.users.contains(user) {
-                                    self.selections.users.remove(user)
-                                } else {
-                                    self.selections.users.insert(user)
-                                }
-                        }
+                        ParticipantView(user: user,
+                                        isSelected: self.selections.users.contains(user)).environmentObject(self.selections)
+                            .padding(.horizontal, 10)
+                            .padding(.top, 5)
                     }
+                    Spacer()
                 }
             }
         }

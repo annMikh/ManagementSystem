@@ -15,36 +15,58 @@ class Database : ObservableObject {
     
     static let shared = Database()
     
-    let db = Firestore.firestore()
+    private let db = Firestore.firestore()
     
     private init() { }
     
+    /// load project for participant of one
     func getProjects(me: FirebaseAuth.UserInfo?, com: @escaping FIRQuerySnapshotBlock) {
-        db.collection("projects")
-            .whereField("participants", arrayContains: me?.uid ?? "").getDocuments(completion: com)
+        db.projects
+            .whereField("participants", arrayContains: me?.uid ?? "")
+            .order(by: "date", descending: true)
+            .limit(to: 100)
+            .getDocuments(completion: com)
     }
 
-    
+    /// load tasks for project
     func getTasks(project: Project, com: @escaping FIRQuerySnapshotBlock) {
-        db.collection("tasks")
-            .whereField("project", isEqualTo: project.id).getDocuments(completion: com)
-    }
-    
-    func getComments(task: Task, com: @escaping FIRQuerySnapshotBlock) {
-        db.collection("comments")
-            .whereField("task", isEqualTo: task.id)
+        db.tasks
+            .whereField("project", isEqualTo: project.id)
+            .order(by: "date", descending: true)
+            .limit(to: 100)
             .getDocuments(completion: com)
     }
     
+    /// load comments for task
+    func getComments(task: Task, com: @escaping FIRQuerySnapshotBlock) {
+        db.comments
+            .whereField("task", isEqualTo: task.id)
+            .order(by: "date", descending: true)
+            .limit(to: 50)
+            .getDocuments(completion: com)
+    }
+    
+    /// load user info by id
     func getUser(userId: String, com: @escaping FIRDocumentSnapshotBlock) {
-        db.collection("users").document(userId).getDocument(completion: com)
+        db.users
+            .document(userId)
+            .getDocument(completion: com)
     }
     
+    /// load users for search as participants or assigned user
     func getUsers(com: @escaping FIRQuerySnapshotBlock) {
-        db.collection("users").getDocuments(completion: com)
+        db.users
+            .order(by: "email")
+            .limit(to: 100)
+            .getDocuments(completion: com)
     }
     
+    /// load projects for search
     func loadProjects(com: @escaping FIRQuerySnapshotBlock) {
-        db.collection("projects").getDocuments(completion: com)
+        db.projects
+            .whereField("accessType", isEqualTo: "open")
+            .order(by: "date", descending: true)
+            .limit(to: 100)
+            .getDocuments(completion: com)
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import FirebaseFirestore
 
 final class TaskStore : ObservableObject {
     
@@ -15,6 +16,9 @@ final class TaskStore : ObservableObject {
     @Published var task = Task()
     @Published var isLoad = false
     @Published var state : StateMachine.State = .None
+    
+    @Published var author : User?
+    @Published var assigned : User?
     private init() {}
     
     private var session = SessionViewModel.shared
@@ -25,12 +29,15 @@ final class TaskStore : ObservableObject {
     
     func loadTasks(_ project: Project) {
         database.getTasks(project: project) { (snap, error) in
+            if error != nil {
+                return
+            }
             self.tasks.removeAll()
             snap!.documents.forEach {
                 let t = Task(document: $0)!
                 self.tasks.append(t)
+                print(t.name)
             }
-            self.tasks.reverse()
             self.isLoad = true
         }
     }
@@ -79,6 +86,16 @@ final class TaskStore : ObservableObject {
     
     func setState(_ state: StateMachine.State) {
         self.state = state
+    }
+    
+    func loadAuthor(userId: String) {
+        database.getUser(userId: userId) { (doc, err) in
+            self.author = User(dictionary: doc!.data() ?? [String : Any]())!
+        }
+    }
+    
+    func loadAssigned(userId: String, com: @escaping FIRDocumentSnapshotBlock) {
+        database.getUser(userId: userId, com: com)
     }
     
 }

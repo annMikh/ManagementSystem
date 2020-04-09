@@ -77,6 +77,14 @@ extension Task : DocumentSerializable {
                 deadline: deadline)
     }
     
+    init(from: Task) {
+        self.init()
+        self.id = from.id
+        self.date = from.date
+        self.author = from.assignedUser
+        self.project = from.project
+    }
+    
     private init?(documentID: String, dictionary: [String: Any]) {
       guard let name = dictionary["name"] as? String,
           let description = dictionary["description"] as? String,

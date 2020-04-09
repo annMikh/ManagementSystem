@@ -23,7 +23,7 @@ struct RegisterView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var session = SessionViewModel.shared
     
-    private var positions = Position.allCases.map {"\($0)"}
+    private var positions = Position.getAllCases()
     
     var body: some View {
         NavigationView {
@@ -66,7 +66,7 @@ struct RegisterView: View {
                             }
                         }.showAlert(title: Constant.ErrorTitle, text: Constant.ErrorRegister, isPresent: $isIncorrectInput)
                         .padding(.vertical, 10.0)
-                        .background(Color.blue)
+                        .background(Color.primaryBlue)
                         .cornerRadius(6.0)
                         .padding(.horizontal, 50)
                         .padding(.bottom, 50)
@@ -81,7 +81,7 @@ struct RegisterView: View {
         Button(action: {
             self.presentationMode.wrappedValue.dismiss()
         }) {
-            Text("Cancel").foregroundColor(Color.blue)
+            Text("Cancel").foregroundColor(Color.primaryBlue)
         }
     }
     

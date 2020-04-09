@@ -27,6 +27,10 @@ enum Position : String, CaseIterable, Codable {
         }
     }
     
+    static func getAllCases() -> Array<String> {
+        return Position.allCases.filter{ $0 != None }.map{ "\($0)" }
+    }
+    
     case Developer, Tester, Manager, Designer, Other, None
     
     var description: String {

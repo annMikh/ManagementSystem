@@ -44,7 +44,7 @@ struct FloatingButton : View {
                 Image(systemName: "plus.circle.fill")
                     .resizable()
                     .frame(width: 60, height: 60)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.primaryBlue)
                     .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
             }
         }
@@ -69,7 +69,7 @@ struct MenuItem: View {
     var body: some View {
         ZStack {
             Circle()
-                .foregroundColor(.blue)
+                .foregroundColor(.primaryBlue)
                 .frame(width: 45, height: 45)
             
             Image(systemName: self.icon)

@@ -14,12 +14,12 @@ struct SearchAssignee : View {
     
     @State var input : String = ""
     @State var users = [User]()
-    @State var chosen : Assignee
+    @State var chosen : AssignedUser
     
     @Environment(\.presentationMode) var presentationMode
     
     var body : some View {
-        VStack {
+        VStack(alignment: .center) {
             SearchBar(input: $input)
             
             if self.input.isEmpty {
@@ -31,14 +31,21 @@ struct SearchAssignee : View {
                     Spacer()
                 }
             } else {
-                List {
+                VStack(alignment: .leading) {
                     ForEach(self.getUsers(), id: \.email) { user in
-                        Text(user.email)
-                            .onTapGesture {
+                        HStack {
+                            Text(user.email)
+                            Spacer()
+                            Text(user.position.rawValue).foregroundColor(.gray)
+                        }.padding(.horizontal, 10)
+                        .padding(.top, 10)
+                        .onTapGesture {
                                 self.chosen.user = user
                                 self.presentationMode.wrappedValue.dismiss()
-                            }
+                        }
+                        
                     }
+                    Spacer()
                 }
             }
         }.navigationBarTitle("Search assignee")

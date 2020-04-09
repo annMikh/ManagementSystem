@@ -16,33 +16,27 @@ struct CommentView : View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(alignment: .top) {
+            Divider()
+            HStack(alignment: .center) {
                 Image(systemName: "person")
                     .resizable()
-                    .frame(width: 25.0, height: 25.0)
-                    .padding(.all, 5)
+                    .frame(width: 20.0, height: 20.0)
+                    .padding(.all, 3)
+                    .padding(.leading, 10)
                 
                 VStack(alignment: .leading) {
-                    Text(name)
-                        .font(.body)
-                        .bold()
-                        .padding(.horizontal, 10).padding(.top, 5)
-                    
+                    Text(name).bold()
+                
                     Text(Formatter.getStringWithFormate(date: comment.date))
-                        .font(.footnote)
+                        .font(.caption)
                         .foregroundColor(.gray)
-                        .padding(.horizontal, 10)
-                }.padding(.all, 5)
+                }
+                
                 Spacer()
             }
             
-            Divider()
-            Text(comment.text).font(.body).padding(.horizontal, 20).padding(.bottom, 5)
-            
+            Text(comment.text).font(.body).padding(.leading, 25)
         }
-            .overlay(RoundedRectangle(cornerRadius: 4)
-            .stroke(Color.blue, lineWidth: 1))
-            .padding()
             .onAppear { self.loadUserName() }
     }
     

@@ -67,7 +67,7 @@ struct LoginView: View {
             Button(action: { self.isForgetPassword.toggle() }) {
                 HStack {
                     Spacer()
-                    Text("Forget password?").foregroundColor(.blue).padding(.vertical, 5.0)
+                    Text("Forget password?").foregroundColor(.primaryBlue).padding(.vertical, 5.0)
                     Spacer()
                 }
             }.sheet(isPresented: $isForgetPassword) {
@@ -91,7 +91,7 @@ struct LoginView: View {
                     }
                 }
                 .padding(.vertical, 10.0)
-                .background(Color.blue)
+                .background(Color.primaryBlue)
                 .cornerRadius(6.0)
                 .padding(.horizontal, 50)
             }.isDetailLink(false)
@@ -101,7 +101,7 @@ struct LoginView: View {
             Button(action: { self.isPresentingModal = true } ) {
                 HStack {
                     Spacer()
-                    Text("Haven't got an account?").foregroundColor(.blue).padding(.bottom, 20)
+                    Text("Haven't got an account?").foregroundColor(.primaryBlue).padding(.bottom, 20)
                     Spacer()
                 }
             }

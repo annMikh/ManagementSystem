@@ -30,33 +30,48 @@ struct CreateProjectScreen : View {
             VStack(alignment: .leading, spacing: 20) {
                 LabelTextField(label: "Project name", placeHolder: "Fill in project name", text: self.$name)
                 
-                Text("Description").font(.headline).foregroundColor(Color.blue)
+                Text("Description").font(.headline).foregroundColor(Color.primaryBlue)
                 MultilineTextField("Fill in project description", text: self.$description, onCommit: { })
                     .padding(.all)
                     .border(Color.black, width: 2)
                     .cornerRadius(5.0)
                     .padding(.all, 10)
                     
-                LabelTextField(label: "Tags", placeHolder: "Fill in tags for this project", text: self.$tag)
+                HStack {
+                    Text("Tag").font(.headline).foregroundColor(Color.primaryBlue)
+                    Image("Tag")
+                        .resizable()
+                        .frame(width: 18.0, height: 18.0)
+                        .padding(.horizontal, 5)
+                }
+                TextField("Fill in tags for this project", text: $tag)
+                    .padding(.all)
+                    .border(Color.black, width: 2)
+                    .cornerRadius(5.0)
+                    .padding(.all, 10)
                 
                 HStack {
-                    Text("Participants").font(.headline).foregroundColor(Color.blue)
+                    Text("Participants").font(.headline).foregroundColor(Color.primaryBlue)
                     
-                    NavigationLink(destination: SearchParticipants(selections: self.participants), isActive: $isAddParticipants) {
+                    NavigationLink(destination: SearchParticipants().environmentObject(self.participants),
+                                   isActive: $isAddParticipants) {
                         Button(action: { self.isAddParticipants.toggle() }) {
                             Image(systemName: "plus")
                                 .resizable()
-                                .frame(width: 18.0, height: 18.0)
-                                .padding(.horizontal, 10)
+                                .foregroundColor(Color.black)
+                                .frame(width: 16.0, height: 16.0)
+                                .padding(.horizontal, 5)
                         }
                     }
                 }
                 
                 if self.participants.isNotEmpty() {
-                    List {
-                        ForEach(Array(self.participants.users), id: \.uid) { user in
-                            Text(user.email).frame(height: 10)
-                        }
+                        ForEach(self.participants.users, id: \.uid) { user in
+                            HStack {
+                                Text(user.email)
+                                Spacer()
+                                Text(user.position.rawValue).foregroundColor(.gray)
+                            }.frame(maxHeight: 30)
                     }
                 }
                 
@@ -79,7 +94,7 @@ struct CreateProjectScreen : View {
             self.presentationMode.wrappedValue.dismiss()
             self.clear()
         }) {
-            Text("Cancel").foregroundColor(Color.blue)
+            Text("Cancel").foregroundColor(Color.primaryBlue)
         }
     }
     
@@ -93,7 +108,7 @@ struct CreateProjectScreen : View {
                 self.presentationMode.wrappedValue.dismiss()
             }
             
-        }) { Text("Done").foregroundColor(Color.blue) }
+        }) { Text("Done").foregroundColor(Color.primaryBlue) }
     }
     
     private func buildProject() -> Project {
@@ -122,15 +137,7 @@ struct CreateProjectScreen : View {
             self.description = self.store.project.description
             self.tag = self.store.project.tag
             self.isOpenProject = self.store.project.accessType.isOpen()
+            self.participants.fillParticipants(self.store.project)
         }
-    }
-}
-
-class Participants : ObservableObject {
-    
-    @Published var users = Set<User>()
-    
-    func isNotEmpty() -> Bool {
-        return !self.users.isEmpty
     }
 }

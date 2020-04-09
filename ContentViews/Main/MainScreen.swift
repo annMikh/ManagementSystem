@@ -26,9 +26,9 @@ struct MainView : View {
     @ObservedObject var store = ProjectStore.shared
     
     init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = .blue
+        UISegmentedControl.appearance().selectedSegmentTintColor = Color.primaryBlueUI
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .normal)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         
         UITableView.appearance().backgroundColor = .clear
         UITableView.appearance().separatorColor = .clear
@@ -42,6 +42,7 @@ struct MainView : View {
                         Button(action: { self.isClickedProfile.toggle() }){
                         Image(systemName: "person")
                             .resizable()
+                            .foregroundColor(.primaryBlue)
                             .frame(width: 25.0, height: 25.0)
                             .padding(.horizontal, 10)
                         }
@@ -49,9 +50,13 @@ struct MainView : View {
                     
                     Spacer()
                     NavigationLink(destination: SearchView, isActive: $isClickedSearch) {
-                        Button(action: { self.isClickedSearch.toggle() }) {
+                        Button(action: {
+                            self.isClickedSearch.toggle()
+                            
+                        }) {
                             Image(systemName: "magnifyingglass")
                                 .resizable()
+                                .foregroundColor(.primaryBlue)
                                 .frame(width: 25.0, height: 25.0)
                                 .padding(.horizontal, 10)
                         }

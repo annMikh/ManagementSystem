@@ -19,7 +19,7 @@ struct ProfileView : View {
     @State private var roles = [(acc: AccessType, proj: String)]()
     
     @State var pickerSelection = 0
-    private var positions = Position.allCases.map {"\($0)"}
+    private var positions = Position.getAllCases()
 
     @State var session = SessionViewModel.shared
         
@@ -47,29 +47,25 @@ struct ProfileView : View {
                 .disabled(!self.isClickedEdit)
                 .padding()
                 
-                Text("Position").font(.headline).foregroundColor(Color.blue).padding()
-                
-//                HStack {
-//                    Text(session.currentUser.bound.position.rawValue)
-//                    Spacer()
-//                }
-//                    .padding(.all)
-//                    .border(Color.black, width: 2)
-//                    .cornerRadius(5.0)
-//                    .padding(.horizontal, 25)
-                
-                Form {
-                    Picker(selection: $pickerSelection, label:
-                    Text("position").foregroundColor(Color.black)) {
-                            ForEach(0 ..< self.positions.count) { index in
-                                Text(self.positions[index]).tag(index)
-                            }
+                VStack(alignment: .leading) {
+                    Text("Position").font(.headline).foregroundColor(Color.primaryBlue).padding()
+                    HStack {
+                        Spacer()
+                        Picker(selection: $pickerSelection, label: Text("")) {
+                                ForEach(0 ..< self.positions.count) { index in
+                                    Text(self.positions[index])
+                                        .foregroundColor(self.isClickedEdit ? Color.blue : Color.black)
+                                        .tag(index)
+                                }
+                            }.pickerStyle(DefaultPickerStyle())
+                        .frame(maxHeight: 70)
+                        .disabled(!self.isClickedEdit)
+                        .labelsHidden()
+                        Spacer()
                     }
                 }
-                .border(Color.black, width: 2)
-                //.padding(.horizontal, 10)
             
-                Spacer(minLength: 30.0)
+                Spacer(minLength: 100)
                 
                 VStack(alignment: .leading) {
                     Divider()
@@ -111,14 +107,14 @@ struct ProfileView : View {
                         Image("logOut")
                             .resizable()
                             .frame(width: 15.0, height: 15.0)
-                            .foregroundColor(.red)
+                            .foregroundColor(.fadedRed)
                             .padding(.all, 4)
                             .overlay(
                                 RoundedRectangle(cornerRadius: CGFloat(2.0))
-                                    .stroke(Color.red, lineWidth: CGFloat(1.0))
+                                    .stroke(Color.fadedRed, lineWidth: CGFloat(1.0))
                             )
 
-                        Text("Log Out").foregroundColor(.red)
+                        Text("Log Out").foregroundColor(.fadedRed)
                     }
                 }
             }
@@ -138,19 +134,22 @@ struct ProfileView : View {
             Button(action: {
                 self.isClickedEdit = !self.isClickedEdit
                 if !self.isClickedEdit {
+                    self.session.currentUser?.position =
+                        Position(position: self.positions[self.pickerSelection])
                     self.session.updateProfile(user: self.session.currentUser)
                 }
             }){
                 HStack(alignment: .center) {
                     Image(systemName: self.isClickedEdit ? "pencil.slash" : "pencil")
                         .resizable()
+                        .foregroundColor(.blue)
                         .frame(width: 15.0, height: 15.0)
                         .padding(.all, 4)
                         .overlay(
                             RoundedRectangle(cornerRadius: 4)
                                 .stroke(Color.blue, lineWidth: 1)
                         )
-                    Text("Edit profile")
+                    Text("Edit profile").foregroundColor(.blue)
                 }
             }
             Spacer()

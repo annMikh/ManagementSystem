@@ -20,4 +20,8 @@ class Permission {
         return Permission.session.currentUser.bound.uid == task.author ||
                     Permission.session.currentUser.bound.uid == task.assignedUser
     }
+    
+    static func isPerticipant(project: Project) -> Bool {
+        return project.participants.contains(Permission.session.currentUser.bound.uid)
+    }
 }

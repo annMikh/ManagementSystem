@@ -15,19 +15,19 @@ struct ProjectContentScreen : View {
     @State private var selectType = 0
     @State private var isSheetShown: Bool = false
     @State private var activeSheet : ActiveSheet = .add
+    @State private var isParticipant: Bool = false
     
-    private var priorities = Priority.allCases.map { "\($0)".capitalizingFirstLetter() }
+    private var priorities = Priority.getAllCases().map { $0.capitalizingFirstLetter() }
+    private var project : Project
     
     @ObservedObject var store = ProjectStore.shared
     @ObservedObject var taskStore = TaskStore.shared
     @State var session = SessionViewModel.shared
     
     init(project: Project) {
+        self.project = project
         self.store.setState(state: .View)
         self.store.setProject(project)
-        UISegmentedControl.appearance().selectedSegmentTintColor = .blue
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .normal)
     }
     
     var body: some View {
@@ -55,24 +55,10 @@ struct ProjectContentScreen : View {
              EmptyListTextView(title: Constant.EmptyTasksTitle)
           }
             
-          FloatingButton(actionAdd: {
-                             self.activeSheet = .add
-                             self.isSheetShown.toggle()
-                             self.taskStore.setState(.Add)
-          },
-                         actionEdit: {
-                             self.activeSheet = .edit
-                             self.isSheetShown.toggle()
-                             self.store.setState(state: .Edit)
-          })
-              .padding()
-              .sheet(isPresented: self.$isSheetShown) {
-                if self.activeSheet == .add {
-                    CreateTaskScreen(project: self.store.project)
-                } else {
-                    CreateProjectScreen()
-                }
-            }
+            if self.isParticipant {
+             FloatButton
+          }
+            
         }
         .navigationBarTitle(
             Text(self.store.project.name)
@@ -99,11 +85,29 @@ struct ProjectContentScreen : View {
     }
     
     private func onAppear() {
+        self.isParticipant = Permission.isPerticipant(project: self.project)
         self.taskStore.loadTasks(self.store.project)
     }
     
-}
-
-enum ActiveSheet {
-   case edit, add
+    private var FloatButton : some View {
+        FloatingButton(actionAdd: {
+                           self.activeSheet = .add
+                           self.isSheetShown.toggle()
+                           self.taskStore.setState(.Add)
+        },
+                       actionEdit: {
+                           self.activeSheet = .edit
+                           self.isSheetShown.toggle()
+                           self.store.setState(state: .Edit)
+        })
+            .padding()
+            .sheet(isPresented: self.$isSheetShown) {
+              if self.activeSheet == .add {
+                  CreateTaskScreen(project: self.store.project)
+              } else {
+                  CreateProjectScreen()
+              }
+          }
+    }
+    
 }

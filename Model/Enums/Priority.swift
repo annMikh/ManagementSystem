@@ -24,6 +24,10 @@ enum Priority : String, CaseIterable, Codable {
         }
     }
     
+    static func getAllCases() -> Array<String> {
+        return Priority.allCases.map{ "\($0)" }
+    }
+    
     case low, medium, high, critical
     
     var description: String {

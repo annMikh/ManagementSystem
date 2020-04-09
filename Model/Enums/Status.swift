@@ -14,23 +14,27 @@ enum Status : String, CaseIterable, Codable {
         switch status {
         case "Deprecated":
             self  = .Deprecated
-        case "InDevelopment":
-            self  = .InDevelopment
-        case "InProgress":
-            self  = .InProgress
-        case "ReadyForTesting":
-            self  = .InDevelopment
+        case "Development":
+            self  = .Development
+        case "Progress":
+            self  = .Progress
+        case "Testing":
+            self  = .Testing
         case "Completed":
-            self  = .InProgress
+            self  = .Completed
         default:
             self  = .New
         }
     }
     
+    static func getAllCases() -> Array<String> {
+        return Status.allCases.map{ "\($0)" }
+    }
+    
     case New = "New"
-    case InDevelopment = "In development"
-    case InProgress = "In progress"
-    case ReadyForTesting = "Ready for testing"
+    case Development = "Development"
+    case Progress = "Progress"
+    case Testing = "Testing"
     case Completed = "Completed"
     case Deprecated = "Deprecated"
     

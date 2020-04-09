@@ -33,7 +33,6 @@ final class ProjectStore : ObservableObject {
                 snap?.documents.forEach {
                     self.projects.append(Project(document: $0)!)
                 }
-                self.projects.reverse()
             } else {
                 self.projects = [Project]()
             }
@@ -48,7 +47,6 @@ final class ProjectStore : ObservableObject {
                 q?.documents.forEach {
                     self.allProjects.append(Project(document: $0)!)
                 }
-                self.allProjects.reverse()
             }
         }
     }
