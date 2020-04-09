@@ -43,7 +43,28 @@ extension Optional where Wrapped == User {
     
     internal var bound: User {
         get {
-            return _bound ?? User(name: "", lastName: "", position: Position.None, email: "")
+            return _bound ?? User(name: "", lastName: "", email: "", position: Position.None, uid: "")
+        }
+        set {
+            _bound = newValue
+        }
+    }
+}
+
+extension Optional where Wrapped == Int {
+    
+    var _bound: Int? {
+        get {
+            return self
+        }
+        set {
+            self = newValue
+        }
+    }
+    
+    internal var bound: Int {
+        get {
+            return _bound ?? -1
         }
         set {
             _bound = newValue
@@ -106,5 +127,40 @@ extension AccessType {
         case .close:
             return .green
         }
+    }
+    
+    static func getImage(acc : AccessType) -> String {
+        switch acc {
+            case .open:
+                return "lock.open"
+            default:
+                return "lock"
+        }
+    }
+}
+
+
+extension View {
+    public func showAlert(title: String, text: String, isPresent: Binding<Bool>, action: @escaping () -> Void = {}) -> some View  {
+        return alert(isPresented: isPresent) {
+            Alert(title: Text(title),
+                  message: Text(text),
+                  dismissButton: .default(Text("OK"), action: action))
+        }
+    }
+}
+
+extension String {
+    
+    var words: [SubSequence] {
+        return split{ !$0.isLetter }
+    }
+    
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
     }
 }

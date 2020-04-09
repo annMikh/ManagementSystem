@@ -17,7 +17,7 @@ public class UserPreferences {
         UserDefaults.standard.set(isLogin, forKey: isLoginKey)
     }
     
-    public static func getLogIn() -> Bool {
+    public static func isLogIn() -> Bool {
         return UserDefaults.standard.bool(forKey: isLoginKey)
     }
     

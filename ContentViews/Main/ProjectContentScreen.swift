@@ -8,124 +8,106 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 struct ProjectContentScreen : View {
     
-    init(project: Project){
+    @State private var selectType = 0
+    @State private var isSheetShown: Bool = false
+    @State private var activeSheet : ActiveSheet = .add
+    @State private var isParticipant: Bool = false
+    
+    private var priorities = Priority.getAllCases().map { $0.capitalizingFirstLetter() }
+    private var project : Project
+    
+    @ObservedObject var store = ProjectStore.shared
+    @ObservedObject var taskStore = TaskStore.shared
+    @State var session = SessionViewModel.shared
+    
+    init(project: Project) {
         self.project = project
-        UISegmentedControl.appearance().selectedSegmentTintColor = .blue
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .normal)
+        self.store.setState(state: .View)
+        self.store.setProject(project)
     }
     
-    @ObservedObject var project: Project
-    @State var selectorIndex = 0
-    @State var isPresentingModal: Bool = false
-    
-    private var me = SessionViewModel.me
-    @EnvironmentObject var session: SessionViewModel
-    
     var body: some View {
+        ZStack(alignment: .bottomTrailing) {
           VStack(alignment: .leading) {
-              Picker("projects", selection: $selectorIndex) {
-                Text("Low").tag(0)
-                Text("Medium").tag(1)
-                Text("High").tag(2)
-                Text("Critical").tag(3)
-              }
-                .pickerStyle(SegmentedPickerStyle())
+            
+              Picker("projects", selection: $selectType) {
+                ForEach(0 ..< self.priorities.count) { index in
+                    Text(self.priorities[index]).foregroundColor(Color.black).tag(index)
+                }
+              }.pickerStyle(SegmentedPickerStyle())
               
             List {
-                ForEach(getTasks(), id: \.self) { task in
-                    TaskView(task: task)
+                ForEach(self.taskStore.tasks.filter{ $0.priority == Priority.allCases[self.selectType] },
+                        id: \.id) { task in
+                            TaskView(task: task).animation(.easeIn)
                   }
                   .onDelete(perform: delete)
                   .onMove(perform: move)
             }
-              Spacer()
+            Spacer()
           }
-          .navigationBarTitle(
-            Text(project.name)
-              .font(.largeTitle)
-              .foregroundColor(.primary)
-          )
-            .navigationViewStyle(StackNavigationViewStyle())
-    }
-    
-    private func getTasks() -> [Task] {
-        return project.tasks.filter{ $0.priority == Priority.allCases[$selectorIndex.wrappedValue] }
+        
+          if self.showLabel() {
+             EmptyListTextView(title: Constant.EmptyTasksTitle)
+          }
+            
+            if self.isParticipant {
+             FloatButton
+          }
+            
+        }
+        .navigationBarTitle(
+            Text(self.store.project.name)
+            .font(.largeTitle)
+            .foregroundColor(.primary)
+        )
+        .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear(perform: self.onAppear)
     }
     
     private func delete(at offsets: IndexSet) {
-        var tasks = project.tasks
-        tasks.remove(atOffsets: offsets)
+        offsets.forEach(self.taskStore.delete(at:))
     }
 
     private func move(from source: IndexSet, to destination: Int) {
-        
+        self.taskStore.move(source: source, destination: destination)
     }
     
-    var addTask: some View {
-           Button(action: {
-               self.isPresentingModal = true
-           }) {
-               Image(systemName: "plus")
-               .font(.title)
-           }.sheet(isPresented: $isPresentingModal) {
-                CreateTaskScreen().environmentObject(self.session)
-           }
-    }
-}
-
-struct TaskView : View {
-    
-    @ObservedObject var task: Task
-    
-    var body : some View {
-        NavigationLink(destination: taskContent) {
-            HStack(alignment: .center, spacing: 3) {
-                Divider().background(Priority.getColor(priority: task.priority))
-            
-                Image(systemName: "paperplane")
-                    .resizable()
-                    .frame(width: 50.0, height: 50.0)
-                    .padding(.horizontal, 10)
-            
-                
-                VStack(alignment: .leading) {
-                    Text(task.name.bound)
-                        .lineLimit(1)
-                        .font(.title)
-                    
-                    HStack(alignment: .firstTextBaseline) {
-                        Text(task.description.bound)
-                            .lineLimit(1)
-                            .font(.footnote)
-                        Spacer()
-                    }
-                    
-                    Text(String(describing: task.priority))
-                        .lineLimit(1)
-                        .font(.footnote)
-                        .foregroundColor(Priority.getColor(priority: task.priority))
-                    
-                    HStack {
-                        Spacer()
-                        Text(CommonDateFormatter.getStringWithFormate(date: task.deadline))
-                            .lineLimit(1)
-                            .font(.footnote)
-                            .foregroundColor(.gray)
-                    }
-                }
-            }
-            .frame(height: 50)
-            .padding([.trailing, .top, .bottom])
-        }
+    private func showLabel() -> Bool {
+        return self.taskStore
+                    .tasks
+                    .filter{ $0.priority == Priority.allCases[$selectType.wrappedValue] }
+                    .isEmpty && self.taskStore.isLoad
     }
     
-    var taskContent : some View {
-        TaskContentScreen(task: task)
-            .navigationBarTitle(task.name.bound)
-            .navigationBarBackButtonHidden(false)
+    private func onAppear() {
+        self.isParticipant = Permission.isPerticipant(project: self.project)
+        self.taskStore.loadTasks(self.store.project)
     }
+    
+    private var FloatButton : some View {
+        FloatingButton(actionAdd: {
+                           self.activeSheet = .add
+                           self.isSheetShown.toggle()
+                           self.taskStore.setState(.Add)
+        },
+                       actionEdit: {
+                           self.activeSheet = .edit
+                           self.isSheetShown.toggle()
+                           self.store.setState(state: .Edit)
+        })
+            .padding()
+            .sheet(isPresented: self.$isSheetShown) {
+              if self.activeSheet == .add {
+                  CreateTaskScreen(project: self.store.project)
+              } else {
+                  CreateProjectScreen()
+              }
+          }
+    }
+    
 }

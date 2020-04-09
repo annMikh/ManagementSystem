@@ -11,30 +11,34 @@ import SwiftUI
 
 struct ContentView : View {
     
-    @EnvironmentObject var session : SessionViewModel
+    @State var session = SessionViewModel.shared
 
     var body: some View {
         AnyView({ () -> AnyView in
-            if (!UserPreferences.getLogIn()) {
-                return AnyView(LoginView().environmentObject(session))
+            if (UserPreferences.isLogIn()) {
+                return AnyView(Main)
             } else {
-                return AnyView(mainView)
+                return AnyView(Login)
             }
             }())
-            .onAppear {  }
-            .onDisappear {  }
     }
     
-    var mainView : some View {
+    var Main : some View {
         NavigationView {
             MainView()
-                .environmentObject(session)
                 .navigationBarTitle(
                  Text("Boards")
                      .font(.largeTitle)
                      .foregroundColor(.primary)
                 )
                 .navigationBarBackButtonHidden(true)
+                .environmentObject(ProjectStore.shared)
+        }
+    }
+    
+    var Login : some View {
+        NavigationView {
+            LoginView()
         }
     }
 }

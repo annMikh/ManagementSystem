@@ -35,7 +35,7 @@ struct MultilineTextField : View {
     var body: some View {
         UITextViewWrapper(text: self.internalText, calculatedHeight: $dynamicHeight, onDone: onCommit)
             .frame(minHeight: dynamicHeight, maxHeight: dynamicHeight)
-            .overlay(placeholderView, alignment: .topLeading)
+            .background(placeholderView, alignment: .topLeading)
     }
 
     var placeholderView: some View {
@@ -64,6 +64,7 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
         textField.isSelectable = true
         textField.isUserInteractionEnabled = true
         textField.isScrollEnabled = false
+        textField.backgroundColor = UIColor.clear
         if nil != onDone {
             textField.returnKeyType = .done
         }

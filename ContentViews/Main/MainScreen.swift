@@ -8,192 +8,141 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 struct MainView : View {
 
-    @State var isPresentingModal: Bool = false
-    @State var selectorIndex: Int = 0
-    @State var searchValue : String = ""
-    @State var isClickedProfile = false
+    @State private var selectorType: Int = 0
+    @State private var searchValue : String = ""
+    @State private var activeSheet : ActiveSheet = .add
     
-    @EnvironmentObject var session: SessionViewModel
+    @State private var isClickedProfile = false
+    @State private var isClickedSearch = false
+    @State private var isPresentingAdd: Bool = false
+    @State private var isPresentingEdit: Bool = false
+    
+    @Environment(\.presentationMode) var presentationMode
+    @State var session = SessionViewModel.shared
+    @ObservedObject var store = ProjectStore.shared
     
     init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = .blue
+        UISegmentedControl.appearance().selectedSegmentTintColor = Color.primaryBlueUI
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .normal)
-    }
-    
-    private var projects = [Project(name: "first", description: "vjsvjjvsljvldjvs"), Project(name: "second", description: "description")]
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         
+        UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().separatorColor = .clear
+    }
+            
     var body : some View {
+        ZStack(alignment: .bottomTrailing) {
             VStack(alignment: .leading) {
                 HStack {
-                    NavigationLink(destination: profileContent, isActive: $isClickedProfile) {
-                        Button(action: {
-                            self.isClickedProfile = true
-                        }){
+                    NavigationLink(destination: ProfileContent, isActive: $isClickedProfile) {
+                        Button(action: { self.isClickedProfile.toggle() }){
                         Image(systemName: "person")
                             .resizable()
+                            .foregroundColor(.primaryBlue)
                             .frame(width: 25.0, height: 25.0)
                             .padding(.horizontal, 10)
                         }
                     }
-                    SearchBar(input: $searchValue)
+                    
+                    Spacer()
+                    NavigationLink(destination: SearchView, isActive: $isClickedSearch) {
+                        Button(action: {
+                            self.isClickedSearch.toggle()
+                            
+                        }) {
+                            Image(systemName: "magnifyingglass")
+                                .resizable()
+                                .foregroundColor(.primaryBlue)
+                                .frame(width: 25.0, height: 25.0)
+                                .padding(.horizontal, 10)
+                        }
+                    }
                 }
   
-                Picker("projects", selection: $selectorIndex) {
+                Picker("projects", selection: $selectorType) {
                     Text("all").tag(0)
                     Text("personal").tag(1)
                 }.pickerStyle(SegmentedPickerStyle())
                 
                 List {
-                    if self.$selectorIndex.wrappedValue == 0 {
-                        ForEach(projects, id: \.name) { proj in
-                            ProjectView(project: proj)
-                        }
-                        .onDelete(perform: delete)
-                        .onMove(perform: move)
-                    } else {
-                        ForEach(self.getOnlyMyProjects(), id: \.name) { proj in
-                            ProjectView(project: proj)
-                        }
-                        .onDelete(perform: delete)
-                        .onMove(perform: move)
+                    ForEach(self.$selectorType.wrappedValue == 0 ?
+                        self.store.projects : self.store.projects.filter { $0.creator == self.session.currentUser.bound.uid },
+                            id: \.id) { proj in
+                        ProjectView(project: proj)
                     }
+                    .onDelete(perform: delete)
+                    .onMove(perform: move)
                 }
+                .environment(\.editMode, .constant(self.isPresentingEdit ? EditMode.active : EditMode.inactive))
                 
                 Spacer()
-            .navigationViewStyle(StackNavigationViewStyle())
-        }.onAppear{
-            //Database().getProjects()
+            }
+            
+            if self.isEmptyListShown() {
+                EmptyListTextView(title: Constant.EmptyProjectsTitle)
+                    .opacity(self.store.isLoad ? 1.0 : 0.0)
+                    .animation(.easeInOut)
+            }
+            
+            FloatButton
+            
+        }.navigationViewStyle(StackNavigationViewStyle())
+         .onAppear(perform: self.onAppear)
+    }
+    
+    private func isEmptyListShown() -> Bool {
+        return self.store.projects.isEmpty
+    }
+    
+    private func onAppear() {
+        if self.session.currentUser == nil {
+            self.session.currentSession()
         }
+        self.store.loadProjects(user: self.session.session)
     }
-    
-    private func getOnlyMyProjects() -> [Project] {
-        return self.projects.filter { $0.creator == SessionViewModel.me }
-    }
-    
     
     private func delete(at offsets: IndexSet) {
-    
+        offsets.forEach { index in
+            self.store.deleteProject(index)
+        }
     }
 
     private func move(from source: IndexSet, to destination: Int) {
+        self.store.move(source: source, destination: destination)
     }
     
-    private var profileContent : some View {
+    private var FloatButton : some View {
+        FloatingButton(actionAdd: {
+                        self.activeSheet = .add
+                        self.isPresentingAdd.toggle()
+                        self.store.setState(state: .Add)
+        },
+                       actionEdit: {
+                        self.activeSheet = .edit
+                        self.isPresentingEdit.toggle()
+                        self.store.setState(state: .Edit)
+        })
+            .padding()
+            .sheet(isPresented: self.$isPresentingAdd) {
+                if self.activeSheet == .add {
+                    CreateProjectScreen()
+                }
+            }
+    }
+    
+    private var ProfileContent : some View {
         ProfileView()
             .navigationBarTitle(Text("Profile").bold())
             .navigationBarBackButtonHidden(false)
-            .environmentObject(session)
     }
     
-    private var addProject: some View {
-        Button(action: {
-            self.isPresentingModal = true
-        }) {
-            Image(systemName: "plus")
-            .font(.title)
-        }.sheet(isPresented: self.$isPresentingModal) {
-            CreateProjectScreen().environmentObject(self.session)
-        }
+    private var SearchView : some View {
+        SearchScreen()
+            .navigationBarTitle(Text("Search").bold())
+            .navigationBarBackButtonHidden(false)
     }
-}
-
-struct Boards : View {
-    
-    @State private var showingDetail = false
-    
-    var body: some View {
-        HStack(alignment: .firstTextBaseline) {
-            Text("Boards")
-                .font(.largeTitle)
-                .foregroundColor(.primary)
-            Spacer()
-        
-            Image(systemName: "plus")
-                .padding(.all, 10)
-                .sheet(isPresented: $showingDetail) {
-                    CreateProjectScreen()
-                }
-        }
-    }
-}
-
-struct SearchBar : UIViewRepresentable {
-    @Binding var input : String
-    
-    class Cordinator : NSObject, UISearchBarDelegate {
-        
-        @Binding var text : String
-        
-        init(text : Binding<String>) {
-            _text = text
-        }
-        
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            text = searchText
-        }
-    }
-    
-    func makeCoordinator() -> Cordinator {
-        return Cordinator(text: $input)
-    }
-    
-    func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
-        let searchBar = UISearchBar(frame: .zero)
-        searchBar.delegate = context.coordinator
-        return searchBar
-    }
-    
-    func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
-        uiView.text = input
-    }
-    
-}
-
-struct ProjectView : View {
-    
-    @ObservedObject var project: Project
-    
-    var body: some View {
-        NavigationLink(destination: projectContent) {
-            HStack(alignment: .top) {
-                Divider().background(AccessType.getColor(type: project.accessType))
-            
-                Image(systemName: "folder")
-                    .resizable()
-                    .frame(width: 40.0, height: 40.0)
-                    .padding(.horizontal, 10)
-            
-                
-                VStack(alignment: .leading) {
-                    Text(project.name)
-                        .lineLimit(1)
-                        .font(.title)
-                    
-                    HStack(alignment: .firstTextBaseline) {
-                        Text(project.description)
-                            .lineLimit(1)
-                            .font(.footnote)
-                        Spacer()
-                        Text(CommonDateFormatter.getStringWithFormate(date: project.date))
-                            .lineLimit(nil)
-                            .font(.footnote)
-                    }
-                }
-            }
-            .frame(height: 50)
-            .padding([.trailing, .top, .bottom])
-        }
-    }
-
-    
-    var projectContent : some View {
-        ProjectContentScreen(project: project)
-                                .navigationBarTitle(project.name)
-                                .navigationBarBackButtonHidden(false)
-    }
-    
 }
