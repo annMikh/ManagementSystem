@@ -10,7 +10,7 @@ import Foundation
 
 class Permission {
     
-    private static let session = SessionViewModel.shared
+    private static let session = Session.shared
     
     static func toEditProject(project: Project) -> Bool {
         return Permission.session.currentUser.bound.uid == project.creator

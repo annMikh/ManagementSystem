@@ -8,12 +8,13 @@
 
 import Foundation
 import SwiftUI
+import Combine
 import FirebaseAuth
 
 final class ProjectStore : ObservableObject {
     
-    static let shared = ProjectStore()
-    
+    let objectWillChange = PassthroughSubject<(), Never>()
+            
     @Published var project = Project()
     @Published var projects = [Project]()
     @Published var allProjects = [Project]()
@@ -21,17 +22,23 @@ final class ProjectStore : ObservableObject {
     
     @Published var isLoad = false
     
-    private var session = SessionViewModel.shared
+    private var session = Session.shared
     private var database = Database.shared
     
-    private init() {}
+    func update(item: Project) {
+       defer {
+           objectWillChange.send(())
+       }
+    }
     
     func loadProjects(user: FirebaseAuth.UserInfo?) {
         database.getProjects(me: user) { (snap, error) in
             if error == nil {
                 self.projects.removeAll()
                 snap?.documents.forEach {
-                    self.projects.append(Project(document: $0)!)
+                    let p = Project(document: $0)!
+                    self.projects.append(p)
+                    self.update(item: p)
                 }
             } else {
                 self.projects = [Project]()
@@ -85,18 +92,29 @@ final class ProjectStore : ObservableObject {
     }
     
     func indexOf() -> Int? {
-        return projects.firstIndex(of: self.project)
+        return projects.firstIndex(where: { $0.id == self.project.id })
     }
     
     func updateProject() {
         if let index = indexOf() {
-            projects[index] = project
+            projects.remove(at: index)
+            projects.insert(project, at: index)
+            self.update(item: project)
         }
+        session.updateProject(project)
     }
     
     func createProject() {
         session.createProject(self.project)
         projects.insert(self.project, at: 0)
+    }
+    
+    func clear() {
+        self.project = Project()
+        self.projects = [Project]()
+        self.allProjects = [Project]()
+        self.state = .None
+        self.isLoad = false
     }
 }
 

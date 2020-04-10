@@ -12,7 +12,7 @@ import SwiftUI
 struct SearchScreen : View {
     
     @State private var searchInput : String = ""
-    @ObservedObject var store = ProjectStore.shared
+    @ObservedObject var store = ProjectStore()
     
     var body : some View {
         VStack {

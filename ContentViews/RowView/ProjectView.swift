@@ -54,7 +54,6 @@ struct ProjectView : View {
     
     var ProjectContent : some View {
         ProjectContentScreen(project: self.project)
-            .navigationBarTitle(project.name)
             .navigationBarBackButtonHidden(false)
     }
     

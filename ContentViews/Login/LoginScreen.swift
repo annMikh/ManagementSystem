@@ -18,7 +18,7 @@ struct LoginView: View {
     @State private var isPresentingModal: Bool = false
     @State private var isForgetPassword: Bool = false
     
-    @State var session = SessionViewModel.shared
+    @State var session = Session.shared
     
     init() {
         UITableView.appearance().backgroundColor = .clear

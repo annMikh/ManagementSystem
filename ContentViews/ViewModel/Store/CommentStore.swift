@@ -15,7 +15,7 @@ final class CommentStore : ObservableObject {
     
     static let shared = CommentStore()
     
-    private let session = SessionViewModel.shared
+    private let session = Session.shared
     private let database = Database.shared
     
     func loadComments(task : Task) {
@@ -31,5 +31,9 @@ final class CommentStore : ObservableObject {
     
     func add(_ comment: Comment) {
         self.comments.insert(comment, at: 0)
+    }
+    
+    func clear() {
+        self.comments = [Comment]()
     }
 }

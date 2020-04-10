@@ -21,7 +21,7 @@ struct ProfileView : View {
     @State var pickerSelection = 0
     private var positions = Position.getAllCases()
 
-    @State var session = SessionViewModel.shared
+    @State var session = Session.shared
         
     var body : some View {
         ScrollView {

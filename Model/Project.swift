@@ -10,14 +10,14 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
-struct Project : Hashable, Codable {
+struct Project : Hashable, Codable, Identifiable {
     
     var name: String
     var description: String
     var accessType: AccessType
     var creator: String
     var date: Date
-    var id: Int
+    var id: String
     var tag : String
     
     var participants = [String]()
@@ -54,7 +54,7 @@ extension Project : DocumentSerializable  {
          creator: String = "",
          date: Date = Date(),
          tag: String = "",
-         id: Int = 0) {
+         id: String = "") {
         self.init(
             name: name,
             description: description,
@@ -74,7 +74,7 @@ extension Project : DocumentSerializable  {
            let tag = dictionary["tag"] as? String,
            let date = dictionary["date"] as? Timestamp,
            let participants = dictionary["participants"] as? [String],
-           let id = dictionary["id"] as? Int else { return nil }
+           let id = dictionary["id"] as? String else { return nil }
 
          self.init(
              name: name,

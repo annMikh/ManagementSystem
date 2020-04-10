@@ -1,0 +1,462 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SearchBar"
+provides-nominal:
+- "16ManagementSystem9SearchBarV"
+- "16ManagementSystem9SearchBarV10CordinatorC"
+provides-member:
+- ["16ManagementSystem9SearchBarV", ""]
+- ["16ManagementSystem9SearchBarV10CordinatorC", ""]
+provides-dynamic-lookup:
+- "searchBar"
+depends-top-level:
+- "AssignmentPrecedence"
+- "Binding"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "NSObject"
+- "SearchBar"
+- "String"
+- !private "StringLiteralType"
+- "UISearchBar"
+- "UISearchBarDelegate"
+- "UIViewRepresentable"
+- "UIViewRepresentableContext"
+depends-member:
+- !private ["7SwiftUI10AnimatableP", "zero"]
+- !private ["So15CALayerDelegateP", "delegate"]
+- !private ["So15CALayerDelegateP", "init"]
+- !private ["So15CALayerDelegateP", "text"]
+- !private ["So6CGRectV", "zero"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_text"]
+- !private ["s7CVarArgP", "delegate"]
+- !private ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "position"]
+- ["s7CVarArgP", "positionForBar"]
+- ["s7CVarArgP", "searchBar"]
+- ["s7CVarArgP", "searchBarBookmarkButtonClicked"]
+- ["s7CVarArgP", "searchBarCancelButtonClicked"]
+- ["s7CVarArgP", "searchBarResultsListButtonClicked"]
+- ["s7CVarArgP", "searchBarSearchButtonClicked"]
+- ["s7CVarArgP", "searchBarShouldBeginEditing"]
+- ["s7CVarArgP", "searchBarShouldEndEditing"]
+- ["s7CVarArgP", "searchBarTextDidBeginEditing"]
+- ["s7CVarArgP", "searchBarTextDidEndEditing"]
+- !private ["s7CVarArgP", "text"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "$text"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "Binding"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "String"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "UISearchBar"]
+- !private ["16ManagementSystem9SearchBarV10CordinatorC", "_text"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "deinit"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "init"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "position"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "positionForBar"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "searchBar"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "searchBarBookmarkButtonClicked"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "searchBarCancelButtonClicked"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "searchBarResultsListButtonClicked"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "searchBarSearchButtonClicked"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "searchBarShouldBeginEditing"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "searchBarShouldEndEditing"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "searchBarTextDidBeginEditing"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "searchBarTextDidEndEditing"]
+- ["16ManagementSystem9SearchBarV10CordinatorC", "text"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "_text"]
+- !private ["s28CustomDebugStringConvertibleP", "delegate"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "position"]
+- ["s28CustomDebugStringConvertibleP", "positionForBar"]
+- ["s28CustomDebugStringConvertibleP", "searchBar"]
+- ["s28CustomDebugStringConvertibleP", "searchBarBookmarkButtonClicked"]
+- ["s28CustomDebugStringConvertibleP", "searchBarCancelButtonClicked"]
+- ["s28CustomDebugStringConvertibleP", "searchBarResultsListButtonClicked"]
+- ["s28CustomDebugStringConvertibleP", "searchBarSearchButtonClicked"]
+- ["s28CustomDebugStringConvertibleP", "searchBarShouldBeginEditing"]
+- ["s28CustomDebugStringConvertibleP", "searchBarShouldEndEditing"]
+- ["s28CustomDebugStringConvertibleP", "searchBarTextDidBeginEditing"]
+- ["s28CustomDebugStringConvertibleP", "searchBarTextDidEndEditing"]
+- !private ["s28CustomDebugStringConvertibleP", "text"]
+- !private ["s28CustomDebugStringConvertibleP", "zero"]
+- !private ["s17CustomReflectableP", "zero"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "_text"]
+- !private ["s23CustomStringConvertibleP", "delegate"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "position"]
+- ["s23CustomStringConvertibleP", "positionForBar"]
+- ["s23CustomStringConvertibleP", "searchBar"]
+- ["s23CustomStringConvertibleP", "searchBarBookmarkButtonClicked"]
+- ["s23CustomStringConvertibleP", "searchBarCancelButtonClicked"]
+- ["s23CustomStringConvertibleP", "searchBarResultsListButtonClicked"]
+- ["s23CustomStringConvertibleP", "searchBarSearchButtonClicked"]
+- ["s23CustomStringConvertibleP", "searchBarShouldBeginEditing"]
+- ["s23CustomStringConvertibleP", "searchBarShouldEndEditing"]
+- ["s23CustomStringConvertibleP", "searchBarTextDidBeginEditing"]
+- ["s23CustomStringConvertibleP", "searchBarTextDidEndEditing"]
+- !private ["s23CustomStringConvertibleP", "text"]
+- !private ["Se", "zero"]
+- !private ["SE", "zero"]
+- ["SQ", ""]
+- !private ["SQ", "_text"]
+- !private ["SQ", "delegate"]
+- !private ["SQ", "init"]
+- ["SQ", "position"]
+- ["SQ", "positionForBar"]
+- ["SQ", "searchBar"]
+- ["SQ", "searchBarBookmarkButtonClicked"]
+- ["SQ", "searchBarCancelButtonClicked"]
+- ["SQ", "searchBarResultsListButtonClicked"]
+- ["SQ", "searchBarSearchButtonClicked"]
+- ["SQ", "searchBarShouldBeginEditing"]
+- ["SQ", "searchBarShouldEndEditing"]
+- ["SQ", "searchBarTextDidBeginEditing"]
+- ["SQ", "searchBarTextDidEndEditing"]
+- !private ["SQ", "text"]
+- !private ["SQ", "zero"]
+- ["SH", ""]
+- !private ["SH", "_text"]
+- !private ["SH", "delegate"]
+- !private ["SH", "init"]
+- ["SH", "position"]
+- ["SH", "positionForBar"]
+- ["SH", "searchBar"]
+- ["SH", "searchBarBookmarkButtonClicked"]
+- ["SH", "searchBarCancelButtonClicked"]
+- ["SH", "searchBarResultsListButtonClicked"]
+- ["SH", "searchBarSearchButtonClicked"]
+- ["SH", "searchBarShouldBeginEditing"]
+- ["SH", "searchBarShouldEndEditing"]
+- ["SH", "searchBarTextDidBeginEditing"]
+- ["SH", "searchBarTextDidEndEditing"]
+- !private ["SH", "text"]
+- !private ["So8NSCodingP", "delegate"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "text"]
+- ["So8NSObjectC", "$text"]
+- ["So8NSObjectC", "Binding"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "UISearchBar"]
+- ["So8NSObjectC", ""]
+- ["So8NSObjectC", "_text"]
+- !private ["So8NSObjectC", "delegate"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "position"]
+- ["So8NSObjectC", "positionForBar"]
+- ["So8NSObjectC", "searchBar"]
+- ["So8NSObjectC", "searchBarBookmarkButtonClicked"]
+- ["So8NSObjectC", "searchBarCancelButtonClicked"]
+- ["So8NSObjectC", "searchBarResultsListButtonClicked"]
+- ["So8NSObjectC", "searchBarSearchButtonClicked"]
+- ["So8NSObjectC", "searchBarShouldBeginEditing"]
+- ["So8NSObjectC", "searchBarShouldEndEditing"]
+- ["So8NSObjectC", "searchBarTextDidBeginEditing"]
+- ["So8NSObjectC", "searchBarTextDidEndEditing"]
+- ["So8NSObjectC", "text"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "_text"]
+- !private ["So8NSObjectP", "delegate"]
+- !private ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "position"]
+- ["So8NSObjectP", "positionForBar"]
+- ["So8NSObjectP", "searchBar"]
+- ["So8NSObjectP", "searchBarBookmarkButtonClicked"]
+- ["So8NSObjectP", "searchBarCancelButtonClicked"]
+- ["So8NSObjectP", "searchBarResultsListButtonClicked"]
+- ["So8NSObjectP", "searchBarSearchButtonClicked"]
+- ["So8NSObjectP", "searchBarShouldBeginEditing"]
+- ["So8NSObjectP", "searchBarShouldEndEditing"]
+- ["So8NSObjectP", "searchBarTextDidBeginEditing"]
+- ["So8NSObjectP", "searchBarTextDidEndEditing"]
+- !private ["So8NSObjectP", "text"]
+- ["16ManagementSystem9SearchBarV", "$input"]
+- ["16ManagementSystem9SearchBarV", "Binding"]
+- ["16ManagementSystem9SearchBarV", "Body"]
+- ["16ManagementSystem9SearchBarV", "Coordinator"]
+- ["16ManagementSystem9SearchBarV", "Cordinator"]
+- ["16ManagementSystem9SearchBarV", "NSObject"]
+- ["16ManagementSystem9SearchBarV", "SearchBar"]
+- ["16ManagementSystem9SearchBarV", "String"]
+- ["16ManagementSystem9SearchBarV", "UISearchBar"]
+- ["16ManagementSystem9SearchBarV", "UISearchBarDelegate"]
+- ["16ManagementSystem9SearchBarV", "UIViewRepresentableContext"]
+- ["16ManagementSystem9SearchBarV", "UIViewType"]
+- ["16ManagementSystem9SearchBarV", "_Default_Body"]
+- ["16ManagementSystem9SearchBarV", "_Default_Coordinator"]
+- ["16ManagementSystem9SearchBarV", "_Default_UIViewType"]
+- ["16ManagementSystem9SearchBarV", "_identifiedViewTree"]
+- !private ["16ManagementSystem9SearchBarV", "_input"]
+- ["16ManagementSystem9SearchBarV", "_makeView"]
+- ["16ManagementSystem9SearchBarV", "_makeViewList"]
+- ["16ManagementSystem9SearchBarV", "_overrideLayoutTraits"]
+- ["16ManagementSystem9SearchBarV", "_overrideSizeThatFits"]
+- ["16ManagementSystem9SearchBarV", "body"]
+- ["16ManagementSystem9SearchBarV", "deinit"]
+- ["16ManagementSystem9SearchBarV", "dismantleUIView"]
+- ["16ManagementSystem9SearchBarV", "init"]
+- ["16ManagementSystem9SearchBarV", "input"]
+- ["16ManagementSystem9SearchBarV", "makeCoordinator"]
+- ["16ManagementSystem9SearchBarV", "makeUIView"]
+- ["16ManagementSystem9SearchBarV", "updateUIView"]
+- !private ["So29UIAccessibilityIdentificationP", "delegate"]
+- !private ["So29UIAccessibilityIdentificationP", "init"]
+- !private ["So29UIAccessibilityIdentificationP", "text"]
+- !private ["So12UIAppearanceP", "delegate"]
+- !private ["So12UIAppearanceP", "init"]
+- !private ["So12UIAppearanceP", "text"]
+- !private ["So21UIAppearanceContainerP", "delegate"]
+- !private ["So21UIAppearanceContainerP", "init"]
+- !private ["So21UIAppearanceContainerP", "text"]
+- !private ["So16UIBarPositioningP", "delegate"]
+- !private ["So16UIBarPositioningP", "init"]
+- !private ["So16UIBarPositioningP", "text"]
+- ["So24UIBarPositioningDelegateP", ""]
+- !private ["So24UIBarPositioningDelegateP", "_text"]
+- !private ["So24UIBarPositioningDelegateP", "init"]
+- ["So24UIBarPositioningDelegateP", "position"]
+- ["So24UIBarPositioningDelegateP", "positionForBar"]
+- ["So24UIBarPositioningDelegateP", "searchBar"]
+- ["So24UIBarPositioningDelegateP", "searchBarBookmarkButtonClicked"]
+- ["So24UIBarPositioningDelegateP", "searchBarCancelButtonClicked"]
+- ["So24UIBarPositioningDelegateP", "searchBarResultsListButtonClicked"]
+- ["So24UIBarPositioningDelegateP", "searchBarSearchButtonClicked"]
+- ["So24UIBarPositioningDelegateP", "searchBarShouldBeginEditing"]
+- ["So24UIBarPositioningDelegateP", "searchBarShouldEndEditing"]
+- ["So24UIBarPositioningDelegateP", "searchBarTextDidBeginEditing"]
+- ["So24UIBarPositioningDelegateP", "searchBarTextDidEndEditing"]
+- !private ["So24UIBarPositioningDelegateP", "text"]
+- !private ["So17UICoordinateSpaceP", "delegate"]
+- !private ["So17UICoordinateSpaceP", "init"]
+- !private ["So17UICoordinateSpaceP", "text"]
+- !private ["So13UIDynamicItemP", "delegate"]
+- !private ["So13UIDynamicItemP", "init"]
+- !private ["So13UIDynamicItemP", "text"]
+- !private ["So18UIFocusEnvironmentP", "delegate"]
+- !private ["So18UIFocusEnvironmentP", "init"]
+- !private ["So18UIFocusEnvironmentP", "text"]
+- !private ["So11UIFocusItemP", "delegate"]
+- !private ["So11UIFocusItemP", "init"]
+- !private ["So11UIFocusItemP", "text"]
+- !private ["So20UIFocusItemContainerP", "delegate"]
+- !private ["So20UIFocusItemContainerP", "init"]
+- !private ["So20UIFocusItemContainerP", "text"]
+- !private ["So24UILargeContentViewerItemP", "delegate"]
+- !private ["So24UILargeContentViewerItemP", "init"]
+- !private ["So24UILargeContentViewerItemP", "text"]
+- !private ["So30UIPasteConfigurationSupportingP", "delegate"]
+- !private ["So30UIPasteConfigurationSupportingP", "init"]
+- !private ["So30UIPasteConfigurationSupportingP", "text"]
+- !private ["So11UIResponderC", "delegate"]
+- !private ["So11UIResponderC", "init"]
+- !private ["So11UIResponderC", "text"]
+- !private ["So30UIResponderStandardEditActionsP", "delegate"]
+- !private ["So30UIResponderStandardEditActionsP", "init"]
+- !private ["So30UIResponderStandardEditActionsP", "text"]
+- !private ["So11UISearchBarC", "delegate"]
+- !private ["So11UISearchBarC", "init"]
+- !private ["So11UISearchBarC", "text"]
+- ["So19UISearchBarDelegateP", ""]
+- !private ["So19UISearchBarDelegateP", "_text"]
+- !private ["So19UISearchBarDelegateP", "init"]
+- ["So19UISearchBarDelegateP", "position"]
+- ["So19UISearchBarDelegateP", "positionForBar"]
+- ["So19UISearchBarDelegateP", "searchBar"]
+- ["So19UISearchBarDelegateP", "searchBarBookmarkButtonClicked"]
+- ["So19UISearchBarDelegateP", "searchBarCancelButtonClicked"]
+- ["So19UISearchBarDelegateP", "searchBarResultsListButtonClicked"]
+- ["So19UISearchBarDelegateP", "searchBarSearchButtonClicked"]
+- ["So19UISearchBarDelegateP", "searchBarShouldBeginEditing"]
+- ["So19UISearchBarDelegateP", "searchBarShouldEndEditing"]
+- ["So19UISearchBarDelegateP", "searchBarTextDidBeginEditing"]
+- ["So19UISearchBarDelegateP", "searchBarTextDidEndEditing"]
+- !private ["So19UISearchBarDelegateP", "text"]
+- !private ["So17UITextInputTraitsP", "delegate"]
+- !private ["So17UITextInputTraitsP", "init"]
+- !private ["So17UITextInputTraitsP", "text"]
+- !private ["So18UITraitEnvironmentP", "delegate"]
+- !private ["So18UITraitEnvironmentP", "init"]
+- !private ["So18UITraitEnvironmentP", "text"]
+- !private ["So23UIUserActivityRestoringP", "delegate"]
+- !private ["So23UIUserActivityRestoringP", "init"]
+- !private ["So23UIUserActivityRestoringP", "text"]
+- !private ["So6UIViewC", "delegate"]
+- !private ["So6UIViewC", "init"]
+- !private ["So6UIViewC", "text"]
+- !private ["7SwiftUI19UIViewRepresentableP", "$input"]
+- ["7SwiftUI19UIViewRepresentableP", "Body"]
+- ["7SwiftUI19UIViewRepresentableP", "Coordinator"]
+- !private ["7SwiftUI19UIViewRepresentableP", "Cordinator"]
+- !private ["7SwiftUI19UIViewRepresentableP", "UISearchBar"]
+- ["7SwiftUI19UIViewRepresentableP", "UIViewType"]
+- ["7SwiftUI19UIViewRepresentableP", ""]
+- ["7SwiftUI19UIViewRepresentableP", "_Default_Body"]
+- ["7SwiftUI19UIViewRepresentableP", "_Default_Coordinator"]
+- ["7SwiftUI19UIViewRepresentableP", "_Default_UIViewType"]
+- ["7SwiftUI19UIViewRepresentableP", "_identifiedViewTree"]
+- ["7SwiftUI19UIViewRepresentableP", "_makeView"]
+- ["7SwiftUI19UIViewRepresentableP", "_makeViewList"]
+- ["7SwiftUI19UIViewRepresentableP", "_overrideLayoutTraits"]
+- ["7SwiftUI19UIViewRepresentableP", "_overrideSizeThatFits"]
+- ["7SwiftUI19UIViewRepresentableP", "body"]
+- ["7SwiftUI19UIViewRepresentableP", "dismantleUIView"]
+- !private ["7SwiftUI19UIViewRepresentableP", "input"]
+- ["7SwiftUI19UIViewRepresentableP", "makeCoordinator"]
+- ["7SwiftUI19UIViewRepresentableP", "makeUIView"]
+- ["7SwiftUI19UIViewRepresentableP", "updateUIView"]
+- !private ["7SwiftUI26UIViewRepresentableContextV", "coordinator"]
+- !private ["7SwiftUI4ViewP", "$input"]
+- ["7SwiftUI4ViewP", "Body"]
+- ["7SwiftUI4ViewP", "Coordinator"]
+- !private ["7SwiftUI4ViewP", "Cordinator"]
+- !private ["7SwiftUI4ViewP", "UISearchBar"]
+- ["7SwiftUI4ViewP", "UIViewType"]
+- ["7SwiftUI4ViewP", ""]
+- ["7SwiftUI4ViewP", "_Default_Body"]
+- ["7SwiftUI4ViewP", "_Default_Coordinator"]
+- ["7SwiftUI4ViewP", "_Default_UIViewType"]
+- ["7SwiftUI4ViewP", "_identifiedViewTree"]
+- ["7SwiftUI4ViewP", "_makeView"]
+- ["7SwiftUI4ViewP", "_makeViewList"]
+- ["7SwiftUI4ViewP", "_overrideLayoutTraits"]
+- ["7SwiftUI4ViewP", "_overrideSizeThatFits"]
+- ["7SwiftUI4ViewP", "body"]
+- ["7SwiftUI4ViewP", "dismantleUIView"]
+- !private ["7SwiftUI4ViewP", "input"]
+- ["7SwiftUI4ViewP", "makeCoordinator"]
+- ["7SwiftUI4ViewP", "makeUIView"]
+- ["7SwiftUI4ViewP", "updateUIView"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "zero"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "_text"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "delegate"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "position"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "positionForBar"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "searchBar"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "searchBarBookmarkButtonClicked"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "searchBarCancelButtonClicked"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "searchBarResultsListButtonClicked"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "searchBarSearchButtonClicked"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "searchBarShouldBeginEditing"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "searchBarShouldEndEditing"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "searchBarTextDidBeginEditing"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "searchBarTextDidEndEditing"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "text"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", ""]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "_text"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "delegate"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "position"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "positionForBar"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "searchBar"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "searchBarBookmarkButtonClicked"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "searchBarCancelButtonClicked"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "searchBarResultsListButtonClicked"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "searchBarSearchButtonClicked"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "searchBarShouldBeginEditing"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "searchBarShouldEndEditing"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "searchBarTextDidBeginEditing"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "searchBarTextDidEndEditing"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "text"]
+- !private ["s21_ObjectiveCBridgeableP", "zero"]
+- !private ["s38__DefaultCustomPlaygroundQuickLookableP", "delegate"]
+- !private ["s38__DefaultCustomPlaygroundQuickLookableP", "init"]
+- !private ["s38__DefaultCustomPlaygroundQuickLookableP", "text"]
+depends-nominal:
+- !private "7SwiftUI10AnimatableP"
+- !private "So15CALayerDelegateP"
+- !private "So6CGRectV"
+- "s7CVarArgP"
+- "16ManagementSystem9SearchBarV10CordinatorC"
+- "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "Se"
+- !private "SE"
+- "SQ"
+- "SH"
+- !private "So8NSCodingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "16ManagementSystem9SearchBarV"
+- !private "So29UIAccessibilityIdentificationP"
+- !private "So12UIAppearanceP"
+- !private "So21UIAppearanceContainerP"
+- !private "So16UIBarPositioningP"
+- "So24UIBarPositioningDelegateP"
+- !private "So17UICoordinateSpaceP"
+- !private "So13UIDynamicItemP"
+- !private "So18UIFocusEnvironmentP"
+- !private "So11UIFocusItemP"
+- !private "So20UIFocusItemContainerP"
+- !private "So24UILargeContentViewerItemP"
+- !private "So30UIPasteConfigurationSupportingP"
+- !private "So11UIResponderC"
+- !private "So30UIResponderStandardEditActionsP"
+- !private "So11UISearchBarC"
+- "So19UISearchBarDelegateP"
+- !private "So17UITextInputTraitsP"
+- !private "So18UITraitEnvironmentP"
+- !private "So23UIUserActivityRestoringP"
+- !private "So6UIViewC"
+- "7SwiftUI19UIViewRepresentableP"
+- !private "7SwiftUI26UIViewRepresentableContextV"
+- "7SwiftUI4ViewP"
+- !private "s30_CustomPlaygroundQuickLookableP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "10Foundation37_KeyValueCodingAndObservingPublishingP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s38__DefaultCustomPlaygroundQuickLookableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/ObjectiveC.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreData.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreImage.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/QuartzCore.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Dispatch.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Metal.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Darwin.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Foundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreFoundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreGraphics.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/os.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Swift.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/UIKit.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/SwiftOnoneSupport.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/SwiftUI.framework/Modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Combine.framework/Modules/Combine.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/ObjectiveC.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreData.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreImage.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/QuartzCore.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Dispatch.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Metal.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Darwin.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Foundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreFoundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreGraphics.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/os.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Swift.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/UIKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftOnoneSupport.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Combine.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Users/annamihaleva/ManagementSystem/Pods/Firebase/CoreOnly/Sources/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UserNotifications.framework/Headers/UserNotifications.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/os.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "4c817b31c24bc2114d45b9a86b21c237"

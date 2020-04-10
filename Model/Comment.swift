@@ -15,8 +15,8 @@ struct Comment : Codable, Hashable {
     var text : String
     var author: String
     var date: Date
-    var task: Int
-    var id: Int
+    var task: String
+    var id: String
     
     var documentData: [String : Any] {
       return [
@@ -44,7 +44,7 @@ struct Comment : Codable, Hashable {
 
 extension Comment : DocumentSerializable {
     
-    init(text: String = "", author: String = "", task: Int = 0, date: Date = Date(), id: Int = 0) {
+    init(text: String = "", author: String = "", task: String = "", date: Date = Date(), id: String = "") {
         self.init(text: text,
                   author: author,
                   date: date,
@@ -56,8 +56,8 @@ extension Comment : DocumentSerializable {
       guard let text = dictionary["text"] as? String,
           let author = dictionary["author"] as? String,
           let date = dictionary["date"] as? Timestamp,
-          let task = dictionary["task"] as? Int,
-          let id = dictionary["id"] as? Int else { return nil }
+          let task = dictionary["task"] as? String,
+          let id = dictionary["id"] as? String else { return nil }
 
       self.init(text: text,
                 author: author,

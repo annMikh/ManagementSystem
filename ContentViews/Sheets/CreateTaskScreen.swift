@@ -28,8 +28,8 @@ struct CreateTaskScreen : View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var chosen = AssignedUser()
     
-    @State var session = SessionViewModel.shared
-    @ObservedObject var store = TaskStore.shared
+    @State var session = Session.shared
+    @ObservedObject var store = TaskStore()
     
     private var priorities = Priority.getAllCases()
     private var statuses = Status.getAllCases()
@@ -69,7 +69,7 @@ struct CreateTaskScreen : View {
                         }.pickerStyle(SegmentedPickerStyle())
                         
                         
-                        Text("Participants").font(.headline).foregroundColor(Color.primaryBlue)
+                        Text("Assigned user").font(.headline).foregroundColor(Color.primaryBlue)
                         
                         NavigationLink(destination: SearchAssignee(chosen: chosen), isActive: $isAddAssignee) {
                             Button(action: { self.isAddAssignee.toggle() }) {
@@ -135,7 +135,7 @@ struct CreateTaskScreen : View {
                         status: Status.allCases[self.pickStatus],
                         date: Date(),
                         assignedUser: chosen.user.uid,
-                        id: Date().hashValue,
+                        id: "\(Date().hashValue)",
                         deadline: selection ? selectedDate.description : Deadline.NoDeadline.rawValue)
     }
 }

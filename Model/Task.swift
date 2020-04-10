@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
-struct Task : Hashable, Codable {
+struct Task : Hashable, Codable, Identifiable {
 
     var author: String
     var date : Date
@@ -19,8 +19,8 @@ struct Task : Hashable, Codable {
     var assignedUser: String
     var priority : Priority
     var status : Status
-    var project: Int
-    var id: Int
+    var project: String
+    var id: String
     var deadline: String
     
     var documentData: [String: Any] {
@@ -55,13 +55,13 @@ extension Task : DocumentSerializable {
     
     init(name: String = "",
          description: String = "",
-         project: Int = 0,
+         project: String = "",
          author: String = "",
          priority: Priority = Priority.low,
          status: Status = Status.New,
          date: Date = Date(),
          assignedUser: String = "",
-         id: Int = 0,
+         id: String = "",
          deadline: String = "") {
         
         self.init(
@@ -88,14 +88,14 @@ extension Task : DocumentSerializable {
     private init?(documentID: String, dictionary: [String: Any]) {
       guard let name = dictionary["name"] as? String,
           let description = dictionary["description"] as? String,
-          let project = dictionary["project"] as? Int,
+          let project = dictionary["project"] as? String,
           let assignedUser = dictionary["assignedUser"] as? String,
           let date = dictionary["date"] as? Timestamp,
           let author = dictionary["author"] as? String,
           let status = dictionary["status"] as? String,
           let priority = dictionary["priority"] as? String,
           let deadline = dictionary["deadline"] as? String,
-          let id = dictionary["id"] as? Int else { return nil }
+          let id = dictionary["id"] as? String else { return nil }
 
         self.init(name: name,
                 description: description,
