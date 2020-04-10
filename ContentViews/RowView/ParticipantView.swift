@@ -16,11 +16,14 @@ struct ParticipantView : View {
     @State var isSelected : Bool = false
 
     var body: some View {
-        HStack {
-            Text(self.user.email)
-            Spacer()
-            Text(self.user.position.rawValue).foregroundColor(.gray).padding(.horizontal, 5)
-            Image(systemName: "checkmark").opacity(self.isSelected ? 1.0 : 0.0)
+        VStack {
+            HStack {
+                Text(self.user.email).padding(.horizontal, 5)
+                Spacer()
+                Text(self.user.position.rawValue).foregroundColor(.gray).padding(.horizontal, 5)
+                Image(systemName: "checkmark").opacity(self.isSelected ? 1.0 : 0.0)
+            }
+            Divider()
         }.onTapGesture {
             self.isSelected.toggle()
             if self.selections.users.contains(self.user) {

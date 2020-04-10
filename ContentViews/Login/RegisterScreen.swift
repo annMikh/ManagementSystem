@@ -21,7 +21,7 @@ struct RegisterView: View {
     @State private var pickerSelection = 0
     
     @Environment(\.presentationMode) var presentationMode
-    @State var session = SessionViewModel.shared
+    @State var session = Session.shared
     
     private var positions = Position.getAllCases()
     

@@ -12,10 +12,11 @@ import SwiftUI
 struct TaskView : View {
     
     @State var task: Task
+    @State var project: Project
     
     var body : some View {
         NavigationLink(destination: TaskContent) {
-            VStack {
+            VStack(spacing: 5) {
                 HStack(alignment: .center, spacing: 3) {
                     Divider()
                         .background(Priority.getColor(priority: task.priority))
@@ -62,7 +63,7 @@ struct TaskView : View {
     }
     
     var TaskContent : some View {
-        TaskContentScreen(task: self.task)
+        TaskContentScreen(self.task, self.project)
             .navigationBarBackButtonHidden(false)
     }
 }

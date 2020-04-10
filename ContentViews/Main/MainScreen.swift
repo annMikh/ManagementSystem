@@ -13,17 +13,16 @@ import Firebase
 struct MainView : View {
 
     @State private var selectorType: Int = 0
-    @State private var searchValue : String = ""
-    @State private var activeSheet : ActiveSheet = .add
+    @State private var activeSheet : StateMachine.State = .Add
     
     @State private var isClickedProfile = false
     @State private var isClickedSearch = false
     @State private var isPresentingAdd: Bool = false
     @State private var isPresentingEdit: Bool = false
-    
+        
     @Environment(\.presentationMode) var presentationMode
-    @State var session = SessionViewModel.shared
-    @ObservedObject var store = ProjectStore.shared
+    @State var session = Session.shared
+    @ObservedObject var store = ProjectStore()
     
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = Color.primaryBlueUI
@@ -52,7 +51,6 @@ struct MainView : View {
                     NavigationLink(destination: SearchView, isActive: $isClickedSearch) {
                         Button(action: {
                             self.isClickedSearch.toggle()
-                            
                         }) {
                             Image(systemName: "magnifyingglass")
                                 .resizable()
@@ -69,15 +67,14 @@ struct MainView : View {
                 }.pickerStyle(SegmentedPickerStyle())
                 
                 List {
-                    ForEach(self.$selectorType.wrappedValue == 0 ?
-                        self.store.projects : self.store.projects.filter { $0.creator == self.session.currentUser.bound.uid },
-                            id: \.id) { proj in
+                    ForEach(filterList()) { proj in
                         ProjectView(project: proj)
                     }
                     .onDelete(perform: delete)
                     .onMove(perform: move)
                 }
                 .environment(\.editMode, .constant(self.isPresentingEdit ? EditMode.active : EditMode.inactive))
+                .id(UUID())
                 
                 Spacer()
             }
@@ -105,6 +102,12 @@ struct MainView : View {
         self.store.loadProjects(user: self.session.session)
     }
     
+    private func filterList() -> [Project] {
+        return self.$selectorType.wrappedValue == 0 ?
+                    self.store.projects :
+                    self.store.projects.filter { $0.creator == self.session.currentUser.bound.uid }
+    }
+    
     private func delete(at offsets: IndexSet) {
         offsets.forEach { index in
             self.store.deleteProject(index)
@@ -117,19 +120,18 @@ struct MainView : View {
     
     private var FloatButton : some View {
         FloatingButton(actionAdd: {
-                        self.activeSheet = .add
-                        self.isPresentingAdd.toggle()
+                        self.activeSheet = .Add
                         self.store.setState(state: .Add)
+                        self.isPresentingAdd.toggle()
         },
                        actionEdit: {
-                        self.activeSheet = .edit
+                        self.activeSheet = .Edit
                         self.isPresentingEdit.toggle()
-                        self.store.setState(state: .Edit)
         })
             .padding()
             .sheet(isPresented: self.$isPresentingAdd) {
-                if self.activeSheet == .add {
-                    CreateProjectScreen()
+                if self.activeSheet == .Add {
+                    CreateProjectScreen().environmentObject(self.store)
                 }
             }
     }

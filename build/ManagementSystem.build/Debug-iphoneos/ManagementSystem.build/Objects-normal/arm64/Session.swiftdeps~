@@ -1,0 +1,167 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SessionViewModel"
+provides-nominal:
+- "16ManagementSystem16SessionViewModelC"
+provides-member:
+- ["16ManagementSystem16SessionViewModelC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AssignmentPrecedence"
+- !private "Auth"
+- "AuthDataResultCallback"
+- "CollectionReference"
+- "Comment"
+- "Error"
+- "FIRDocumentSnapshotBlock"
+- "FirebaseAuth"
+- "Firestore"
+- "Project"
+- "SendPasswordResetCallback"
+- "SessionViewModel"
+- "String"
+- "Task"
+- "User"
+- "Void"
+depends-member:
+- !private ["16ManagementSystem7CommentV", "deinit"]
+- !private ["16ManagementSystem7CommentV", "documentData"]
+- !private ["16ManagementSystem7CommentV", "id"]
+- !private ["s28CustomDebugStringConvertibleP", "bound"]
+- !private ["s17CustomReflectableP", "bound"]
+- !private ["Se", "bound"]
+- !private ["Se", "documentData"]
+- !private ["Se", "id"]
+- !private ["Se", "uid"]
+- !private ["16ManagementSystem20DocumentSerializableP", "documentData"]
+- !private ["16ManagementSystem20DocumentSerializableP", "id"]
+- !private ["16ManagementSystem20DocumentSerializableP", "uid"]
+- !private ["SE", "bound"]
+- !private ["SE", "documentData"]
+- !private ["SE", "id"]
+- !private ["SE", "uid"]
+- !private ["SQ", "bound"]
+- !private ["SQ", "documentData"]
+- !private ["SQ", "id"]
+- !private ["SQ", "uid"]
+- !private ["s23ExpressibleByNilLiteralP", "bound"]
+- !private ["7SwiftUI7GestureP", "bound"]
+- !private ["SH", "bound"]
+- !private ["SH", "documentData"]
+- !private ["SH", "id"]
+- !private ["SH", "uid"]
+- !private ["Sq", "bound"]
+- !private ["16ManagementSystem7ProjectV", "deinit"]
+- !private ["16ManagementSystem7ProjectV", "documentData"]
+- !private ["16ManagementSystem7ProjectV", "id"]
+- !private ["16ManagementSystem16SessionViewModelC", "Auth"]
+- ["16ManagementSystem16SessionViewModelC", "AuthDataResultCallback"]
+- ["16ManagementSystem16SessionViewModelC", "Comment"]
+- ["16ManagementSystem16SessionViewModelC", "Error"]
+- ["16ManagementSystem16SessionViewModelC", "FIRDocumentSnapshotBlock"]
+- ["16ManagementSystem16SessionViewModelC", "FirebaseAuth"]
+- ["16ManagementSystem16SessionViewModelC", "Firestore"]
+- ["16ManagementSystem16SessionViewModelC", "Project"]
+- ["16ManagementSystem16SessionViewModelC", "SendPasswordResetCallback"]
+- ["16ManagementSystem16SessionViewModelC", "SessionViewModel"]
+- ["16ManagementSystem16SessionViewModelC", "String"]
+- ["16ManagementSystem16SessionViewModelC", "Task"]
+- ["16ManagementSystem16SessionViewModelC", "User"]
+- ["16ManagementSystem16SessionViewModelC", "Void"]
+- ["16ManagementSystem16SessionViewModelC", "clearSession"]
+- ["16ManagementSystem16SessionViewModelC", "createComment"]
+- ["16ManagementSystem16SessionViewModelC", "createProject"]
+- ["16ManagementSystem16SessionViewModelC", "createTask"]
+- ["16ManagementSystem16SessionViewModelC", "createUser"]
+- ["16ManagementSystem16SessionViewModelC", "currentSession"]
+- ["16ManagementSystem16SessionViewModelC", "currentUser"]
+- !private ["16ManagementSystem16SessionViewModelC", "db"]
+- ["16ManagementSystem16SessionViewModelC", "deleteComment"]
+- ["16ManagementSystem16SessionViewModelC", "deleteProject"]
+- ["16ManagementSystem16SessionViewModelC", "deleteTask"]
+- !private ["16ManagementSystem16SessionViewModelC", "getProfile"]
+- ["16ManagementSystem16SessionViewModelC", "init"]
+- ["16ManagementSystem16SessionViewModelC", "logOut"]
+- !private ["16ManagementSystem16SessionViewModelC", "session"]
+- !private ["16ManagementSystem16SessionViewModelC", "setUser"]
+- ["16ManagementSystem16SessionViewModelC", "shared"]
+- ["16ManagementSystem16SessionViewModelC", "updateProfile"]
+- ["16ManagementSystem16SessionViewModelC", "updateProject"]
+- ["16ManagementSystem16SessionViewModelC", "updateTask"]
+- !private ["16ManagementSystem4TaskV", "deinit"]
+- !private ["16ManagementSystem4TaskV", "documentData"]
+- !private ["16ManagementSystem4TaskV", "id"]
+- !private ["16ManagementSystem4UserV", "deinit"]
+- !private ["16ManagementSystem4UserV", "documentData"]
+- !private ["16ManagementSystem4UserV", "uid"]
+- !private ["7SwiftUI4ViewP", "bound"]
+- !private ["s21_ObjectiveCBridgeableP", "bound"]
+depends-nominal:
+- !private "16ManagementSystem7CommentV"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- !private "Se"
+- !private "16ManagementSystem20DocumentSerializableP"
+- !private "SE"
+- !private "SQ"
+- !private "s23ExpressibleByNilLiteralP"
+- !private "7SwiftUI7GestureP"
+- !private "SH"
+- !private "Sq"
+- !private "16ManagementSystem7ProjectV"
+- "16ManagementSystem16SessionViewModelC"
+- !private "16ManagementSystem4TaskV"
+- !private "16ManagementSystem4UserV"
+- !private "7SwiftUI4ViewP"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/ObjectiveC.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreData.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreImage.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/QuartzCore.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Dispatch.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Metal.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Darwin.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Foundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreFoundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreGraphics.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/os.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Swift.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/UIKit.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/SwiftOnoneSupport.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/SwiftUI.framework/Modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Combine.framework/Modules/Combine.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/ObjectiveC.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreData.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreImage.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/QuartzCore.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Dispatch.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Metal.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Darwin.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Foundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreFoundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreGraphics.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/os.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Swift.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/UIKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftOnoneSupport.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Combine.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Users/annamihaleva/ManagementSystem/Pods/Firebase/CoreOnly/Sources/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UserNotifications.framework/Headers/UserNotifications.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/os.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "687242d429f6b84359f1b00f53d64b13"

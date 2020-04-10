@@ -21,9 +21,9 @@ struct CreateProjectScreen : View {
     
     @ObservedObject var participants = Participants()
     
-    @State var session = SessionViewModel.shared
+    @State var session = Session.shared
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var store = ProjectStore.shared
+    @EnvironmentObject var store : ProjectStore
     
     var body: some View {
         NavigationView {
@@ -65,14 +65,14 @@ struct CreateProjectScreen : View {
                     }
                 }
                 
-                if self.participants.isNotEmpty() {
+                if !self.store.project.participants.isEmpty {
                         ForEach(self.participants.users, id: \.uid) { user in
                             HStack {
                                 Text(user.email)
                                 Spacer()
                                 Text(user.position.rawValue).foregroundColor(.gray)
                             }.frame(maxHeight: 30)
-                    }
+                        }
                 }
                 
                 Toggle(isOn: $isOpenProject) {
@@ -105,6 +105,7 @@ struct CreateProjectScreen : View {
             
             if !self.isIncorrectInput {
                 self.store.setProject(self.buildProject())
+                self.store.objectWillChange.send()
                 self.presentationMode.wrappedValue.dismiss()
             }
             
@@ -115,20 +116,24 @@ struct CreateProjectScreen : View {
         var project = Project(name: self.name,
                               description: self.description,
                               accessType: AccessType(mode: self.isOpenProject ? "open" : "close"),
-                              creator: self.session.currentUser.bound.uid,
-                              date: Date(),
+                              creator: self.store.state == .Add ? self.session.currentUser.bound.uid : self.store.project.creator,
+                              date: self.store.state == .Add ? Date() : self.store.project.date,
                               tag: Formatter.handleTag(self.tag),
-                              id: self.store.state == .Add ? Date().hashValue : self.store.project.id)
-        project.participants.append(self.session.currentUser.bound.uid)
+                              id: self.store.state == .Add ? "\(Date().hashValue)" : self.store.project.id)
+        if  self.store.state == .Add {
+            project.participants.append(self.session.currentUser.bound.uid)
+        }
         participants.users.forEach{ project.participants.append($0.uid) }
         return project
     }
     
     private func clear() {
-        self.name.removeAll()
-        self.description.removeAll()
-        self.tag.removeAll()
-        self.isOpenProject = false
+        if self.store.state != .Edit {
+            self.name.removeAll()
+            self.description.removeAll()
+            self.tag.removeAll()
+            self.isOpenProject = false
+        }
     }
     
     private func setFields() {

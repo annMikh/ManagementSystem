@@ -11,8 +11,6 @@ import SwiftUI
 
 struct Boards : View {
     
-    @State private var showingDetail = false
-    
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             Text("Boards")

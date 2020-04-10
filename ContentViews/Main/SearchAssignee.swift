@@ -31,12 +31,15 @@ struct SearchAssignee : View {
                     Spacer()
                 }
             } else {
-                VStack(alignment: .leading) {
-                    ForEach(self.getUsers(), id: \.email) { user in
-                        HStack {
-                            Text(user.email)
-                            Spacer()
-                            Text(user.position.rawValue).foregroundColor(.gray)
+                ScrollView {
+                    ForEach(self.filterUsers(), id: \.email) { user in
+                        VStack(spacing: 5) {
+                            HStack {
+                                Text(user.email)
+                                Spacer()
+                                Text(user.position.rawValue).foregroundColor(.gray)
+                            }
+                            Divider()
                         }.padding(.horizontal, 10)
                         .padding(.top, 10)
                         .onTapGesture {
@@ -65,7 +68,7 @@ struct SearchAssignee : View {
         }
     }
     
-    func getUsers() -> [User] {
+    func filterUsers() -> [User] {
         return self.users.filter{ $0.email.contains(self.input.lowercased()) ||
             $0.name.contains(self.input.lowercased()) || $0.lastName.contains(self.input.lowercased())
         }

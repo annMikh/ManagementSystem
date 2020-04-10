@@ -29,8 +29,8 @@ struct SearchParticipants : View {
                     Spacer()
                 }
             } else {
-                VStack {
-                    ForEach(self.getUsers(), id: \.email) { user in
+                ScrollView {
+                    ForEach(self.filterUsers(), id: \.email) { user in
                         ParticipantView(user: user,
                                         isSelected: self.selections.users.contains(user)).environmentObject(self.selections)
                             .padding(.horizontal, 10)
@@ -41,7 +41,6 @@ struct SearchParticipants : View {
             }
         }
             .navigationBarTitle(Text("Search").bold(), displayMode: .inline)
-            .navigationBarItems(trailing: EditButton())
             .onAppear {
                 Database.shared.getUsers(com: self.loadUsers)
             }
@@ -58,7 +57,7 @@ struct SearchParticipants : View {
         }
     }
     
-    func getUsers() -> [User] {
+    func filterUsers() -> [User] {
         return self.users.filter{ $0.email.contains(self.input.lowercased()) }
     }
 }

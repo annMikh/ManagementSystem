@@ -11,7 +11,7 @@ import SwiftUI
 
 struct ContentView : View {
     
-    @State var session = SessionViewModel.shared
+    @State var session = Session.shared
 
     var body: some View {
         AnyView({ () -> AnyView in
@@ -32,7 +32,6 @@ struct ContentView : View {
                      .foregroundColor(.primary)
                 )
                 .navigationBarBackButtonHidden(true)
-                .environmentObject(ProjectStore.shared)
         }
     }
     

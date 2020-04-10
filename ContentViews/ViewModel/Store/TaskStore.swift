@@ -8,10 +8,13 @@
 
 import Foundation
 import SwiftUI
+import Combine
 import FirebaseFirestore
 
 final class TaskStore : ObservableObject {
     
+    let objectWillChange = PassthroughSubject<(), Never>()
+            
     @Published var tasks = [Task]()
     @Published var task = Task()
     @Published var isLoad = false
@@ -19,13 +22,21 @@ final class TaskStore : ObservableObject {
     
     @Published var author : User?
     @Published var assigned : User?
-    private init() {}
     
-    private var session = SessionViewModel.shared
+    private var session = Session.shared
     private var database = Database.shared
     
-    static let shared = TaskStore()
+    func update(item: Task) {
+       defer {
+           objectWillChange.send(())
+       }
+    }
     
+    func update(item: User?) {
+       defer {
+           objectWillChange.send(())
+       }
+    }
     
     func loadTasks(_ project: Project) {
         database.getTasks(project: project) { (snap, error) in
@@ -36,7 +47,7 @@ final class TaskStore : ObservableObject {
             snap!.documents.forEach {
                 let t = Task(document: $0)!
                 self.tasks.append(t)
-                print(t.name)
+                self.update(item: t)
             }
             self.isLoad = true
         }
@@ -71,13 +82,16 @@ final class TaskStore : ObservableObject {
     }
     
     func indexOf() -> Int? {
-        return tasks.firstIndex(of: self.task)
+        return tasks.firstIndex(where: { $0.id == self.task.id })
     }
     
-    func updateTask(_ project: Task) {
+    func updateTask(_ task: Task) {
         if let index = indexOf() {
-            tasks[index] = task
+            tasks.remove(at: index)
+            tasks.insert(task, at: index)
+            self.update(item: task)
         }
+        session.updateTask(task)
     }
     
     func move(source: IndexSet, destination: Int) {
@@ -91,6 +105,7 @@ final class TaskStore : ObservableObject {
     func loadAuthor(userId: String) {
         database.getUser(userId: userId) { (doc, err) in
             self.author = User(dictionary: doc!.data() ?? [String : Any]())!
+            self.update(item: self.author)
         }
     }
     
@@ -98,4 +113,11 @@ final class TaskStore : ObservableObject {
         database.getUser(userId: userId, com: com)
     }
     
+    func clear() {
+        self.task = Task()
+        self.tasks = [Task]()
+        self.assigned = nil
+        self.author = nil
+        self.state = .None
+    }
 }

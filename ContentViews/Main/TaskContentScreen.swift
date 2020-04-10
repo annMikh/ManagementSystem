@@ -11,17 +11,19 @@ import SwiftUI
 
 struct TaskContentScreen : View {
     
-    @State var task: Task
     @State var deadline = Date()
     @State private var alertInput = ""
     @State private var isClickedEdit = false
     @State private var editPermission = false
     @State private var isAddAssignee = false
     @State var selection = false
-    @State private var session = SessionViewModel.shared
+    @State private var session = Session.shared
     
     @State var pickPriority = 0
     @State var pickStatus = 0
+    
+    @State var name = ""
+    @State var description = ""
     
     @ObservedObject var chosen = AssignedUser()
     
@@ -29,15 +31,21 @@ struct TaskContentScreen : View {
     private let priority = Priority.getAllCases()
     
     @ObservedObject var store = CommentStore.shared
-    @ObservedObject var taskStore = TaskStore.shared
+    @ObservedObject var taskStore : TaskStore
+    
+    init(_ t: Task, _ p: Project) {
+        self.taskStore = TaskStore()
+        taskStore.setTask(t, p)
+        taskStore.setState(.View)
+    }
     
     var body : some View {
             ScrollView {
-               if Permission.toEditTask(task: self.task) {
+              if Permission.toEditTask(task: self.taskStore.task) {
                     HStack {
                         Spacer()
                         Button(action: {
-                            if Permission.toEditTask(task: self.task) {
+                            if Permission.toEditTask(task: self.taskStore.task) {
                                 if self.isClickedEdit {
                                     self.updateTask()
                                 }
@@ -58,9 +66,8 @@ struct TaskContentScreen : View {
                     }.padding(.trailing, CGFloat(20.0))
                 }
                 Group {
-                    LabelTextField(label: "Name", placeHolder: "enter task name", text: $task.name)
-                    LabelTextField(label: "Description", placeHolder: "enter description", text: $task.description)
-                    
+                    LabelTextField(label: "Name", placeHolder: "enter task name", text: $name)
+                    LabelTextField(label: "Description", placeHolder: "enter description", text: $description)
                     LabelTextField(label: "Assigned by", placeHolder: "enter user assigned by", text: $taskStore.author.bound.email)
                         .disabled(true)
                 }
@@ -115,7 +122,7 @@ struct TaskContentScreen : View {
                     }
                 }.disabled(!self.isClickedEdit)
                 
-                if $task.deadline.wrappedValue != Deadline.NoDeadline.rawValue || self.isClickedEdit {
+                if $taskStore.task.deadline.wrappedValue != Deadline.NoDeadline.rawValue || self.isClickedEdit {
                     VStack(alignment: .leading) {
                         Text("Deadline")
                             .font(.headline)
@@ -133,8 +140,11 @@ struct TaskContentScreen : View {
                             Text("No deadline")
                         }.padding()
                     }.animation(.linear)
+                    .disabled(!self.isClickedEdit)
                 } else {
-                    LabelTextField(label: "Deadline", placeHolder: "enter deadline", text: $task.deadline)
+                    LabelTextField(label: "Deadline", placeHolder: "enter deadline", text: $taskStore.task.deadline)
+                            .padding(.horizontal, 10)
+                            .padding(.bottom, 10)
                 }
                 
             
@@ -155,9 +165,20 @@ struct TaskContentScreen : View {
                     }
                     Spacer()
                 }
-                
-                ForEach(self.store.comments, id: \.id) { comment in
-                    CommentView(comment: comment)
+                if self.store.comments.isEmpty {
+                    HStack {
+                        Spacer()
+                        Text("There aren't the comments\n for this task yet")
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.gray)
+                            .padding()
+                        Spacer()
+                    }.padding()
+                }
+                else {
+                    ForEach(self.store.comments, id: \.id) { comment in
+                        CommentView(comment: comment)
+                    }
                 }
             }
             .showAlert(title: Constant.ErrorTitle, text: Constant.ErrorEditTitle, isPresent: $editPermission)
@@ -167,17 +188,20 @@ struct TaskContentScreen : View {
     }
     
     private func onAppear() {
-        self.pickStatus = status.firstIndex(of: self.task.status.rawValue) ?? 0
-        self.pickStatus = priority.firstIndex(of: self.task.priority.rawValue) ?? 0
-        self.selection = task.deadline == Deadline.NoDeadline.rawValue
-        self.taskStore.loadAssigned(userId: self.task.assignedUser) { (doc, err) in
+        self.selection = taskStore.task.deadline == Deadline.NoDeadline.rawValue
+        self.name = taskStore.task.name
+        self.description = taskStore.task.description
+        self.pickStatus = Status.allCases.firstIndex(of: taskStore.task.status)!
+        self.pickPriority = Priority.allCases.firstIndex(of: taskStore.task.priority)!
+        self.selection = taskStore.task.deadline == Deadline.NoDeadline.rawValue
+        taskStore.loadAssigned(userId: taskStore.task.assignedUser) { (doc, err) in
             self.taskStore.assigned = User(dictionary: doc!.data() ?? [String : Any]())!
             if !self.chosen.isNotEmpty() {
                 self.chosen.user = self.taskStore.assigned!
             }
         }
-        self.taskStore.loadAuthor(userId: self.task.author)
-        self.store.loadComments(task: self.task)
+        self.taskStore.loadAuthor(userId: taskStore.task.author)
+        self.store.loadComments(task: taskStore.task)
     }
     
     private func alert() {
@@ -202,11 +226,11 @@ struct TaskContentScreen : View {
     }
     
     private func buildTask() -> Task {
-        var t = Task(from: task)
-        t.name = task.name
-        t.description = task.description
+        var t = Task(from: taskStore.task)
+        t.name = name
+        t.description = description
         t.assignedUser = chosen.user.uid
-        t.project = task.project
+        t.project = taskStore.task.project
         t.priority = Priority.allCases[pickPriority]
         t.status = Status.allCases[pickStatus]
         t.deadline = self.selection ?
@@ -262,9 +286,9 @@ struct TaskContentScreen : View {
         if !alertInput.isEmpty {
             let comment = Comment(text: alertInput,
                                    author: session.currentUser.bound.uid,
-                                   task: task.id,
+                                   task: taskStore.task.id,
                                    date: Date(),
-                                   id: Date().hashValue)
+                                   id: "\(Date().hashValue)")
             self.session.createComment(comment)
             self.store.add(comment)
         }

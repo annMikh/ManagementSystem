@@ -10,9 +10,9 @@ import Foundation
 import Firebase
 import FirebaseAuth
 
-class SessionViewModel {
+class Session {
     
-    static let shared = SessionViewModel()
+    static let shared = Session()
     
     private init() {
         Auth.auth().addStateDidChangeListener { (auth, newUser) in
@@ -34,7 +34,7 @@ class SessionViewModel {
     func setUser(firebaseUser: FirebaseAuth.UserInfo?) {
         if let firebaseUser = firebaseUser {
             getProfile(user: firebaseUser.uid) { (doc, err) in
-                if err == nil {
+                if err == nil && doc != nil {
                     self.currentUser = User(dictionary: doc?.data() ?? [String : Any]())!
                 }
             }
@@ -62,7 +62,7 @@ class SessionViewModel {
     // MARK: register flow
     
     func createUser(_ user: User) {
-        self.currentUser  = user
+        self.currentUser = user
         db.users.document(user.uid).setData(user.documentData)
     }
     
@@ -79,44 +79,45 @@ class SessionViewModel {
     // MARK: project
     
     func createProject(_ project: Project) {
-        db.projects.document("\(project.id)").setData(project.documentData)
+        db.projects.document(project.id).setData(project.documentData)
     }
     
-    private func updateProject(_ project: Project) {
-        db.projects.document(String(project.id)).updateData(project.documentData)
+    func updateProject(_ project: Project) {
+        db.projects.document(project.id).updateData(project.documentData)
     }
     
     func deleteProject(_ project: Project, com: @escaping (Error?) -> Void) {
-        db.projects.document("\(project.id)").delete(completion: com)
+        db.projects.document(project.id).delete(completion: com)
     }
     
     // MARK: task
     
     func createTask(task: Task, project: Project) {
-        db.tasks.document(String(describing: task.id)).setData(task.documentData)
+        db.tasks.document(task.id).setData(task.documentData)
     }
     
     func updateTask(_ task: Task) {
-        db.tasks.document(String(describing: task.id)).updateData(task.documentData)
+        db.tasks.document(task.id).updateData(task.documentData)
     }
     
     func deleteTask(_ task: Task, com: @escaping (Error?) -> Void) {
-        db.tasks.document(String(describing: task.id)).delete(completion: com)
+        db.tasks.document(task.id).delete(completion: com)
     }
     
     // MARK: comment
     
     func createComment(_ comment: Comment) {
-        db.comments.document("\(comment.id)").setData(comment.documentData)
+        db.comments.document(comment.id).setData(comment.documentData)
     }
     
     func deleteComment(_ comment: Comment, com: @escaping (Error?) -> Void) {
-        db.comments.document("\(comment.id)").delete(completion: com)
+        db.comments.document(comment.id).delete(completion: com)
     }
     
     func clearSession() {
         self.currentUser = nil
-        self.session = nil
+        self.session = nil 
+        CommentStore.shared.clear()
     }
 }
 
@@ -143,4 +144,3 @@ extension Firestore {
   }
 
 }
-

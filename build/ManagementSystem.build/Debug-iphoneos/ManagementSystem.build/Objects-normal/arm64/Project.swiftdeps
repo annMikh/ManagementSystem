@@ -1,0 +1,358 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Project"
+- "=="
+provides-nominal:
+- "16ManagementSystem7ProjectV"
+provides-member:
+- ["16ManagementSystem7ProjectV", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "&&"
+- "=="
+- "AccessType"
+- "AssignmentPrecedence"
+- "Bool"
+- "CastingPrecedence"
+- "Codable"
+- "Date"
+- "DocumentSerializable"
+- "DocumentSnapshot"
+- !private "FloatLiteralType"
+- "Hashable"
+- "Hasher"
+- !private "IntegerLiteralType"
+- "Project"
+- "QueryDocumentSnapshot"
+- "String"
+- !private "StringLiteralType"
+- !private "Timestamp"
+- !private "~="
+depends-member:
+- ["16ManagementSystem10AccessTypeO", "deinit"]
+- !private ["16ManagementSystem10AccessTypeO", "init"]
+- !private ["16ManagementSystem10AccessTypeO", "open"]
+- !private ["16ManagementSystem10AccessTypeO", "rawValue"]
+- ["Sa", "init"]
+- ["SK", "init"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "subscript"]
+- !private ["s12CaseIterableP", "init"]
+- !private ["s12CaseIterableP", "open"]
+- !private ["s12CaseIterableP", "rawValue"]
+- ["s9CodingKeyP", "=="]
+- !private ["s9CodingKeyP", ""]
+- ["s9CodingKeyP", "_rawHashValue"]
+- ["s9CodingKeyP", "debugDescription"]
+- ["s9CodingKeyP", "description"]
+- ["s9CodingKeyP", "hash"]
+- ["s9CodingKeyP", "hashValue"]
+- ["s9CodingKeyP", "init"]
+- ["s9CodingKeyP", "intValue"]
+- ["s9CodingKeyP", "stringValue"]
+- ["Sl", "init"]
+- !private ["Sl", "subscript"]
+- !private ["SL", "init"]
+- ["10Foundation15ContiguousBytesP", "init"]
+- ["s28CustomDebugStringConvertibleP", "=="]
+- !private ["s28CustomDebugStringConvertibleP", ""]
+- ["s28CustomDebugStringConvertibleP", "_rawHashValue"]
+- ["s28CustomDebugStringConvertibleP", "debugDescription"]
+- ["s28CustomDebugStringConvertibleP", "description"]
+- ["s28CustomDebugStringConvertibleP", "hash"]
+- ["s28CustomDebugStringConvertibleP", "hashValue"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "intValue"]
+- ["s28CustomDebugStringConvertibleP", "stringValue"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- ["s23CustomStringConvertibleP", "=="]
+- !private ["s23CustomStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", "_rawHashValue"]
+- ["s23CustomStringConvertibleP", "debugDescription"]
+- ["s23CustomStringConvertibleP", "description"]
+- ["s23CustomStringConvertibleP", "hash"]
+- ["s23CustomStringConvertibleP", "hashValue"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "intValue"]
+- ["s23CustomStringConvertibleP", "stringValue"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["10Foundation12DataProtocolP", "init"]
+- !private ["10Foundation4DateV", "init"]
+- ["Se", "=="]
+- !private ["Se", "AccessType"]
+- !private ["Se", "Date"]
+- ["Se", "DocumentSnapshot"]
+- ["Se", "QueryDocumentSnapshot"]
+- ["Se", "String"]
+- !private ["Se", "Timestamp"]
+- ["Se", ""]
+- ["Se", "_rawHashValue"]
+- !private ["Se", "accessType"]
+- !private ["Se", "creator"]
+- !private ["Se", "date"]
+- !private ["Se", "description"]
+- ["Se", "documentData"]
+- ["Se", "encode"]
+- ["Se", "hash"]
+- ["Se", "hashValue"]
+- !private ["Se", "id"]
+- ["Se", "init"]
+- !private ["Se", "name"]
+- !private ["Se", "open"]
+- !private ["Se", "participants"]
+- !private ["Se", "rawValue"]
+- !private ["Se", "subscript"]
+- !private ["Se", "tag"]
+- !private ["s7DecoderP", "container"]
+- !private ["SD", "subscript"]
+- ["16ManagementSystem20DocumentSerializableP", "=="]
+- !private ["16ManagementSystem20DocumentSerializableP", "AccessType"]
+- !private ["16ManagementSystem20DocumentSerializableP", "Date"]
+- ["16ManagementSystem20DocumentSerializableP", "DocumentSnapshot"]
+- ["16ManagementSystem20DocumentSerializableP", "QueryDocumentSnapshot"]
+- ["16ManagementSystem20DocumentSerializableP", "String"]
+- !private ["16ManagementSystem20DocumentSerializableP", "Timestamp"]
+- ["16ManagementSystem20DocumentSerializableP", ""]
+- ["16ManagementSystem20DocumentSerializableP", "_rawHashValue"]
+- !private ["16ManagementSystem20DocumentSerializableP", "accessType"]
+- !private ["16ManagementSystem20DocumentSerializableP", "creator"]
+- !private ["16ManagementSystem20DocumentSerializableP", "date"]
+- !private ["16ManagementSystem20DocumentSerializableP", "description"]
+- ["16ManagementSystem20DocumentSerializableP", "documentData"]
+- ["16ManagementSystem20DocumentSerializableP", "encode"]
+- ["16ManagementSystem20DocumentSerializableP", "hash"]
+- ["16ManagementSystem20DocumentSerializableP", "hashValue"]
+- !private ["16ManagementSystem20DocumentSerializableP", "id"]
+- ["16ManagementSystem20DocumentSerializableP", "init"]
+- !private ["16ManagementSystem20DocumentSerializableP", "name"]
+- !private ["16ManagementSystem20DocumentSerializableP", "participants"]
+- !private ["16ManagementSystem20DocumentSerializableP", "tag"]
+- ["SE", "=="]
+- !private ["SE", "AccessType"]
+- !private ["SE", "Date"]
+- ["SE", "DocumentSnapshot"]
+- ["SE", "QueryDocumentSnapshot"]
+- ["SE", "String"]
+- !private ["SE", "Timestamp"]
+- ["SE", ""]
+- ["SE", "_rawHashValue"]
+- !private ["SE", "accessType"]
+- !private ["SE", "creator"]
+- !private ["SE", "date"]
+- !private ["SE", "description"]
+- ["SE", "documentData"]
+- ["SE", "encode"]
+- ["SE", "hash"]
+- ["SE", "hashValue"]
+- !private ["SE", "id"]
+- ["SE", "init"]
+- !private ["SE", "name"]
+- !private ["SE", "open"]
+- !private ["SE", "participants"]
+- !private ["SE", "rawValue"]
+- !private ["SE", "subscript"]
+- !private ["SE", "tag"]
+- !private ["s7EncoderP", "container"]
+- ["SQ", "=="]
+- !private ["SQ", "AccessType"]
+- !private ["SQ", "Date"]
+- ["SQ", "DocumentSnapshot"]
+- ["SQ", "QueryDocumentSnapshot"]
+- ["SQ", "String"]
+- !private ["SQ", "Timestamp"]
+- ["SQ", ""]
+- ["SQ", "_rawHashValue"]
+- !private ["SQ", "accessType"]
+- !private ["SQ", "creator"]
+- !private ["SQ", "date"]
+- ["SQ", "debugDescription"]
+- ["SQ", "description"]
+- ["SQ", "documentData"]
+- ["SQ", "encode"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- !private ["SQ", "id"]
+- ["SQ", "init"]
+- ["SQ", "intValue"]
+- !private ["SQ", "name"]
+- !private ["SQ", "open"]
+- !private ["SQ", "participants"]
+- !private ["SQ", "rawValue"]
+- ["SQ", "stringValue"]
+- !private ["SQ", "subscript"]
+- !private ["SQ", "tag"]
+- ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- ["SH", "=="]
+- !private ["SH", "AccessType"]
+- !private ["SH", "Date"]
+- ["SH", "DocumentSnapshot"]
+- ["SH", "QueryDocumentSnapshot"]
+- ["SH", "String"]
+- !private ["SH", "Timestamp"]
+- ["SH", ""]
+- ["SH", "_rawHashValue"]
+- !private ["SH", "accessType"]
+- !private ["SH", "creator"]
+- !private ["SH", "date"]
+- ["SH", "debugDescription"]
+- ["SH", "description"]
+- ["SH", "documentData"]
+- ["SH", "encode"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- !private ["SH", "id"]
+- ["SH", "init"]
+- ["SH", "intValue"]
+- !private ["SH", "name"]
+- !private ["SH", "open"]
+- !private ["SH", "participants"]
+- !private ["SH", "rawValue"]
+- ["SH", "stringValue"]
+- !private ["SH", "subscript"]
+- !private ["SH", "tag"]
+- !private ["s6HasherV", "combine"]
+- !private ["s22KeyedDecodingContainerV", "decode"]
+- !private ["s30KeyedDecodingContainerProtocolP", "decode"]
+- !private ["s22KeyedEncodingContainerV", "encode"]
+- !private ["s30KeyedEncodingContainerProtocolP", "encode"]
+- ["SM", "init"]
+- ["10Foundation19MutableDataProtocolP", "init"]
+- ["16ManagementSystem7ProjectV", "=="]
+- ["16ManagementSystem7ProjectV", "AccessType"]
+- ["16ManagementSystem7ProjectV", "Bool"]
+- ["16ManagementSystem7ProjectV", "Date"]
+- ["16ManagementSystem7ProjectV", "DocumentSnapshot"]
+- ["16ManagementSystem7ProjectV", "Hasher"]
+- ["16ManagementSystem7ProjectV", "Project"]
+- ["16ManagementSystem7ProjectV", "QueryDocumentSnapshot"]
+- ["16ManagementSystem7ProjectV", "String"]
+- !private ["16ManagementSystem7ProjectV", "Timestamp"]
+- ["16ManagementSystem7ProjectV", "_rawHashValue"]
+- ["16ManagementSystem7ProjectV", "accessType"]
+- ["16ManagementSystem7ProjectV", "creator"]
+- ["16ManagementSystem7ProjectV", "date"]
+- ["16ManagementSystem7ProjectV", "deinit"]
+- ["16ManagementSystem7ProjectV", "description"]
+- ["16ManagementSystem7ProjectV", "documentData"]
+- ["16ManagementSystem7ProjectV", "encode"]
+- ["16ManagementSystem7ProjectV", "hash"]
+- ["16ManagementSystem7ProjectV", "hashValue"]
+- ["16ManagementSystem7ProjectV", "id"]
+- ["16ManagementSystem7ProjectV", "init"]
+- ["16ManagementSystem7ProjectV", "name"]
+- ["16ManagementSystem7ProjectV", "participants"]
+- ["16ManagementSystem7ProjectV", "tag"]
+- ["Sk", "init"]
+- ["Sm", "init"]
+- !private ["SY", "init"]
+- !private ["SY", "open"]
+- !private ["SY", "rawValue"]
+- !private ["10Foundation20ReferenceConvertibleP", "init"]
+- ["ST", "init"]
+- !private ["ST", "subscript"]
+- ["s14_ArrayProtocolP", "init"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "init"]
+- ["s24_DestructorSafeContainerP", "init"]
+- ["s19_HasContiguousBytesP", "init"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+depends-nominal:
+- "16ManagementSystem10AccessTypeO"
+- "Sa"
+- "SK"
+- "s7CVarArgP"
+- !private "s12CaseIterableP"
+- "s9CodingKeyP"
+- "Sl"
+- !private "SL"
+- "10Foundation15ContiguousBytesP"
+- "s28CustomDebugStringConvertibleP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "10Foundation12DataProtocolP"
+- !private "10Foundation4DateV"
+- "Se"
+- !private "s7DecoderP"
+- !private "SD"
+- "16ManagementSystem20DocumentSerializableP"
+- "SE"
+- !private "s7EncoderP"
+- "SQ"
+- "s25ExpressibleByArrayLiteralP"
+- !private "s30ExpressibleByDictionaryLiteralP"
+- "SH"
+- !private "s6HasherV"
+- !private "s22KeyedDecodingContainerV"
+- !private "s30KeyedDecodingContainerProtocolP"
+- !private "s22KeyedEncodingContainerV"
+- !private "s30KeyedEncodingContainerProtocolP"
+- "SM"
+- "10Foundation19MutableDataProtocolP"
+- "16ManagementSystem7ProjectV"
+- "Sk"
+- "Sm"
+- !private "SY"
+- !private "10Foundation20ReferenceConvertibleP"
+- "ST"
+- "s14_ArrayProtocolP"
+- !private "s30_CustomPlaygroundQuickLookableP"
+- "s24_DestructorSafeContainerP"
+- "s19_HasContiguousBytesP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/ObjectiveC.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreData.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreImage.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/QuartzCore.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Dispatch.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Metal.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Darwin.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Foundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreFoundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreGraphics.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/os.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Swift.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/UIKit.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/SwiftOnoneSupport.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/SwiftUI.framework/Modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Combine.framework/Modules/Combine.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/ObjectiveC.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreData.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreImage.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/QuartzCore.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Dispatch.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Metal.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Darwin.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Foundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreFoundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreGraphics.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/os.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Swift.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/UIKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftOnoneSupport.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Combine.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Users/annamihaleva/ManagementSystem/Pods/Firebase/CoreOnly/Sources/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UserNotifications.framework/Headers/UserNotifications.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/os.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "8a1780351a277d6929b3012fa611da7b"

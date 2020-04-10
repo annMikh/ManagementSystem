@@ -1,0 +1,1492 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "TaskContentScreen"
+provides-nominal:
+- "16ManagementSystem17TaskContentScreenV"
+provides-member:
+- ["16ManagementSystem17TaskContentScreenV", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!"
+- !private "!="
+- !private "..."
+- !private "..<"
+- !private "=="
+- !private "??"
+- "AssignedUser"
+- "AssignmentPrecedence"
+- "BooleanLiteralType"
+- !private "Button"
+- !private "CGFloat"
+- "CastingPrecedence"
+- !private "Color"
+- !private "Comment"
+- "CommentStore"
+- !private "CommentView"
+- !private "Constant"
+- "Date"
+- !private "DatePicker"
+- !private "Deadline"
+- "FloatLiteralType"
+- !private "ForEach"
+- !private "Formatter"
+- !private "Group"
+- !private "HStack"
+- !private "Image"
+- "IntegerLiteralType"
+- !private "LabelTextField"
+- !private "NavigationLink"
+- "ObservedObject"
+- !private "Permission"
+- !private "Picker"
+- "Priority"
+- !private "RoundedRectangle"
+- !private "ScrollView"
+- !private "SearchAssignee"
+- !private "SegmentedPickerStyle"
+- "SessionViewModel"
+- !private "Spacer"
+- !private "StackNavigationViewStyle"
+- "State"
+- "Status"
+- "StringLiteralType"
+- "Task"
+- "TaskContentScreen"
+- "TaskStore"
+- "TernaryPrecedence"
+- !private "Text"
+- !private "TextField"
+- !private "Toggle"
+- !private "UIAlertAction"
+- "UIAlertController"
+- !private "UIApplication"
+- !private "UINavigationController"
+- !private "UITabBarController"
+- !private "UITextField"
+- "UIViewController"
+- "UIWindow"
+- !private "UIWindowScene"
+- !private "VStack"
+- "View"
+- !private "withAnimation"
+- !private "||"
+depends-member:
+- !private ["So22UISceneActivationStateV", "foregroundActive"]
+- !private ["s18AdditiveArithmeticP", "all"]
+- !private ["7SwiftUI10AnimatableP", "all"]
+- !private ["7SwiftUI10AnimatableP", "init"]
+- !private ["7SwiftUI10AnimatableP", "stroke"]
+- !private ["7SwiftUI9AnimationV", "linear"]
+- !private ["Sa", "compactMap"]
+- !private ["Sa", "count"]
+- !private ["Sa", "filter"]
+- !private ["Sa", "first"]
+- !private ["Sa", "firstIndex"]
+- !private ["Sa", "isEmpty"]
+- !private ["Sa", "subscript"]
+- ["16ManagementSystem12AssignedUserC", "deinit"]
+- ["16ManagementSystem12AssignedUserC", "init"]
+- !private ["16ManagementSystem12AssignedUserC", "user"]
+- !private ["SK", "compactMap"]
+- !private ["SK", "count"]
+- !private ["SK", "filter"]
+- !private ["SK", "first"]
+- !private ["SK", "firstIndex"]
+- !private ["SK", "isEmpty"]
+- !private ["SK", "subscript"]
+- !private ["SB", "all"]
+- !private ["7SwiftUI7BindingV", "bound"]
+- !private ["7SwiftUI7BindingV", "deadline"]
+- !private ["7SwiftUI7BindingV", "email"]
+- !private ["7SwiftUI7BindingV", "subscript"]
+- !private ["7SwiftUI7BindingV", "wrappedValue"]
+- !private ["Sb", "toggle"]
+- !private ["7SwiftUI6ButtonV", "init"]
+- !private ["So15CALayerDelegateP", "isKeyWindow"]
+- !private ["So15CALayerDelegateP", "placeholder"]
+- !private ["So15CALayerDelegateP", "rootViewController"]
+- !private ["So15CALayerDelegateP", "text"]
+- !private ["12CoreGraphics7CGFloatV", "all"]
+- !private ["s7CVarArgP", "activationState"]
+- !private ["s7CVarArgP", "addAction"]
+- !private ["s7CVarArgP", "addTextField"]
+- !private ["s7CVarArgP", "all"]
+- !private ["s7CVarArgP", "compactMap"]
+- !private ["s7CVarArgP", "connectedScenes"]
+- !private ["s7CVarArgP", "count"]
+- !private ["s7CVarArgP", "filter"]
+- !private ["s7CVarArgP", "first"]
+- !private ["s7CVarArgP", "firstIndex"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "isEmpty"]
+- !private ["s7CVarArgP", "isKeyWindow"]
+- !private ["s7CVarArgP", "placeholder"]
+- !private ["s7CVarArgP", "present"]
+- !private ["s7CVarArgP", "presentedViewController"]
+- !private ["s7CVarArgP", "rootViewController"]
+- !private ["s7CVarArgP", "selectedViewController"]
+- !private ["s7CVarArgP", "shared"]
+- !private ["s7CVarArgP", "subscript"]
+- !private ["s7CVarArgP", "text"]
+- !private ["s7CVarArgP", "textFields"]
+- !private ["s7CVarArgP", "toggle"]
+- !private ["s7CVarArgP", "topViewController"]
+- !private ["s7CVarArgP", "windows"]
+- !private ["s12CaseIterableP", "allCases"]
+- !private ["s12CaseIterableP", "center"]
+- ["s12CaseIterableP", "getAllCases"]
+- !private ["Sl", "compactMap"]
+- !private ["Sl", "count"]
+- !private ["Sl", "filter"]
+- !private ["Sl", "first"]
+- !private ["Sl", "firstIndex"]
+- !private ["Sl", "isEmpty"]
+- !private ["Sl", "subscript"]
+- !private ["7SwiftUI5ColorV", "black"]
+- !private ["7SwiftUI5ColorV", "blue"]
+- !private ["7SwiftUI5ColorV", "gray"]
+- !private ["7SwiftUI5ColorV", "primaryBlue"]
+- !private ["16ManagementSystem7CommentV", "deinit"]
+- !private ["16ManagementSystem7CommentV", "id"]
+- ["16ManagementSystem7CommentV", "init"]
+- !private ["16ManagementSystem12CommentStoreC", "add"]
+- !private ["16ManagementSystem12CommentStoreC", "comments"]
+- ["16ManagementSystem12CommentStoreC", "deinit"]
+- !private ["16ManagementSystem12CommentStoreC", "loadComments"]
+- ["16ManagementSystem12CommentStoreC", "shared"]
+- !private ["16ManagementSystem11CommentViewV", "deinit"]
+- !private ["16ManagementSystem11CommentViewV", "init"]
+- !private ["SL", "all"]
+- ["SL", "init"]
+- !private ["SL", "isEmpty"]
+- !private ["16ManagementSystem8ConstantV", "ErrorEditTitle"]
+- !private ["16ManagementSystem8ConstantV", "ErrorTitle"]
+- !private ["10Foundation15ContiguousBytesP", "compactMap"]
+- !private ["10Foundation15ContiguousBytesP", "count"]
+- !private ["10Foundation15ContiguousBytesP", "filter"]
+- !private ["10Foundation15ContiguousBytesP", "first"]
+- !private ["10Foundation15ContiguousBytesP", "firstIndex"]
+- !private ["10Foundation15ContiguousBytesP", "isEmpty"]
+- !private ["10Foundation15ContiguousBytesP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "activationState"]
+- !private ["s28CustomDebugStringConvertibleP", "addAction"]
+- !private ["s28CustomDebugStringConvertibleP", "addTextField"]
+- !private ["s28CustomDebugStringConvertibleP", "black"]
+- !private ["s28CustomDebugStringConvertibleP", "bound"]
+- !private ["s28CustomDebugStringConvertibleP", "compactMap"]
+- !private ["s28CustomDebugStringConvertibleP", "connectedScenes"]
+- !private ["s28CustomDebugStringConvertibleP", "count"]
+- !private ["s28CustomDebugStringConvertibleP", "filter"]
+- !private ["s28CustomDebugStringConvertibleP", "first"]
+- !private ["s28CustomDebugStringConvertibleP", "firstIndex"]
+- !private ["s28CustomDebugStringConvertibleP", "gray"]
+- !private ["s28CustomDebugStringConvertibleP", "headline"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "isEmpty"]
+- !private ["s28CustomDebugStringConvertibleP", "isKeyWindow"]
+- !private ["s28CustomDebugStringConvertibleP", "linear"]
+- !private ["s28CustomDebugStringConvertibleP", "none"]
+- !private ["s28CustomDebugStringConvertibleP", "placeholder"]
+- !private ["s28CustomDebugStringConvertibleP", "present"]
+- !private ["s28CustomDebugStringConvertibleP", "presentedViewController"]
+- !private ["s28CustomDebugStringConvertibleP", "primaryBlue"]
+- !private ["s28CustomDebugStringConvertibleP", "rootViewController"]
+- !private ["s28CustomDebugStringConvertibleP", "selectedViewController"]
+- !private ["s28CustomDebugStringConvertibleP", "shared"]
+- !private ["s28CustomDebugStringConvertibleP", "some"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "text"]
+- !private ["s28CustomDebugStringConvertibleP", "textFields"]
+- !private ["s28CustomDebugStringConvertibleP", "topViewController"]
+- !private ["s28CustomDebugStringConvertibleP", "windows"]
+- !private ["s17CustomReflectableP", "all"]
+- !private ["s17CustomReflectableP", "black"]
+- !private ["s17CustomReflectableP", "bound"]
+- !private ["s17CustomReflectableP", "compactMap"]
+- !private ["s17CustomReflectableP", "count"]
+- !private ["s17CustomReflectableP", "filter"]
+- !private ["s17CustomReflectableP", "first"]
+- !private ["s17CustomReflectableP", "firstIndex"]
+- !private ["s17CustomReflectableP", "gray"]
+- !private ["s17CustomReflectableP", "headline"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "isEmpty"]
+- !private ["s17CustomReflectableP", "linear"]
+- !private ["s17CustomReflectableP", "none"]
+- !private ["s17CustomReflectableP", "primaryBlue"]
+- !private ["s17CustomReflectableP", "some"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s17CustomReflectableP", "toggle"]
+- !private ["s23CustomStringConvertibleP", "activationState"]
+- !private ["s23CustomStringConvertibleP", "addAction"]
+- !private ["s23CustomStringConvertibleP", "addTextField"]
+- !private ["s23CustomStringConvertibleP", "all"]
+- !private ["s23CustomStringConvertibleP", "black"]
+- !private ["s23CustomStringConvertibleP", "blue"]
+- !private ["s23CustomStringConvertibleP", "compactMap"]
+- !private ["s23CustomStringConvertibleP", "connectedScenes"]
+- !private ["s23CustomStringConvertibleP", "count"]
+- !private ["s23CustomStringConvertibleP", "filter"]
+- !private ["s23CustomStringConvertibleP", "first"]
+- !private ["s23CustomStringConvertibleP", "firstIndex"]
+- !private ["s23CustomStringConvertibleP", "gray"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "isEmpty"]
+- !private ["s23CustomStringConvertibleP", "isKeyWindow"]
+- !private ["s23CustomStringConvertibleP", "linear"]
+- !private ["s23CustomStringConvertibleP", "placeholder"]
+- !private ["s23CustomStringConvertibleP", "present"]
+- !private ["s23CustomStringConvertibleP", "presentedViewController"]
+- !private ["s23CustomStringConvertibleP", "primaryBlue"]
+- !private ["s23CustomStringConvertibleP", "rootViewController"]
+- !private ["s23CustomStringConvertibleP", "selectedViewController"]
+- !private ["s23CustomStringConvertibleP", "shared"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "text"]
+- !private ["s23CustomStringConvertibleP", "textFields"]
+- !private ["s23CustomStringConvertibleP", "toggle"]
+- !private ["s23CustomStringConvertibleP", "topViewController"]
+- !private ["s23CustomStringConvertibleP", "windows"]
+- !private ["10Foundation12DataProtocolP", "compactMap"]
+- !private ["10Foundation12DataProtocolP", "count"]
+- !private ["10Foundation12DataProtocolP", "filter"]
+- !private ["10Foundation12DataProtocolP", "first"]
+- !private ["10Foundation12DataProtocolP", "firstIndex"]
+- !private ["10Foundation12DataProtocolP", "isEmpty"]
+- !private ["10Foundation12DataProtocolP", "subscript"]
+- ["10Foundation4DateV", "init"]
+- !private ["7SwiftUI10DatePickerV", "init"]
+- !private ["7SwiftUI10DatePickerV", "labelsHidden"]
+- !private ["7SwiftUI20DatePickerComponentsV", "date"]
+- !private ["7SwiftUI20DatePickerComponentsV", "hourAndMinute"]
+- !private ["16ManagementSystem8DeadlineO", "NoDeadline"]
+- !private ["16ManagementSystem8DeadlineO", "deinit"]
+- !private ["16ManagementSystem8DeadlineO", "rawValue"]
+- !private ["Se", "all"]
+- !private ["Se", "allCases"]
+- !private ["Se", "assignedUser"]
+- !private ["Se", "author"]
+- !private ["Se", "black"]
+- !private ["Se", "bound"]
+- !private ["Se", "compactMap"]
+- !private ["Se", "count"]
+- !private ["Se", "deadline"]
+- !private ["Se", "description"]
+- !private ["Se", "email"]
+- !private ["Se", "filter"]
+- !private ["Se", "first"]
+- !private ["Se", "firstIndex"]
+- ["Se", "getAllCases"]
+- !private ["Se", "gray"]
+- !private ["Se", "headline"]
+- !private ["Se", "id"]
+- ["Se", "init"]
+- !private ["Se", "isEmpty"]
+- !private ["Se", "linear"]
+- !private ["Se", "name"]
+- !private ["Se", "none"]
+- !private ["Se", "primaryBlue"]
+- !private ["Se", "priority"]
+- !private ["Se", "some"]
+- !private ["Se", "status"]
+- !private ["Se", "subscript"]
+- !private ["Se", "toggle"]
+- !private ["Se", "uid"]
+- !private ["16ManagementSystem20DocumentSerializableP", "assignedUser"]
+- !private ["16ManagementSystem20DocumentSerializableP", "author"]
+- !private ["16ManagementSystem20DocumentSerializableP", "deadline"]
+- !private ["16ManagementSystem20DocumentSerializableP", "description"]
+- !private ["16ManagementSystem20DocumentSerializableP", "email"]
+- !private ["16ManagementSystem20DocumentSerializableP", "id"]
+- !private ["16ManagementSystem20DocumentSerializableP", "init"]
+- !private ["16ManagementSystem20DocumentSerializableP", "name"]
+- !private ["16ManagementSystem20DocumentSerializableP", "priority"]
+- !private ["16ManagementSystem20DocumentSerializableP", "status"]
+- !private ["16ManagementSystem20DocumentSerializableP", "uid"]
+- !private ["7SwiftUI15DynamicPropertyP", "bound"]
+- !private ["7SwiftUI15DynamicPropertyP", "deadline"]
+- !private ["7SwiftUI15DynamicPropertyP", "email"]
+- ["7SwiftUI15DynamicPropertyP", "init"]
+- !private ["7SwiftUI15DynamicPropertyP", "subscript"]
+- ["7SwiftUI15DynamicPropertyP", "wrappedValue"]
+- !private ["7SwiftUI18DynamicViewContentP", "init"]
+- !private ["7SwiftUI10EdgeInsetsV", "all"]
+- !private ["SE", "all"]
+- !private ["SE", "allCases"]
+- !private ["SE", "assignedUser"]
+- !private ["SE", "author"]
+- !private ["SE", "black"]
+- !private ["SE", "bound"]
+- !private ["SE", "compactMap"]
+- !private ["SE", "count"]
+- !private ["SE", "deadline"]
+- !private ["SE", "description"]
+- !private ["SE", "email"]
+- !private ["SE", "filter"]
+- !private ["SE", "first"]
+- !private ["SE", "firstIndex"]
+- ["SE", "getAllCases"]
+- !private ["SE", "gray"]
+- !private ["SE", "headline"]
+- !private ["SE", "id"]
+- ["SE", "init"]
+- !private ["SE", "isEmpty"]
+- !private ["SE", "linear"]
+- !private ["SE", "name"]
+- !private ["SE", "none"]
+- !private ["SE", "primaryBlue"]
+- !private ["SE", "priority"]
+- !private ["SE", "some"]
+- !private ["SE", "status"]
+- !private ["SE", "subscript"]
+- !private ["SE", "toggle"]
+- !private ["SE", "uid"]
+- !private ["SQ", "NoDeadline"]
+- !private ["SQ", "activationState"]
+- !private ["SQ", "addAction"]
+- !private ["SQ", "addTextField"]
+- !private ["SQ", "alert"]
+- !private ["SQ", "all"]
+- !private ["SQ", "allCases"]
+- !private ["SQ", "assignedUser"]
+- !private ["SQ", "author"]
+- !private ["SQ", "black"]
+- !private ["SQ", "blue"]
+- !private ["SQ", "bottom"]
+- !private ["SQ", "bound"]
+- !private ["SQ", "center"]
+- !private ["SQ", "compactMap"]
+- !private ["SQ", "connectedScenes"]
+- !private ["SQ", "count"]
+- !private ["SQ", "date"]
+- !private ["SQ", "deadline"]
+- !private ["SQ", "default"]
+- !private ["SQ", "description"]
+- !private ["SQ", "email"]
+- !private ["SQ", "filter"]
+- !private ["SQ", "first"]
+- !private ["SQ", "firstIndex"]
+- !private ["SQ", "font"]
+- !private ["SQ", "foregroundActive"]
+- !private ["SQ", "foregroundColor"]
+- !private ["SQ", "frame"]
+- ["SQ", "getAllCases"]
+- !private ["SQ", "gray"]
+- !private ["SQ", "headline"]
+- !private ["SQ", "horizontal"]
+- !private ["SQ", "hourAndMinute"]
+- !private ["SQ", "id"]
+- ["SQ", "init"]
+- !private ["SQ", "isEmpty"]
+- !private ["SQ", "isKeyWindow"]
+- !private ["SQ", "leading"]
+- !private ["SQ", "linear"]
+- !private ["SQ", "multilineTextAlignment"]
+- !private ["SQ", "name"]
+- !private ["SQ", "none"]
+- !private ["SQ", "padding"]
+- !private ["SQ", "placeholder"]
+- !private ["SQ", "present"]
+- !private ["SQ", "presentedViewController"]
+- !private ["SQ", "primaryBlue"]
+- !private ["SQ", "priority"]
+- !private ["SQ", "rawValue"]
+- !private ["SQ", "resizable"]
+- !private ["SQ", "rootViewController"]
+- !private ["SQ", "selectedViewController"]
+- !private ["SQ", "shared"]
+- !private ["SQ", "some"]
+- !private ["SQ", "status"]
+- !private ["SQ", "subscript"]
+- !private ["SQ", "tag"]
+- !private ["SQ", "text"]
+- !private ["SQ", "textFields"]
+- !private ["SQ", "toggle"]
+- !private ["SQ", "topViewController"]
+- !private ["SQ", "trailing"]
+- !private ["SQ", "uid"]
+- !private ["SQ", "windows"]
+- !private ["s25ExpressibleByArrayLiteralP", "all"]
+- !private ["s25ExpressibleByArrayLiteralP", "bottom"]
+- !private ["s25ExpressibleByArrayLiteralP", "compactMap"]
+- !private ["s25ExpressibleByArrayLiteralP", "count"]
+- !private ["s25ExpressibleByArrayLiteralP", "date"]
+- !private ["s25ExpressibleByArrayLiteralP", "filter"]
+- !private ["s25ExpressibleByArrayLiteralP", "first"]
+- !private ["s25ExpressibleByArrayLiteralP", "firstIndex"]
+- !private ["s25ExpressibleByArrayLiteralP", "horizontal"]
+- !private ["s25ExpressibleByArrayLiteralP", "hourAndMinute"]
+- !private ["s25ExpressibleByArrayLiteralP", "isEmpty"]
+- !private ["s25ExpressibleByArrayLiteralP", "leading"]
+- !private ["s25ExpressibleByArrayLiteralP", "subscript"]
+- !private ["s25ExpressibleByArrayLiteralP", "trailing"]
+- !private ["s27ExpressibleByBooleanLiteralP", "toggle"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "isEmpty"]
+- !private ["s25ExpressibleByFloatLiteralP", "all"]
+- !private ["s27ExpressibleByIntegerLiteralP", "all"]
+- !private ["s23ExpressibleByNilLiteralP", "black"]
+- !private ["s23ExpressibleByNilLiteralP", "bound"]
+- !private ["s23ExpressibleByNilLiteralP", "gray"]
+- !private ["s23ExpressibleByNilLiteralP", "headline"]
+- !private ["s23ExpressibleByNilLiteralP", "linear"]
+- !private ["s23ExpressibleByNilLiteralP", "none"]
+- !private ["s23ExpressibleByNilLiteralP", "primaryBlue"]
+- !private ["s23ExpressibleByNilLiteralP", "some"]
+- !private ["s32ExpressibleByStringInterpolationP", "isEmpty"]
+- !private ["s26ExpressibleByStringLiteralP", "isEmpty"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "isEmpty"]
+- !private ["SF", "all"]
+- !private ["7SwiftUI4FontV", "headline"]
+- !private ["7SwiftUI7ForEachV", "init"]
+- !private ["16ManagementSystem9FormatterC", "getStringWithFormate"]
+- !private ["7SwiftUI7GestureP", "black"]
+- !private ["7SwiftUI7GestureP", "bound"]
+- !private ["7SwiftUI7GestureP", "gray"]
+- !private ["7SwiftUI7GestureP", "headline"]
+- !private ["7SwiftUI7GestureP", "linear"]
+- !private ["7SwiftUI7GestureP", "none"]
+- !private ["7SwiftUI7GestureP", "primaryBlue"]
+- !private ["7SwiftUI7GestureP", "some"]
+- !private ["7SwiftUI5GroupV", "foregroundColor"]
+- !private ["7SwiftUI5GroupV", "init"]
+- !private ["7SwiftUI6HStackV", "init"]
+- !private ["7SwiftUI6HStackV", "padding"]
+- !private ["SH", "NoDeadline"]
+- !private ["SH", "activationState"]
+- !private ["SH", "addAction"]
+- !private ["SH", "addTextField"]
+- !private ["SH", "alert"]
+- !private ["SH", "all"]
+- !private ["SH", "allCases"]
+- !private ["SH", "assignedUser"]
+- !private ["SH", "author"]
+- !private ["SH", "black"]
+- !private ["SH", "blue"]
+- !private ["SH", "bound"]
+- !private ["SH", "center"]
+- !private ["SH", "compactMap"]
+- !private ["SH", "connectedScenes"]
+- !private ["SH", "count"]
+- !private ["SH", "deadline"]
+- !private ["SH", "default"]
+- !private ["SH", "description"]
+- !private ["SH", "email"]
+- !private ["SH", "filter"]
+- !private ["SH", "first"]
+- !private ["SH", "firstIndex"]
+- !private ["SH", "foregroundActive"]
+- ["SH", "getAllCases"]
+- !private ["SH", "gray"]
+- !private ["SH", "headline"]
+- !private ["SH", "id"]
+- ["SH", "init"]
+- !private ["SH", "isEmpty"]
+- !private ["SH", "isKeyWindow"]
+- !private ["SH", "linear"]
+- !private ["SH", "name"]
+- !private ["SH", "none"]
+- !private ["SH", "placeholder"]
+- !private ["SH", "present"]
+- !private ["SH", "presentedViewController"]
+- !private ["SH", "primaryBlue"]
+- !private ["SH", "priority"]
+- !private ["SH", "rawValue"]
+- !private ["SH", "rootViewController"]
+- !private ["SH", "selectedViewController"]
+- !private ["SH", "shared"]
+- !private ["SH", "some"]
+- !private ["SH", "status"]
+- !private ["SH", "subscript"]
+- !private ["SH", "text"]
+- !private ["SH", "textFields"]
+- !private ["SH", "toggle"]
+- !private ["SH", "topViewController"]
+- !private ["SH", "uid"]
+- !private ["SH", "windows"]
+- !private ["7SwiftUI19HorizontalAlignmentV", "leading"]
+- !private ["7SwiftUI5ImageV", "foregroundColor"]
+- !private ["7SwiftUI5ImageV", "frame"]
+- !private ["7SwiftUI5ImageV", "init"]
+- !private ["7SwiftUI5ImageV", "resizable"]
+- !private ["7SwiftUI15InsettableShapeP", "init"]
+- !private ["7SwiftUI15InsettableShapeP", "stroke"]
+- !private ["16ManagementSystem14LabelTextFieldV", "deinit"]
+- !private ["16ManagementSystem14LabelTextFieldV", "disabled"]
+- !private ["16ManagementSystem14LabelTextFieldV", "init"]
+- !private ["16ManagementSystem14LabelTextFieldV", "padding"]
+- !private ["s25LosslessStringConvertibleP", "isEmpty"]
+- !private ["s25LosslessStringConvertibleP", "toggle"]
+- !private ["s10MirrorPathP", "isEmpty"]
+- !private ["SM", "compactMap"]
+- !private ["SM", "count"]
+- !private ["SM", "filter"]
+- !private ["SM", "first"]
+- !private ["SM", "firstIndex"]
+- !private ["SM", "isEmpty"]
+- !private ["SM", "subscript"]
+- !private ["10Foundation19MutableDataProtocolP", "compactMap"]
+- !private ["10Foundation19MutableDataProtocolP", "count"]
+- !private ["10Foundation19MutableDataProtocolP", "filter"]
+- !private ["10Foundation19MutableDataProtocolP", "first"]
+- !private ["10Foundation19MutableDataProtocolP", "firstIndex"]
+- !private ["10Foundation19MutableDataProtocolP", "isEmpty"]
+- !private ["10Foundation19MutableDataProtocolP", "subscript"]
+- !private ["So8NSCodingP", "addAction"]
+- !private ["So8NSCodingP", "addTextField"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "isEmpty"]
+- !private ["So8NSCodingP", "isKeyWindow"]
+- !private ["So8NSCodingP", "placeholder"]
+- !private ["So8NSCodingP", "present"]
+- !private ["So8NSCodingP", "presentedViewController"]
+- !private ["So8NSCodingP", "rootViewController"]
+- !private ["So8NSCodingP", "selectedViewController"]
+- !private ["So8NSCodingP", "text"]
+- !private ["So8NSCodingP", "textFields"]
+- !private ["So8NSCodingP", "topViewController"]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So9NSCopyingP", "isEmpty"]
+- !private ["So26NSExtensionRequestHandlingP", "addAction"]
+- !private ["So26NSExtensionRequestHandlingP", "addTextField"]
+- !private ["So26NSExtensionRequestHandlingP", "init"]
+- !private ["So26NSExtensionRequestHandlingP", "present"]
+- !private ["So26NSExtensionRequestHandlingP", "presentedViewController"]
+- !private ["So26NSExtensionRequestHandlingP", "selectedViewController"]
+- !private ["So26NSExtensionRequestHandlingP", "textFields"]
+- !private ["So26NSExtensionRequestHandlingP", "topViewController"]
+- !private ["So21NSItemProviderReadingP", "isEmpty"]
+- !private ["So21NSItemProviderWritingP", "isEmpty"]
+- !private ["So16NSMutableCopyingP", "isEmpty"]
+- !private ["So8NSObjectC", "activationState"]
+- !private ["So8NSObjectC", "addAction"]
+- !private ["So8NSObjectC", "addTextField"]
+- !private ["So8NSObjectC", "connectedScenes"]
+- !private ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "isEmpty"]
+- !private ["So8NSObjectC", "isKeyWindow"]
+- !private ["So8NSObjectC", "placeholder"]
+- !private ["So8NSObjectC", "present"]
+- !private ["So8NSObjectC", "presentedViewController"]
+- !private ["So8NSObjectC", "rootViewController"]
+- !private ["So8NSObjectC", "selectedViewController"]
+- !private ["So8NSObjectC", "shared"]
+- !private ["So8NSObjectC", "text"]
+- !private ["So8NSObjectC", "textFields"]
+- !private ["So8NSObjectC", "topViewController"]
+- !private ["So8NSObjectC", "windows"]
+- !private ["So8NSObjectP", "activationState"]
+- !private ["So8NSObjectP", "addAction"]
+- !private ["So8NSObjectP", "addTextField"]
+- !private ["So8NSObjectP", "connectedScenes"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "isEmpty"]
+- !private ["So8NSObjectP", "isKeyWindow"]
+- !private ["So8NSObjectP", "placeholder"]
+- !private ["So8NSObjectP", "present"]
+- !private ["So8NSObjectP", "presentedViewController"]
+- !private ["So8NSObjectP", "rootViewController"]
+- !private ["So8NSObjectP", "selectedViewController"]
+- !private ["So8NSObjectP", "shared"]
+- !private ["So8NSObjectP", "text"]
+- !private ["So8NSObjectP", "textFields"]
+- !private ["So8NSObjectP", "topViewController"]
+- !private ["So8NSObjectP", "windows"]
+- !private ["So14NSSecureCodingP", "isEmpty"]
+- !private ["So8NSStringC", "isEmpty"]
+- !private ["7SwiftUI14NavigationLinkV", "disabled"]
+- !private ["7SwiftUI14NavigationLinkV", "init"]
+- !private ["7SwiftUI19NavigationViewStyleP", "init"]
+- !private ["Sj", "all"]
+- !private ["7Combine16ObservableObjectP", "add"]
+- !private ["7Combine16ObservableObjectP", "author"]
+- !private ["7Combine16ObservableObjectP", "comments"]
+- ["7Combine16ObservableObjectP", "init"]
+- !private ["7Combine16ObservableObjectP", "loadAssigned"]
+- !private ["7Combine16ObservableObjectP", "loadAuthor"]
+- !private ["7Combine16ObservableObjectP", "loadComments"]
+- ["7Combine16ObservableObjectP", "shared"]
+- !private ["7Combine16ObservableObjectP", "user"]
+- ["7SwiftUI14ObservedObjectV", "init"]
+- ["7SwiftUI14ObservedObjectV", "wrappedValue"]
+- !private ["s9OptionSetP", "all"]
+- !private ["s9OptionSetP", "bottom"]
+- !private ["s9OptionSetP", "date"]
+- !private ["s9OptionSetP", "horizontal"]
+- !private ["s9OptionSetP", "hourAndMinute"]
+- !private ["s9OptionSetP", "leading"]
+- !private ["s9OptionSetP", "trailing"]
+- !private ["Sq", "black"]
+- !private ["Sq", "bound"]
+- !private ["Sq", "gray"]
+- !private ["Sq", "headline"]
+- !private ["Sq", "linear"]
+- !private ["Sq", "none"]
+- !private ["Sq", "primaryBlue"]
+- !private ["Sq", "some"]
+- !private ["16ManagementSystem10PermissionC", "toEditTask"]
+- !private ["7SwiftUI6PickerV", "init"]
+- !private ["7SwiftUI6PickerV", "pickerStyle"]
+- !private ["7SwiftUI11PickerStyleP", "init"]
+- !private ["16ManagementSystem8PriorityO", "allCases"]
+- !private ["16ManagementSystem8PriorityO", "deinit"]
+- ["16ManagementSystem8PriorityO", "getAllCases"]
+- !private ["Sk", "compactMap"]
+- !private ["Sk", "count"]
+- !private ["Sk", "filter"]
+- !private ["Sk", "first"]
+- !private ["Sk", "firstIndex"]
+- !private ["Sk", "isEmpty"]
+- !private ["Sk", "subscript"]
+- !private ["Sm", "compactMap"]
+- !private ["Sm", "count"]
+- !private ["Sm", "filter"]
+- !private ["Sm", "first"]
+- !private ["Sm", "firstIndex"]
+- !private ["Sm", "isEmpty"]
+- !private ["Sm", "subscript"]
+- !private ["SY", "NoDeadline"]
+- !private ["SY", "alert"]
+- !private ["SY", "all"]
+- !private ["SY", "allCases"]
+- !private ["SY", "bottom"]
+- !private ["SY", "date"]
+- !private ["SY", "default"]
+- !private ["SY", "foregroundActive"]
+- ["SY", "getAllCases"]
+- !private ["SY", "horizontal"]
+- !private ["SY", "hourAndMinute"]
+- !private ["SY", "leading"]
+- !private ["SY", "rawValue"]
+- !private ["SY", "trailing"]
+- ["10Foundation20ReferenceConvertibleP", "init"]
+- !private ["7SwiftUI16RoundedRectangleV", "init"]
+- !private ["7SwiftUI16RoundedRectangleV", "stroke"]
+- !private ["7SwiftUI10ScrollViewV", "init"]
+- !private ["7SwiftUI10ScrollViewV", "showAlert"]
+- !private ["16ManagementSystem14SearchAssigneeV", "deinit"]
+- !private ["16ManagementSystem14SearchAssigneeV", "init"]
+- !private ["7SwiftUI20SegmentedPickerStyleV", "init"]
+- !private ["ST", "compactMap"]
+- !private ["ST", "count"]
+- !private ["ST", "filter"]
+- !private ["ST", "first"]
+- !private ["ST", "firstIndex"]
+- !private ["ST", "isEmpty"]
+- !private ["ST", "subscript"]
+- !private ["16ManagementSystem16SessionViewModelC", "createComment"]
+- !private ["16ManagementSystem16SessionViewModelC", "currentUser"]
+- ["16ManagementSystem16SessionViewModelC", "shared"]
+- !private ["16ManagementSystem16SessionViewModelC", "updateTask"]
+- !private ["7SwiftUI4EdgeO3SetV", "all"]
+- !private ["7SwiftUI4EdgeO3SetV", "bottom"]
+- !private ["Sh", "compactMap"]
+- !private ["Sh", "filter"]
+- !private ["7SwiftUI4EdgeO3SetV", "horizontal"]
+- !private ["7SwiftUI4EdgeO3SetV", "leading"]
+- !private ["7SwiftUI4EdgeO3SetV", "trailing"]
+- !private ["s10SetAlgebraP", "all"]
+- !private ["s10SetAlgebraP", "bottom"]
+- !private ["s10SetAlgebraP", "compactMap"]
+- !private ["s10SetAlgebraP", "date"]
+- !private ["s10SetAlgebraP", "filter"]
+- !private ["s10SetAlgebraP", "horizontal"]
+- !private ["s10SetAlgebraP", "hourAndMinute"]
+- !private ["s10SetAlgebraP", "leading"]
+- !private ["s10SetAlgebraP", "trailing"]
+- !private ["7SwiftUI5ShapeP", "init"]
+- !private ["7SwiftUI5ShapeP", "stroke"]
+- !private ["7SwiftUI10ShapeStyleP", "black"]
+- !private ["7SwiftUI10ShapeStyleP", "blue"]
+- !private ["7SwiftUI10ShapeStyleP", "gray"]
+- !private ["7SwiftUI10ShapeStyleP", "primaryBlue"]
+- !private ["s13SignedNumericP", "all"]
+- !private ["7SwiftUI6SpacerV", "init"]
+- !private ["7SwiftUI24StackNavigationViewStyleV", "init"]
+- ["7SwiftUI5StateV", "init"]
+- ["7SwiftUI5StateV", "wrappedValue"]
+- !private ["16ManagementSystem6StatusO", "allCases"]
+- !private ["16ManagementSystem6StatusO", "deinit"]
+- ["16ManagementSystem6StatusO", "getAllCases"]
+- !private ["Sx", "all"]
+- !private ["SS", "isEmpty"]
+- !private ["Sy", "isEmpty"]
+- !private ["So22UIAlertControllerStyleV", "alert"]
+- !private ["So18UIAlertActionStyleV", "default"]
+- !private ["16ManagementSystem4TaskV", "assignedUser"]
+- !private ["16ManagementSystem4TaskV", "author"]
+- !private ["16ManagementSystem4TaskV", "deadline"]
+- !private ["16ManagementSystem4TaskV", "deinit"]
+- !private ["16ManagementSystem4TaskV", "description"]
+- !private ["16ManagementSystem4TaskV", "id"]
+- ["16ManagementSystem4TaskV", "init"]
+- !private ["16ManagementSystem4TaskV", "name"]
+- !private ["16ManagementSystem4TaskV", "priority"]
+- !private ["16ManagementSystem4TaskV", "status"]
+- !private ["16ManagementSystem17TaskContentScreenV", "$alertInput"]
+- ["16ManagementSystem17TaskContentScreenV", "$chosen"]
+- ["16ManagementSystem17TaskContentScreenV", "$deadline"]
+- ["16ManagementSystem17TaskContentScreenV", "$description"]
+- !private ["16ManagementSystem17TaskContentScreenV", "$editPermission"]
+- !private ["16ManagementSystem17TaskContentScreenV", "$isAddAssignee"]
+- !private ["16ManagementSystem17TaskContentScreenV", "$isClickedEdit"]
+- ["16ManagementSystem17TaskContentScreenV", "$name"]
+- ["16ManagementSystem17TaskContentScreenV", "$pickPriority"]
+- ["16ManagementSystem17TaskContentScreenV", "$pickStatus"]
+- ["16ManagementSystem17TaskContentScreenV", "$selection"]
+- !private ["16ManagementSystem17TaskContentScreenV", "$session"]
+- ["16ManagementSystem17TaskContentScreenV", "$store"]
+- ["16ManagementSystem17TaskContentScreenV", "$task"]
+- ["16ManagementSystem17TaskContentScreenV", "$taskStore"]
+- ["16ManagementSystem17TaskContentScreenV", "AssignedUser"]
+- ["16ManagementSystem17TaskContentScreenV", "Body"]
+- !private ["16ManagementSystem17TaskContentScreenV", "Button"]
+- !private ["16ManagementSystem17TaskContentScreenV", "CGFloat"]
+- !private ["16ManagementSystem17TaskContentScreenV", "Color"]
+- !private ["16ManagementSystem17TaskContentScreenV", "Comment"]
+- ["16ManagementSystem17TaskContentScreenV", "CommentStore"]
+- !private ["16ManagementSystem17TaskContentScreenV", "CommentView"]
+- !private ["16ManagementSystem17TaskContentScreenV", "Constant"]
+- ["16ManagementSystem17TaskContentScreenV", "Date"]
+- !private ["16ManagementSystem17TaskContentScreenV", "DatePicker"]
+- !private ["16ManagementSystem17TaskContentScreenV", "Deadline"]
+- !private ["16ManagementSystem17TaskContentScreenV", "ForEach"]
+- !private ["16ManagementSystem17TaskContentScreenV", "Formatter"]
+- !private ["16ManagementSystem17TaskContentScreenV", "Group"]
+- !private ["16ManagementSystem17TaskContentScreenV", "HStack"]
+- !private ["16ManagementSystem17TaskContentScreenV", "Image"]
+- !private ["16ManagementSystem17TaskContentScreenV", "LabelTextField"]
+- !private ["16ManagementSystem17TaskContentScreenV", "NavigationLink"]
+- ["16ManagementSystem17TaskContentScreenV", "ObservedObject"]
+- !private ["16ManagementSystem17TaskContentScreenV", "Permission"]
+- !private ["16ManagementSystem17TaskContentScreenV", "Picker"]
+- ["16ManagementSystem17TaskContentScreenV", "Priority"]
+- !private ["16ManagementSystem17TaskContentScreenV", "RoundedRectangle"]
+- !private ["16ManagementSystem17TaskContentScreenV", "ScrollView"]
+- !private ["16ManagementSystem17TaskContentScreenV", "SearchAssignee"]
+- !private ["16ManagementSystem17TaskContentScreenV", "SegmentedPickerStyle"]
+- ["16ManagementSystem17TaskContentScreenV", "SessionViewModel"]
+- !private ["16ManagementSystem17TaskContentScreenV", "Spacer"]
+- !private ["16ManagementSystem17TaskContentScreenV", "StackNavigationViewStyle"]
+- ["16ManagementSystem17TaskContentScreenV", "State"]
+- ["16ManagementSystem17TaskContentScreenV", "Status"]
+- ["16ManagementSystem17TaskContentScreenV", "Task"]
+- ["16ManagementSystem17TaskContentScreenV", "TaskStore"]
+- !private ["16ManagementSystem17TaskContentScreenV", "Text"]
+- !private ["16ManagementSystem17TaskContentScreenV", "TextField"]
+- !private ["16ManagementSystem17TaskContentScreenV", "Toggle"]
+- !private ["16ManagementSystem17TaskContentScreenV", "UIAlertAction"]
+- ["16ManagementSystem17TaskContentScreenV", "UIAlertController"]
+- !private ["16ManagementSystem17TaskContentScreenV", "UIApplication"]
+- !private ["16ManagementSystem17TaskContentScreenV", "UINavigationController"]
+- !private ["16ManagementSystem17TaskContentScreenV", "UITabBarController"]
+- !private ["16ManagementSystem17TaskContentScreenV", "UITextField"]
+- ["16ManagementSystem17TaskContentScreenV", "UIViewController"]
+- ["16ManagementSystem17TaskContentScreenV", "UIWindow"]
+- !private ["16ManagementSystem17TaskContentScreenV", "UIWindowScene"]
+- !private ["16ManagementSystem17TaskContentScreenV", "VStack"]
+- ["16ManagementSystem17TaskContentScreenV", "View"]
+- ["16ManagementSystem17TaskContentScreenV", "_Default_Body"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_alertInput"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_chosen"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_deadline"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_description"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_editPermission"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_isAddAssignee"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_isClickedEdit"]
+- ["16ManagementSystem17TaskContentScreenV", "_makeView"]
+- ["16ManagementSystem17TaskContentScreenV", "_makeViewList"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_name"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_pickPriority"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_pickStatus"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_selection"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_session"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_store"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_task"]
+- !private ["16ManagementSystem17TaskContentScreenV", "_taskStore"]
+- !private ["16ManagementSystem17TaskContentScreenV", "alert"]
+- !private ["16ManagementSystem17TaskContentScreenV", "alertInput"]
+- ["16ManagementSystem17TaskContentScreenV", "body"]
+- !private ["16ManagementSystem17TaskContentScreenV", "buildTask"]
+- ["16ManagementSystem17TaskContentScreenV", "chosen"]
+- !private ["16ManagementSystem17TaskContentScreenV", "createComment"]
+- ["16ManagementSystem17TaskContentScreenV", "deadline"]
+- ["16ManagementSystem17TaskContentScreenV", "deinit"]
+- ["16ManagementSystem17TaskContentScreenV", "description"]
+- !private ["16ManagementSystem17TaskContentScreenV", "editPermission"]
+- ["16ManagementSystem17TaskContentScreenV", "init"]
+- !private ["16ManagementSystem17TaskContentScreenV", "isAddAssignee"]
+- !private ["16ManagementSystem17TaskContentScreenV", "isClickedEdit"]
+- !private ["16ManagementSystem17TaskContentScreenV", "keyWindow"]
+- ["16ManagementSystem17TaskContentScreenV", "name"]
+- !private ["16ManagementSystem17TaskContentScreenV", "onAppear"]
+- ["16ManagementSystem17TaskContentScreenV", "pickPriority"]
+- ["16ManagementSystem17TaskContentScreenV", "pickStatus"]
+- !private ["16ManagementSystem17TaskContentScreenV", "priority"]
+- ["16ManagementSystem17TaskContentScreenV", "selection"]
+- !private ["16ManagementSystem17TaskContentScreenV", "session"]
+- ["16ManagementSystem17TaskContentScreenV", "showAlert"]
+- !private ["16ManagementSystem17TaskContentScreenV", "status"]
+- ["16ManagementSystem17TaskContentScreenV", "store"]
+- ["16ManagementSystem17TaskContentScreenV", "task"]
+- ["16ManagementSystem17TaskContentScreenV", "taskStore"]
+- !private ["16ManagementSystem17TaskContentScreenV", "topMostViewController"]
+- !private ["16ManagementSystem17TaskContentScreenV", "updateTask"]
+- !private ["16ManagementSystem17TaskContentScreenV", "withAnimation"]
+- !private ["16ManagementSystem9TaskStoreC", "author"]
+- ["16ManagementSystem9TaskStoreC", "deinit"]
+- !private ["16ManagementSystem9TaskStoreC", "loadAssigned"]
+- !private ["16ManagementSystem9TaskStoreC", "loadAuthor"]
+- ["16ManagementSystem9TaskStoreC", "shared"]
+- !private ["7SwiftUI4TextV", "font"]
+- !private ["7SwiftUI4TextV", "foregroundColor"]
+- !private ["7SwiftUI4TextV", "init"]
+- !private ["7SwiftUI4TextV", "multilineTextAlignment"]
+- !private ["7SwiftUI4TextV", "padding"]
+- !private ["7SwiftUI4TextV", "tag"]
+- !private ["7SwiftUI13TextAlignmentO", "center"]
+- !private ["7SwiftUI9TextFieldV", "disabled"]
+- !private ["7SwiftUI9TextFieldV", "init"]
+- !private ["s16TextOutputStreamP", "isEmpty"]
+- !private ["s20TextOutputStreamableP", "isEmpty"]
+- !private ["7SwiftUI6ToggleV", "init"]
+- !private ["7SwiftUI6ToggleV", "padding"]
+- !private ["So29UIAccessibilityIdentificationP", "isKeyWindow"]
+- !private ["So29UIAccessibilityIdentificationP", "placeholder"]
+- !private ["So29UIAccessibilityIdentificationP", "rootViewController"]
+- !private ["So29UIAccessibilityIdentificationP", "text"]
+- !private ["So13UIAlertActionC", "init"]
+- !private ["So17UIAlertControllerC", "addAction"]
+- !private ["So17UIAlertControllerC", "addTextField"]
+- !private ["So17UIAlertControllerC", "init"]
+- !private ["So17UIAlertControllerC", "textFields"]
+- !private ["So12UIAppearanceP", "isKeyWindow"]
+- !private ["So12UIAppearanceP", "placeholder"]
+- !private ["So12UIAppearanceP", "rootViewController"]
+- !private ["So12UIAppearanceP", "text"]
+- !private ["So21UIAppearanceContainerP", "addAction"]
+- !private ["So21UIAppearanceContainerP", "addTextField"]
+- !private ["So21UIAppearanceContainerP", "init"]
+- !private ["So21UIAppearanceContainerP", "isKeyWindow"]
+- !private ["So21UIAppearanceContainerP", "placeholder"]
+- !private ["So21UIAppearanceContainerP", "present"]
+- !private ["So21UIAppearanceContainerP", "presentedViewController"]
+- !private ["So21UIAppearanceContainerP", "rootViewController"]
+- !private ["So21UIAppearanceContainerP", "selectedViewController"]
+- !private ["So21UIAppearanceContainerP", "text"]
+- !private ["So21UIAppearanceContainerP", "textFields"]
+- !private ["So21UIAppearanceContainerP", "topViewController"]
+- !private ["So13UIApplicationC", "connectedScenes"]
+- !private ["So13UIApplicationC", "shared"]
+- !private ["So18UIContentContainerP", "addAction"]
+- !private ["So18UIContentContainerP", "addTextField"]
+- !private ["So18UIContentContainerP", "init"]
+- !private ["So18UIContentContainerP", "present"]
+- !private ["So18UIContentContainerP", "presentedViewController"]
+- !private ["So18UIContentContainerP", "selectedViewController"]
+- !private ["So18UIContentContainerP", "textFields"]
+- !private ["So18UIContentContainerP", "topViewController"]
+- !private ["So30UIContentSizeCategoryAdjustingP", "placeholder"]
+- !private ["So30UIContentSizeCategoryAdjustingP", "text"]
+- !private ["So9UIControlC", "placeholder"]
+- !private ["So9UIControlC", "text"]
+- !private ["So17UICoordinateSpaceP", "isKeyWindow"]
+- !private ["So17UICoordinateSpaceP", "placeholder"]
+- !private ["So17UICoordinateSpaceP", "rootViewController"]
+- !private ["So17UICoordinateSpaceP", "text"]
+- !private ["So13UIDynamicItemP", "isKeyWindow"]
+- !private ["So13UIDynamicItemP", "placeholder"]
+- !private ["So13UIDynamicItemP", "rootViewController"]
+- !private ["So13UIDynamicItemP", "text"]
+- !private ["So18UIFocusEnvironmentP", "addAction"]
+- !private ["So18UIFocusEnvironmentP", "addTextField"]
+- !private ["So18UIFocusEnvironmentP", "init"]
+- !private ["So18UIFocusEnvironmentP", "isKeyWindow"]
+- !private ["So18UIFocusEnvironmentP", "placeholder"]
+- !private ["So18UIFocusEnvironmentP", "present"]
+- !private ["So18UIFocusEnvironmentP", "presentedViewController"]
+- !private ["So18UIFocusEnvironmentP", "rootViewController"]
+- !private ["So18UIFocusEnvironmentP", "selectedViewController"]
+- !private ["So18UIFocusEnvironmentP", "text"]
+- !private ["So18UIFocusEnvironmentP", "textFields"]
+- !private ["So18UIFocusEnvironmentP", "topViewController"]
+- !private ["So11UIFocusItemP", "isKeyWindow"]
+- !private ["So11UIFocusItemP", "placeholder"]
+- !private ["So11UIFocusItemP", "rootViewController"]
+- !private ["So11UIFocusItemP", "text"]
+- !private ["So20UIFocusItemContainerP", "isKeyWindow"]
+- !private ["So20UIFocusItemContainerP", "placeholder"]
+- !private ["So20UIFocusItemContainerP", "rootViewController"]
+- !private ["So20UIFocusItemContainerP", "text"]
+- !private ["So10UIKeyInputP", "placeholder"]
+- !private ["So10UIKeyInputP", "text"]
+- !private ["So24UILargeContentViewerItemP", "isKeyWindow"]
+- !private ["So24UILargeContentViewerItemP", "placeholder"]
+- !private ["So24UILargeContentViewerItemP", "rootViewController"]
+- !private ["So24UILargeContentViewerItemP", "text"]
+- !private ["So22UINavigationControllerC", "topViewController"]
+- !private ["So30UIPasteConfigurationSupportingP", "activationState"]
+- !private ["So30UIPasteConfigurationSupportingP", "addAction"]
+- !private ["So30UIPasteConfigurationSupportingP", "addTextField"]
+- !private ["So30UIPasteConfigurationSupportingP", "connectedScenes"]
+- !private ["So30UIPasteConfigurationSupportingP", "init"]
+- !private ["So30UIPasteConfigurationSupportingP", "isKeyWindow"]
+- !private ["So30UIPasteConfigurationSupportingP", "placeholder"]
+- !private ["So30UIPasteConfigurationSupportingP", "present"]
+- !private ["So30UIPasteConfigurationSupportingP", "presentedViewController"]
+- !private ["So30UIPasteConfigurationSupportingP", "rootViewController"]
+- !private ["So30UIPasteConfigurationSupportingP", "selectedViewController"]
+- !private ["So30UIPasteConfigurationSupportingP", "shared"]
+- !private ["So30UIPasteConfigurationSupportingP", "text"]
+- !private ["So30UIPasteConfigurationSupportingP", "textFields"]
+- !private ["So30UIPasteConfigurationSupportingP", "topViewController"]
+- !private ["So30UIPasteConfigurationSupportingP", "windows"]
+- !private ["So11UIResponderC", "activationState"]
+- !private ["So11UIResponderC", "addAction"]
+- !private ["So11UIResponderC", "addTextField"]
+- !private ["So11UIResponderC", "connectedScenes"]
+- !private ["So11UIResponderC", "init"]
+- !private ["So11UIResponderC", "isKeyWindow"]
+- !private ["So11UIResponderC", "placeholder"]
+- !private ["So11UIResponderC", "present"]
+- !private ["So11UIResponderC", "presentedViewController"]
+- !private ["So11UIResponderC", "rootViewController"]
+- !private ["So11UIResponderC", "selectedViewController"]
+- !private ["So11UIResponderC", "shared"]
+- !private ["So11UIResponderC", "text"]
+- !private ["So11UIResponderC", "textFields"]
+- !private ["So11UIResponderC", "topViewController"]
+- !private ["So11UIResponderC", "windows"]
+- !private ["So30UIResponderStandardEditActionsP", "activationState"]
+- !private ["So30UIResponderStandardEditActionsP", "addAction"]
+- !private ["So30UIResponderStandardEditActionsP", "addTextField"]
+- !private ["So30UIResponderStandardEditActionsP", "connectedScenes"]
+- !private ["So30UIResponderStandardEditActionsP", "init"]
+- !private ["So30UIResponderStandardEditActionsP", "isKeyWindow"]
+- !private ["So30UIResponderStandardEditActionsP", "placeholder"]
+- !private ["So30UIResponderStandardEditActionsP", "present"]
+- !private ["So30UIResponderStandardEditActionsP", "presentedViewController"]
+- !private ["So30UIResponderStandardEditActionsP", "rootViewController"]
+- !private ["So30UIResponderStandardEditActionsP", "selectedViewController"]
+- !private ["So30UIResponderStandardEditActionsP", "shared"]
+- !private ["So30UIResponderStandardEditActionsP", "text"]
+- !private ["So30UIResponderStandardEditActionsP", "textFields"]
+- !private ["So30UIResponderStandardEditActionsP", "topViewController"]
+- !private ["So30UIResponderStandardEditActionsP", "windows"]
+- !private ["So7UISceneC", "activationState"]
+- !private ["So7UISceneC", "windows"]
+- !private ["So35UISpringLoadedInteractionSupportingP", "addAction"]
+- !private ["So35UISpringLoadedInteractionSupportingP", "addTextField"]
+- !private ["So35UISpringLoadedInteractionSupportingP", "init"]
+- !private ["So35UISpringLoadedInteractionSupportingP", "textFields"]
+- !private ["So16UIStateRestoringP", "addAction"]
+- !private ["So16UIStateRestoringP", "addTextField"]
+- !private ["So16UIStateRestoringP", "init"]
+- !private ["So16UIStateRestoringP", "present"]
+- !private ["So16UIStateRestoringP", "presentedViewController"]
+- !private ["So16UIStateRestoringP", "selectedViewController"]
+- !private ["So16UIStateRestoringP", "textFields"]
+- !private ["So16UIStateRestoringP", "topViewController"]
+- !private ["So18UITabBarControllerC", "selectedViewController"]
+- !private ["So16UITabBarDelegateP", "selectedViewController"]
+- !private ["So15UITextDraggableP", "placeholder"]
+- !private ["So15UITextDraggableP", "text"]
+- !private ["So15UITextDroppableP", "placeholder"]
+- !private ["So15UITextDroppableP", "text"]
+- !private ["So11UITextFieldC", "placeholder"]
+- !private ["So11UITextFieldC", "text"]
+- !private ["So11UITextInputP", "placeholder"]
+- !private ["So11UITextInputP", "text"]
+- !private ["So17UITextInputTraitsP", "placeholder"]
+- !private ["So17UITextInputTraitsP", "text"]
+- !private ["So34UITextPasteConfigurationSupportingP", "placeholder"]
+- !private ["So34UITextPasteConfigurationSupportingP", "text"]
+- !private ["So18UITraitEnvironmentP", "addAction"]
+- !private ["So18UITraitEnvironmentP", "addTextField"]
+- !private ["So18UITraitEnvironmentP", "init"]
+- !private ["So18UITraitEnvironmentP", "isKeyWindow"]
+- !private ["So18UITraitEnvironmentP", "placeholder"]
+- !private ["So18UITraitEnvironmentP", "present"]
+- !private ["So18UITraitEnvironmentP", "presentedViewController"]
+- !private ["So18UITraitEnvironmentP", "rootViewController"]
+- !private ["So18UITraitEnvironmentP", "selectedViewController"]
+- !private ["So18UITraitEnvironmentP", "text"]
+- !private ["So18UITraitEnvironmentP", "textFields"]
+- !private ["So18UITraitEnvironmentP", "topViewController"]
+- !private ["So23UIUserActivityRestoringP", "activationState"]
+- !private ["So23UIUserActivityRestoringP", "addAction"]
+- !private ["So23UIUserActivityRestoringP", "addTextField"]
+- !private ["So23UIUserActivityRestoringP", "connectedScenes"]
+- !private ["So23UIUserActivityRestoringP", "init"]
+- !private ["So23UIUserActivityRestoringP", "isKeyWindow"]
+- !private ["So23UIUserActivityRestoringP", "placeholder"]
+- !private ["So23UIUserActivityRestoringP", "present"]
+- !private ["So23UIUserActivityRestoringP", "presentedViewController"]
+- !private ["So23UIUserActivityRestoringP", "rootViewController"]
+- !private ["So23UIUserActivityRestoringP", "selectedViewController"]
+- !private ["So23UIUserActivityRestoringP", "shared"]
+- !private ["So23UIUserActivityRestoringP", "text"]
+- !private ["So23UIUserActivityRestoringP", "textFields"]
+- !private ["So23UIUserActivityRestoringP", "topViewController"]
+- !private ["So23UIUserActivityRestoringP", "windows"]
+- !private ["So6UIViewC", "isKeyWindow"]
+- !private ["So6UIViewC", "placeholder"]
+- !private ["So6UIViewC", "rootViewController"]
+- !private ["So6UIViewC", "text"]
+- !private ["So16UIViewControllerC", "addAction"]
+- !private ["So16UIViewControllerC", "addTextField"]
+- !private ["So16UIViewControllerC", "init"]
+- !private ["So16UIViewControllerC", "present"]
+- !private ["So16UIViewControllerC", "presentedViewController"]
+- !private ["So16UIViewControllerC", "selectedViewController"]
+- !private ["So16UIViewControllerC", "textFields"]
+- !private ["So16UIViewControllerC", "topViewController"]
+- !private ["So8UIWindowC", "isKeyWindow"]
+- !private ["So8UIWindowC", "rootViewController"]
+- !private ["So13UIWindowSceneC", "windows"]
+- !private ["16ManagementSystem4UserV", "email"]
+- !private ["16ManagementSystem4UserV", "uid"]
+- !private ["7SwiftUI6VStackV", "animation"]
+- !private ["7SwiftUI6VStackV", "init"]
+- !private ["7SwiftUI16VectorArithmeticP", "all"]
+- !private ["7SwiftUI17VerticalAlignmentV", "center"]
+- !private ["7SwiftUI4ViewP", "$chosen"]
+- !private ["7SwiftUI4ViewP", "$deadline"]
+- !private ["7SwiftUI4ViewP", "$description"]
+- !private ["7SwiftUI4ViewP", "$editPermission"]
+- !private ["7SwiftUI4ViewP", "$isAddAssignee"]
+- !private ["7SwiftUI4ViewP", "$name"]
+- !private ["7SwiftUI4ViewP", "$pickPriority"]
+- !private ["7SwiftUI4ViewP", "$pickStatus"]
+- !private ["7SwiftUI4ViewP", "$selection"]
+- !private ["7SwiftUI4ViewP", "$task"]
+- !private ["7SwiftUI4ViewP", "$taskStore"]
+- ["7SwiftUI4ViewP", "AssignedUser"]
+- ["7SwiftUI4ViewP", "Body"]
+- !private ["7SwiftUI4ViewP", "Button"]
+- !private ["7SwiftUI4ViewP", "CGFloat"]
+- !private ["7SwiftUI4ViewP", "Color"]
+- !private ["7SwiftUI4ViewP", "Comment"]
+- ["7SwiftUI4ViewP", "CommentStore"]
+- !private ["7SwiftUI4ViewP", "CommentView"]
+- !private ["7SwiftUI4ViewP", "Constant"]
+- ["7SwiftUI4ViewP", "Date"]
+- !private ["7SwiftUI4ViewP", "DatePicker"]
+- !private ["7SwiftUI4ViewP", "Deadline"]
+- !private ["7SwiftUI4ViewP", "ForEach"]
+- !private ["7SwiftUI4ViewP", "Formatter"]
+- !private ["7SwiftUI4ViewP", "Group"]
+- !private ["7SwiftUI4ViewP", "HStack"]
+- !private ["7SwiftUI4ViewP", "Image"]
+- !private ["7SwiftUI4ViewP", "LabelTextField"]
+- !private ["7SwiftUI4ViewP", "NavigationLink"]
+- !private ["7SwiftUI4ViewP", "Permission"]
+- !private ["7SwiftUI4ViewP", "Picker"]
+- ["7SwiftUI4ViewP", "Priority"]
+- !private ["7SwiftUI4ViewP", "RoundedRectangle"]
+- !private ["7SwiftUI4ViewP", "ScrollView"]
+- !private ["7SwiftUI4ViewP", "SearchAssignee"]
+- !private ["7SwiftUI4ViewP", "SegmentedPickerStyle"]
+- ["7SwiftUI4ViewP", "SessionViewModel"]
+- !private ["7SwiftUI4ViewP", "Spacer"]
+- !private ["7SwiftUI4ViewP", "StackNavigationViewStyle"]
+- ["7SwiftUI4ViewP", "Status"]
+- !private ["7SwiftUI4ViewP", "Task"]
+- ["7SwiftUI4ViewP", "TaskStore"]
+- !private ["7SwiftUI4ViewP", "Text"]
+- !private ["7SwiftUI4ViewP", "TextField"]
+- !private ["7SwiftUI4ViewP", "Toggle"]
+- !private ["7SwiftUI4ViewP", "UIAlertAction"]
+- !private ["7SwiftUI4ViewP", "UIAlertController"]
+- !private ["7SwiftUI4ViewP", "UIApplication"]
+- !private ["7SwiftUI4ViewP", "VStack"]
+- ["7SwiftUI4ViewP", ""]
+- ["7SwiftUI4ViewP", "_Default_Body"]
+- ["7SwiftUI4ViewP", "_makeView"]
+- ["7SwiftUI4ViewP", "_makeViewList"]
+- !private ["7SwiftUI4ViewP", "alert"]
+- !private ["7SwiftUI4ViewP", "alertInput"]
+- !private ["7SwiftUI4ViewP", "animation"]
+- !private ["7SwiftUI4ViewP", "black"]
+- !private ["7SwiftUI4ViewP", "blue"]
+- ["7SwiftUI4ViewP", "body"]
+- !private ["7SwiftUI4ViewP", "border"]
+- !private ["7SwiftUI4ViewP", "bound"]
+- !private ["7SwiftUI4ViewP", "buildTask"]
+- !private ["7SwiftUI4ViewP", "chosen"]
+- !private ["7SwiftUI4ViewP", "cornerRadius"]
+- !private ["7SwiftUI4ViewP", "createComment"]
+- !private ["7SwiftUI4ViewP", "deadline"]
+- !private ["7SwiftUI4ViewP", "description"]
+- !private ["7SwiftUI4ViewP", "disabled"]
+- !private ["7SwiftUI4ViewP", "editPermission"]
+- !private ["7SwiftUI4ViewP", "font"]
+- !private ["7SwiftUI4ViewP", "foregroundColor"]
+- !private ["7SwiftUI4ViewP", "frame"]
+- !private ["7SwiftUI4ViewP", "gray"]
+- !private ["7SwiftUI4ViewP", "headline"]
+- !private ["7SwiftUI4ViewP", "init"]
+- !private ["7SwiftUI4ViewP", "isAddAssignee"]
+- !private ["7SwiftUI4ViewP", "isClickedEdit"]
+- !private ["7SwiftUI4ViewP", "keyWindow"]
+- !private ["7SwiftUI4ViewP", "labelsHidden"]
+- !private ["7SwiftUI4ViewP", "linear"]
+- !private ["7SwiftUI4ViewP", "multilineTextAlignment"]
+- !private ["7SwiftUI4ViewP", "name"]
+- !private ["7SwiftUI4ViewP", "navigationBarTitle"]
+- !private ["7SwiftUI4ViewP", "navigationViewStyle"]
+- !private ["7SwiftUI4ViewP", "none"]
+- !private ["7SwiftUI4ViewP", "onAppear"]
+- !private ["7SwiftUI4ViewP", "overlay"]
+- !private ["7SwiftUI4ViewP", "padding"]
+- !private ["7SwiftUI4ViewP", "pickPriority"]
+- !private ["7SwiftUI4ViewP", "pickStatus"]
+- !private ["7SwiftUI4ViewP", "pickerStyle"]
+- !private ["7SwiftUI4ViewP", "primaryBlue"]
+- !private ["7SwiftUI4ViewP", "priority"]
+- !private ["7SwiftUI4ViewP", "resizable"]
+- !private ["7SwiftUI4ViewP", "selection"]
+- !private ["7SwiftUI4ViewP", "session"]
+- !private ["7SwiftUI4ViewP", "showAlert"]
+- !private ["7SwiftUI4ViewP", "some"]
+- !private ["7SwiftUI4ViewP", "status"]
+- !private ["7SwiftUI4ViewP", "store"]
+- !private ["7SwiftUI4ViewP", "stroke"]
+- !private ["7SwiftUI4ViewP", "tag"]
+- !private ["7SwiftUI4ViewP", "task"]
+- !private ["7SwiftUI4ViewP", "taskStore"]
+- !private ["7SwiftUI4ViewP", "topMostViewController"]
+- !private ["7SwiftUI4ViewP", "updateTask"]
+- !private ["7SwiftUI4ViewP", "withAnimation"]
+- !private ["7SwiftUI11ViewBuilderV", "buildBlock"]
+- !private ["7SwiftUI11ViewBuilderV", "buildEither"]
+- !private ["7SwiftUI11ViewBuilderV", "buildIf"]
+- !private ["7SwiftUI14ObservedObjectV7WrapperV", "author"]
+- !private ["7SwiftUI14ObservedObjectV7WrapperV", "subscript"]
+- !private ["7SwiftUI14ObservedObjectV7WrapperV", "user"]
+- !private ["s14_ArrayProtocolP", "compactMap"]
+- !private ["s14_ArrayProtocolP", "count"]
+- !private ["s14_ArrayProtocolP", "filter"]
+- !private ["s14_ArrayProtocolP", "first"]
+- !private ["s14_ArrayProtocolP", "firstIndex"]
+- !private ["s14_ArrayProtocolP", "isEmpty"]
+- !private ["s14_ArrayProtocolP", "subscript"]
+- !private ["s15_CVarArgAlignedP", "all"]
+- !private ["s22_CVarArgPassedAsDoubleP", "all"]
+- ["s30_CustomPlaygroundQuickLookableP", "init"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "isEmpty"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "toggle"]
+- !private ["s24_DestructorSafeContainerP", "compactMap"]
+- !private ["s24_DestructorSafeContainerP", "count"]
+- !private ["s24_DestructorSafeContainerP", "filter"]
+- !private ["s24_DestructorSafeContainerP", "first"]
+- !private ["s24_DestructorSafeContainerP", "firstIndex"]
+- !private ["s24_DestructorSafeContainerP", "isEmpty"]
+- !private ["s24_DestructorSafeContainerP", "subscript"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "toggle"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "isEmpty"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "isEmpty"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "isEmpty"]
+- !private ["7SwiftUI18_FormatSpecifiableP", "all"]
+- !private ["s19_HasContiguousBytesP", "compactMap"]
+- !private ["s19_HasContiguousBytesP", "count"]
+- !private ["s19_HasContiguousBytesP", "filter"]
+- !private ["s19_HasContiguousBytesP", "first"]
+- !private ["s19_HasContiguousBytesP", "firstIndex"]
+- !private ["s19_HasContiguousBytesP", "isEmpty"]
+- !private ["s19_HasContiguousBytesP", "subscript"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "compactMap"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "count"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "filter"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "first"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "firstIndex"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "isEmpty"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "activationState"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "addAction"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "addTextField"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "connectedScenes"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isEmpty"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isKeyWindow"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "placeholder"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "present"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "presentedViewController"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "rootViewController"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "selectedViewController"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "text"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "textFields"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "topViewController"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "windows"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "activationState"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "addAction"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "addTextField"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "connectedScenes"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "isEmpty"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "isKeyWindow"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "placeholder"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "present"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "presentedViewController"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "rootViewController"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "selectedViewController"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "shared"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "text"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "textFields"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "topViewController"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "windows"]
+- !private ["s21_ObjectiveCBridgeableP", "all"]
+- !private ["s21_ObjectiveCBridgeableP", "black"]
+- !private ["s21_ObjectiveCBridgeableP", "bound"]
+- !private ["s21_ObjectiveCBridgeableP", "compactMap"]
+- !private ["s21_ObjectiveCBridgeableP", "count"]
+- !private ["s21_ObjectiveCBridgeableP", "filter"]
+- !private ["s21_ObjectiveCBridgeableP", "first"]
+- !private ["s21_ObjectiveCBridgeableP", "firstIndex"]
+- !private ["s21_ObjectiveCBridgeableP", "gray"]
+- !private ["s21_ObjectiveCBridgeableP", "headline"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "isEmpty"]
+- !private ["s21_ObjectiveCBridgeableP", "linear"]
+- !private ["s21_ObjectiveCBridgeableP", "none"]
+- !private ["s21_ObjectiveCBridgeableP", "primaryBlue"]
+- !private ["s21_ObjectiveCBridgeableP", "some"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "toggle"]
+- !private ["7SwiftUI11_VectorMathP", "all"]
+- !private ["s38__DefaultCustomPlaygroundQuickLookableP", "isKeyWindow"]
+- !private ["s38__DefaultCustomPlaygroundQuickLookableP", "placeholder"]
+- !private ["s38__DefaultCustomPlaygroundQuickLookableP", "rootViewController"]
+- !private ["s38__DefaultCustomPlaygroundQuickLookableP", "text"]
+depends-nominal:
+- !private "So22UISceneActivationStateV"
+- !private "s18AdditiveArithmeticP"
+- !private "7SwiftUI10AnimatableP"
+- !private "7SwiftUI9AnimationV"
+- !private "Sa"
+- "16ManagementSystem12AssignedUserC"
+- !private "SK"
+- !private "SB"
+- !private "7SwiftUI7BindingV"
+- !private "Sb"
+- !private "7SwiftUI6ButtonV"
+- !private "So15CALayerDelegateP"
+- !private "12CoreGraphics7CGFloatV"
+- !private "s7CVarArgP"
+- "s12CaseIterableP"
+- !private "Sl"
+- !private "7SwiftUI5ColorV"
+- "16ManagementSystem7CommentV"
+- "16ManagementSystem12CommentStoreC"
+- !private "16ManagementSystem11CommentViewV"
+- "SL"
+- !private "16ManagementSystem8ConstantV"
+- !private "10Foundation15ContiguousBytesP"
+- "s28CustomDebugStringConvertibleP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "10Foundation12DataProtocolP"
+- "10Foundation4DateV"
+- !private "7SwiftUI10DatePickerV"
+- !private "7SwiftUI20DatePickerComponentsV"
+- !private "16ManagementSystem8DeadlineO"
+- "Se"
+- !private "16ManagementSystem20DocumentSerializableP"
+- "7SwiftUI15DynamicPropertyP"
+- !private "7SwiftUI18DynamicViewContentP"
+- !private "7SwiftUI10EdgeInsetsV"
+- "SE"
+- "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s25ExpressibleByFloatLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
+- !private "s23ExpressibleByNilLiteralP"
+- !private "s32ExpressibleByStringInterpolationP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "SF"
+- !private "7SwiftUI4FontV"
+- !private "7SwiftUI7ForEachV"
+- !private "16ManagementSystem9FormatterC"
+- !private "7SwiftUI7GestureP"
+- !private "7SwiftUI5GroupV"
+- !private "7SwiftUI6HStackV"
+- "SH"
+- !private "7SwiftUI19HorizontalAlignmentV"
+- !private "7SwiftUI5ImageV"
+- !private "7SwiftUI15InsettableShapeP"
+- !private "16ManagementSystem14LabelTextFieldV"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "SM"
+- !private "10Foundation19MutableDataProtocolP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So26NSExtensionRequestHandlingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- !private "So8NSObjectC"
+- !private "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "7SwiftUI14NavigationLinkV"
+- !private "7SwiftUI19NavigationViewStyleP"
+- !private "Sj"
+- "7Combine16ObservableObjectP"
+- "7SwiftUI14ObservedObjectV"
+- !private "s9OptionSetP"
+- !private "Sq"
+- !private "16ManagementSystem10PermissionC"
+- !private "7SwiftUI6PickerV"
+- !private "7SwiftUI11PickerStyleP"
+- "16ManagementSystem8PriorityO"
+- !private "Sk"
+- !private "Sm"
+- "SY"
+- "10Foundation20ReferenceConvertibleP"
+- !private "7SwiftUI16RoundedRectangleV"
+- !private "7SwiftUI10ScrollViewV"
+- !private "16ManagementSystem14SearchAssigneeV"
+- !private "7SwiftUI20SegmentedPickerStyleV"
+- !private "ST"
+- "16ManagementSystem16SessionViewModelC"
+- !private "7SwiftUI4EdgeO3SetV"
+- !private "Sh"
+- !private "7SwiftUI4EdgeO3SetV"
+- !private "s10SetAlgebraP"
+- !private "7SwiftUI5ShapeP"
+- !private "7SwiftUI10ShapeStyleP"
+- !private "s13SignedNumericP"
+- !private "7SwiftUI6SpacerV"
+- !private "7SwiftUI24StackNavigationViewStyleV"
+- "7SwiftUI5StateV"
+- "16ManagementSystem6StatusO"
+- !private "Sx"
+- !private "SS"
+- !private "Sy"
+- !private "So22UIAlertControllerStyleV"
+- !private "So18UIAlertActionStyleV"
+- "16ManagementSystem4TaskV"
+- "16ManagementSystem17TaskContentScreenV"
+- "16ManagementSystem9TaskStoreC"
+- !private "7SwiftUI4TextV"
+- !private "7SwiftUI13TextAlignmentO"
+- !private "7SwiftUI9TextFieldV"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "7SwiftUI6ToggleV"
+- !private "So29UIAccessibilityIdentificationP"
+- !private "So13UIAlertActionC"
+- !private "So17UIAlertControllerC"
+- !private "So12UIAppearanceP"
+- !private "So21UIAppearanceContainerP"
+- !private "So13UIApplicationC"
+- !private "So18UIContentContainerP"
+- !private "So30UIContentSizeCategoryAdjustingP"
+- !private "So9UIControlC"
+- !private "So17UICoordinateSpaceP"
+- !private "So13UIDynamicItemP"
+- !private "So18UIFocusEnvironmentP"
+- !private "So11UIFocusItemP"
+- !private "So20UIFocusItemContainerP"
+- !private "So10UIKeyInputP"
+- !private "So24UILargeContentViewerItemP"
+- !private "So22UINavigationControllerC"
+- !private "So30UIPasteConfigurationSupportingP"
+- !private "So11UIResponderC"
+- !private "So30UIResponderStandardEditActionsP"
+- !private "So7UISceneC"
+- !private "So35UISpringLoadedInteractionSupportingP"
+- !private "So16UIStateRestoringP"
+- !private "So18UITabBarControllerC"
+- !private "So16UITabBarDelegateP"
+- !private "So15UITextDraggableP"
+- !private "So15UITextDroppableP"
+- !private "So11UITextFieldC"
+- !private "So11UITextInputP"
+- !private "So17UITextInputTraitsP"
+- !private "So34UITextPasteConfigurationSupportingP"
+- !private "So18UITraitEnvironmentP"
+- !private "So23UIUserActivityRestoringP"
+- !private "So6UIViewC"
+- !private "So16UIViewControllerC"
+- !private "So8UIWindowC"
+- !private "So13UIWindowSceneC"
+- !private "16ManagementSystem4UserV"
+- !private "7SwiftUI6VStackV"
+- !private "7SwiftUI16VectorArithmeticP"
+- !private "7SwiftUI17VerticalAlignmentV"
+- "7SwiftUI4ViewP"
+- !private "7SwiftUI11ViewBuilderV"
+- !private "7SwiftUI14ObservedObjectV7WrapperV"
+- !private "s14_ArrayProtocolP"
+- !private "s15_CVarArgAlignedP"
+- !private "s22_CVarArgPassedAsDoubleP"
+- "s30_CustomPlaygroundQuickLookableP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "7SwiftUI18_FormatSpecifiableP"
+- !private "s19_HasContiguousBytesP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+- !private "10Foundation37_KeyValueCodingAndObservingPublishingP"
+- "s21_ObjectiveCBridgeableP"
+- !private "7SwiftUI11_VectorMathP"
+- !private "s38__DefaultCustomPlaygroundQuickLookableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/ObjectiveC.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreData.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreImage.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/QuartzCore.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Dispatch.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Metal.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Darwin.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Foundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreFoundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreGraphics.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/os.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Swift.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/UIKit.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/SwiftOnoneSupport.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/SwiftUI.framework/Modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Combine.framework/Modules/Combine.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/ObjectiveC.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreData.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreImage.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/QuartzCore.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Dispatch.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Metal.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Darwin.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Foundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreFoundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreGraphics.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/os.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Swift.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/UIKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftOnoneSupport.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Combine.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Users/annamihaleva/ManagementSystem/Pods/Firebase/CoreOnly/Sources/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UserNotifications.framework/Headers/UserNotifications.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/os.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "1f36236b2e837e5b7851f3604dfb80b2"

@@ -21,9 +21,5 @@ class Participants : ObservableObject {
             }
         }
     }
-    
-    func isNotEmpty() -> Bool {
-        print(users.count)
-        return !self.users.isEmpty
-    }
+
 }

@@ -1,0 +1,458 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "RegisterView"
+provides-nominal:
+- "16ManagementSystem12RegisterViewV"
+provides-member:
+- ["16ManagementSystem12RegisterViewV", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!"
+- !private "..<"
+- "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- !private "Button"
+- !private "Color"
+- !private "Constant"
+- "Environment"
+- "FloatLiteralType"
+- !private "ForEach"
+- !private "Form"
+- !private "Formatter"
+- !private "Group"
+- !private "HStack"
+- "IntegerLiteralType"
+- !private "NavigationView"
+- !private "Picker"
+- "Position"
+- "RegisterView"
+- !private "SecureField"
+- "SessionViewModel"
+- !private "Spacer"
+- "State"
+- "String"
+- "StringLiteralType"
+- !private "Text"
+- !private "TextField"
+- !private "User"
+- !private "VStack"
+- "View"
+depends-member:
+- !private ["Sa", "count"]
+- !private ["Sa", "subscript"]
+- !private ["SK", "count"]
+- !private ["SK", "subscript"]
+- !private ["7SwiftUI7BindingV", "wrappedValue"]
+- !private ["7SwiftUI6ButtonV", "init"]
+- !private ["7SwiftUI6ButtonV", "showAlert"]
+- !private ["s7CVarArgP", "count"]
+- !private ["s7CVarArgP", "subscript"]
+- ["s12CaseIterableP", "None"]
+- !private ["s12CaseIterableP", "allCases"]
+- ["s12CaseIterableP", "getAllCases"]
+- !private ["Sl", "count"]
+- !private ["Sl", "subscript"]
+- !private ["7SwiftUI5ColorV", "black"]
+- !private ["7SwiftUI5ColorV", "primaryBlue"]
+- !private ["7SwiftUI5ColorV", "white"]
+- !private ["16ManagementSystem8ConstantV", "ErrorRegister"]
+- !private ["16ManagementSystem8ConstantV", "ErrorTitle"]
+- !private ["10Foundation15ContiguousBytesP", "count"]
+- !private ["10Foundation15ContiguousBytesP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "count"]
+- !private ["s28CustomDebugStringConvertibleP", "headline"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s17CustomReflectableP", "count"]
+- !private ["s17CustomReflectableP", "headline"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "black"]
+- !private ["s23CustomStringConvertibleP", "count"]
+- ["s23CustomStringConvertibleP", "presentationMode"]
+- !private ["s23CustomStringConvertibleP", "primaryBlue"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "white"]
+- !private ["10Foundation12DataProtocolP", "count"]
+- !private ["10Foundation12DataProtocolP", "subscript"]
+- ["Se", "None"]
+- !private ["Se", "allCases"]
+- !private ["Se", "count"]
+- ["Se", "getAllCases"]
+- !private ["Se", "headline"]
+- !private ["Se", "init"]
+- !private ["Se", "subscript"]
+- !private ["16ManagementSystem20DocumentSerializableP", "init"]
+- ["7SwiftUI15DynamicPropertyP", "init"]
+- ["7SwiftUI15DynamicPropertyP", "wrappedValue"]
+- !private ["7SwiftUI18DynamicViewContentP", "init"]
+- ["SE", "None"]
+- !private ["SE", "allCases"]
+- !private ["SE", "count"]
+- ["SE", "getAllCases"]
+- !private ["SE", "headline"]
+- !private ["SE", "init"]
+- !private ["SE", "subscript"]
+- ["7SwiftUI11EnvironmentV", "init"]
+- ["7SwiftUI11EnvironmentV", "wrappedValue"]
+- ["7SwiftUI17EnvironmentValuesV", "presentationMode"]
+- ["SQ", "None"]
+- !private ["SQ", "all"]
+- !private ["SQ", "allCases"]
+- !private ["SQ", "black"]
+- !private ["SQ", "bold"]
+- !private ["SQ", "bottom"]
+- !private ["SQ", "count"]
+- !private ["SQ", "font"]
+- !private ["SQ", "foregroundColor"]
+- ["SQ", "getAllCases"]
+- !private ["SQ", "headline"]
+- !private ["SQ", "horizontal"]
+- !private ["SQ", "init"]
+- !private ["SQ", "inline"]
+- !private ["SQ", "leading"]
+- !private ["SQ", "none"]
+- !private ["SQ", "padding"]
+- !private ["SQ", "primaryBlue"]
+- !private ["SQ", "subscript"]
+- !private ["SQ", "tag"]
+- !private ["SQ", "vertical"]
+- !private ["SQ", "white"]
+- !private ["s25ExpressibleByArrayLiteralP", "all"]
+- !private ["s25ExpressibleByArrayLiteralP", "bottom"]
+- !private ["s25ExpressibleByArrayLiteralP", "count"]
+- !private ["s25ExpressibleByArrayLiteralP", "horizontal"]
+- !private ["s25ExpressibleByArrayLiteralP", "subscript"]
+- !private ["s25ExpressibleByArrayLiteralP", "vertical"]
+- !private ["s23ExpressibleByNilLiteralP", "headline"]
+- !private ["7SwiftUI4FontV", "headline"]
+- !private ["7SwiftUI7ForEachV", "init"]
+- !private ["7SwiftUI4FormV", "init"]
+- !private ["7SwiftUI4FormV", "padding"]
+- !private ["16ManagementSystem9FormatterC", "checkInput"]
+- !private ["7SwiftUI7GestureP", "headline"]
+- !private ["7SwiftUI5GroupV", "border"]
+- !private ["7SwiftUI5GroupV", "init"]
+- !private ["7SwiftUI6HStackV", "init"]
+- ["SH", "None"]
+- !private ["SH", "allCases"]
+- !private ["SH", "black"]
+- !private ["SH", "count"]
+- ["SH", "getAllCases"]
+- !private ["SH", "headline"]
+- !private ["SH", "init"]
+- !private ["SH", "inline"]
+- !private ["SH", "none"]
+- !private ["SH", "primaryBlue"]
+- !private ["SH", "subscript"]
+- !private ["SH", "white"]
+- !private ["7SwiftUI19HorizontalAlignmentV", "leading"]
+- !private ["SM", "count"]
+- !private ["SM", "subscript"]
+- !private ["10Foundation19MutableDataProtocolP", "count"]
+- !private ["10Foundation19MutableDataProtocolP", "subscript"]
+- !private ["7SwiftUI14NavigationViewV", "init"]
+- !private ["s9OptionSetP", "all"]
+- !private ["s9OptionSetP", "bottom"]
+- !private ["s9OptionSetP", "horizontal"]
+- !private ["s9OptionSetP", "vertical"]
+- !private ["Sq", "headline"]
+- !private ["7SwiftUI6PickerV", "init"]
+- ["16ManagementSystem8PositionO", "None"]
+- !private ["16ManagementSystem8PositionO", "allCases"]
+- !private ["16ManagementSystem8PositionO", "deinit"]
+- ["16ManagementSystem8PositionO", "getAllCases"]
+- !private ["7SwiftUI16PresentationModeV", "dismiss"]
+- !private ["Sk", "count"]
+- !private ["Sk", "subscript"]
+- !private ["Sm", "count"]
+- !private ["Sm", "subscript"]
+- ["SY", "None"]
+- !private ["SY", "all"]
+- !private ["SY", "allCases"]
+- !private ["SY", "bottom"]
+- ["SY", "getAllCases"]
+- !private ["SY", "horizontal"]
+- !private ["SY", "none"]
+- !private ["SY", "vertical"]
+- !private ["16ManagementSystem12RegisterViewV", "$email"]
+- !private ["16ManagementSystem12RegisterViewV", "$isIncorrectInput"]
+- !private ["16ManagementSystem12RegisterViewV", "$lastName"]
+- !private ["16ManagementSystem12RegisterViewV", "$name"]
+- !private ["16ManagementSystem12RegisterViewV", "$password"]
+- !private ["16ManagementSystem12RegisterViewV", "$pickerSelection"]
+- !private ["16ManagementSystem12RegisterViewV", "$position"]
+- ["16ManagementSystem12RegisterViewV", "$session"]
+- ["16ManagementSystem12RegisterViewV", "Body"]
+- ["16ManagementSystem12RegisterViewV", "Bool"]
+- !private ["16ManagementSystem12RegisterViewV", "Button"]
+- !private ["16ManagementSystem12RegisterViewV", "CancelButton"]
+- !private ["16ManagementSystem12RegisterViewV", "Color"]
+- !private ["16ManagementSystem12RegisterViewV", "Constant"]
+- ["16ManagementSystem12RegisterViewV", "Environment"]
+- !private ["16ManagementSystem12RegisterViewV", "ForEach"]
+- !private ["16ManagementSystem12RegisterViewV", "Form"]
+- !private ["16ManagementSystem12RegisterViewV", "Formatter"]
+- !private ["16ManagementSystem12RegisterViewV", "Group"]
+- !private ["16ManagementSystem12RegisterViewV", "HStack"]
+- !private ["16ManagementSystem12RegisterViewV", "NavigationView"]
+- !private ["16ManagementSystem12RegisterViewV", "Picker"]
+- ["16ManagementSystem12RegisterViewV", "Position"]
+- !private ["16ManagementSystem12RegisterViewV", "SecureField"]
+- ["16ManagementSystem12RegisterViewV", "SessionViewModel"]
+- !private ["16ManagementSystem12RegisterViewV", "Spacer"]
+- ["16ManagementSystem12RegisterViewV", "State"]
+- ["16ManagementSystem12RegisterViewV", "String"]
+- !private ["16ManagementSystem12RegisterViewV", "Text"]
+- !private ["16ManagementSystem12RegisterViewV", "TextField"]
+- !private ["16ManagementSystem12RegisterViewV", "User"]
+- !private ["16ManagementSystem12RegisterViewV", "VStack"]
+- ["16ManagementSystem12RegisterViewV", "View"]
+- ["16ManagementSystem12RegisterViewV", "_Default_Body"]
+- !private ["16ManagementSystem12RegisterViewV", "_email"]
+- !private ["16ManagementSystem12RegisterViewV", "_isIncorrectInput"]
+- !private ["16ManagementSystem12RegisterViewV", "_lastName"]
+- ["16ManagementSystem12RegisterViewV", "_makeView"]
+- ["16ManagementSystem12RegisterViewV", "_makeViewList"]
+- !private ["16ManagementSystem12RegisterViewV", "_name"]
+- !private ["16ManagementSystem12RegisterViewV", "_password"]
+- !private ["16ManagementSystem12RegisterViewV", "_pickerSelection"]
+- !private ["16ManagementSystem12RegisterViewV", "_position"]
+- !private ["16ManagementSystem12RegisterViewV", "_presentationMode"]
+- !private ["16ManagementSystem12RegisterViewV", "_session"]
+- ["16ManagementSystem12RegisterViewV", "body"]
+- ["16ManagementSystem12RegisterViewV", "deinit"]
+- !private ["16ManagementSystem12RegisterViewV", "email"]
+- !private ["16ManagementSystem12RegisterViewV", "handleRequest"]
+- ["16ManagementSystem12RegisterViewV", "init"]
+- !private ["16ManagementSystem12RegisterViewV", "isIncorrectInput"]
+- !private ["16ManagementSystem12RegisterViewV", "lastName"]
+- !private ["16ManagementSystem12RegisterViewV", "name"]
+- !private ["16ManagementSystem12RegisterViewV", "password"]
+- !private ["16ManagementSystem12RegisterViewV", "pickerSelection"]
+- !private ["16ManagementSystem12RegisterViewV", "position"]
+- !private ["16ManagementSystem12RegisterViewV", "positions"]
+- ["16ManagementSystem12RegisterViewV", "presentationMode"]
+- ["16ManagementSystem12RegisterViewV", "session"]
+- !private ["7SwiftUI11SecureFieldV", "autocapitalization"]
+- !private ["7SwiftUI11SecureFieldV", "init"]
+- !private ["ST", "count"]
+- !private ["ST", "subscript"]
+- ["16ManagementSystem16SessionViewModelC", "shared"]
+- !private ["16ManagementSystem16SessionViewModelC", "signUp"]
+- !private ["7SwiftUI4EdgeO3SetV", "all"]
+- !private ["7SwiftUI4EdgeO3SetV", "bottom"]
+- !private ["7SwiftUI4EdgeO3SetV", "horizontal"]
+- !private ["7SwiftUI4EdgeO3SetV", "vertical"]
+- !private ["s10SetAlgebraP", "all"]
+- !private ["s10SetAlgebraP", "bottom"]
+- !private ["s10SetAlgebraP", "horizontal"]
+- !private ["s10SetAlgebraP", "vertical"]
+- !private ["7SwiftUI10ShapeStyleP", "black"]
+- !private ["7SwiftUI10ShapeStyleP", "primaryBlue"]
+- !private ["7SwiftUI10ShapeStyleP", "white"]
+- !private ["7SwiftUI6SpacerV", "init"]
+- ["7SwiftUI5StateV", "init"]
+- ["7SwiftUI5StateV", "wrappedValue"]
+- !private ["7SwiftUI4TextV", "bold"]
+- !private ["7SwiftUI4TextV", "font"]
+- !private ["7SwiftUI4TextV", "foregroundColor"]
+- !private ["7SwiftUI4TextV", "init"]
+- !private ["7SwiftUI4TextV", "padding"]
+- !private ["7SwiftUI4TextV", "tag"]
+- !private ["7SwiftUI9TextFieldV", "autocapitalization"]
+- !private ["7SwiftUI9TextFieldV", "init"]
+- !private ["7SwiftUI9TextFieldV", "padding"]
+- !private ["7SwiftUI17NavigationBarItemV16TitleDisplayModeO", "inline"]
+- !private ["So28UITextAutocapitalizationTypeV", "none"]
+- !private ["16ManagementSystem4UserV", "deinit"]
+- ["16ManagementSystem4UserV", "init"]
+- !private ["7SwiftUI6VStackV", "init"]
+- !private ["7SwiftUI6VStackV", "navigationBarTitle"]
+- !private ["7SwiftUI4ViewP", "$email"]
+- !private ["7SwiftUI4ViewP", "$isIncorrectInput"]
+- !private ["7SwiftUI4ViewP", "$lastName"]
+- !private ["7SwiftUI4ViewP", "$name"]
+- !private ["7SwiftUI4ViewP", "$password"]
+- !private ["7SwiftUI4ViewP", "$pickerSelection"]
+- ["7SwiftUI4ViewP", "Body"]
+- !private ["7SwiftUI4ViewP", "Button"]
+- !private ["7SwiftUI4ViewP", "CancelButton"]
+- !private ["7SwiftUI4ViewP", "Color"]
+- !private ["7SwiftUI4ViewP", "Constant"]
+- !private ["7SwiftUI4ViewP", "ForEach"]
+- !private ["7SwiftUI4ViewP", "Form"]
+- !private ["7SwiftUI4ViewP", "Formatter"]
+- !private ["7SwiftUI4ViewP", "Group"]
+- !private ["7SwiftUI4ViewP", "HStack"]
+- !private ["7SwiftUI4ViewP", "NavigationView"]
+- !private ["7SwiftUI4ViewP", "Picker"]
+- ["7SwiftUI4ViewP", "Position"]
+- !private ["7SwiftUI4ViewP", "SecureField"]
+- ["7SwiftUI4ViewP", "SessionViewModel"]
+- !private ["7SwiftUI4ViewP", "Spacer"]
+- !private ["7SwiftUI4ViewP", "Text"]
+- !private ["7SwiftUI4ViewP", "TextField"]
+- !private ["7SwiftUI4ViewP", "User"]
+- !private ["7SwiftUI4ViewP", "VStack"]
+- ["7SwiftUI4ViewP", ""]
+- ["7SwiftUI4ViewP", "_Default_Body"]
+- ["7SwiftUI4ViewP", "_makeView"]
+- ["7SwiftUI4ViewP", "_makeViewList"]
+- !private ["7SwiftUI4ViewP", "autocapitalization"]
+- !private ["7SwiftUI4ViewP", "background"]
+- !private ["7SwiftUI4ViewP", "black"]
+- ["7SwiftUI4ViewP", "body"]
+- !private ["7SwiftUI4ViewP", "bold"]
+- !private ["7SwiftUI4ViewP", "border"]
+- !private ["7SwiftUI4ViewP", "cornerRadius"]
+- !private ["7SwiftUI4ViewP", "email"]
+- !private ["7SwiftUI4ViewP", "font"]
+- !private ["7SwiftUI4ViewP", "foregroundColor"]
+- !private ["7SwiftUI4ViewP", "handleRequest"]
+- !private ["7SwiftUI4ViewP", "headline"]
+- !private ["7SwiftUI4ViewP", "init"]
+- !private ["7SwiftUI4ViewP", "isIncorrectInput"]
+- !private ["7SwiftUI4ViewP", "lastName"]
+- !private ["7SwiftUI4ViewP", "name"]
+- !private ["7SwiftUI4ViewP", "navigationBarItems"]
+- !private ["7SwiftUI4ViewP", "navigationBarTitle"]
+- !private ["7SwiftUI4ViewP", "padding"]
+- !private ["7SwiftUI4ViewP", "password"]
+- !private ["7SwiftUI4ViewP", "pickerSelection"]
+- !private ["7SwiftUI4ViewP", "positions"]
+- !private ["7SwiftUI4ViewP", "presentationMode"]
+- !private ["7SwiftUI4ViewP", "primaryBlue"]
+- !private ["7SwiftUI4ViewP", "session"]
+- !private ["7SwiftUI4ViewP", "showAlert"]
+- !private ["7SwiftUI4ViewP", "tag"]
+- !private ["7SwiftUI4ViewP", "white"]
+- !private ["7SwiftUI11ViewBuilderV", "buildBlock"]
+- !private ["s14_ArrayProtocolP", "count"]
+- !private ["s14_ArrayProtocolP", "subscript"]
+- !private ["s24_DestructorSafeContainerP", "count"]
+- !private ["s24_DestructorSafeContainerP", "subscript"]
+- !private ["s19_HasContiguousBytesP", "count"]
+- !private ["s19_HasContiguousBytesP", "subscript"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "count"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "count"]
+- !private ["s21_ObjectiveCBridgeableP", "headline"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+depends-nominal:
+- !private "Sa"
+- !private "SK"
+- !private "7SwiftUI7BindingV"
+- !private "7SwiftUI6ButtonV"
+- !private "s7CVarArgP"
+- "s12CaseIterableP"
+- !private "Sl"
+- !private "7SwiftUI5ColorV"
+- !private "16ManagementSystem8ConstantV"
+- !private "10Foundation15ContiguousBytesP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "10Foundation12DataProtocolP"
+- "Se"
+- !private "16ManagementSystem20DocumentSerializableP"
+- "7SwiftUI15DynamicPropertyP"
+- !private "7SwiftUI18DynamicViewContentP"
+- "SE"
+- "7SwiftUI11EnvironmentV"
+- "7SwiftUI17EnvironmentValuesV"
+- "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s23ExpressibleByNilLiteralP"
+- !private "7SwiftUI4FontV"
+- !private "7SwiftUI7ForEachV"
+- !private "7SwiftUI4FormV"
+- !private "16ManagementSystem9FormatterC"
+- !private "7SwiftUI7GestureP"
+- !private "7SwiftUI5GroupV"
+- !private "7SwiftUI6HStackV"
+- "SH"
+- !private "7SwiftUI19HorizontalAlignmentV"
+- !private "SM"
+- !private "10Foundation19MutableDataProtocolP"
+- !private "7SwiftUI14NavigationViewV"
+- !private "s9OptionSetP"
+- !private "Sq"
+- !private "7SwiftUI6PickerV"
+- "16ManagementSystem8PositionO"
+- !private "7SwiftUI16PresentationModeV"
+- !private "Sk"
+- !private "Sm"
+- "SY"
+- "16ManagementSystem12RegisterViewV"
+- !private "7SwiftUI11SecureFieldV"
+- !private "ST"
+- "16ManagementSystem16SessionViewModelC"
+- !private "7SwiftUI4EdgeO3SetV"
+- !private "s10SetAlgebraP"
+- !private "7SwiftUI10ShapeStyleP"
+- !private "7SwiftUI6SpacerV"
+- "7SwiftUI5StateV"
+- !private "7SwiftUI4TextV"
+- !private "7SwiftUI9TextFieldV"
+- !private "7SwiftUI17NavigationBarItemV16TitleDisplayModeO"
+- !private "So28UITextAutocapitalizationTypeV"
+- "16ManagementSystem4UserV"
+- !private "7SwiftUI6VStackV"
+- "7SwiftUI4ViewP"
+- !private "7SwiftUI11ViewBuilderV"
+- !private "s14_ArrayProtocolP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s19_HasContiguousBytesP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/ObjectiveC.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreData.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreImage.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/QuartzCore.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Dispatch.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Metal.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Darwin.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Foundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreFoundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreGraphics.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/os.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Swift.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/UIKit.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/SwiftOnoneSupport.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/SwiftUI.framework/Modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Combine.framework/Modules/Combine.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/ObjectiveC.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreData.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreImage.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/QuartzCore.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Dispatch.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Metal.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Darwin.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Foundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreFoundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreGraphics.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/os.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Swift.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/UIKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftOnoneSupport.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Combine.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Users/annamihaleva/ManagementSystem/Pods/Firebase/CoreOnly/Sources/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UserNotifications.framework/Headers/UserNotifications.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/os.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "ce07fe14b0c5dfffeb19be1d3d46417a"

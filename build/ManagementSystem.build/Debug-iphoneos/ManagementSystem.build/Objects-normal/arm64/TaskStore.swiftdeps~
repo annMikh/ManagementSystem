@@ -1,0 +1,362 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "TaskStore"
+provides-nominal:
+- "16ManagementSystem9TaskStoreC"
+provides-member:
+- ["16ManagementSystem9TaskStoreC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "=="
+- !private "??"
+- "AssignmentPrecedence"
+- "BooleanLiteralType"
+- "Database"
+- "FIRDocumentSnapshotBlock"
+- "IndexSet"
+- "Int"
+- !private "IntegerLiteralType"
+- "ObservableObject"
+- !private "Permission"
+- "Project"
+- "Published"
+- "SessionViewModel"
+- "StateMachine"
+- "String"
+- "Task"
+- "TaskStore"
+- "User"
+depends-member:
+- !private ["Sa", "firstIndex"]
+- ["Sa", "init"]
+- !private ["Sa", "insert"]
+- !private ["Sa", "move"]
+- !private ["Sa", "remove"]
+- !private ["Sa", "subscript"]
+- !private ["SK", "firstIndex"]
+- ["SK", "init"]
+- !private ["SK", "insert"]
+- !private ["SK", "move"]
+- !private ["SK", "remove"]
+- !private ["SK", "subscript"]
+- !private ["s7CVarArgP", "firstIndex"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "insert"]
+- !private ["s7CVarArgP", "move"]
+- !private ["s7CVarArgP", "remove"]
+- !private ["s7CVarArgP", "subscript"]
+- !private ["Sl", "firstIndex"]
+- ["Sl", "init"]
+- !private ["Sl", "insert"]
+- !private ["Sl", "move"]
+- !private ["Sl", "remove"]
+- !private ["Sl", "subscript"]
+- !private ["10Foundation15ContiguousBytesP", "firstIndex"]
+- ["10Foundation15ContiguousBytesP", "init"]
+- !private ["10Foundation15ContiguousBytesP", "insert"]
+- !private ["10Foundation15ContiguousBytesP", "move"]
+- !private ["10Foundation15ContiguousBytesP", "remove"]
+- !private ["10Foundation15ContiguousBytesP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "firstIndex"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "insert"]
+- !private ["s28CustomDebugStringConvertibleP", "move"]
+- !private ["s28CustomDebugStringConvertibleP", "remove"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s17CustomReflectableP", "firstIndex"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "insert"]
+- !private ["s17CustomReflectableP", "move"]
+- !private ["s17CustomReflectableP", "remove"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "firstIndex"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "insert"]
+- !private ["s23CustomStringConvertibleP", "move"]
+- !private ["s23CustomStringConvertibleP", "remove"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["10Foundation12DataProtocolP", "firstIndex"]
+- ["10Foundation12DataProtocolP", "init"]
+- !private ["10Foundation12DataProtocolP", "insert"]
+- !private ["10Foundation12DataProtocolP", "move"]
+- !private ["10Foundation12DataProtocolP", "remove"]
+- !private ["10Foundation12DataProtocolP", "subscript"]
+- !private ["16ManagementSystem8DatabaseC", "getTasks"]
+- !private ["16ManagementSystem8DatabaseC", "getUser"]
+- ["16ManagementSystem8DatabaseC", "shared"]
+- !private ["Se", "firstIndex"]
+- ["Se", "init"]
+- !private ["Se", "insert"]
+- !private ["Se", "move"]
+- !private ["Se", "remove"]
+- !private ["Se", "subscript"]
+- !private ["SD", "init"]
+- ["16ManagementSystem20DocumentSerializableP", "init"]
+- !private ["SE", "firstIndex"]
+- ["SE", "init"]
+- !private ["SE", "insert"]
+- !private ["SE", "move"]
+- !private ["SE", "remove"]
+- !private ["SE", "subscript"]
+- ["SQ", "Add"]
+- ["SQ", "Edit"]
+- ["SQ", "None"]
+- ["SQ", "View"]
+- !private ["SQ", "firstIndex"]
+- ["SQ", "init"]
+- !private ["SQ", "insert"]
+- !private ["SQ", "move"]
+- !private ["SQ", "remove"]
+- !private ["SQ", "subscript"]
+- !private ["s25ExpressibleByArrayLiteralP", "firstIndex"]
+- ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s25ExpressibleByArrayLiteralP", "insert"]
+- !private ["s25ExpressibleByArrayLiteralP", "move"]
+- !private ["s25ExpressibleByArrayLiteralP", "remove"]
+- !private ["s25ExpressibleByArrayLiteralP", "subscript"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "init"]
+- ["SH", "Add"]
+- ["SH", "Edit"]
+- ["SH", "None"]
+- ["SH", "View"]
+- !private ["SH", "firstIndex"]
+- ["SH", "init"]
+- !private ["SH", "insert"]
+- !private ["SH", "move"]
+- !private ["SH", "remove"]
+- !private ["SH", "subscript"]
+- !private ["SM", "firstIndex"]
+- ["SM", "init"]
+- !private ["SM", "insert"]
+- !private ["SM", "move"]
+- !private ["SM", "remove"]
+- !private ["SM", "subscript"]
+- !private ["10Foundation19MutableDataProtocolP", "firstIndex"]
+- ["10Foundation19MutableDataProtocolP", "init"]
+- !private ["10Foundation19MutableDataProtocolP", "insert"]
+- !private ["10Foundation19MutableDataProtocolP", "move"]
+- !private ["10Foundation19MutableDataProtocolP", "remove"]
+- !private ["10Foundation19MutableDataProtocolP", "subscript"]
+- ["7Combine16ObservableObjectP", "Database"]
+- ["7Combine16ObservableObjectP", "FIRDocumentSnapshotBlock"]
+- ["7Combine16ObservableObjectP", "ObjectWillChangePublisher"]
+- !private ["7Combine16ObservableObjectP", "Permission"]
+- ["7Combine16ObservableObjectP", "SessionViewModel"]
+- !private ["7Combine16ObservableObjectP", "String"]
+- ["7Combine16ObservableObjectP", "Task"]
+- ["7Combine16ObservableObjectP", "TaskStore"]
+- !private ["7Combine16ObservableObjectP", "User"]
+- ["7Combine16ObservableObjectP", ""]
+- ["7Combine16ObservableObjectP", "_Default_ObjectWillChangePublisher"]
+- !private ["7Combine16ObservableObjectP", "author"]
+- !private ["7Combine16ObservableObjectP", "createTask"]
+- !private ["7Combine16ObservableObjectP", "database"]
+- !private ["7Combine16ObservableObjectP", "getTasks"]
+- !private ["7Combine16ObservableObjectP", "getUser"]
+- !private ["7Combine16ObservableObjectP", "indexOf"]
+- ["7Combine16ObservableObjectP", "init"]
+- ["7Combine16ObservableObjectP", "objectWillChange"]
+- !private ["7Combine16ObservableObjectP", "session"]
+- ["7Combine16ObservableObjectP", "shared"]
+- !private ["7Combine16ObservableObjectP", "state"]
+- !private ["7Combine16ObservableObjectP", "task"]
+- !private ["7Combine16ObservableObjectP", "tasks"]
+- !private ["7Combine16ObservableObjectP", "updateTask"]
+- !private ["16ManagementSystem10PermissionC", "toEditTask"]
+- ["7Combine9PublishedV", "init"]
+- ["7Combine9PublishedV", "wrappedValue"]
+- !private ["Sk", "firstIndex"]
+- ["Sk", "init"]
+- !private ["Sk", "insert"]
+- !private ["Sk", "move"]
+- !private ["Sk", "remove"]
+- !private ["Sk", "subscript"]
+- !private ["Sm", "firstIndex"]
+- ["Sm", "init"]
+- !private ["Sm", "insert"]
+- !private ["Sm", "move"]
+- !private ["Sm", "remove"]
+- !private ["Sm", "subscript"]
+- !private ["ST", "firstIndex"]
+- ["ST", "init"]
+- !private ["ST", "insert"]
+- !private ["ST", "move"]
+- !private ["ST", "remove"]
+- !private ["ST", "subscript"]
+- !private ["16ManagementSystem16SessionViewModelC", "createTask"]
+- !private ["16ManagementSystem16SessionViewModelC", "deleteTask"]
+- ["16ManagementSystem16SessionViewModelC", "shared"]
+- ["16ManagementSystem12StateMachineO0C0O", "Add"]
+- ["16ManagementSystem12StateMachineO0C0O", "Edit"]
+- ["16ManagementSystem12StateMachineO0C0O", "None"]
+- ["16ManagementSystem12StateMachineO0C0O", "View"]
+- ["16ManagementSystem12StateMachineO", "State"]
+- ["16ManagementSystem4TaskV", "deinit"]
+- ["16ManagementSystem4TaskV", "init"]
+- ["16ManagementSystem9TaskStoreC", "$assigned"]
+- ["16ManagementSystem9TaskStoreC", "$author"]
+- ["16ManagementSystem9TaskStoreC", "$isLoad"]
+- ["16ManagementSystem9TaskStoreC", "$state"]
+- ["16ManagementSystem9TaskStoreC", "$tasks"]
+- ["16ManagementSystem9TaskStoreC", "Database"]
+- ["16ManagementSystem9TaskStoreC", "FIRDocumentSnapshotBlock"]
+- ["16ManagementSystem9TaskStoreC", "IndexSet"]
+- ["16ManagementSystem9TaskStoreC", "Int"]
+- ["16ManagementSystem9TaskStoreC", "ObjectWillChangePublisher"]
+- !private ["16ManagementSystem9TaskStoreC", "Permission"]
+- ["16ManagementSystem9TaskStoreC", "Project"]
+- ["16ManagementSystem9TaskStoreC", "Published"]
+- ["16ManagementSystem9TaskStoreC", "SessionViewModel"]
+- ["16ManagementSystem9TaskStoreC", "StateMachine"]
+- ["16ManagementSystem9TaskStoreC", "String"]
+- ["16ManagementSystem9TaskStoreC", "Task"]
+- ["16ManagementSystem9TaskStoreC", "TaskStore"]
+- ["16ManagementSystem9TaskStoreC", "User"]
+- ["16ManagementSystem9TaskStoreC", "_Default_ObjectWillChangePublisher"]
+- !private ["16ManagementSystem9TaskStoreC", "_assigned"]
+- !private ["16ManagementSystem9TaskStoreC", "_author"]
+- !private ["16ManagementSystem9TaskStoreC", "_isLoad"]
+- !private ["16ManagementSystem9TaskStoreC", "_state"]
+- !private ["16ManagementSystem9TaskStoreC", "_tasks"]
+- ["16ManagementSystem9TaskStoreC", "assigned"]
+- ["16ManagementSystem9TaskStoreC", "author"]
+- ["16ManagementSystem9TaskStoreC", "createTask"]
+- !private ["16ManagementSystem9TaskStoreC", "database"]
+- ["16ManagementSystem9TaskStoreC", "deinit"]
+- ["16ManagementSystem9TaskStoreC", "delete"]
+- ["16ManagementSystem9TaskStoreC", "indexOf"]
+- ["16ManagementSystem9TaskStoreC", "init"]
+- ["16ManagementSystem9TaskStoreC", "isLoad"]
+- ["16ManagementSystem9TaskStoreC", "loadAuthor"]
+- ["16ManagementSystem9TaskStoreC", "loadTasks"]
+- ["16ManagementSystem9TaskStoreC", "move"]
+- ["16ManagementSystem9TaskStoreC", "objectWillChange"]
+- !private ["16ManagementSystem9TaskStoreC", "session"]
+- ["16ManagementSystem9TaskStoreC", "setState"]
+- ["16ManagementSystem9TaskStoreC", "setTask"]
+- ["16ManagementSystem9TaskStoreC", "shared"]
+- ["16ManagementSystem9TaskStoreC", "state"]
+- !private ["16ManagementSystem9TaskStoreC", "task"]
+- ["16ManagementSystem9TaskStoreC", "tasks"]
+- ["16ManagementSystem9TaskStoreC", "updateTask"]
+- !private ["16ManagementSystem4UserV", "deinit"]
+- !private ["16ManagementSystem4UserV", "init"]
+- !private ["s14_ArrayProtocolP", "firstIndex"]
+- ["s14_ArrayProtocolP", "init"]
+- !private ["s14_ArrayProtocolP", "insert"]
+- !private ["s14_ArrayProtocolP", "move"]
+- !private ["s14_ArrayProtocolP", "remove"]
+- !private ["s14_ArrayProtocolP", "subscript"]
+- !private ["s24_DestructorSafeContainerP", "firstIndex"]
+- ["s24_DestructorSafeContainerP", "init"]
+- !private ["s24_DestructorSafeContainerP", "insert"]
+- !private ["s24_DestructorSafeContainerP", "move"]
+- !private ["s24_DestructorSafeContainerP", "remove"]
+- !private ["s24_DestructorSafeContainerP", "subscript"]
+- !private ["s19_HasContiguousBytesP", "firstIndex"]
+- ["s19_HasContiguousBytesP", "init"]
+- !private ["s19_HasContiguousBytesP", "insert"]
+- !private ["s19_HasContiguousBytesP", "move"]
+- !private ["s19_HasContiguousBytesP", "remove"]
+- !private ["s19_HasContiguousBytesP", "subscript"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "firstIndex"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "insert"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "move"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "remove"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "firstIndex"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "insert"]
+- !private ["s21_ObjectiveCBridgeableP", "move"]
+- !private ["s21_ObjectiveCBridgeableP", "remove"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+depends-nominal:
+- "Sa"
+- "SK"
+- "s7CVarArgP"
+- "Sl"
+- "10Foundation15ContiguousBytesP"
+- "s28CustomDebugStringConvertibleP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "10Foundation12DataProtocolP"
+- "16ManagementSystem8DatabaseC"
+- "Se"
+- !private "SD"
+- "16ManagementSystem20DocumentSerializableP"
+- "SE"
+- "SQ"
+- "s25ExpressibleByArrayLiteralP"
+- !private "s30ExpressibleByDictionaryLiteralP"
+- "SH"
+- "SM"
+- "10Foundation19MutableDataProtocolP"
+- "7Combine16ObservableObjectP"
+- !private "16ManagementSystem10PermissionC"
+- "7Combine9PublishedV"
+- "Sk"
+- "Sm"
+- "ST"
+- "16ManagementSystem16SessionViewModelC"
+- "16ManagementSystem12StateMachineO0C0O"
+- "16ManagementSystem12StateMachineO"
+- "16ManagementSystem4TaskV"
+- "16ManagementSystem9TaskStoreC"
+- !private "16ManagementSystem4UserV"
+- "s14_ArrayProtocolP"
+- "s24_DestructorSafeContainerP"
+- "s19_HasContiguousBytesP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/ObjectiveC.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreData.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreImage.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/QuartzCore.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Dispatch.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Metal.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Darwin.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Foundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreFoundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreGraphics.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/os.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Swift.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/UIKit.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/SwiftOnoneSupport.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/SwiftUI.framework/Modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Combine.framework/Modules/Combine.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/ObjectiveC.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreData.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreImage.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/QuartzCore.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Dispatch.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Metal.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Darwin.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Foundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreFoundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreGraphics.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/os.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Swift.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/UIKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftOnoneSupport.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Combine.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Users/annamihaleva/ManagementSystem/Pods/Firebase/CoreOnly/Sources/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UserNotifications.framework/Headers/UserNotifications.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/os.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "ff92fb2322fd05f5ad1bec866c92a392"

@@ -1,0 +1,274 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ProjectView"
+provides-nominal:
+- "16ManagementSystem11ProjectViewV"
+provides-member:
+- ["16ManagementSystem11ProjectViewV", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "AccessType"
+- !private "BooleanLiteralType"
+- !private "Divider"
+- !private "FloatLiteralType"
+- !private "Formatter"
+- !private "HStack"
+- !private "Image"
+- !private "IntegerLiteralType"
+- !private "NavigationLink"
+- "Project"
+- !private "ProjectContentScreen"
+- "ProjectView"
+- !private "Spacer"
+- "State"
+- !private "StringLiteralType"
+- !private "Text"
+- !private "VStack"
+- "View"
+depends-member:
+- !private ["16ManagementSystem10AccessTypeO", "getColor"]
+- !private ["s12CaseIterableP", "getColor"]
+- !private ["s28CustomDebugStringConvertibleP", "footnote"]
+- !private ["s28CustomDebugStringConvertibleP", "title"]
+- !private ["s17CustomReflectableP", "footnote"]
+- !private ["s17CustomReflectableP", "title"]
+- !private ["Se", "accessType"]
+- !private ["Se", "date"]
+- !private ["Se", "description"]
+- !private ["Se", "footnote"]
+- !private ["Se", "getColor"]
+- !private ["Se", "name"]
+- !private ["Se", "title"]
+- !private ["7SwiftUI7DividerV", "background"]
+- !private ["7SwiftUI7DividerV", "init"]
+- !private ["16ManagementSystem20DocumentSerializableP", "accessType"]
+- !private ["16ManagementSystem20DocumentSerializableP", "date"]
+- !private ["16ManagementSystem20DocumentSerializableP", "description"]
+- !private ["16ManagementSystem20DocumentSerializableP", "name"]
+- ["7SwiftUI15DynamicPropertyP", "init"]
+- !private ["SE", "accessType"]
+- !private ["SE", "date"]
+- !private ["SE", "description"]
+- !private ["SE", "footnote"]
+- !private ["SE", "getColor"]
+- !private ["SE", "name"]
+- !private ["SE", "title"]
+- !private ["SQ", "accessType"]
+- !private ["SQ", "bottom"]
+- !private ["SQ", "date"]
+- !private ["SQ", "description"]
+- !private ["SQ", "firstTextBaseline"]
+- !private ["SQ", "footnote"]
+- !private ["SQ", "frame"]
+- !private ["SQ", "getColor"]
+- !private ["SQ", "horizontal"]
+- !private ["SQ", "init"]
+- !private ["SQ", "leading"]
+- !private ["SQ", "lineLimit"]
+- !private ["SQ", "name"]
+- !private ["SQ", "resizable"]
+- !private ["SQ", "title"]
+- !private ["SQ", "top"]
+- !private ["SQ", "trailing"]
+- !private ["s25ExpressibleByArrayLiteralP", "bottom"]
+- !private ["s25ExpressibleByArrayLiteralP", "horizontal"]
+- !private ["s25ExpressibleByArrayLiteralP", "top"]
+- !private ["s25ExpressibleByArrayLiteralP", "trailing"]
+- !private ["s23ExpressibleByNilLiteralP", "footnote"]
+- !private ["s23ExpressibleByNilLiteralP", "title"]
+- !private ["7SwiftUI4FontV", "footnote"]
+- !private ["7SwiftUI4FontV", "title"]
+- !private ["16ManagementSystem9FormatterC", "getStringWithFormate"]
+- !private ["7SwiftUI7GestureP", "footnote"]
+- !private ["7SwiftUI7GestureP", "title"]
+- !private ["7SwiftUI6HStackV", "frame"]
+- !private ["7SwiftUI6HStackV", "init"]
+- !private ["SH", "accessType"]
+- !private ["SH", "date"]
+- !private ["SH", "description"]
+- !private ["SH", "footnote"]
+- !private ["SH", "getColor"]
+- !private ["SH", "name"]
+- !private ["SH", "title"]
+- !private ["7SwiftUI19HorizontalAlignmentV", "leading"]
+- !private ["7SwiftUI5ImageV", "frame"]
+- !private ["7SwiftUI5ImageV", "init"]
+- !private ["7SwiftUI5ImageV", "resizable"]
+- !private ["7SwiftUI14NavigationLinkV", "init"]
+- !private ["s9OptionSetP", "bottom"]
+- !private ["s9OptionSetP", "horizontal"]
+- !private ["s9OptionSetP", "top"]
+- !private ["s9OptionSetP", "trailing"]
+- !private ["Sq", "footnote"]
+- !private ["Sq", "title"]
+- !private ["16ManagementSystem7ProjectV", "accessType"]
+- !private ["16ManagementSystem7ProjectV", "date"]
+- !private ["16ManagementSystem7ProjectV", "description"]
+- !private ["16ManagementSystem7ProjectV", "name"]
+- !private ["16ManagementSystem20ProjectContentScreenV", "deinit"]
+- !private ["16ManagementSystem20ProjectContentScreenV", "init"]
+- !private ["16ManagementSystem20ProjectContentScreenV", "navigationBarTitle"]
+- ["16ManagementSystem11ProjectViewV", "$project"]
+- !private ["16ManagementSystem11ProjectViewV", "AccessType"]
+- ["16ManagementSystem11ProjectViewV", "Body"]
+- !private ["16ManagementSystem11ProjectViewV", "Divider"]
+- !private ["16ManagementSystem11ProjectViewV", "Formatter"]
+- !private ["16ManagementSystem11ProjectViewV", "HStack"]
+- !private ["16ManagementSystem11ProjectViewV", "Image"]
+- !private ["16ManagementSystem11ProjectViewV", "NavigationLink"]
+- ["16ManagementSystem11ProjectViewV", "Project"]
+- ["16ManagementSystem11ProjectViewV", "ProjectContent"]
+- !private ["16ManagementSystem11ProjectViewV", "ProjectContentScreen"]
+- !private ["16ManagementSystem11ProjectViewV", "Spacer"]
+- ["16ManagementSystem11ProjectViewV", "State"]
+- !private ["16ManagementSystem11ProjectViewV", "Text"]
+- !private ["16ManagementSystem11ProjectViewV", "VStack"]
+- ["16ManagementSystem11ProjectViewV", "View"]
+- ["16ManagementSystem11ProjectViewV", "_Default_Body"]
+- ["16ManagementSystem11ProjectViewV", "_makeView"]
+- ["16ManagementSystem11ProjectViewV", "_makeViewList"]
+- !private ["16ManagementSystem11ProjectViewV", "_project"]
+- ["16ManagementSystem11ProjectViewV", "body"]
+- ["16ManagementSystem11ProjectViewV", "deinit"]
+- ["16ManagementSystem11ProjectViewV", "init"]
+- ["16ManagementSystem11ProjectViewV", "project"]
+- !private ["SY", "bottom"]
+- !private ["SY", "getColor"]
+- !private ["SY", "horizontal"]
+- !private ["SY", "top"]
+- !private ["SY", "trailing"]
+- !private ["7SwiftUI4EdgeO3SetV", "bottom"]
+- !private ["7SwiftUI4EdgeO3SetV", "horizontal"]
+- !private ["7SwiftUI4EdgeO3SetV", "top"]
+- !private ["7SwiftUI4EdgeO3SetV", "trailing"]
+- !private ["s10SetAlgebraP", "bottom"]
+- !private ["s10SetAlgebraP", "horizontal"]
+- !private ["s10SetAlgebraP", "top"]
+- !private ["s10SetAlgebraP", "trailing"]
+- !private ["7SwiftUI6SpacerV", "init"]
+- ["7SwiftUI5StateV", "init"]
+- !private ["7SwiftUI4TextV", "init"]
+- !private ["7SwiftUI4TextV", "lineLimit"]
+- !private ["7SwiftUI6VStackV", "init"]
+- !private ["7SwiftUI17VerticalAlignmentV", "firstTextBaseline"]
+- !private ["7SwiftUI17VerticalAlignmentV", "top"]
+- !private ["7SwiftUI4ViewP", "AccessType"]
+- ["7SwiftUI4ViewP", "Body"]
+- !private ["7SwiftUI4ViewP", "Divider"]
+- !private ["7SwiftUI4ViewP", "Formatter"]
+- !private ["7SwiftUI4ViewP", "HStack"]
+- !private ["7SwiftUI4ViewP", "Image"]
+- !private ["7SwiftUI4ViewP", "NavigationLink"]
+- !private ["7SwiftUI4ViewP", "ProjectContent"]
+- !private ["7SwiftUI4ViewP", "ProjectContentScreen"]
+- !private ["7SwiftUI4ViewP", "Spacer"]
+- !private ["7SwiftUI4ViewP", "Text"]
+- !private ["7SwiftUI4ViewP", "VStack"]
+- ["7SwiftUI4ViewP", ""]
+- ["7SwiftUI4ViewP", "_Default_Body"]
+- ["7SwiftUI4ViewP", "_makeView"]
+- ["7SwiftUI4ViewP", "_makeViewList"]
+- !private ["7SwiftUI4ViewP", "background"]
+- ["7SwiftUI4ViewP", "body"]
+- !private ["7SwiftUI4ViewP", "font"]
+- !private ["7SwiftUI4ViewP", "footnote"]
+- !private ["7SwiftUI4ViewP", "frame"]
+- !private ["7SwiftUI4ViewP", "init"]
+- !private ["7SwiftUI4ViewP", "lineLimit"]
+- !private ["7SwiftUI4ViewP", "navigationBarBackButtonHidden"]
+- !private ["7SwiftUI4ViewP", "navigationBarTitle"]
+- !private ["7SwiftUI4ViewP", "padding"]
+- !private ["7SwiftUI4ViewP", "project"]
+- !private ["7SwiftUI4ViewP", "resizable"]
+- !private ["7SwiftUI4ViewP", "title"]
+- !private ["7SwiftUI11ViewBuilderV", "buildBlock"]
+- !private ["s21_ObjectiveCBridgeableP", "footnote"]
+- !private ["s21_ObjectiveCBridgeableP", "title"]
+depends-nominal:
+- !private "16ManagementSystem10AccessTypeO"
+- !private "s12CaseIterableP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- !private "Se"
+- !private "7SwiftUI7DividerV"
+- !private "16ManagementSystem20DocumentSerializableP"
+- "7SwiftUI15DynamicPropertyP"
+- !private "SE"
+- !private "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s23ExpressibleByNilLiteralP"
+- !private "7SwiftUI4FontV"
+- !private "16ManagementSystem9FormatterC"
+- !private "7SwiftUI7GestureP"
+- !private "7SwiftUI6HStackV"
+- !private "SH"
+- !private "7SwiftUI19HorizontalAlignmentV"
+- !private "7SwiftUI5ImageV"
+- !private "7SwiftUI14NavigationLinkV"
+- !private "s9OptionSetP"
+- !private "Sq"
+- !private "16ManagementSystem7ProjectV"
+- !private "16ManagementSystem20ProjectContentScreenV"
+- "16ManagementSystem11ProjectViewV"
+- !private "SY"
+- !private "7SwiftUI4EdgeO3SetV"
+- !private "s10SetAlgebraP"
+- !private "7SwiftUI6SpacerV"
+- "7SwiftUI5StateV"
+- !private "7SwiftUI4TextV"
+- !private "7SwiftUI6VStackV"
+- !private "7SwiftUI17VerticalAlignmentV"
+- "7SwiftUI4ViewP"
+- !private "7SwiftUI11ViewBuilderV"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/ObjectiveC.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreData.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreImage.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/QuartzCore.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Dispatch.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Metal.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Darwin.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Foundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreFoundation.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/CoreGraphics.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/os.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/Swift.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/UIKit.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/swift/SwiftOnoneSupport.swiftmodule/arm64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/SwiftUI.framework/Modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Combine.framework/Modules/Combine.swiftmodule/arm64-apple-ios.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/ObjectiveC.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreData.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreImage.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/QuartzCore.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Dispatch.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Metal.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Darwin.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Foundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreFoundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreGraphics.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/os.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Swift.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/UIKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftOnoneSupport.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftUI.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Combine.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Users/annamihaleva/ManagementSystem/Pods/Firebase/CoreOnly/Sources/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UserNotifications.framework/Headers/UserNotifications.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/os.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "59e51b0bb3434ec44baeae9c656be840"
