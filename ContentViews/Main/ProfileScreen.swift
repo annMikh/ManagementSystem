@@ -15,52 +15,73 @@ struct ProfileView : View {
     
     @State private var isClickedLogOut = false
     @State private var isClickedEdit = false
+    @State private var isIncorrectInput: Bool = false
     @State private var user : User?
-    @State private var roles = [(acc: AccessType, proj: String)]()
+    @State private var session = Session.shared
+    @State private var pickerSelection = 0
     
-    @State var pickerSelection = 0
+    @State private var showImagePicker : Bool = false
+    @State private var image = Session.shared.image
+    @State private var manager = StorageManager()
+    
     private var positions = Position.getAllCases()
-
-    @State var session = Session.shared
         
     var body : some View {
         ScrollView {
             VStack(alignment: .leading) {
                 HStack(alignment: .center, spacing: 30) {
-                    Image(systemName: "person")
-                        .resizable()
-                        .frame(width: 50.0, height: 50.0)
-                        .padding(.top, 20)
-                        .padding(.leading, 20)
-
-                    LabelTextField(label: "Email address", placeHolder: "", text: $session.currentUser.bound.email)
+                    Button(action: {
+                        self.showImagePicker.toggle()
+                    }) {
+                        Image(uiImage: image!)
+                            .renderingMode(.original)
+                            .scaledToFit()
+                            .frame(width: 100.0, height: 100.0)
+                            .clipShape(Circle())
+                            .padding(.top, 20)
+                            .padding(.leading, 20)
+                    }
+                    
+                    LabelTextField(label: "Email address",
+                                   placeHolder: "",
+                                   text: $session.currentUser.bound.email)
                         .disabled(true)
                         .disableAutocorrection(true)
                         .padding(.top, 20)
                 }
 
                 Group {
-                    LabelTextField(label: "Your name", placeHolder: "enter your name", text: $session.currentUser.bound.name)
-                    LabelTextField(label: "Your lastname", placeHolder: "enter your lastname", text: $session.currentUser.bound.lastName)
+                    LabelTextField(label: "Your name",
+                                   placeHolder: "enter your name",
+                                   text: $session.currentUser.bound.name)
+                    LabelTextField(label: "Your lastname",
+                                   placeHolder: "enter your lastname",
+                                   text: $session.currentUser.bound.lastName)
                 }
                 .foregroundColor(self.isClickedEdit ? Color.blue : Color.black)
                 .disabled(!self.isClickedEdit)
                 .padding()
                 
                 VStack(alignment: .leading) {
-                    Text("Position").font(.headline).foregroundColor(Color.primaryBlue).padding()
+                    Text("Position")
+                        .font(.headline)
+                        .foregroundColor(Color.primaryBlue)
+                        .padding()
+                    
                     HStack {
                         Spacer()
                         Picker(selection: $pickerSelection, label: Text("")) {
-                                ForEach(0 ..< self.positions.count) { index in
-                                    Text(self.positions[index])
-                                        .foregroundColor(self.isClickedEdit ? Color.blue : Color.black)
-                                        .tag(index)
-                                }
-                            }.pickerStyle(DefaultPickerStyle())
+                            ForEach(0 ..< self.positions.count) { index in
+                                Text(self.positions[index])
+                                    .foregroundColor(self.isClickedEdit ? Color.blue : Color.black)
+                                    .tag(index)
+                            }
+                        }
+                        .pickerStyle(DefaultPickerStyle())
                         .frame(maxHeight: 70)
                         .disabled(!self.isClickedEdit)
                         .labelsHidden()
+                        
                         Spacer()
                     }
                 }
@@ -74,25 +95,31 @@ struct ProfileView : View {
                     LogOutButton
                 }.padding()
             }
-        }.navigationViewStyle(StackNavigationViewStyle())
-            .onAppear { self.loadProfile(self.session.session) }
-    }
-    
-    private func loadProfile(_ user: FirebaseAuth.UserInfo?) {
-        Database.shared.getProjects(me: user) { (snap, error) in
-            if error == nil {
-                snap?.documents.forEach{
-                    let pr = Project(document: $0)
-                    self.roles.append((acc: pr?.accessType ?? .close, proj: pr?.name ?? ""))
-                }
-            }
+        }.showAlert(title: Constant.ErrorTitle, text: Constant.ErrorInput, isPresent: $isIncorrectInput)
+         .navigationViewStyle(StackNavigationViewStyle())
+         .onAppear {
+            self.pickerSelection =
+                self.positions.firstIndex(of: self.session.currentUser?.position.rawValue ?? "") ?? 0
+        }
+        .sheet(isPresented: $showImagePicker, onDismiss: self.saveImage) {
+            ImagePicker(isShown: self.$showImagePicker, image: self.$image)
         }
     }
     
+    func saveImage() {
+        if let data = image {
+            image = manager.resizeImage(image: data, targetSize: CGSize(width: 100, height: 100))
+            session.image = image
+            StorageManager().uploadImageData(data: data, serverFileName: "\(session.currentUser.bound.uid).png")
+        }
+    }
+    
+    /// Button for log out
     private var LogOutButton : some View {
         HStack {
             Spacer()
-            NavigationLink(destination: Login, isActive: $isClickedLogOut) {
+            NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true),
+                           isActive: $isClickedLogOut) {
                 Button(action: {
                     do {
                         try self.session.logOut()
@@ -100,7 +127,7 @@ struct ProfileView : View {
                         self.session.clearSession()
                         self.isClickedLogOut.toggle()
                     } catch {
-                        print("log out error") //todo show alert
+                        print("log out error")
                     }
                 }){
                     HStack(alignment: .center) {
@@ -122,23 +149,11 @@ struct ProfileView : View {
         }
     }
     
-    private var Login : some View {
-        LoginView()
-            .navigationBarBackButtonHidden(true)
-    }
-    
-    
+    /// Button to edit user's name, last name and position
     private var EditProfileButton : some View {
         HStack(alignment: .center) {
             Spacer()
-            Button(action: {
-                self.isClickedEdit = !self.isClickedEdit
-                if !self.isClickedEdit {
-                    self.session.currentUser?.position =
-                        Position(position: self.positions[self.pickerSelection])
-                    self.session.updateProfile(user: self.session.currentUser)
-                }
-            }){
+            Button(action: self.handleEditClick) {
                 HStack(alignment: .center) {
                     Image(systemName: self.isClickedEdit ? "pencil.slash" : "pencil")
                         .resizable()
@@ -153,6 +168,19 @@ struct ProfileView : View {
                 }
             }
             Spacer()
+        }
+    }
+    
+    private func handleEditClick() {
+        isIncorrectInput = !Formatter.checkInput(session.currentUser?.name,
+                                                 session.currentUser?.lastName)
+        
+        if !isIncorrectInput{
+            isClickedEdit.toggle()
+            if !isClickedEdit  {
+                session.currentUser?.position = Position(position: positions[pickerSelection])
+                session.updateProfile(user: self.session.currentUser)
+            }
         }
     }
 }

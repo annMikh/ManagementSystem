@@ -31,12 +31,7 @@ enum Status : String, CaseIterable, Codable {
         return Status.allCases.map{ "\($0)" }
     }
     
-    case New = "New"
-    case Development = "Development"
-    case Progress = "Progress"
-    case Testing = "Testing"
-    case Completed = "Completed"
-    case Deprecated = "Deprecated"
+    case New, Development, Progress, Testing, Completed, Deprecated
     
     var description: String {
         return self.rawValue

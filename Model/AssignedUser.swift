@@ -11,16 +11,12 @@ import Foundation
 
 class AssignedUser : ObservableObject {
     
-    @Published var user : User
-    
-    init(user: User = User(name: "",
-                            lastName: "",
-                            email: "",
-                            position: Position.None,
-                            uid: "")) {
-        self.user = user
-    }
-    
+    @Published var user = User(name: "",
+                               lastName: "",
+                               email: "",
+                               position: Position.None,
+                               uid: "")
+
     func isNotEmpty() -> Bool {
         return !self.user.email.isEmpty
     }

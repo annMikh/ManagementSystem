@@ -18,10 +18,11 @@ struct RegisterView: View {
     @State private var password: String = ""
     
     @State private var isIncorrectInput: Bool = false
+    @State private var isIncorrectPassword : Bool = false
     @State private var pickerSelection = 0
+    @State private var session = Session.shared
     
     @Environment(\.presentationMode) var presentationMode
-    @State var session = Session.shared
     
     private var positions = Position.getAllCases()
     
@@ -43,7 +44,12 @@ struct RegisterView: View {
                 .border(Color.black, width: 2)
                 .padding(.all, 15)
                 
-                Text("Choose position").font(.headline).bold().foregroundColor(Color.black).padding(.horizontal, 10)
+                Text("Choose position")
+                    .font(.headline)
+                    .bold()
+                    .foregroundColor(Color.black)
+                    .padding(.horizontal, 10)
+                
                 Form {
                     Picker(selection: $pickerSelection, label:
                     Text("position").foregroundColor(Color.black)) {
@@ -51,8 +57,7 @@ struct RegisterView: View {
                                 Text(self.positions[index]).tag(index)
                             }
                     }
-                }
-                .padding(.horizontal, 10)
+                }.padding(.horizontal, 10)
                         
                 Spacer()
                     
@@ -64,7 +69,7 @@ struct RegisterView: View {
                                     .foregroundColor(Color.white)
                                 Spacer()
                             }
-                        }.showAlert(title: Constant.ErrorTitle, text: Constant.ErrorRegister, isPresent: $isIncorrectInput)
+                        }
                         .padding(.vertical, 10.0)
                         .background(Color.primaryBlue)
                         .cornerRadius(6.0)
@@ -72,25 +77,23 @@ struct RegisterView: View {
                         .padding(.bottom, 50)
                         
 
-            }.navigationBarTitle(Text("Register").bold(), displayMode: .inline)
+            }.showAlert(title: Constant.ErrorTitle, text: Constant.ErrorRegister, isPresent: $isIncorrectPassword)
+             .navigationBarTitle(Text("Register").bold(), displayMode: .inline)
              .navigationBarItems(leading: CancelButton)
-        }
+            
+        }.showAlert(title: Constant.ErrorTitle, text: Constant.ErrorInput, isPresent: $isIncorrectInput)
     }
     
     private var CancelButton: some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
+        Button(action: {  self.presentationMode.wrappedValue.dismiss() }) {
             Text("Cancel").foregroundColor(Color.primaryBlue)
         }
     }
     
+    /// handle request for sending data to firestore
     private func handleRequest() {
-        self.isIncorrectInput = !Formatter.checkInput(self.email,
-                                                    self.name,
-                                                    self.lastName,
-                                                    Position.allCases[self.pickerSelection])
-        if (!self.isIncorrectInput) {
+        self.checkInput()
+        if !self.isIncorrectInput {
             var user = User(name: self.name,
                             lastName: self.lastName,
                             email: self.email,
@@ -98,14 +101,21 @@ struct RegisterView: View {
                             uid: "")
             
             self.session.signUp(email: self.email, password: self.password) { (res, error) in
-                if error == nil {
-                    user.uid = res?.user.uid ?? ""
-                    self.session.createUser(user)
-                    UserPreferences.setLogIn(true)
-                    self.presentationMode.wrappedValue.dismiss()
-                }
+                if error != nil { return }
+                user.uid = res?.user.uid ?? user.uid
+                self.session.createUser(user)
+                
+                UserPreferences.setLogIn(true)
+                self.presentationMode.wrappedValue.dismiss()
             }
         }
     }
     
+    /// check input for displaying alerts
+    private func checkInput() {
+        self.isIncorrectInput =
+            !Formatter.checkInput(self.email, self.name,
+                                  self.lastName, Position.allCases[self.pickerSelection])
+        self.isIncorrectPassword = password.count < 6
+    }
 }

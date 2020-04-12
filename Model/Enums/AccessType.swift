@@ -27,6 +27,6 @@ enum AccessType: String, CaseIterable, Codable {
     }
     
     func isOpen() -> Bool {
-        return self.rawValue == "open"
+        return self == .open
     }
 }

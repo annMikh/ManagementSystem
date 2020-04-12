@@ -12,65 +12,48 @@ import FirebaseFirestore
 
 struct SearchAssignee : View {
     
-    @State var input : String = ""
-    @State var users = [User]()
+    @State private var input : String = ""
     @State var chosen : AssignedUser
+    @State var ids: Set<String>
     
+    @ObservedObject private var userStore = UserStore()
     @Environment(\.presentationMode) var presentationMode
     
     var body : some View {
         VStack(alignment: .center) {
             SearchBar(input: $input)
             
-            if self.input.isEmpty {
-                VStack(alignment: .center) {
-                    Spacer()
-                    Text("Please, enter the info \nto search the user")
-                            .foregroundColor(.gray)
-                            .multilineTextAlignment(.center)
-                    Spacer()
-                }
-            } else {
-                ScrollView {
-                    ForEach(self.filterUsers(), id: \.email) { user in
+                 List {
+                    ForEach(self.filterUsers(), id: \.uid) { user in
                         VStack(spacing: 5) {
                             HStack {
                                 Text(user.email)
                                 Spacer()
-                                Text(user.position.rawValue).foregroundColor(.gray)
+                                Text(user.position.rawValue)
+                                    .foregroundColor(.gray)
                             }
                             Divider()
-                        }.padding(.horizontal, 10)
+                        }
+                        .padding(.horizontal, 10)
                         .padding(.top, 10)
                         .onTapGesture {
-                                self.chosen.user = user
-                                self.presentationMode.wrappedValue.dismiss()
+                            self.chosen.user = user
+                            self.presentationMode.wrappedValue.dismiss()
                         }
-                        
                     }
+                    
                     Spacer()
                 }
-            }
         }.navigationBarTitle("Search assignee")
-            .onAppear{
-                Database.shared.getUsers(com: self.loadUsers)
-            }
-    }
-    
-    func loadUsers(snap: QuerySnapshot?, err: Error?) {
-        if err != nil {
-            print((err?.localizedDescription)!)
-            return
-        }
-        snap?.documents.forEach{
-            let u = User(document: $0)!
-            users.append(u)
-        }
+        .onAppear { self.userStore.loadUsers(ids: self.ids) }
     }
     
     func filterUsers() -> [User] {
-        return self.users.filter{ $0.email.contains(self.input.lowercased()) ||
-            $0.name.contains(self.input.lowercased()) || $0.lastName.contains(self.input.lowercased())
-        }
+        return input.isEmpty ? self.userStore.users :
+            self.userStore.users.filter{
+                $0.email.lowercased().contains(self.input.lowercased())
+                || $0.name.lowercased().contains(self.input.lowercased())
+                || $0.lastName.lowercased().contains(self.input.lowercased())
+            }
     }
 }

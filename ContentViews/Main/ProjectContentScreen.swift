@@ -9,6 +9,7 @@
 import Foundation
 import SwiftUI
 import Firebase
+import PartialSheet
 
 struct ProjectContentScreen : View {
     
@@ -16,12 +17,13 @@ struct ProjectContentScreen : View {
     @State private var isSheetShown: Bool = false
     @State private var activeSheet : StateMachine.State = .Add
     @State private var isParticipant: Bool = false
-    
-    private var priorities = Priority.getAllCases().map { $0.capitalizingFirstLetter() }
+    @State private var isInfoClicked: Bool = false
+    @State private var session = Session.shared
     
     @ObservedObject var store : ProjectStore
     @ObservedObject var taskStore = TaskStore()
-    @State var session = Session.shared
+    
+    private var priorities = Priority.getAllCases().map { $0.capitalizingFirstLetter() }
     
     init(project: Project) {
         self.store = ProjectStore()
@@ -40,20 +42,22 @@ struct ProjectContentScreen : View {
               }.pickerStyle(SegmentedPickerStyle())
               
             List {
-                ForEach(self.filterList()) { task in
-                            TaskView(task: task, project: self.store.project).animation(.easeIn)
-                  }
-                  .onDelete(perform: delete)
-                  .onMove(perform: move)
-            }.id(UUID())
+                ForEach(self.filterList(), id: \.self) { task in
+                    TaskView(task: task, project: self.store.project).tag(task.id)
+                }
+                .onDelete(perform: delete)
+                .onMove(perform: move)
+                
+            }.animation(.default)
+            
             Spacer()
           }
         
           if self.showLabel() {
-             EmptyListTextView(title: Constant.EmptyTasksTitle)
+             EmptyListTextView(title: Constant.EmptyTasksTitle).animation(.easeInOut)
           }
             
-            if self.isParticipant {
+          if self.isParticipant {
              FloatButton
           }
             
@@ -63,8 +67,10 @@ struct ProjectContentScreen : View {
             .font(.largeTitle)
             .foregroundColor(.primary)
         )
+        .navigationBarItems(trailing: InfoButton)
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear(perform: self.onAppear)
+        .partialSheet(presented: $isInfoClicked) { InfoSheet(project: self.store.project, author: self.store.author) }
     }
     
     private func delete(at offsets: IndexSet) {
@@ -72,11 +78,11 @@ struct ProjectContentScreen : View {
     }
 
     private func move(from source: IndexSet, to destination: Int) {
-        self.taskStore.move(source: source, destination: destination)
+        taskStore.move(source: source, destination: destination)
     }
     
     private func filterList() -> [Task] {
-        return self.taskStore.tasks.filter{ $0.priority == Priority.allCases[self.selectType] }
+        return taskStore.tasks.filter{ $0.priority == Priority.allCases[selectType] }
     }
     private func showLabel() -> Bool {
         return self.taskStore
@@ -86,29 +92,42 @@ struct ProjectContentScreen : View {
     }
     
     private func onAppear() {
-        self.isParticipant = Permission.isPerticipant(project: self.store.project)
-        self.taskStore.loadTasks(self.store.project)
+        store.loadAuthor()
+        isParticipant = Permission.isPerticipant(project: store.project)
+        taskStore.loadTasks(store.project)
+    }
+    
+    private func add() {
+        activeSheet = .Add
+        isSheetShown.toggle()
+    }
+    
+    private func edit() {
+        activeSheet = .Edit
+        store.setState(state: .Edit)
+        isSheetShown.toggle()
+    }
+    
+    private var InfoButton : some View {
+        Button(action: { self.isInfoClicked.toggle() }) {
+            Image(systemName: "info.circle")
+            .resizable()
+            .foregroundColor(Color.blue)
+            .frame(width: 20.0, height: 20.0)
+        }
     }
     
     private var FloatButton : some View {
-        FloatingButton(actionAdd: {
-                           self.activeSheet = .Add
-                           self.isSheetShown.toggle()
-        },
-                       actionEdit: {
-                           self.activeSheet = .Edit
-                           self.store.setState(state: self.activeSheet)
-                           self.isSheetShown.toggle()
-        })
+        FloatingButton(actionAdd: self.add,
+                       actionEdit: self.edit)
             .padding()
             .sheet(isPresented: self.$isSheetShown) {
-              if self.activeSheet == .Add {
-                  CreateTaskScreen(project: self.store.project)
-              } else {
-                CreateProjectScreen()
-                    .environmentObject(self.store)
-              }
-          }
+                  if self.activeSheet == .Add {
+                    CreateTaskScreen(store: self.store).environmentObject(self.taskStore)
+                  } else {
+                    CreateProjectScreen().environmentObject(self.store)
+                  }
+            }
     }
     
 }

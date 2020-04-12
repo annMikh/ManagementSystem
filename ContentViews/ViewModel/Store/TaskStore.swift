@@ -21,30 +21,26 @@ final class TaskStore : ObservableObject {
     @Published var state : StateMachine.State = .None
     
     @Published var author : User?
-    @Published var assigned : User?
+    @Published var chosen = AssignedUser()
+    
+    @State var project : Project?
     
     private var session = Session.shared
     private var database = Database.shared
     
     func update(item: Task) {
-       defer {
-           objectWillChange.send(())
-       }
+        objectWillChange.send(())
     }
     
     func update(item: User?) {
-       defer {
-           objectWillChange.send(())
-       }
+        objectWillChange.send(())
     }
     
     func loadTasks(_ project: Project) {
         database.getTasks(project: project) { (snap, error) in
-            if error != nil {
-                return
-            }
+            if error != nil { return }
             self.tasks.removeAll()
-            snap!.documents.forEach {
+            snap?.documents.forEach {
                 let t = Task(document: $0)!
                 self.tasks.append(t)
                 self.update(item: t)
@@ -57,18 +53,26 @@ final class TaskStore : ObservableObject {
         if Permission.toEditTask(task: self.tasks[at]) {
             self.session.deleteTask(self.tasks[at]) { err in
                 if err == nil {
+                    self.update(item: self.tasks[at])
                     self.tasks.remove(at: at)
                 }
             }
         }
     }
     
-    func setTask(_ task: Task, _ project: Project) {
+    func setTask(_ task: Task) {
         self.task = task
+        if author == nil {
+            loadAuthor(userId: task.author)
+            loadAssigned(userId: task.assignedUser) { doc, err in
+                self.chosen.user = User(dictionary: doc?.data() ?? [String : Any]())!
+                self.update(item: self.chosen.user)
+            }
+        }
         
         switch state {
         case .Add:
-            createTask(project)
+            createTask()
         case .Edit:
             updateTask(task)
         case .View: break
@@ -76,8 +80,8 @@ final class TaskStore : ObservableObject {
         }
     }
     
-    func createTask(_ project: Project) {
-        session.createTask(task: self.task, project: project)
+    func createTask() {
+        session.createTask(task: self.task)
         tasks.insert(self.task, at: 0)
     }
     
@@ -104,7 +108,7 @@ final class TaskStore : ObservableObject {
     
     func loadAuthor(userId: String) {
         database.getUser(userId: userId) { (doc, err) in
-            self.author = User(dictionary: doc!.data() ?? [String : Any]())!
+            self.author = User(dictionary: doc?.data() ?? [String : Any]())!
             self.update(item: self.author)
         }
     }
@@ -116,7 +120,6 @@ final class TaskStore : ObservableObject {
     func clear() {
         self.task = Task()
         self.tasks = [Task]()
-        self.assigned = nil
         self.author = nil
         self.state = .None
     }

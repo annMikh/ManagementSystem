@@ -29,22 +29,26 @@ struct SearchScreen : View {
             }
             else {
                 List {
-                    ForEach(self.store.allProjects.filter(self.conditionFilter(project:)), id: \.self) { proj in
+                    ForEach(self.filterList(), id: \.self) { proj in
                         ProjectView(project: proj)
                     }
                 }.animation(.linear)
             }
             
-        }.navigationViewStyle(StackNavigationViewStyle())
-            .onAppear {
-                if self.store.allProjects.isEmpty {
-                    self.store.loadProjects()
-                } 
         }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear { self.store.loadProjects() }
+    }
+    
+    private func filterList() -> [Project] {
+        return self.store.allProjects.filter(self.conditionFilter(project:))
     }
     
     private func conditionFilter(project: Project) -> Bool {
-        return (project.name.contains(searchInput) || project.tag.contains(searchInput))
-                        && project.accessType.isOpen()
+        let search = searchInput.lowercased()
+        
+        return (project.name.lowercased().contains(search)
+                || project.tag.lowercased().contains(search))
+                && project.accessType.isOpen()
     }
 }

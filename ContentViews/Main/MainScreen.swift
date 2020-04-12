@@ -14,14 +14,14 @@ struct MainView : View {
 
     @State private var selectorType: Int = 0
     @State private var activeSheet : StateMachine.State = .Add
-    
     @State private var isClickedProfile = false
     @State private var isClickedSearch = false
     @State private var isPresentingAdd: Bool = false
     @State private var isPresentingEdit: Bool = false
-        
-    @Environment(\.presentationMode) var presentationMode
+    @State private var isDeleted: Bool = false
     @State var session = Session.shared
+    
+    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var store = ProjectStore()
     
     init() {
@@ -48,6 +48,7 @@ struct MainView : View {
                     }
                     
                     Spacer()
+                    
                     NavigationLink(destination: SearchView, isActive: $isClickedSearch) {
                         Button(action: {
                             self.isClickedSearch.toggle()
@@ -67,50 +68,49 @@ struct MainView : View {
                 }.pickerStyle(SegmentedPickerStyle())
                 
                 List {
-                    ForEach(filterList()) { proj in
+                    ForEach(filterList(), id: \.self) { proj in
                         ProjectView(project: proj)
                     }
                     .onDelete(perform: delete)
                     .onMove(perform: move)
                 }
                 .environment(\.editMode, .constant(self.isPresentingEdit ? EditMode.active : EditMode.inactive))
-                .id(UUID())
+                .animation(.easeIn)
                 
                 Spacer()
             }
             
             if self.isEmptyListShown() {
                 EmptyListTextView(title: Constant.EmptyProjectsTitle)
-                    .opacity(self.store.isLoad ? 1.0 : 0.0)
                     .animation(.easeInOut)
             }
             
             FloatButton
             
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }.showAlert(title: Constant.ErrorTitle, text: Constant.PermissionDelete, isPresent: $isDeleted)
+         .navigationViewStyle(StackNavigationViewStyle())
          .onAppear(perform: self.onAppear)
     }
     
     private func isEmptyListShown() -> Bool {
-        return self.store.projects.isEmpty
+        return store.projects.isEmpty && self.store.isLoad
     }
     
     private func onAppear() {
-        if self.session.currentUser == nil {
-            self.session.currentSession()
+        if session.currentUser == nil {
+            session.currentSession()
         }
-        self.store.loadProjects(user: self.session.session)
+        store.loadProjects(user: session.session)
     }
     
     private func filterList() -> [Project] {
-        return self.$selectorType.wrappedValue == 0 ?
-                    self.store.projects :
-                    self.store.projects.filter { $0.creator == self.session.currentUser.bound.uid }
+        return selectorType == 0 ? store.projects :
+                store.projects.filter { $0.creator == self.session.currentUser.bound.uid }
     }
     
     private func delete(at offsets: IndexSet) {
         offsets.forEach { index in
-            self.store.deleteProject(index)
+            self.isDeleted = store.deleteProject(index)
         }
     }
 

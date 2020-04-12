@@ -7,4 +7,5 @@ target 'ManagementSystem' do
   #use_modular_headers!
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 end

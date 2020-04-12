@@ -22,7 +22,7 @@ final class CommentStore : ObservableObject {
         database.getComments(task: task) { (snap, error) in
             if error == nil {
                 self.comments.removeAll()
-                snap!.documents.forEach{
+                snap?.documents.forEach{
                     self.comments.append(Comment(document: $0)!)
                 }
             }

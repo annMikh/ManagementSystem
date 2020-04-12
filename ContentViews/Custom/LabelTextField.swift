@@ -18,7 +18,10 @@ struct LabelTextField : View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(label).font(.headline).foregroundColor(Color.primaryBlue)
+            Text(label)
+                .font(.headline)
+                .foregroundColor(Color.primaryBlue)
+            
             TextField(placeHolder, text: $text)
                 .padding(.all)
                 .border(Color.black, width: 2)

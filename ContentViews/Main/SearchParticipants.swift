@@ -13,7 +13,7 @@ import Firebase
 struct SearchParticipants : View {
     
     @EnvironmentObject var selections : Participants
-    @State private var users = [User]()
+    @State private var userStore = UserStore()
     @State private var input: String = ""
         
     var body : some View {
@@ -23,41 +23,33 @@ struct SearchParticipants : View {
             if self.input.isEmpty {
                 VStack(alignment: .center) {
                     Spacer()
-                    Text("Please, enter the word \nto search the users by email")
+                    Text(Constant.searchUser)
                             .foregroundColor(.gray)
                             .multilineTextAlignment(.center)
                     Spacer()
                 }
             } else {
-                ScrollView {
-                    ForEach(self.filterUsers(), id: \.email) { user in
-                        ParticipantView(user: user,
-                                        isSelected: self.selections.users.contains(user)).environmentObject(self.selections)
-                            .padding(.horizontal, 10)
-                            .padding(.top, 5)
+                List {
+                    ForEach(self.filterUsers(), id: \.uid) { user in
+                        ParticipantView(user: user)
+                            .environmentObject(self.selections)
+                            .padding(.horizontal, CGFloat(10.0))
+                            .padding(.top, CGFloat(5.0))
+
                     }
-                    Spacer()
+                    
+                   Spacer()
                 }
             }
         }
             .navigationBarTitle(Text("Search").bold(), displayMode: .inline)
-            .onAppear {
-                Database.shared.getUsers(com: self.loadUsers)
-            }
-    }
-    
-    func loadUsers(snap: QuerySnapshot?, err: Error?) {
-        if err != nil{
-            print((err?.localizedDescription)!)
-            return
-        }
-        snap?.documents.forEach{
-            let u = User(document: $0)!
-            users.append(u)
-        }
+            .onAppear { self.userStore.loadUsers() }
     }
     
     func filterUsers() -> [User] {
-        return self.users.filter{ $0.email.contains(self.input.lowercased()) }
+        return self.userStore.users.filter { $0.email.lowercased().contains(self.input.lowercased())
+                     || $0.name.lowercased().contains(self.input.lowercased())
+                     || $0.lastName.lowercased().contains(self.input.lowercased())
+        }
     }
 }

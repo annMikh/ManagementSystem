@@ -15,6 +15,7 @@ struct MultilineTextField : View {
     private var onCommit: (() -> Void)?
 
     @Binding private var text: String
+    
     private var internalText: Binding<String> {
         Binding<String>(get: { self.text } ) {
             self.text = $0
@@ -58,6 +59,7 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
 
     func makeUIView(context: UIViewRepresentableContext<UITextViewWrapper>) -> UITextView {
         let textField = UITextView()
+        
         textField.delegate = context.coordinator
         textField.isEditable = true
         textField.font = UIFont.preferredFont(forTextStyle: .body)
@@ -65,6 +67,7 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
         textField.isUserInteractionEnabled = true
         textField.isScrollEnabled = false
         textField.backgroundColor = UIColor.clear
+        
         if nil != onDone {
             textField.returnKeyType = .done
         }
@@ -84,7 +87,7 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
         let newSize = view.sizeThatFits(CGSize(width: view.frame.size.width, height: CGFloat.greatestFiniteMagnitude))
         if result.wrappedValue != newSize.height {
             DispatchQueue.main.async {
-                result.wrappedValue = newSize.height // !! must be called asynchronously
+                result.wrappedValue = newSize.height 
             }
         }
     }

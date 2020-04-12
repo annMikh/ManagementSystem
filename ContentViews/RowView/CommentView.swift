@@ -13,16 +13,21 @@ struct CommentView : View {
     
     @State var comment: Comment
     @State var name : String = ""
+    @State var image : UIImage? = UIImage()
     
     var body: some View {
         VStack(alignment: .leading) {
+            
             Divider()
+            
             HStack(alignment: .center) {
-                Image(systemName: "person")
+                Image(uiImage: image!)
                     .resizable()
-                    .frame(width: 20.0, height: 20.0)
+                    .frame(width: 50.0, height: 50.0)
+                    .clipShape(Circle())
                     .padding(.all, 3)
                     .padding(.leading, 10)
+                    .animation(.easeInOut)
                 
                 VStack(alignment: .leading) {
                     Text(name).bold()
@@ -35,16 +40,23 @@ struct CommentView : View {
                 Spacer()
             }
             
-            Text(comment.text).font(.body).padding(.leading, 25)
-        }
-            .onAppear { self.loadUserName() }
+            Text(comment.text)
+                .font(.body)
+                .padding(.leading, 25)
+            
+        }.onAppear { self.loadUserName() }
     }
     
-    func loadUserName() {
-        Database.shared.getUser(userId: comment.author) { (doc, err) in
+    private func loadUserName() {
+        UserStore().loadUser(uid: comment.author) { (doc, err) in
             if err == nil {
-                let user = User(dictionary: doc!.data() ?? [String : Any]())!
+                let user = User(dictionary: doc?.data() ?? [String : Any]())!
                 self.name = user.getFullName()
+            }
+        }
+        StorageManager().downloadImage(uid: comment.author) { data, err in
+            if err == nil && data != nil {
+                self.image = UIImage(data: data!)
             }
         }
     }

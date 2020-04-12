@@ -72,38 +72,6 @@ extension Optional where Wrapped == Int {
     }
 }
 
-extension Position {
-    static func getImage(pos : Position) -> String {
-        switch pos {
-            case .Designer:
-                return "person"
-            case .Developer:
-                return "person.fill"
-            case .Manager:
-                return "person.2"
-            case .Tester:
-                return "person.3"
-            default:
-                return "person.circle"
-        }
-    }
-    
-    static func getColor(pos : Position) -> Color {
-        switch pos {
-            case .Designer:
-                return .pink
-            case .Developer:
-                return .blue
-            case .Manager:
-                return .green
-            case .Tester:
-                return .purple
-            default:
-                return .red
-        }
-    }
-}
-
 extension Priority {
     static func getColor(priority: Priority) -> Color {
         switch priority {
@@ -163,4 +131,16 @@ extension String {
     mutating func capitalizeFirstLetter() {
         self = self.capitalizingFirstLetter()
     }
+}
+
+extension Color {
+    
+    public static let primaryBlueUI = UIColor(red: 0.471, green: 0.556, blue: 1, alpha: 1)
+    public static let primaryGrayUI = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1)
+    
+    public static let primaryBlue = Color(UIColor(red: 0.471, green: 0.556, blue: 1, alpha: 1))
+    public static let primaryGray = Color(UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1))
+    
+    public static let fadedRed = Color(UIColor(red: 0.871, green: 0, blue: 0, alpha: 0.67))
+    
 }

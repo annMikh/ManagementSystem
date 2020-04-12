@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,12 @@
 		5B5D18032439FFC4000BA895 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5D18022439FFC4000BA895 /* TaskStore.swift */; };
 		5B5D1805243A0E66000BA895 /* SearchAssignee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5D1804243A0E66000BA895 /* SearchAssignee.swift */; };
 		5B5D1807243A3888000BA895 /* CommentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5D1806243A3888000BA895 /* CommentStore.swift */; };
+		5B6E55EF2441EFBD00B99A3F /* InfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E55EE2441EFBD00B99A3F /* InfoSheet.swift */; };
+		5B6E55F22441F0C700B99A3F /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 5B6E55F12441F0C700B99A3F /* PartialSheet */; };
+		5B6E55F42442323A00B99A3F /* InfoElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E55F32442323A00B99A3F /* InfoElement.swift */; };
+		5B6E55F624423E2B00B99A3F /* AlertComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E55F524423E2B00B99A3F /* AlertComment.swift */; };
+		5B6E55F8244248EF00B99A3F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E55F7244248EF00B99A3F /* ImagePicker.swift */; };
+		5B6E55FA24424FC900B99A3F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E55F924424FC900B99A3F /* StorageManager.swift */; };
 		5B764453242245230051D79B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B764452242245230051D79B /* Extensions.swift */; };
 		5B764455242245A30051D79B /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B764454242245A30051D79B /* ProfileScreen.swift */; };
 		5B854AFA23DCB02F00F902B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854AF923DCB02F00F902B7 /* AppDelegate.swift */; };
@@ -35,9 +41,9 @@
 		5B854B3A23DDE53F00F902B7 /* AccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854B3923DDE53F00F902B7 /* AccessType.swift */; };
 		5B854B3E23DDEEB700F902B7 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854B3D23DDEEB700F902B7 /* Position.swift */; };
 		5B854B4223DDFBCB00F902B7 /* CreateProjectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B854B4123DDFBCB00F902B7 /* CreateProjectScreen.swift */; };
+		5B93CAF22441CBAB00A00BFE /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B93CAF12441CBAB00A00BFE /* UserStore.swift */; };
 		5BA2E3B6243E10150078E10E /* AssignedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA2E3B5243E10150078E10E /* AssignedUser.swift */; };
 		5BA2E3B8243E103D0078E10E /* Participants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA2E3B7243E103D0078E10E /* Participants.swift */; };
-		5BA2E3BA243E10BB0078E10E /* ActiveSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA2E3B9243E10BB0078E10E /* ActiveSheet.swift */; };
 		5BB4ECC6241CEE3A00738589 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB4ECC5241CEE3A00738589 /* CloudKit.framework */; };
 		5BBB4C0C23E4858F0027ACEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBB4C0B23E4858F0027ACEA /* Main.storyboard */; };
 		5BBB4C1223E615B80027ACEA /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB4C1123E615B80027ACEA /* MainScreen.swift */; };
@@ -62,7 +68,6 @@
 		5BF21366242FB83F009AEED4 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF21365242FB83F009AEED4 /* Constant.swift */; };
 		5BF213682430B965009AEED4 /* Deadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF213672430B964009AEED4 /* Deadline.swift */; };
 		5BF2136A2431079A009AEED4 /* EmptyListTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF213692431079A009AEED4 /* EmptyListTextView.swift */; };
-		5BF2136C24311AA5009AEED4 /* Boards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2136B24311AA5009AEED4 /* Boards.swift */; };
 		D24A11D9EC5B5498B87E4508 /* Pods_ManagementSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A74D0CB8DFA5657ABE56546 /* Pods_ManagementSystem.framework */; };
 /* End PBXBuildFile section */
 
@@ -725,6 +730,11 @@
 		5B5D18022439FFC4000BA895 /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
 		5B5D1804243A0E66000BA895 /* SearchAssignee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAssignee.swift; sourceTree = "<group>"; };
 		5B5D1806243A3888000BA895 /* CommentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentStore.swift; sourceTree = "<group>"; };
+		5B6E55EE2441EFBD00B99A3F /* InfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheet.swift; sourceTree = "<group>"; };
+		5B6E55F32442323A00B99A3F /* InfoElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoElement.swift; sourceTree = "<group>"; };
+		5B6E55F524423E2B00B99A3F /* AlertComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertComment.swift; sourceTree = "<group>"; };
+		5B6E55F7244248EF00B99A3F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		5B6E55F924424FC900B99A3F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		5B764452242245230051D79B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5B764454242245A30051D79B /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		5B854AF623DCB02F00F902B7 /* ManagementSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManagementSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -750,9 +760,9 @@
 		5B854B3923DDE53F00F902B7 /* AccessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessType.swift; sourceTree = "<group>"; };
 		5B854B3D23DDEEB700F902B7 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		5B854B4123DDFBCB00F902B7 /* CreateProjectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectScreen.swift; sourceTree = "<group>"; };
+		5B93CAF12441CBAB00A00BFE /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		5BA2E3B5243E10150078E10E /* AssignedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignedUser.swift; sourceTree = "<group>"; };
 		5BA2E3B7243E103D0078E10E /* Participants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participants.swift; sourceTree = "<group>"; };
-		5BA2E3B9243E10BB0078E10E /* ActiveSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSheet.swift; sourceTree = "<group>"; };
 		5BB4ECC4241CEE2F00738589 /* ManagementSystem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ManagementSystem.entitlements; sourceTree = "<group>"; };
 		5BB4ECC5241CEE3A00738589 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5BBB4C0B23E4858F0027ACEA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -778,7 +788,6 @@
 		5BF21365242FB83F009AEED4 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		5BF213672430B964009AEED4 /* Deadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deadline.swift; sourceTree = "<group>"; };
 		5BF213692431079A009AEED4 /* EmptyListTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListTextView.swift; sourceTree = "<group>"; };
-		5BF2136B24311AA5009AEED4 /* Boards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boards.swift; sourceTree = "<group>"; };
 		A69CEDFFE6FE18C59EEAD855 /* Pods-ManagementSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementSystem.debug.xcconfig"; path = "Target Support Files/Pods-ManagementSystem/Pods-ManagementSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		C768AEC5CCF676AE641B2814 /* Pods-ManagementSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementSystem.release.xcconfig"; path = "Target Support Files/Pods-ManagementSystem/Pods-ManagementSystem.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -788,6 +797,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6E55F22441F0C700B99A3F /* PartialSheet in Frameworks */,
 				5BB4ECC6241CEE3A00738589 /* CloudKit.framework in Frameworks */,
 				D24A11D9EC5B5498B87E4508 /* Pods_ManagementSystem.framework in Frameworks */,
 			);
@@ -817,6 +827,7 @@
 				5B526AC32406DAFE00127EAE /* Session.swift */,
 				5BECE99C2429080500AFFE62 /* Database.swift */,
 				5BCDD8022438BAE00005CD91 /* DocumentSerializable.swift */,
+				5B6E55F924424FC900B99A3F /* StorageManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2050,6 +2061,7 @@
 				5BCDD8062439B9B60005CD91 /* ProjectStore.swift */,
 				5B5D18022439FFC4000BA895 /* TaskStore.swift */,
 				5B5D1806243A3888000BA895 /* CommentStore.swift */,
+				5B93CAF12441CBAB00A00BFE /* UserStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -2061,6 +2073,7 @@
 				5B764452242245230051D79B /* Extensions.swift */,
 				5BF21365242FB83F009AEED4 /* Constant.swift */,
 				5B59F76A2434CDE500486A32 /* Permission.swift */,
+				5B6E55F7244248EF00B99A3F /* ImagePicker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2073,7 +2086,7 @@
 				5BF21358242F5A85009AEED4 /* SearchBar.swift */,
 				5BF21363242F889E009AEED4 /* LabelTextField.swift */,
 				5BF213692431079A009AEED4 /* EmptyListTextView.swift */,
-				5BF2136B24311AA5009AEED4 /* Boards.swift */,
+				5B6E55F524423E2B00B99A3F /* AlertComment.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -2081,6 +2094,7 @@
 		5BBD75D3243729C000D705A9 /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
+				5B6E55EE2441EFBD00B99A3F /* InfoSheet.swift */,
 				5BC37B7823FAD3960058A7CC /* CreateTaskScreen.swift */,
 				5B854B4123DDFBCB00F902B7 /* CreateProjectScreen.swift */,
 			);
@@ -2095,7 +2109,6 @@
 				5B854B3923DDE53F00F902B7 /* AccessType.swift */,
 				5B854B3D23DDEEB700F902B7 /* Position.swift */,
 				5BF213672430B964009AEED4 /* Deadline.swift */,
-				5BA2E3B9243E10BB0078E10E /* ActiveSheet.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -2140,6 +2153,7 @@
 				5BF2135D242F5BAA009AEED4 /* ProjectView.swift */,
 				5BF21361242F7FE2009AEED4 /* CommentView.swift */,
 				5BBD75CF2435C6D200D705A9 /* ParticipantView.swift */,
+				5B6E55F32442323A00B99A3F /* InfoElement.swift */,
 			);
 			path = RowView;
 			sourceTree = "<group>";
@@ -2181,6 +2195,9 @@
 			dependencies = (
 			);
 			name = ManagementSystem;
+			packageProductDependencies = (
+				5B6E55F12441F0C700B99A3F /* PartialSheet */,
+			);
 			productName = ManagementSystem;
 			productReference = 5B854AF623DCB02F00F902B7 /* ManagementSystem.app */;
 			productType = "com.apple.product-type.application";
@@ -2253,6 +2270,9 @@
 				Base,
 			);
 			mainGroup = 5B854AED23DCB02F00F902B7;
+			packageReferences = (
+				5B6E55F02441F0C700B99A3F /* XCRemoteSwiftPackageReference "PartialSheet" */,
+			);
 			productRefGroup = 5B854AF723DCB02F00F902B7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2343,12 +2363,15 @@
 				5BECE9A02429250900AFFE62 /* UserPreferences.swift in Sources */,
 				5BF21366242FB83F009AEED4 /* Constant.swift in Sources */,
 				5BA2E3B8243E103D0078E10E /* Participants.swift in Sources */,
+				5B6E55F8244248EF00B99A3F /* ImagePicker.swift in Sources */,
 				5B854B2C23DCCEC300F902B7 /* RegisterScreen.swift in Sources */,
 				5B854AFA23DCB02F00F902B7 /* AppDelegate.swift in Sources */,
 				5B59F76B2434CDE500486A32 /* Permission.swift in Sources */,
+				5B6E55F624423E2B00B99A3F /* AlertComment.swift in Sources */,
 				5B854B3E23DDEEB700F902B7 /* Position.swift in Sources */,
 				5B764455242245A30051D79B /* ProfileScreen.swift in Sources */,
 				5B854AFC23DCB02F00F902B7 /* SceneDelegate.swift in Sources */,
+				5B6E55EF2441EFBD00B99A3F /* InfoSheet.swift in Sources */,
 				5BBB4C1423E6231F0027ACEA /* ProjectContentScreen.swift in Sources */,
 				5BBD75CE2435C69600D705A9 /* SearchParticipants.swift in Sources */,
 				5B854B3523DDE02300F902B7 /* Status.swift in Sources */,
@@ -2360,7 +2383,7 @@
 				5BF2135C242F5BA2009AEED4 /* TaskView.swift in Sources */,
 				5BCDD8032438BAE00005CD91 /* DocumentSerializable.swift in Sources */,
 				5BBD75CC2435B4CB00D705A9 /* SearchScreen.swift in Sources */,
-				5BF2136C24311AA5009AEED4 /* Boards.swift in Sources */,
+				5B6E55F42442323A00B99A3F /* InfoElement.swift in Sources */,
 				5BF2136A2431079A009AEED4 /* EmptyListTextView.swift in Sources */,
 				5BF213682430B965009AEED4 /* Deadline.swift in Sources */,
 				5BBB4C1723E626150027ACEA /* Formatter.swift in Sources */,
@@ -2376,10 +2399,10 @@
 				5BF21357242F521D009AEED4 /* FloatingButton.swift in Sources */,
 				5B298A77240EFBD4005C26A0 /* ContentView.swift in Sources */,
 				5B854B3123DDDFF200F902B7 /* Project.swift in Sources */,
+				5B93CAF22441CBAB00A00BFE /* UserStore.swift in Sources */,
 				5B23F0F62416AB9C003A61CA /* Comment.swift in Sources */,
 				5B764453242245230051D79B /* Extensions.swift in Sources */,
 				5BC37B7923FAD3960058A7CC /* CreateTaskScreen.swift in Sources */,
-				5BA2E3BA243E10BB0078E10E /* ActiveSheet.swift in Sources */,
 				5BF21362242F7FE2009AEED4 /* CommentView.swift in Sources */,
 				5B59F7692434A46800486A32 /* ResetPasswordScreen.swift in Sources */,
 				5BA2E3B6243E10150078E10E /* AssignedUser.swift in Sources */,
@@ -2388,6 +2411,7 @@
 				5B854B3723DDE3BD00F902B7 /* Priority.swift in Sources */,
 				5BF2135E242F5BAA009AEED4 /* ProjectView.swift in Sources */,
 				5B854B4223DDFBCB00F902B7 /* CreateProjectScreen.swift in Sources */,
+				5B6E55FA24424FC900B99A3F /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2734,6 +2758,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5B6E55F02441F0C700B99A3F /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5B6E55F12441F0C700B99A3F /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B6E55F02441F0C700B99A3F /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5B854AEE23DCB02F00F902B7 /* Project object */;
 }

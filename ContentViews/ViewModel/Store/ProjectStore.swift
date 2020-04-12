@@ -21,14 +21,13 @@ final class ProjectStore : ObservableObject {
     @Published var state: StateMachine.State = .None
     
     @Published var isLoad = false
+    @Published var author : User?
     
     private var session = Session.shared
     private var database = Database.shared
     
-    func update(item: Project) {
-       defer {
-           objectWillChange.send(())
-       }
+    func update() {
+        objectWillChange.send(())
     }
     
     func loadProjects(user: FirebaseAuth.UserInfo?) {
@@ -38,11 +37,11 @@ final class ProjectStore : ObservableObject {
                 snap?.documents.forEach {
                     let p = Project(document: $0)!
                     self.projects.append(p)
-                    self.update(item: p)
                 }
             } else {
                 self.projects = [Project]()
             }
+            self.update()
             self.isLoad = true
         }
     }
@@ -58,16 +57,25 @@ final class ProjectStore : ObservableObject {
         }
     }
     
-    func deleteProject(_ index: Int) {
-        if Permission.toEditProject(project: self.projects[index]) {
+    func loadAuthor() {
+        self.database.getUser(userId: self.project.creator) { (snap, err) in
+            self.author = User(dictionary: snap?.data() ?? [String : Any]())
+        }
+    }
+    
+    func deleteProject(_ index: Int) -> Bool {
+        let perm = Permission.toEditProject(project: self.projects[index])
+        if perm {
             session.deleteProject(self.projects[index]) { err in
                 if let err = err {
                     print("Error removing document: \(err)")
                 } else {
+                    self.update()
                     self.projects.remove(at: index)
                 }
             }
         }
+        return !perm
     }
     
     func move(source: IndexSet, destination: Int) {
@@ -99,7 +107,7 @@ final class ProjectStore : ObservableObject {
         if let index = indexOf() {
             projects.remove(at: index)
             projects.insert(project, at: index)
-            self.update(item: project)
+            self.update()
         }
         session.updateProject(project)
     }

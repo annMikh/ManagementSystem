@@ -16,6 +16,7 @@ struct EmptyListTextView : View {
     var body : some View {
         VStack(alignment: .center) {
             Spacer()
+            
             HStack(alignment: .center) {
                 Spacer()
                 Text(title)
@@ -23,6 +24,7 @@ struct EmptyListTextView : View {
                     .padding()
                 Spacer()
             }
+            
             Spacer()
         }
     }

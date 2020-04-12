@@ -11,7 +11,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import SwiftUI
 
-struct User : Codable, Hashable {
+struct User : Hashable, Codable {
     
     var name: String
     var lastName: String
@@ -34,7 +34,7 @@ struct User : Codable, Hashable {
     }
     
     static func == (lhs: User, rhs: User) -> Bool {
-        return lhs.email == rhs.email
+        return lhs.email == rhs.email && lhs.uid == rhs.uid
     }
     
     func hash(into hasher: inout Hasher) {
@@ -48,14 +48,14 @@ struct User : Codable, Hashable {
 
 }
 
-extension User : DocumentSerializable{
+extension User : DocumentSerializable {
     
     init(user: FirebaseAuth.UserInfo) {
         let u = user.displayName?.split(separator: " ")
         self.init(name: String(u?[0] ?? ""),
                   lastName: String(u?[1] ?? ""),
                   email: user.email ?? "",
-                  position: Position(position: ""), //todo
+                  position: Position(position: ""),
                   uid: user.uid)
     }
     

@@ -24,7 +24,6 @@ struct SearchBar : UIViewRepresentable {
        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             text = searchText
        }
-        
     }
     
     func makeCoordinator() -> Cordinator {

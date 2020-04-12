@@ -45,7 +45,10 @@ struct Task : Hashable, Codable, Identifiable {
     }
     
     static func == (lhs: Task, rhs: Task) -> Bool {
-        return lhs.author == rhs.author && lhs.assignedUser == rhs.assignedUser && lhs.date == rhs.date
+        return lhs.author == rhs.author &&
+            lhs.assignedUser == rhs.assignedUser && lhs.date == rhs.date &&
+            lhs.status == rhs.status && lhs.priority == rhs.priority &&
+            lhs.name == rhs.name && lhs.description == rhs.description
     }
     
 }

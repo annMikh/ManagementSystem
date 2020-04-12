@@ -9,10 +9,13 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import SwiftUI
 
 class Session {
     
     static let shared = Session()
+    
+    var image = UIImage(systemName: "person")
     
     private init() {
         Auth.auth().addStateDidChangeListener { (auth, newUser) in
@@ -28,14 +31,19 @@ class Session {
     
     func currentSession() {
         self.session = Auth.auth().currentUser
-        setUser(firebaseUser: Auth.auth().currentUser)
+        self.setUser(firebaseUser: Auth.auth().currentUser)
     }
     
     func setUser(firebaseUser: FirebaseAuth.UserInfo?) {
         if let firebaseUser = firebaseUser {
-            getProfile(user: firebaseUser.uid) { (doc, err) in
+            self.getProfile(user: firebaseUser.uid) { (doc, err) in
                 if err == nil && doc != nil {
                     self.currentUser = User(dictionary: doc?.data() ?? [String : Any]())!
+                    StorageManager().downloadImage(uid: self.currentUser.bound.uid) { data, err in
+                        if err == nil && data != nil {
+                            self.image = UIImage(data: data!)
+                        }
+                    }
                 }
             }
         }
@@ -44,7 +52,9 @@ class Session {
     // MARK: login/auth user
     
     func logIn(email: String, password: String, handler: @escaping AuthDataResultCallback) {
-        Auth.auth().signIn(withEmail: email, password: password, completion: handler)
+        DispatchQueue.main.async {
+            Auth.auth().signIn(withEmail: email, password: password, completion: handler)
+        }
     }
     
     func logOut() throws {
@@ -52,71 +62,98 @@ class Session {
     }
     
     func signUp(email: String, password: String, handler: @escaping AuthDataResultCallback) {
-        Auth.auth().createUser(withEmail: email, password: password, completion: handler)
+        DispatchQueue.global(qos: .utility).async {
+            Auth.auth().createUser(withEmail: email, password: password, completion: handler)
+        }
     }
     
     func resetPassword(email: String, handler: @escaping SendPasswordResetCallback) {
-        Auth.auth().sendPasswordReset(withEmail: email, completion: handler)
+        DispatchQueue.global(qos: .utility).async {
+            Auth.auth().sendPasswordReset(withEmail: email, completion: handler)
+        }
     }
     
     // MARK: register flow
     
     func createUser(_ user: User) {
         self.currentUser = user
-        db.users.document(user.uid).setData(user.documentData)
+        DispatchQueue.global(qos: .utility).async {
+           self.db.users.document(user.uid).setData(user.documentData)
+        }
     }
     
     // MARK: profile
     
     func getProfile(user: String, handler: @escaping FIRDocumentSnapshotBlock) {
-        db.users.document(user).getDocument(completion: handler)
+        DispatchQueue.global(qos: .utility).async {
+           self.db.users.document(user).getDocument(completion: handler)
+        }
     }
     
     func updateProfile(user: User?) {
-        db.users.document(user.bound.uid).updateData(user.bound.documentData)
+        DispatchQueue.global(qos: .utility).async {
+           self.db.users.document(user.bound.uid).updateData(user.bound.documentData)
+        }
     }
     
     // MARK: project
     
     func createProject(_ project: Project) {
-        db.projects.document(project.id).setData(project.documentData)
+        DispatchQueue.global(qos: .utility).async {
+            self.db.projects.document(project.id).setData(project.documentData)
+        }
     }
     
     func updateProject(_ project: Project) {
-        db.projects.document(project.id).updateData(project.documentData)
+        DispatchQueue.global(qos: .utility).async {
+            self.db.projects.document(project.id).updateData(project.documentData)
+        }
     }
     
     func deleteProject(_ project: Project, com: @escaping (Error?) -> Void) {
-        db.projects.document(project.id).delete(completion: com)
+        DispatchQueue.global(qos: .utility).async {
+           self.db.projects.document(project.id).delete(completion: com)
+        }
     }
     
     // MARK: task
     
-    func createTask(task: Task, project: Project) {
-        db.tasks.document(task.id).setData(task.documentData)
+    func createTask(task: Task) {
+        DispatchQueue.global(qos: .utility).async {
+            self.db.tasks.document(task.id).setData(task.documentData)
+        }
     }
     
     func updateTask(_ task: Task) {
-        db.tasks.document(task.id).updateData(task.documentData)
+        DispatchQueue.global(qos: .utility).async {
+            self.db.tasks.document(task.id).updateData(task.documentData)
+        }
     }
     
     func deleteTask(_ task: Task, com: @escaping (Error?) -> Void) {
-        db.tasks.document(task.id).delete(completion: com)
+        DispatchQueue.global(qos: .utility).async {
+           self.db.tasks.document(task.id).delete(completion: com)
+        }
     }
     
     // MARK: comment
     
     func createComment(_ comment: Comment) {
-        db.comments.document(comment.id).setData(comment.documentData)
+        DispatchQueue.global(qos: .utility).async {
+            self.db.comments.document(comment.id).setData(comment.documentData)
+        }
     }
     
     func deleteComment(_ comment: Comment, com: @escaping (Error?) -> Void) {
-        db.comments.document(comment.id).delete(completion: com)
+        DispatchQueue.global(qos: .utility).async {
+            self.db.comments.document(comment.id).delete(completion: com)
+        }
     }
     
     func clearSession() {
         self.currentUser = nil
-        self.session = nil 
+        self.session = nil
+        self.image = UIImage(systemName: "person")
         CommentStore.shared.clear()
     }
 }

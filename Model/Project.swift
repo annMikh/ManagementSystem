@@ -20,13 +20,13 @@ struct Project : Hashable, Codable, Identifiable {
     var id: String
     var tag : String
     
-    var participants = [String]()
+    var participants = Set<String>()
     var documentData: [String : Any] {
       return [
         "name": name,
         "description": description,
         "accessType": accessType.rawValue,
-        "participants": participants,
+        "participants": Array(participants),
         "creator": creator,
         "date": date,
         "id": id,
@@ -35,7 +35,9 @@ struct Project : Hashable, Codable, Identifiable {
     }
     
     static func == (lhs: Project, rhs: Project) -> Bool {
-        return lhs.creator == rhs.creator && lhs.date == rhs.date
+        return lhs.creator == rhs.creator && lhs.date == rhs.date && lhs.name == rhs.name
+            && lhs.description == rhs.description && lhs.participants == rhs.participants
+            && lhs.accessType == rhs.accessType && lhs.tag == rhs.tag
     }
     
     func hash(into hasher: inout Hasher) {
@@ -73,7 +75,7 @@ extension Project : DocumentSerializable  {
            let creator = dictionary["creator"] as? String,
            let tag = dictionary["tag"] as? String,
            let date = dictionary["date"] as? Timestamp,
-           let participants = dictionary["participants"] as? [String],
+           let participants = dictionary["participants"] as? Array<String>,
            let id = dictionary["id"] as? String else { return nil }
 
          self.init(
@@ -85,7 +87,7 @@ extension Project : DocumentSerializable  {
              tag: tag,
              id: id
          )
-        self.participants = participants
+        self.participants = Set(participants)
      }
     
     init?(document: QueryDocumentSnapshot) {

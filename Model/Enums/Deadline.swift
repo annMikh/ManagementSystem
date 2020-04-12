@@ -13,6 +13,6 @@ enum Deadline : String {
     case NoDeadline, Deadline
     
     var description: String {
-        return self.rawValue
+        return self == .NoDeadline ? "No deadline" : self.rawValue
     }
 }

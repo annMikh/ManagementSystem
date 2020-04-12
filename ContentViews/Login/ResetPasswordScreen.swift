@@ -15,9 +15,9 @@ struct ResetPasswordScreen : View {
     @State private var isIncorrectInput: Bool = false
     @State private var isErrorAuth: Bool = false
     @State private var isSuccessAuth: Bool = false
+    @State private var session = Session.shared
     
     @Environment(\.presentationMode) var presentationMode
-    @State var session = Session.shared
     
     var body : some View {
         NavigationView {
@@ -49,11 +49,11 @@ struct ResetPasswordScreen : View {
                 .cornerRadius(6.0)
                 .padding(.horizontal, 50)
                 .padding(.bottom, 50)
-                .showAlert(title: Constant.ErrorTitle, text: Constant.ErrorInput, isPresent: $isIncorrectInput)
+                
                 
             }.navigationBarTitle(Text("Reset").bold(), displayMode: .inline)
              .navigationBarItems(leading: CancelButton)
-             .showAlert(title: Constant.ResetPasswordErrorTitle, text: Constant.ResetPasswordErrorText, isPresent: $isErrorAuth)
+             .showAlert(title: Constant.ErrorTitle, text: Constant.ErrorInput, isPresent: $isIncorrectInput)
             
         }.showAlert(title: Constant.ResetPasswordTitle,
                    text: Constant.ResetPasswordText,
